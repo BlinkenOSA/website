@@ -1,7 +1,9 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
+import './globals.scss'
+import style from './layout.module.scss'
+import { Nunito_Sans } from 'next/font/google'
+import MenuV2 from "@/app/components/Menu/MenuV2";
 
-const inter = Inter({ subsets: ['latin'] })
+const nunitoSans = Nunito_Sans({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +13,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={nunitoSans.className}>
+        <div className={style.Wrapper}>
+          <div className={style.Content}>
+            {children}
+          </div>
+          <div className={style.Menu}>
+            <MenuV2 />
+          </div>
+        </div>
+      </body>
     </html>
   )
 }

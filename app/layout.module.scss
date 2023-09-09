@@ -1,0 +1,14 @@
+@import "variables";
+
+.Wrapper {
+  display: flex;
+
+  .Content {
+    flex: 1;
+  }
+
+  .Menu {
+    position: fixed;
+    right: 0;
+  }
+}
