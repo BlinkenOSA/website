@@ -1,6 +1,8 @@
 import style from './Layout.module.scss'
-import Menu from "@/components/Layout/desktop/Menu/Menu";
-import Header from "@/components/Layout/desktop/Header/Header";
+import DesktopMenu from "@/components/Layout/DesktopMenu/DesktopMenu";
+import Header from "@/components/Layout/Header/Header";
+import {Media} from "@/utils/media";
+import MobileMenu from "@/components/Layout/MobileMenu/MobileMenu";
 
 export const metadata = {
   title: 'OSA Web Testing',
@@ -9,17 +11,34 @@ export const metadata = {
 
 const Layout = ({ children }) => {
   return (
-    <div className={style.Wrapper}>
-      <div className={style.Content}>
-        <Header />
-        <div className={style.Page}>
-          {children}
+    <>
+      <Media lessThan="md">
+        <div className={style.MobileWrapper}>
+          <div className={style.Content}>
+            <Header />
+            <div className={style.Page}>
+              {children}
+            </div>
+          </div>
+          <div className={style.Menu}>
+            <MobileMenu />
+          </div>
         </div>
-      </div>
-      <div className={style.Menu}>
-        <Menu />
-      </div>
-    </div>
+      </Media>
+      <Media greaterThanOrEqual="md">
+        <div className={style.DesktopWrapper}>
+          <div className={style.Content}>
+            <Header />
+            <div className={style.Page}>
+              {children}
+            </div>
+          </div>
+          <div className={style.Menu}>
+            <DesktopMenu />
+          </div>
+        </div>
+      </Media>
+    </>
   )
 }
 

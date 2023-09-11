@@ -1,4 +1,4 @@
-.Wrapper {
+.DesktopWrapper {
   display: flex;
 
   .Content {
@@ -12,5 +12,22 @@
   .Menu {
     position: fixed;
     right: 0;
+  }
+}
+
+.MobileWrapper {
+  display: flex;
+
+  .Content {
+    width: 100vw;
+
+    .Page {
+      padding: 20px;
+    }
+  }
+
+  .Menu {
+    position: fixed;
+    bottom: 0;
   }
 }

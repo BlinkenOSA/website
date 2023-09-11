@@ -1,7 +1,7 @@
-import style from "@/components/Layout/desktop/Menu/Menu.module.scss";
+import style from "@/components/Layout/DesktopMenu/DesktopMenu.module.scss";
 import {motion} from "framer-motion";
 
-const MenuItem = ({title, number, menuOpen, onClick}) => {
+const DesktopMenuItem = ({title, number, menuOpen, onClick}) => {
   const menu = {
     open: { left: `${(number-1)*50}px`},
     closed: { left: `calc(100vw - ${(200-((number-1)*50))}px)`},
@@ -35,6 +35,7 @@ const MenuItem = ({title, number, menuOpen, onClick}) => {
       style={styles[number]}
       className={`${style.NavItem}`}
       variants={menu}
+      initial={{left: '100vw'}}
       animate={menuOpen.includes(number) ? 'open': 'closed'}
       transition={transition}>
       <motion.div
@@ -55,4 +56,4 @@ const MenuItem = ({title, number, menuOpen, onClick}) => {
   )
 }
 
-export default MenuItem;
+export default DesktopMenuItem;

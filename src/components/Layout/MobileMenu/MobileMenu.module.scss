@@ -1,0 +1,54 @@
+.MenuButton {
+  position: fixed;
+  top: 20px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.BarNavigation {
+  display: block;
+  overflow: hidden;
+
+  .NavList {
+    .NavItem {
+      position: fixed;
+      right: 0;
+      list-style: none;
+      height: 100vh;
+
+      .MenuTitle {
+        display: flex;
+        align-items: center;
+        font-size: 26px;
+        font-weight: 600;
+        height: 51px;
+        line-height: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+        cursor: pointer;
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+
+        &:hover {
+          -moz-box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2);
+          -webkit-box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2);
+          box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2);
+        }
+
+        span {
+          flex: 1;
+        }
+
+        .Logo {
+          display: flex;
+          align-items: center;
+
+          img {
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+    }
+  }
+}

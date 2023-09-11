@@ -1,10 +1,10 @@
 "use client"
 
-import style from "./Menu.module.scss";
+import style from "./DesktopMenu.module.scss";
 import {useState} from "react";
-import MenuItem from "@/components/Layout/desktop/Menu/MenuItem";
+import DesktopMenuItem from "@/components/Layout/DesktopMenu/DesktopMenuItem";
 
-const Menu = () => {
+const DesktopMenu = () => {
   const [menuOpen, setMenuOpen] = useState([])
 
   const handleMenuClick = (menuItem) => {
@@ -31,13 +31,13 @@ const Menu = () => {
   return (
     <nav className={style.BarNavigation}>
       <ul className={style.NavList}>
-        <MenuItem title={'what about us'} number={1} menuOpen={menuOpen} onClick={handleMenuClick} />
-        <MenuItem title={'collections'} number={2} menuOpen={menuOpen} onClick={handleMenuClick} />
-        <MenuItem title={'academics'} number={3} menuOpen={menuOpen} onClick={handleMenuClick} />
-        <MenuItem title={'public events'} number={4} menuOpen={menuOpen} onClick={handleMenuClick} />
+        <DesktopMenuItem title={'what about us'} number={1} menuOpen={menuOpen} onClick={handleMenuClick} />
+        <DesktopMenuItem title={'collections'} number={2} menuOpen={menuOpen} onClick={handleMenuClick} />
+        <DesktopMenuItem title={'academics'} number={3} menuOpen={menuOpen} onClick={handleMenuClick} />
+        <DesktopMenuItem title={'public events'} number={4} menuOpen={menuOpen} onClick={handleMenuClick} />
       </ul>
     </nav>
   )
 }
 
-export default Menu;
+export default DesktopMenu;
