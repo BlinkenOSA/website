@@ -1,0 +1,16 @@
+.Wrapper {
+  display: flex;
+
+  .Content {
+    width: calc(100vw - 200px);
+
+    .Page {
+      padding: 20px;
+    }
+  }
+
+  .Menu {
+    position: fixed;
+    right: 0;
+  }
+}

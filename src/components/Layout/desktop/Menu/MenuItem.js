@@ -1,4 +1,4 @@
-import style from "@/src/components/Layout/desktop/Menu/Menu.module.scss";
+import style from "@/components/Layout/desktop/Menu/Menu.module.scss";
 import {motion} from "framer-motion";
 
 const MenuItem = ({title, number, menuOpen, onClick}) => {

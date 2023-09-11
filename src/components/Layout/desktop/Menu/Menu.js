@@ -2,7 +2,7 @@
 
 import style from "./Menu.module.scss";
 import {useState} from "react";
-import MenuItem from "@/src/components/Layout/desktop/Menu/MenuItem";
+import MenuItem from "@/components/Layout/desktop/Menu/MenuItem";
 
 const Menu = () => {
   const [menuOpen, setMenuOpen] = useState([])
