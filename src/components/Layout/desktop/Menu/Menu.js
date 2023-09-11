@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import style from "./MenuV2.module.scss";
+import style from "./Menu.module.scss";
 import {useState} from "react";
-import MenuItem from "@/app/components/Menu/MenuItem";
+import MenuItem from "@/src/components/Layout/desktop/Menu/MenuItem";
 
-const MenuV2 = () => {
+const Menu = () => {
   const [menuOpen, setMenuOpen] = useState([])
 
   const handleMenuClick = (menuItem) => {
@@ -40,4 +40,4 @@ const MenuV2 = () => {
   )
 }
 
-export default MenuV2;
+export default Menu;

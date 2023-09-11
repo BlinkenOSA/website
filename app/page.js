@@ -1,10 +1,9 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-
-export default function Home() {
+const Page = () => {
   return (
-    <main>
-      <h1>OSA Archivum Text</h1>
-    </main>
+      <h1>
+        Was ist das?
+      </h1>
   )
 }
+
+export default Page;

@@ -1,4 +1,4 @@
-import style from "@/app/components/Menu/MenuV2.module.scss";
+import style from "@/src/components/Layout/desktop/Menu/Menu.module.scss";
 import {motion} from "framer-motion";
 
 const MenuItem = ({title, number, menuOpen, onClick}) => {
@@ -48,7 +48,7 @@ const MenuItem = ({title, number, menuOpen, onClick}) => {
           initial={{ rotate: 180 }}
           variants={menuOpen.includes(number) ? iconOpenSpin : iconClosedSpin}
           className={style.Logo}>
-          <img src={'logo.svg'}/>
+          <img src={'logo-compact.svg'}/>
         </motion.div>
       </motion.div>
     </motion.li>

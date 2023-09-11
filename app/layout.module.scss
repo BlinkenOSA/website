@@ -1,10 +1,13 @@
-@import "variables";
 
 .Wrapper {
   display: flex;
 
   .Content {
     flex: 1;
+
+    .Page {
+      padding: 20px;
+    }
   }
 
   .Menu {
