@@ -36,7 +36,9 @@ const DesktopMenu = () => {
         <DesktopMenuItem title={'what about us'} number={1} menuOpen={menuOpen} onClick={handleMenuClick}>
           <MenuPage options={submenuConfig['WhatAboutUs']} number={1} menuOpen={menuOpen} />
         </DesktopMenuItem>
-        <DesktopMenuItem title={'collections'} number={2} menuOpen={menuOpen} onClick={handleMenuClick} />
+        <DesktopMenuItem title={'collections'} number={2} menuOpen={menuOpen} onClick={handleMenuClick}>
+          <MenuPage options={submenuConfig['Collections']} number={2} menuOpen={menuOpen} />
+        </DesktopMenuItem>
         <DesktopMenuItem title={'academics'} number={3} menuOpen={menuOpen} onClick={handleMenuClick} />
         <DesktopMenuItem title={'public events'} number={4} menuOpen={menuOpen} onClick={handleMenuClick} />
       </ul>
