@@ -1,7 +1,7 @@
 import style from "@/components/Layout/DesktopMenu/DesktopMenu.module.scss";
 import {motion} from "framer-motion";
 
-const DesktopMenuItem = ({title, number, menuOpen, onClick}) => {
+const DesktopMenuItem = ({title, number, menuOpen, onClick, children}) => {
   const menu = {
     open: { left: `${(number-1)*50}px`},
     closed: { left: `calc(100vw - ${(200-((number-1)*50))}px)`},
@@ -27,6 +27,8 @@ const DesktopMenuItem = ({title, number, menuOpen, onClick}) => {
   }
 
   const titleVariants = {
+    open: {opacity: 0},
+    closed: {opacity: 1},
     hover: {y: 15}
   }
 
@@ -34,12 +36,13 @@ const DesktopMenuItem = ({title, number, menuOpen, onClick}) => {
     <motion.li
       style={styles[number]}
       className={`${style.NavItem}`}
+      animate={menuOpen.includes(number) ? 'open': 'closed'}
       variants={menu}
       initial={{left: '100vw'}}
-      animate={menuOpen.includes(number) ? 'open': 'closed'}
       transition={transition}>
       <motion.div
         onClick={(e) => onClick(number)}
+        animate={menuOpen.includes(number) ? 'open': 'closed'}
         whileHover={'hover'}
         className={style.MenuTitle}>
         <motion.span variants={titleVariants}>
@@ -52,6 +55,9 @@ const DesktopMenuItem = ({title, number, menuOpen, onClick}) => {
           <img src={'logo-compact.svg'}/>
         </motion.div>
       </motion.div>
+      <div className={style.MenuContent}>
+        {children}
+      </div>
     </motion.li>
   )
 }

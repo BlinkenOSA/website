@@ -3,6 +3,8 @@
 import style from "./DesktopMenu.module.scss";
 import {useState} from "react";
 import DesktopMenuItem from "@/components/Layout/DesktopMenu/DesktopMenuItem";
+import MenuPage from "@/components/Layout/DesktopMenu/pages/MenuPage";
+import {submenuConfig} from "@/components/Layout/common/submenuConfig";
 
 const DesktopMenu = () => {
   const [menuOpen, setMenuOpen] = useState([])
@@ -31,7 +33,9 @@ const DesktopMenu = () => {
   return (
     <nav className={style.BarNavigation}>
       <ul className={style.NavList}>
-        <DesktopMenuItem title={'what about us'} number={1} menuOpen={menuOpen} onClick={handleMenuClick} />
+        <DesktopMenuItem title={'what about us'} number={1} menuOpen={menuOpen} onClick={handleMenuClick}>
+          <MenuPage options={submenuConfig['WhatAboutUs']} number={1} menuOpen={menuOpen} />
+        </DesktopMenuItem>
         <DesktopMenuItem title={'collections'} number={2} menuOpen={menuOpen} onClick={handleMenuClick} />
         <DesktopMenuItem title={'academics'} number={3} menuOpen={menuOpen} onClick={handleMenuClick} />
         <DesktopMenuItem title={'public events'} number={4} menuOpen={menuOpen} onClick={handleMenuClick} />

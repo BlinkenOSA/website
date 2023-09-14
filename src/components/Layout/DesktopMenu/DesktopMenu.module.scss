@@ -4,10 +4,12 @@
 
   .NavList {
     .NavItem {
+      display: flex;
       position: fixed;
       right: 0;
       list-style: none;
       height: 100vh;
+      width: calc(100vw - 150px);
 
       .MenuTitle {
         display: flex;
@@ -40,6 +42,11 @@
             height: 25px;
           }
         }
+      }
+
+      .MenuContent {
+        width: 100%;
+        padding: 0 20px;
       }
     }
   }

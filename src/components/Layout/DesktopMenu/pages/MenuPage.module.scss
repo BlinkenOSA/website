@@ -1,0 +1,45 @@
+.MenuPageWrapper {
+  .TitleWrapper {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 10px 0;
+    margin: 0 10px;
+    border-bottom: 1px solid #000;
+
+    .Icon {
+      background-color: #CCC;
+      width: 35px;
+      height: 35px;
+    }
+
+    .Title {
+      flex: 1;
+      font-weight: 700;
+      font-size: 33px;
+    }
+  }
+
+  .MenuContent {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+
+    .Menu {
+      flex: 1;
+
+      .MenuItem {
+        margin-bottom: 20px;
+        margin-left: 65px;
+        font-weight: 400;
+        font-size: 32px;
+      }
+    }
+
+    .Static {
+      flex: 1;
+      padding-top: 20px;
+      border-left: 1px solid #000;
+    }
+  }
+}

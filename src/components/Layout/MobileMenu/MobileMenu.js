@@ -4,6 +4,8 @@ import style from "./MobileMenu.module.scss";
 import {useState} from "react";
 import MobileMenuItem from "@/components/Layout/MobileMenu/MobileMenuItem";
 import MenuButton from "@/components/Layout/MobileMenu/MenuButton";
+import MenuPage from "@/components/Layout/DesktopMenu/pages/MenuPage";
+import {submenuConfig} from "../common/submenuConfig";
 
 const MobileMenu = () => {
   const [menuOpen, setMenuOpen] = useState([])
@@ -48,7 +50,13 @@ const MobileMenu = () => {
       </div>
       <nav className={style.BarNavigation}>
         <ul className={style.NavList}>
-          <MobileMenuItem title={'what about us'} number={1} menuOpen={menuOpen} onClick={handleMenuClick} menuVisible={menuVisible} />
+          <MobileMenuItem
+            title={'what about us'}
+            number={1}
+            menuOpen={menuOpen}
+            onClick={handleMenuClick}
+            menuVisible={menuVisible}
+          />
           <MobileMenuItem title={'collections'} number={2} menuOpen={menuOpen} onClick={handleMenuClick} menuVisible={menuVisible} />
           <MobileMenuItem title={'academics'} number={3} menuOpen={menuOpen} onClick={handleMenuClick} menuVisible={menuVisible} />
           <MobileMenuItem title={'public events'} number={4} menuOpen={menuOpen} onClick={handleMenuClick} menuVisible={menuVisible} />
