@@ -25,5 +25,31 @@ export const submenuConfig = {
       { title: 'Deposit' },
       { title: 'Archival News & Blogs'}
     ]
+  },
+  'Academics': {
+    title: 'Academics',
+    menu: [
+      { title: 'About' },
+      { title: 'Academic Events' },
+      { title: 'Grants and Fellowships' },
+      { title: 'Research Projects' },
+      { title: 'Internships' },
+      { title: 'CEU Courses' },
+      { title: 'Teacher Training'},
+      { title: 'Education Program'},
+      { title: 'Academics News & Blogs'},
+    ]
+  },
+  'PublicPrograms': {
+    title: 'Public Programs',
+    menu: [
+      { title: 'About' },
+      { title: 'Galeria Centralis' },
+      { title: 'Upcoming Programs' },
+      { title: 'Public History Projects' },
+      { title: 'Volunteering' },
+      { title: 'Verzio 20' },
+      { title: 'Public Program News'}
+    ]
   }
 }
