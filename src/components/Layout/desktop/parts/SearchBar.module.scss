@@ -1,0 +1,26 @@
+@import "@/styles/variables.scss";
+
+.SearchBar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .Button {
+    display: flex;
+    align-items: center;
+  }
+
+  input {
+    border: unset;
+    height: calc($header-height-desktop / 3);
+    font-family: "Suisse Int'l", serif;
+    font-size: 16px;
+    font-weight: 400;
+
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

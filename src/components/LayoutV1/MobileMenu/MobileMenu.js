@@ -2,9 +2,9 @@
 
 import style from "./MobileMenu.module.scss";
 import {useState} from "react";
-import MobileMenuItem from "@/components/Layout/MobileMenu/MobileMenuItem";
-import MenuButton from "@/components/Layout/MobileMenu/MenuButton";
-import MenuPage from "@/components/Layout/DesktopMenu/pages/MenuPage";
+import MobileMenuItem from "@/components/LayoutV1/MobileMenu/MobileMenuItem";
+import MenuButton from "@/components/LayoutV1/MobileMenu/MenuButton";
+import MenuPage from "@/components/LayoutV1/DesktopMenu/pages/MenuPage";
 import {submenuConfig} from "../common/submenuConfig";
 
 const MobileMenu = () => {

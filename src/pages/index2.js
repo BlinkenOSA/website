@@ -1,19 +1,17 @@
-import DesktopLayout from "@/components/Layout/desktop/Layout";
+import Layout from "@/components/LayoutV1/Layout";
 import {Media} from "@/utils/media";
 
 
 const IndexPage = () => {
   return (
-    <>
+    <Layout>
       <Media lessThan="md">
         <h1>Mobile</h1>
       </Media>
       <Media greaterThanOrEqual="md">
-        <DesktopLayout>
-            <h1 style={{fontWeight: 400}}>Index Page</h1>
-        </DesktopLayout>
+        <h1>Desktop</h1>
       </Media>
-    </>
+    </Layout>
   )
 }
 

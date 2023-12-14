@@ -1,4 +1,4 @@
-import style from "@/components/Layout/MobileMenu/MobileMenu.module.scss";
+import style from "@/components/LayoutV1/MobileMenu/MobileMenu.module.scss";
 import {AnimatePresence, motion} from "framer-motion";
 
 const MobileMenuItem = ({title, number, menuOpen, onClick, menuVisible}) => {

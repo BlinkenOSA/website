@@ -1,0 +1,55 @@
+@import "@/styles/variables.scss";
+
+.BarNavigation {
+  display: block;
+  overflow: hidden;
+
+  .NavList {
+    .NavItem {
+      display: flex;
+      position: fixed;
+      right: 0;
+      list-style: none;
+      height: 100vh;
+      width: 51px;
+
+      .MenuTitle {
+        display: flex;
+        writing-mode: vertical-lr;
+        transform: scale(-1, -1);
+        font-size: 26px;
+        font-weight: 600;
+        height: calc(100% - $header-height-desktop);
+        line-height: 50px;
+        padding-top: 30px;
+        cursor: pointer;
+        border-right: 1px solid #000;
+        border-left: 1px solid #000;
+
+        &:hover {
+          -moz-box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2);
+          -webkit-box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2);
+          box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2);
+        }
+
+        span {
+          flex: 1;
+        }
+
+        .Logo {
+          margin-bottom: 20px;
+
+          img {
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+
+      .MenuContent {
+        width: 100%;
+        padding: 0 20px;
+      }
+    }
+  }
+}

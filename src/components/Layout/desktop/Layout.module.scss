@@ -1,0 +1,13 @@
+@import "@/styles/variables.scss";
+
+.Page {
+  margin-left: $menu-width;
+  margin-right: calc($menu-width * 3);
+  background-color: #B3C5B4;
+}
+
+.Menu {
+  position: fixed;
+  right: 0;
+  top: $header-height-desktop;
+}
