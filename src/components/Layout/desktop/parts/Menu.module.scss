@@ -11,16 +11,15 @@
       right: 0;
       list-style: none;
       height: 100vh;
-      width: 51px;
+      width: calc($menu-width);
 
       .MenuTitle {
         display: flex;
         writing-mode: vertical-lr;
         transform: scale(-1, -1);
         font-size: 26px;
-        font-weight: 600;
         height: calc(100% - $header-height-desktop);
-        line-height: 50px;
+        line-height: calc($menu-width - 2px);
         padding-top: 30px;
         cursor: pointer;
         border-right: 1px solid #000;
@@ -38,6 +37,7 @@
 
         .Logo {
           margin-bottom: 20px;
+          transform: rotate(180deg);
 
           img {
             width: 25px;
@@ -50,6 +50,47 @@
         width: 100%;
         padding: 0 20px;
       }
+    }
+  }
+}
+
+.AboutUs {
+  background-color: $about-color;
+}
+
+.Collections {
+  background-color: $collections-color;
+}
+
+.Academics {
+  background-color: $academics-color;
+}
+
+.PublicPrograms {
+  background-color: $public-programs-color;
+}
+
+.SubMenuList {
+  position: fixed;
+  left: $menu-width;
+  top: $header-height-desktop;
+  height: $submenu-height;
+  background-color: #FFF;
+  border-bottom: 1px solid #000000;
+
+  ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    font-size: 16px;
+
+    li {
+      display: flex;
+      align-items: center;
+      height: $submenu-height;
+      padding: 0 24px;
+      border-bottom: 1px solid #000;
+      border-right: 1px solid #000;
     }
   }
 }

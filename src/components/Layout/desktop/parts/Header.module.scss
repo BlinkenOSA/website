@@ -4,6 +4,10 @@
   padding: calc($header-height-desktop/3) 0;
   height: $header-height-desktop;
   border-bottom: 1px solid $line-color;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #FFF;
 
   .HeaderRow {
     display: flex;
@@ -19,7 +23,6 @@
       display: flex;
       width: 100px;
       gap: 5px;
-      font-weight: 600;
       font-size: 16px;
 
       a {

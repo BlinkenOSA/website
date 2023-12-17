@@ -1,9 +1,7 @@
 @import "@/styles/variables.scss";
 
 .Page {
-  margin-left: $menu-width;
-  margin-right: calc($menu-width * 3);
-  background-color: #B3C5B4;
+  min-height: calc(100vh - $header-height-desktop);
 }
 
 .Menu {

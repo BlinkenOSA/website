@@ -1,16 +1,16 @@
 import Header from "@/components/Layout/desktop/parts/Header";
 import style from "@/components/Layout/desktop/Layout.module.scss";
-import DesktopMenu from "@/components/Layout/desktop/parts/DesktopMenu";
+import Menu from "@/components/Layout/desktop/parts/Menu";
 
 const Layout = ({ children }) => {
     return (
         <>
             <Header />
-            <div className={style.Page}>
+            <div className={`${style.Page} suisseIntlRegular`}>
                 {children}
             </div>
             <div className={style.Menu}>
-                <DesktopMenu />
+                <Menu />
             </div>
         </>
     )

@@ -20,7 +20,7 @@ const Logo = () => {
 
 const LanguageSelector = () => {
     return (
-        <div className={style.LanguageSelector}>
+        <div className={`${style.LanguageSelector} suisseIntlMedium`}>
             <a href={'#'}>EN</a>
             <div>/</div>
             <a href={'#'}>HU</a>

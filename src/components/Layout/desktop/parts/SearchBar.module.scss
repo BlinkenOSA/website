@@ -14,10 +14,7 @@
   input {
     border: unset;
     height: calc($header-height-desktop / 3);
-    font-family: "Suisse Int'l", serif;
     font-size: 16px;
-    font-weight: 400;
-
 
     &:focus {
       outline: none;

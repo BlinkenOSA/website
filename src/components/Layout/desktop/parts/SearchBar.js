@@ -15,7 +15,7 @@ const SearchBar = () => {
             </div>
             <input
                 placeholder={'Search for...'}
-                className={style.SearchInput}
+                className={`${style.SearchInput} suisseIntlRegular`}
             />
         </div>
     )
