@@ -2,10 +2,11 @@ import style from "./Header.module.scss";
 import logo from "../../../../../public/icons/blinken-osa-logo-fullwidth.svg"
 import Image from 'next/image';
 import SearchBar from "@/components/Layout/desktop/parts/SearchBar";
+import Link from "next/link";
 
 const Logo = () => {
     return (
-        <a href={'/'}>
+        <Link href={'/'} shallow={true}>
             <div className={style.Logo}>
                 <Image
                     priority
@@ -14,7 +15,7 @@ const Logo = () => {
                     alt="Blinken OSA Archivum"
                 />
             </div>
-        </a>
+        </Link>
     )
 }
 

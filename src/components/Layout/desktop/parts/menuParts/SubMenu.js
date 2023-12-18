@@ -1,4 +1,5 @@
 import style from "@/components/Layout/desktop/parts/Menu.module.scss";
+import {motion} from "framer-motion";
 
 const submenuConfig = [
 	[
@@ -22,14 +23,24 @@ const submenuConfig = [
 ]
 
 
-const SubMenu = () => {
+const SubMenu = ({subMenu}) => {
 	return (
-		<div className={style.SubMenuList}>
-			<ul className={'suisseIntlBook'}>
-				<li>Item A</li>
-				<li>Item B</li>
-			</ul>
-		</div>
+		<motion.div
+			initial={{x: '-120%'}}
+			animate={{ x: '0' }}
+			transition={{ delay: 0.5 }}
+			className={style.SubMenuList}
+		>
+			<motion.ul
+				className={'suisseIntlBook'}
+			>
+				{
+					submenuConfig[subMenu].map((submenu, index) => {
+						return <li>{submenu['title']}</li>
+					})
+				}
+			</motion.ul>
+		</motion.div>
 	)
 }
 

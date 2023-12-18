@@ -66,7 +66,7 @@ const Menu = () => {
         }
       </ul>
       {
-        menuOpen > -1 && <SubMenu menuOpen={menuOpen} />
+        menuOpen > -1 && <SubMenu subMenu={menuOpen} />
       }
     </nav>
   )
