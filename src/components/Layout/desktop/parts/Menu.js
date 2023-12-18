@@ -20,19 +20,23 @@ const Menu = () => {
     {
       title: 'about us',
       icon: <Image priority src={aboutUSLogo} height={25} alt="About us" />,
-      css: style.AboutUs
+      css: style.AboutUs,
+      url: '/about'
     }, {
       title: 'collections',
       icon: <Image priority src={collectionsLogo} height={25} alt="Collections" />,
-      css: style.Collections
+      css: style.Collections,
+      url: '/collections'
     }, {
       title: 'academics',
       icon: <Image priority src={academicsLogo} height={25} alt="Academics" />,
-      css: style.Academics
+      css: style.Academics,
+      url: '/academics'
     }, {
       title: 'public events',
       icon: <Image priority src={publicProgramsLogo} height={25} alt="Public Programs" />,
-      css: style.PublicPrograms
+      css: style.PublicPrograms,
+      url: '/public-programs'
     }
   ]
 
@@ -42,7 +46,7 @@ const Menu = () => {
       router.push('/', undefined, {shallow: true})
     } else {
       setMenuOpen(menuItem)
-      router.push('/about', undefined, {shallow: true})
+      menuConfig[menuItem]['url'] && router.push(menuConfig[menuItem]['url'], undefined, {shallow: true})
     }
   }
 
@@ -66,7 +70,7 @@ const Menu = () => {
         }
       </ul>
       {
-        menuOpen > -1 && <SubMenu subMenu={menuOpen} />
+        menuOpen > -1 && <SubMenu subMenu={menuOpen} css={menuConfig[menuOpen]['css']} />
       }
     </nav>
   )

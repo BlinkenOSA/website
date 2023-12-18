@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import Head from 'next/head';
 import {MediaContextProvider, mediaStyles} from "@/utils/media";
 import DesktopLayout from "@/components/Layout/desktop/Layout";
+import { AnimatePresence } from 'framer-motion'
 
 const suisseIntlRegular = localFont({src: '../../public/fonts/SuisseIntl-Regular-WebXL.woff2', variable: "--font-suisseIntlRegular"})
 const suisseIntlBook = localFont({src: '../../public/fonts/SuisseIntl-Book-WebXL.woff2', variable: "--font-suisseIntlBook"})
@@ -23,9 +24,11 @@ export default function App({ Component, pageProps }) {
         className={`${suisseIntlRegular.variable} ${suisseIntlBook.variable} ${suisseIntlMedium.variable} ${suisseIntlSemiBold.variable}`}
         style={{height: '100%'}}>
         <MediaContextProvider disableDynamicMediaQueries>
-          <DesktopLayout>
-            <Component {...pageProps} />
-          </DesktopLayout>
+            <AnimatePresence initial={false} mode="popLayout">
+              <DesktopLayout>
+                <Component {...pageProps} />
+              </DesktopLayout>
+            </AnimatePresence>
         </MediaContextProvider>
       </main>
     </>

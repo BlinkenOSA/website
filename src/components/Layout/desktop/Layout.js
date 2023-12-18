@@ -6,7 +6,8 @@ const Layout = ({ children }) => {
     return (
         <>
             <Header />
-            <div className={`${style.Page} suisseIntlRegular`}>
+            <div
+                className={`${style.Page} suisseIntlRegular`}>
                 {children}
             </div>
             <div className={style.Menu}>

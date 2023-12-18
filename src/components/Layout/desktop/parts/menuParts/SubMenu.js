@@ -19,11 +19,17 @@ const submenuConfig = [
 		{title: 'Archival Projects', url: '/collections/collections4'},
 		{title: 'Donate your archive', url: '/collections/collections5'},
 		{title: 'Archival news and blog', url: '/collections/collections6'},
+	], [
+		{title: 'Academics 01', url: '/collections/collections1'},
+		{title: 'Academics 02', url: '/collections/collections2'}
+	], [
+		{title: 'Public Programs 01', url: '/collections/collections1'},
+		{title: 'Public Programs 02', url: '/collections/collections2'}
 	]
 ]
 
 
-const SubMenu = ({subMenu}) => {
+const SubMenu = ({subMenu, css}) => {
 	return (
 		<motion.div
 			initial={{x: '-120%'}}
@@ -36,7 +42,7 @@ const SubMenu = ({subMenu}) => {
 			>
 				{
 					submenuConfig[subMenu].map((submenu, index) => {
-						return <li>{submenu['title']}</li>
+						return <li className={css}>{submenu['title']}</li>
 					})
 				}
 			</motion.ul>
