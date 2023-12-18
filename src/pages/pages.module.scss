@@ -3,7 +3,7 @@
 .IndexPage {
   margin-top: $header-height-desktop + $page-padding;
   margin-left: $page-padding;
-  margin-right: calc($menu-width * 4);
+  margin-right: calc($menu-width * 4 + $page-padding);
 }
 
 .PageWithMenuOpen {
