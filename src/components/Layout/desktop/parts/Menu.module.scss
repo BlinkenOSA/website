@@ -78,6 +78,7 @@
   height: $submenu-height;
   background-color: #FFF;
   border-bottom: 1px solid #000000;
+  width: calc(100% - 4 * $menu-width + 2px);
 
   ul {
     display: flex;
