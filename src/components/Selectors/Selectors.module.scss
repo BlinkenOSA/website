@@ -1,0 +1,80 @@
+@import "@/styles/colors.scss";
+
+.SelectorBase {
+  :global .form-check {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  :global .form-check-input {
+    background-color: $neutral_100;
+    border: 1px solid $neutral_300;
+    border-radius: 0;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+
+    &:focus {
+      background-color: $neutral_100;
+      border: 1px solid $neutral_300;
+      box-shadow: unset;
+    }
+
+    &:checked {
+      background-color: $neutral_1000;
+      border: unset;
+    }
+
+    :global .form-check-label {
+      line-height: 20px;
+    }
+  }
+
+  &.Small  {
+    :global .form-check-input {
+      width: 16px;
+      height: 16px;
+    }
+
+    :global .form-check-label {
+      line-height: 16px;
+    }
+  }
+}
+
+.Checkbox {
+  @extend .SelectorBase
+}
+
+.RadioButton {
+  @extend .SelectorBase;
+
+  :global .form-check-input {
+    border-radius: 10px;
+  }
+
+  &.Small {
+    :global .form-check-input {
+      border-radius: 8px;
+    }
+  }
+}
+
+.Switch {
+  @extend .RadioButton;
+
+  :global .form-check-input {
+    width: 42px;
+    height: 24px;
+    border-radius: 12px;
+  }
+
+  &.Small {
+    :global .form-check-input {
+      width: 28px;
+      height: 16px;
+      border-radius: 8px;
+    }
+  }
+}
