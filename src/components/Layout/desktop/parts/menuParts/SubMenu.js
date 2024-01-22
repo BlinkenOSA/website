@@ -1,5 +1,6 @@
 import style from "@/components/Layout/desktop/parts/Menu.module.scss";
 import {motion} from "framer-motion";
+import {useMeasure, useWindowSize} from "react-use";
 
 const submenuConfig = [
 	[
@@ -30,6 +31,8 @@ const submenuConfig = [
 
 
 const SubMenu = ({subMenu, css}) => {
+	const [ref, { height }] = useMeasure();
+
 	return (
 		<motion.div
 			initial={{x: '-120%'}}
@@ -38,11 +41,12 @@ const SubMenu = ({subMenu, css}) => {
 			className={style.SubMenuList}
 		>
 			<motion.ul
+				ref={ref}
 				className={'suisseIntlBook'}
 			>
 				{
 					submenuConfig[subMenu].map((submenu, index) => {
-						return <li className={css}>{submenu['title']}</li>
+						return <li key={submenu['title']} className={css}>{submenu['title']}</li>
 					})
 				}
 			</motion.ul>

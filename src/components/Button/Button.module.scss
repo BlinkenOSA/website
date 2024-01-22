@@ -1,0 +1,389 @@
+@import "@/styles/colors.scss";
+
+.Button {
+  :global .btn {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: var(--font-suisseIntlRegular);
+    color: $neutral_1000;
+    border-radius: 0;
+  }
+
+  :global .btn-md {
+    padding: 0 12px;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  :global .btn-lg {
+    padding: 0 12px;
+    height: 48px;
+    line-height: 48px;
+  }
+
+  /* Mustard */
+  :global .btn-primary-mustard {
+    border: unset;
+    background-color: $mustard_1000;
+
+    &:hover {
+      background-color: $mustard_600;
+    }
+
+    &:active {
+      background-color: $mustard_1000;
+    }
+
+    &:focus {
+      background-color: $mustard_600;
+    }
+
+    &:disabled {
+      background-color: $neutral_100;
+      color: $neutral_500;
+    }
+  }
+
+  :global .btn-primary-mustard {
+    border: unset;
+    background-color: $mustard_1000;
+
+    &:hover {
+      background-color: $mustard_600;
+    }
+
+    &:active {
+      background-color: $mustard_1000;
+    }
+
+    &:focus {
+      background-color: $mustard_600;
+    }
+
+    &:disabled {
+      background-color: $neutral_100;
+      color: $neutral_500;
+    }
+  }
+
+  :global .btn-secondary-mustard {
+    border: 1px solid $neutral_1000;
+
+    &:hover {
+      color: $mustard_1000;
+      border-color: $mustard_1000;
+    }
+
+    &:active {
+      color: $neutral_1000;
+      border-color: $neutral_1000;
+    }
+
+    &:focus {
+      color: $mustard_1000;
+      border-color: $mustard_1000;
+    }
+
+    &:disabled {
+      border-color: $neutral_300;
+      color: $neutral_300;
+    }
+  }
+
+  :global .btn-tertiary-mustard {
+    color: $mustard_1000;
+    font-family: var(--font-suisseIntlSemiBold);
+    border: unset;
+
+    &:hover {
+      color: $mustard_600;
+    }
+
+    &:active {
+      color: $mustard_1000;
+    }
+
+    &:focus {
+      color: $mustard_600;
+    }
+
+    &:disabled {
+      color: $neutral_600;
+    }
+  }
+
+  /* Orange */
+  :global .btn-primary-orange {
+    border: unset;
+    background-color: $orange_1000;
+
+    &:hover {
+      background-color: $orange_600;
+    }
+
+    &:active {
+      background-color: $orange_1000;
+    }
+
+    &:focus {
+      background-color: $orange_600;
+    }
+
+    &:disabled {
+      background-color: $neutral_100;
+      color: $neutral_500;
+    }
+  }
+
+  :global .btn-primary-orange {
+    border: unset;
+    background-color: $orange_1000;
+
+    &:hover {
+      background-color: $orange_600;
+    }
+
+    &:active {
+      background-color: $orange_1000;
+    }
+
+    &:focus {
+      background-color: $orange_600;
+    }
+
+    &:disabled {
+      background-color: $neutral_100;
+      color: $neutral_500;
+    }
+  }
+
+  :global .btn-secondary-orange {
+    border: 1px solid $neutral_1000;
+
+    &:hover {
+      color: $orange_1000;
+      border-color: $orange_1000;
+    }
+
+    &:active {
+      color: $neutral_1000;
+      border-color: $neutral_1000;
+    }
+
+    &:focus {
+      color: $orange_1000;
+      border-color: $orange_1000;
+    }
+
+    &:disabled {
+      border-color: $neutral_300;
+      color: $neutral_300;
+    }
+  }
+
+  :global .btn-tertiary-orange {
+    color: $orange_1000;
+    font-family: var(--font-suisseIntlSemiBold);
+    border: unset;
+
+    &:hover {
+      color: $orange_600;
+    }
+
+    &:active {
+      color: $orange_1000;
+    }
+
+    &:focus {
+      color: $orange_600;
+    }
+
+    &:disabled {
+      color: $neutral_600;
+    }
+  }
+
+  /* Lilac */
+  :global .btn-primary-lilac {
+    border: unset;
+    background-color: $lilac_1000;
+
+    &:hover {
+      background-color: $lilac_600;
+    }
+
+    &:active {
+      background-color: $lilac_1000;
+    }
+
+    &:focus {
+      background-color: $lilac_600;
+    }
+
+    &:disabled {
+      background-color: $neutral_100;
+      color: $neutral_500;
+    }
+  }
+
+  :global .btn-primary-lilac {
+    border: unset;
+    background-color: $lilac_1000;
+
+    &:hover {
+      background-color: $lilac_600;
+    }
+
+    &:active {
+      background-color: $lilac_1000;
+    }
+
+    &:focus {
+      background-color: $lilac_600;
+    }
+
+    &:disabled {
+      background-color: $neutral_100;
+      color: $neutral_500;
+    }
+  }
+
+  :global .btn-secondary-lilac {
+    border: 1px solid $neutral_1000;
+
+    &:hover {
+      color: $lilac_1000;
+      border-color: $lilac_1000;
+    }
+
+    &:active {
+      color: $neutral_1000;
+      border-color: $neutral_1000;
+    }
+
+    &:focus {
+      color: $lilac_1000;
+      border-color: $lilac_1000;
+    }
+
+    &:disabled {
+      border-color: $neutral_300;
+      color: $neutral_300;
+    }
+  }
+
+  :global .btn-tertiary-lilac {
+    color: $lilac_1000;
+    font-family: var(--font-suisseIntlSemiBold);
+    border: unset;
+
+    &:hover {
+      color: $lilac_600;
+    }
+
+    &:active {
+      color: $lilac_1000;
+    }
+
+    &:focus {
+      color: $lilac_600;
+    }
+
+    &:disabled {
+      color: $neutral_600;
+    }
+  }
+
+  /* Sage */
+  :global .btn-primary-sage {
+    border: unset;
+    background-color: $sage_1000;
+
+    &:hover {
+      background-color: $sage_600;
+    }
+
+    &:active {
+      background-color: $sage_1000;
+    }
+
+    &:focus {
+      background-color: $sage_600;
+    }
+
+    &:disabled {
+      background-color: $neutral_100;
+      color: $neutral_500;
+    }
+  }
+
+  :global .btn-primary-sage {
+    border: unset;
+    background-color: $sage_1000;
+
+    &:hover {
+      background-color: $sage_600;
+    }
+
+    &:active {
+      background-color: $sage_1000;
+    }
+
+    &:focus {
+      background-color: $sage_600;
+    }
+
+    &:disabled {
+      background-color: $neutral_100;
+      color: $neutral_500;
+    }
+  }
+
+  :global .btn-secondary-sage {
+    border: 1px solid $neutral_1000;
+
+    &:hover {
+      color: $sage_1000;
+      border-color: $sage_1000;
+    }
+
+    &:active {
+      color: $neutral_1000;
+      border-color: $neutral_1000;
+    }
+
+    &:focus {
+      color: $sage_1000;
+      border-color: $sage_1000;
+    }
+
+    &:disabled {
+      border-color: $neutral_300;
+      color: $neutral_300;
+    }
+  }
+
+  :global .btn-tertiary-sage {
+    color: $sage_1000;
+    font-family: var(--font-suisseIntlSemiBold);
+    border: unset;
+
+    &:hover {
+      color: $sage_600;
+    }
+
+    &:active {
+      color: $sage_1000;
+    }
+
+    &:focus {
+      color: $sage_600;
+    }
+
+    &:disabled {
+      color: $neutral_600;
+    }
+  }
+}

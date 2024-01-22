@@ -76,13 +76,15 @@
   left: $menu-width;
   top: $header-height-desktop;
   height: $submenu-height;
-  background-color: #FFF;
-  border-bottom: 1px solid #000000;
+  // border-bottom: 1px solid #000000;
   width: calc(100% - 4 * $menu-width + 2px);
+
+  // filter: drop-shadow(10px 5px 10px #FFF);
 
   ul {
     display: flex;
-    align-items: center;
+    flex-basis: auto;
+    align-items: stretch;
     list-style: none;
     font-size: 16px;
     flex-wrap: wrap;

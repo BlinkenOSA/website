@@ -16,7 +16,13 @@ import {
 	IconGeneralMore,
 	IconGeneralPlus,
 	IconGeneralSearch,
-	IconGeneralWarning, IconInternship,
+	IconGeneralWarning,
+	IconInternship,
+	IconGeneralTrash,
+	IconGeneralDown,
+	IconGeneralUp,
+	IconGeneralRight,
+	IconGeneralLeft,
 	IconLibrary,
 	IconMovieScreening,
 	IconMusic,
@@ -25,11 +31,6 @@ import {
 	IconTalk, IconTeaching,
 	IconTheatre, IconWorkshop
 } from "@/components/Icon/Icon";
-import {IconGeneralTrash} from "@/components/Icon/Icon";
-import {IconGeneralDown} from "@/components/Icon/Icon";
-import {IconGeneralUp} from "@/components/Icon/Icon";
-import {IconGeneralLeft} from "@/components/Icon/Icon";
-import {IconGeneralRight} from "@/components/Icon/Icon";
 
 const IconPage = () => {
 	return (
