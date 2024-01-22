@@ -4,10 +4,10 @@ import style from "./Menu.module.scss";
 import {useState} from "react";
 import MenuItem from "@/components/Layout/desktop/parts/menuParts/MenuItem";
 import Image from "next/image";
-import aboutUSLogo from "../../../../../public/icons/blinken-osa-logo-a.svg";
-import collectionsLogo from "../../../../../public/icons/collections.svg";
-import academicsLogo from "../../../../../public/icons/academics.svg";
-import publicProgramsLogo from "../../../../../public/icons/public-programs.svg";
+import aboutUSLogo from "../../../../../public/logos/logo-compact-dark.svg";
+import collectionsLogo from "../../../../../public/icons/osa/collections.svg";
+import academicsLogo from "../../../../../public/icons/osa/academics.svg";
+import publicProgramsLogo from "../../../../../public/icons/osa/public_programs.svg";
 import {useRouter} from "next/router";
 import SubMenu from "@/components/Layout/desktop/parts/menuParts/SubMenu";
 

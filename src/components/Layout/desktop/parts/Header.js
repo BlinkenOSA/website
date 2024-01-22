@@ -1,23 +1,6 @@
 import style from "./Header.module.scss";
-import logo from "../../../../../public/icons/blinken-osa-logo-fullwidth.svg"
-import Image from 'next/image';
 import SearchBar from "@/components/Layout/desktop/parts/SearchBar";
-import Link from "next/link";
-
-const Logo = () => {
-    return (
-        <Link href={'/'} shallow={true}>
-            <div className={style.Logo}>
-                <Image
-                    priority
-                    src={logo}
-                    height={20}
-                    alt="Blinken OSA Archivum"
-                />
-            </div>
-        </Link>
-    )
-}
+import Logo from "@/components/Logo/Logo";
 
 const LanguageSelector = () => {
     return (
@@ -33,7 +16,9 @@ const Header = () => {
     return (
         <div className={style.HeaderWrapper}>
             <div className={style.HeaderRow}>
-                <Logo />
+                <div className={style.Logo}>
+                  <Logo mode={'dark'} height={25} link={'/'} />
+                </div>
                 <SearchBar />
                 <LanguageSelector />
             </div>

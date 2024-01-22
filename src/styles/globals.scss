@@ -26,30 +26,11 @@ div#__next > div {
   height: 100%;
 }
 
-.suisseIntlRegular {
-  font-family: var(--font-suisseIntlRegular);
+ul, ol, dl {
+  margin: 0;
+  padding: 0;
 }
 
-.suisseIntlBook {
-  font-family: var(--font-suisseIntlBook);
-}
-
-.suisseIntlMedium {
-  font-family: var(--font-suisseIntlMedium);
-}
-
-.suisseIntlSemiBold {
-  font-family: var(--font-suisseIntlSemiBold);
-}
-
-h1 {
-  font-size: 40px;
-  font-weight: 400;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 16px;
-  line-height: 24px;
-  padding: 10px 0;
+img {
+  vertical-align: unset;
 }

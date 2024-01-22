@@ -1,0 +1,78 @@
+/* Base styles */
+.text-base {
+  font-weight: 400;
+  color: $neutral_1000;
+  padding: unset;
+  margin: unset;
+}
+
+.text-regular-base {
+  font-family: var(--font-suisseIntlRegular);
+  @extend .text-base;
+}
+
+.text-semibold-base {
+  font-family: var(--font-suisseIntlSemiBold);
+  @extend .text-base;
+}
+
+/* Text styles */
+h1 {
+  font-size: 52px;
+  line-height: 120%;
+  @extend .text-regular-base;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 120%;
+  @extend .text-regular-base;
+}
+
+h3 {
+  font-size: 32px;
+  line-height: 120%;
+  @extend .text-regular-base;
+}
+
+.subtitle-large {
+  font-size: 20px;
+  line-height: 120%;
+  @extend .text-semibold-base;
+}
+
+.subtitle-small {
+  font-size: 16px;
+  line-height: 150%;
+  @extend .text-semibold-base;
+}
+
+.body-large {
+  font-size: 20px;
+  line-height: 150%;
+  @extend .text-regular-base;
+}
+
+.body-normal {
+  font-size: 16px;
+  line-height: 150%;
+  @extend .text-regular-base;
+}
+
+.button-regular {
+  font-size: 16px;
+  line-height: 150%;
+  @extend .text-regular-base;
+}
+
+.button-semibold {
+  font-size: 16px;
+  line-height: 150%;
+  @extend .text-semibold-base;
+}
+
+.tag {
+  font-size: 12px;
+  line-height: 24px;
+  @extend .text-regular-base;
+}

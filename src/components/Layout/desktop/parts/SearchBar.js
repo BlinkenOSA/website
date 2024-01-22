@@ -1,17 +1,11 @@
 import style from "./SearchBar.module.scss";
-import Image from "next/image";
-import search from "../../../../../public/icons/search.svg";
+import {IconGeneralSearch} from "@/components/Icon/Icon";
 
 const SearchBar = () => {
     return (
         <div className={style.SearchBar}>
             <div className={style.Button}>
-                <Image
-                    priority
-                    src={search}
-                    height={20}
-                    alt="Blinken OSA Archivum"
-                />
+                <IconGeneralSearch />
             </div>
             <input
                 placeholder={'Search for...'}

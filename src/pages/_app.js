@@ -1,9 +1,13 @@
-import '@/styles/globals.scss'
+import '@/styles/custom.scss';
+
 import localFont from 'next/font/local'
 import Head from 'next/head';
 import {MediaContextProvider, mediaStyles} from "@/utils/media";
 import DesktopLayout from "@/components/Layout/desktop/Layout";
 import { AnimatePresence } from 'framer-motion'
+
+import SSRProvider from 'react-bootstrap/SSRProvider';
+import ThemeProvider from 'react-bootstrap/ThemeProvider'
 
 const suisseIntlRegular = localFont({src: '../../public/fonts/SuisseIntl-Regular-WebXL.woff2', variable: "--font-suisseIntlRegular"})
 const suisseIntlBook = localFont({src: '../../public/fonts/SuisseIntl-Book-WebXL.woff2', variable: "--font-suisseIntlBook"})
@@ -24,11 +28,16 @@ export default function App({ Component, pageProps }) {
         className={`${suisseIntlRegular.variable} ${suisseIntlBook.variable} ${suisseIntlMedium.variable} ${suisseIntlSemiBold.variable}`}
         style={{height: '100%'}}>
         <MediaContextProvider disableDynamicMediaQueries>
+          <ThemeProvider
+            breakpoints={['lg', 'md', 'sm', 'xs']}
+            minBreakpoint="xs"
+          >
             <AnimatePresence initial={false} mode="popLayout">
               <DesktopLayout>
                 <Component {...pageProps} />
               </DesktopLayout>
             </AnimatePresence>
+          </ThemeProvider>
         </MediaContextProvider>
       </main>
     </>
