@@ -2,8 +2,6 @@
 
 .Button {
   :global .btn {
-    display: flex;
-    align-items: center;
     font-size: 16px;
     font-weight: 400;
     font-family: var(--font-suisseIntlRegular);
@@ -12,15 +10,29 @@
   }
 
   :global .btn-md {
-    padding: 0 12px;
+    padding: 0 24px;
     height: 40px;
     line-height: 40px;
   }
 
   :global .btn-lg {
-    padding: 0 12px;
+    padding: 0 24px;
     height: 48px;
     line-height: 48px;
+  }
+
+  &.Icon {
+    :global .btn-md {
+      padding: 0;
+      height: 40px;
+      width: 40px;
+    }
+
+    :global .btn-lg {
+      padding: 0;
+      height: 48px;
+      width: 48px;
+    }
   }
 
   /* Mustard */
