@@ -2,6 +2,8 @@
 
 .Button {
   :global .btn {
+    display: flex;
+    align-items: center;
     font-size: 16px;
     font-weight: 400;
     font-family: var(--font-suisseIntlRegular);
@@ -22,16 +24,27 @@
   }
 
   &.Icon {
+    display: flex;
+    align-items: center;
+
     :global .btn-md {
       padding: 0;
       height: 40px;
       width: 40px;
+
+      img {
+        width: 100%;
+      }
     }
 
     :global .btn-lg {
       padding: 0;
       height: 48px;
       width: 48px;
+
+      img {
+        width: 100%;
+      }
     }
   }
 
