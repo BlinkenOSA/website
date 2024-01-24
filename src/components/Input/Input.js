@@ -2,9 +2,9 @@ import Form from 'react-bootstrap/Form';
 import style from "./Input.module.scss";
 import {useState} from "react";
 import {InputGroup} from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import {IconGeneralEye, IconGeneralSearch} from "@/components/Icon/Icon";
 
-const Input = ({id, type='input', disabled=false, placeholder}) => {
+const Input = ({id, type='input', disabled=false, placeholder, hasError=false}) => {
     const [showPassword, setShowPassword] = useState(false)
 
     const getType = () => {
@@ -19,8 +19,10 @@ const Input = ({id, type='input', disabled=false, placeholder}) => {
     switch (type) {
         case 'search':
             return (
-                <InputGroup className="mb-3">
-                    <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+                <InputGroup className={style.InputGroup}>
+                    <InputGroup.Text id={disabled ? 'search-icon-disabled' : 'search-icon'}>
+                      <IconGeneralSearch size={'small'} />
+                    </InputGroup.Text>
                     <Form.Control
                         type={getType()}
                         id={id}
@@ -42,16 +44,16 @@ const Input = ({id, type='input', disabled=false, placeholder}) => {
             )
         case 'password': {
             return (
-                <InputGroup className="mb-3">
+                <InputGroup className={style.InputGroup} disabled={disabled}>
                     <Form.Control
-                        type={'password'}
+                        type={getType()}
                         id={id}
                         disabled={disabled}
                         placeholder={placeholder}
                     />
-                    <Button variant="outline-secondary" id="button-addon2">
-                        Button
-                    </Button>
+                    <InputGroup.Text onClick={() => setShowPassword(!showPassword)} disabled={disabled}  id={disabled ? 'eye-icon-disabled' : 'eye-icon'}>
+                      <IconGeneralEye size={'small'} />
+                    </InputGroup.Text>
                 </InputGroup>
             )
         }
