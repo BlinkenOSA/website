@@ -19,7 +19,7 @@ const Input = ({id, type='input', disabled=false, placeholder, hasError=false}) 
     switch (type) {
         case 'search':
             return (
-                <InputGroup className={style.InputGroup}>
+                <InputGroup className={hasError ? `${style.InputGroup} ${style.Error}` : style.InputGroup}>
                     <InputGroup.Text id={disabled ? 'search-icon-disabled' : 'search-icon'}>
                       <IconGeneralSearch size={'small'} />
                     </InputGroup.Text>
@@ -33,7 +33,7 @@ const Input = ({id, type='input', disabled=false, placeholder, hasError=false}) 
             )
         case 'input':
             return (
-                <div className={style.Input}>
+                <div className={hasError ? `${style.Input} ${style.Error}` : style.Input}>
                     <Form.Control
                         type={getType()}
                         id={id}
@@ -44,7 +44,7 @@ const Input = ({id, type='input', disabled=false, placeholder, hasError=false}) 
             )
         case 'password': {
             return (
-                <InputGroup className={style.InputGroup} disabled={disabled}>
+                <InputGroup className={hasError ? `${style.InputGroup} ${style.Error}` : style.InputGroup}>
                     <Form.Control
                         type={getType()}
                         id={id}

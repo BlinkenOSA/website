@@ -24,7 +24,18 @@
 }
 
 .Input {
-  @extend .InputBase
+  @extend .InputBase;
+
+  &.Error {
+    :global .form-control {
+      color: $error;
+      border-bottom: 1px solid $error;
+
+      &::placeholder {
+        color: $error;
+      }
+    }
+  }
 }
 
 .InputGroup {
@@ -63,5 +74,16 @@
     padding: 0 0 0 10px;
     border-bottom: unset;
     background-color: #e9ecef
+  }
+
+  &.Error {
+    :global .form-control, :global .input-group-text {
+      color: $error;
+      border-bottom: 1px solid $error;
+
+      &::placeholder {
+        color: $error;
+      }
+    }
   }
 }

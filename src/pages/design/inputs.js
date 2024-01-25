@@ -1,5 +1,6 @@
 import style from "@/pages/pages.module.scss";
 import Input from "@/components/Input/Input";
+import LanguageSelector from "@/components/Selectors/LanguageSelector";
 
 
 const IconPage = () => {
@@ -16,7 +17,10 @@ const IconPage = () => {
 				<Input placeholder={'Default'} hasError={true} /><br/>
 				<Input type={'search'} placeholder={'Default'} hasError={true} /><br/>
 				<Input type={'password'} placeholder={'Default'} hasError={true} /><br/>
-			</div>
+			</div><br/><br/>
+			<h1>Language Selector</h1><br/><br/>
+			<LanguageSelector />
+			<br/>
 		</div>
 	)
 }

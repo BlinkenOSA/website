@@ -1,4 +1,5 @@
 import style from "@/pages/pages.module.scss";
+import Tag from "@/components/Tag/Tag";
 
 const TextPage = () => {
 	return (
@@ -14,6 +15,7 @@ const TextPage = () => {
 			<p className={"button-regular"}>Button Regular</p><br/>
 			<p className={"button-semibold"}>Button SemiBold</p><br/>
 			<p className={"tag"}>Tag</p><br/>
+			<Tag text={"5 PM August 26"}/>
 		</div>
 	)
 }
