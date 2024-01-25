@@ -5,4 +5,35 @@
   background-color: $neutral_1000;
   min-height: 300px;
 
+  .InfoWrapperLeft {
+    display: flex;
+
+    .Label {
+      color: #FFFFFF;
+      width: 110px;
+    }
+
+    .Info {
+      flex: 1;
+      color: $neutral_300;
+    }
+  }
+
+  .InfoWrapperRight {
+    display: flex;
+    flex-direction: column;
+
+    .Label {
+      color: #FFFFFF;
+      width: 110px;
+    }
+
+    .Links {
+      color: $neutral_300;
+
+      ul {
+        list-style: none;
+      }
+    }
+  }
 }

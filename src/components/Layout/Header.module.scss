@@ -5,9 +5,13 @@
   padding: 16px 84px;
   border-bottom: 1px solid $neutral_1000;
 
-  .HeaderRow {
+  .Logo {
+    align-self: center;
     display: flex;
     align-items: center;
-    height: 100%;
+  }
+
+  .LanguageSelector {
+    align-self: center;
   }
 }
