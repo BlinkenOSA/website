@@ -1,5 +1,5 @@
 import style from "./Header.module.scss";
-import SearchBar from "@/components/Layout/desktop/parts/SearchBar";
+import SearchBar from "@/components/experiementing/Layout/desktop/parts/SearchBar";
 import Logo from "@/components/Logo/Logo";
 
 const LanguageSelector = () => {

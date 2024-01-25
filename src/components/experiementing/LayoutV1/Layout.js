@@ -1,8 +1,8 @@
 import style from './Layout.module.scss'
-import DesktopMenu from "@/components/LayoutV1/DesktopMenu/DesktopMenu";
-import Header from "@/components/LayoutV1/Header/Header";
+import DesktopMenu from "@/components/experiementing/LayoutV1/DesktopMenu/DesktopMenu";
+import Header from "@/components/experiementing/LayoutV1/Header/Header";
 import {Media} from "@/utils/media";
-import MobileMenu from "@/components/LayoutV1/MobileMenu/MobileMenu";
+import MobileMenu from "@/components/experiementing/LayoutV1/MobileMenu/MobileMenu";
 
 export const metadata = {
   title: 'OSA Web Testing',

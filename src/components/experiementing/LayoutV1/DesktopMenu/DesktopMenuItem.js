@@ -1,4 +1,4 @@
-import style from "@/components/LayoutV1/DesktopMenu/DesktopMenu.module.scss";
+import style from "@/components/experiementing/LayoutV1/DesktopMenu/DesktopMenu.module.scss";
 import {motion} from "framer-motion";
 
 const DesktopMenuItem = ({title, number, menuOpen, onClick, children}) => {

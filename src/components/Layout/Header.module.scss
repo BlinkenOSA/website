@@ -1,0 +1,13 @@
+@import "@/styles/colors.scss";
+
+.HeaderWrapper {
+  height: 80px;
+  padding: 16px 84px;
+  border-bottom: 1px solid $neutral_1000;
+
+  .HeaderRow {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}

@@ -2,9 +2,9 @@
 
 import style from "./DesktopMenu.module.scss";
 import {useState} from "react";
-import DesktopMenuItem from "@/components/LayoutV1/DesktopMenu/DesktopMenuItem";
-import MenuPage from "@/components/LayoutV1/DesktopMenu/pages/MenuPage";
-import {submenuConfig} from "@/components/LayoutV1/common/submenuConfig";
+import DesktopMenuItem from "@/components/experiementing/LayoutV1/DesktopMenu/DesktopMenuItem";
+import MenuPage from "@/components/experiementing/LayoutV1/DesktopMenu/pages/MenuPage";
+import {submenuConfig} from "@/components/experiementing/LayoutV1/common/submenuConfig";
 
 const DesktopMenu = () => {
   const [menuOpen, setMenuOpen] = useState([])

@@ -1,4 +1,4 @@
-import Layout from "@/components/LayoutV1/Layout";
+import Layout from "@/components/experiementing/LayoutV1/Layout";
 import {Media} from "@/utils/media";
 
 

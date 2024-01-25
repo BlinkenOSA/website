@@ -1,6 +1,6 @@
-import Header from "@/components/Layout/desktop/parts/Header";
-import style from "@/components/Layout/desktop/Layout.module.scss";
-import Menu from "@/components/Layout/desktop/parts/Menu";
+import Header from "@/components/experiementing/Layout/desktop/parts/Header";
+import style from "@/components/experiementing/Layout/desktop/Layout.module.scss";
+import Menu from "@/components/experiementing/Layout/desktop/parts/Menu";
 
 const Layout = ({ children }) => {
     return (
