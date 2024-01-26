@@ -1,7 +1,4 @@
-import academics from "../../../public/icons/osa/academics.svg";
-import archivum from "../../../public/icons/osa/archivum.svg";
 import audio from "../../../public/icons/osa/audio.svg";
-import collections from "../../../public/icons/osa/collections.svg";
 import community from "../../../public/icons/osa/community.svg";
 import conference from "../../../public/icons/osa/conference.svg";
 import curated_collections from "../../../public/icons/osa/curated_collections.svg";
@@ -16,7 +13,6 @@ import movie_screening from "../../../public/icons/osa/movie_screening.svg";
 import music from "../../../public/icons/osa/music.svg";
 import photo from "../../../public/icons/osa/photo.svg";
 import programs from "../../../public/icons/osa/programs.svg";
-import public_programs from "../../../public/icons/osa/public_programs.svg";
 import publication from "../../../public/icons/osa/publication.svg";
 import research from "../../../public/icons/osa/research.svg";
 import scholarship from "../../../public/icons/osa/scholarship.svg";
@@ -64,20 +60,8 @@ const IconBase = ({src, size}) => {
 		/>
 }
 
-export const IconAcademics = ({size='normal'}) => {
-	return <IconBase src={academics} size={size} />
-}
-
-export const IconArchivum = ({size='normal'}) => {
-	return <IconBase src={archivum} size={size} />
-}
-
 export const IconAudio = ({size='normal'}) => {
 	return <IconBase src={audio} size={size} />
-}
-
-export const IconColections = ({size='normal'}) => {
-	return <IconBase src={collections} size={size} />
 }
 
 export const IconCommunity = ({size='normal'}) => {
@@ -134,10 +118,6 @@ export const IconPhoto = ({size='normal'}) => {
 
 export const IconPrograms = ({size='normal'}) => {
 	return <IconBase src={programs} size={size} />
-}
-
-export const IconPublicPrograms = ({size='normal'}) => {
-	return <IconBase src={public_programs} size={size} />
 }
 
 export const IconPublication = ({size='normal'}) => {

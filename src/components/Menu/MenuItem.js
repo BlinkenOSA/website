@@ -1,10 +1,10 @@
-import style from "../Menu.module.scss";
+import style from "./Menu.module.scss";
 import {motion} from "framer-motion";
 
 const MenuItem = ({title, id, number, menuOpen, icon, onClick, css}) => {
   const menu = {
     open: { left: 0, right: 'unset'},
-    closed: { left: 'unset', right: `${((4 - number)*49)}px`},
+    closed: { left: 'unset', right: `${((4 - number)*55)}px`},
   }
 
   const transition = {

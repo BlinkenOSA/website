@@ -2,14 +2,10 @@
 
 import style from "./Menu.module.scss";
 import {useState} from "react";
-import MenuItem from "@/components/experiementing/Layout/desktop/parts/menuParts/MenuItem";
-import Image from "next/image";
-import aboutUSLogo from "../../../../../../public/logos/logo-compact-dark.svg";
-import collectionsLogo from "../../../../../../public/icons/osa/collections.svg";
-import academicsLogo from "../../../../../../public/icons/osa/academics.svg";
-import publicProgramsLogo from "../../../../../../public/icons/osa/public_programs.svg";
+import MenuItem from "@/components/Menu/MenuItem";
 import {useRouter} from "next/router";
 import SubMenu from "@/components/experiementing/Layout/desktop/parts/menuParts/SubMenu";
+import {IconAcademics, IconArchivum, IconCollections, IconPublicPrograms} from "@/components/Icon/CategoriesIcon";
 
 const Menu = () => {
   const [menuOpen, setMenuOpen] = useState(-1)
@@ -18,23 +14,23 @@ const Menu = () => {
 
   const menuConfig = [
     {
-      title: 'about us',
-      icon: <Image priority src={aboutUSLogo} height={25} alt="About us" />,
+      title: 'About Us',
+      icon: <IconArchivum />,
       css: style.AboutUs,
       url: '/about'
     }, {
-      title: 'collections',
-      icon: <Image priority src={collectionsLogo} height={25} alt="Collections" />,
+      title: 'Collections',
+      icon: <IconCollections />,
       css: style.Collections,
       url: '/collections'
     }, {
-      title: 'academics',
-      icon: <Image priority src={academicsLogo} height={25} alt="Academics" />,
+      title: 'Academics',
+      icon: <IconAcademics />,
       css: style.Academics,
       url: '/academics'
     }, {
-      title: 'public events',
-      icon: <Image priority src={publicProgramsLogo} height={25} alt="Public Programs" />,
+      title: 'Public Programs',
+      icon: <IconPublicPrograms />,
       css: style.PublicPrograms,
       url: '/public-programs'
     }

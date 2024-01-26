@@ -1,19 +1,22 @@
-import Header from "@/components/experiementing/Layout/desktop/parts/Header";
+import Header from "@/components/Layout/Header";
 import style from "@/components/experiementing/Layout/desktop/Layout.module.scss";
-import Menu from "@/components/experiementing/Layout/desktop/parts/Menu";
+import Menu from "@/components/Menu/Menu";
+import Footer from "@/components/Layout/Footer";
 
 const Layout = ({ children }) => {
     return (
-        <>
-            <Header />
-            <div
-                className={`${style.Page} suisseIntlRegular`}>
-                {children}
+      <>
+            <div className={style.Header}>
+              <Header />
+            </div>
+            <div className={`${style.Page} suisseIntlRegular`}>
+              {children}
             </div>
             <div className={style.Menu}>
                 <Menu />
             </div>
-        </>
+            <Footer />
+      </>
     )
 }
 

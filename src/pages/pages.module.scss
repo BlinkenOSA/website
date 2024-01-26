@@ -1,13 +1,5 @@
 @import "@/styles/variables.scss";
 
 .IndexPage {
-  margin-top: $header-height-desktop + $page-padding;
-  margin-left: $page-padding;
-  margin-right: calc($menu-width * 4 + $page-padding);
-}
-
-.PageWithMenuOpen {
-  margin-top: $header-height-desktop + $page-padding + $submenu-height;
-  margin-left: calc($menu-width + $page-padding);
-  margin-right: calc($menu-width * 3 + $page-padding);
+  margin-top: $header-height-desktop + 10px;
 }

@@ -1,3 +1,4 @@
+@import "@/styles/colors.scss";
 @import "@/styles/variables.scss";
 
 .BarNavigation {
@@ -18,10 +19,10 @@
         display: flex;
         writing-mode: vertical-lr;
         transform: scale(-1, -1);
-        font-size: 26px;
+        font-size: 24px;
         height: calc(100% - $header-height-desktop);
         line-height: calc($menu-width - 2px);
-        padding-top: 30px;
+        padding-top: 24px;
         cursor: pointer;
         border-right: 1px solid #000;
         border-left: 1px solid #000;
@@ -37,12 +38,12 @@
         }
 
         .Logo {
-          margin-bottom: 20px;
+          margin-bottom: 10px;
           transform: rotate(180deg);
 
           img {
-            width: 25px;
-            height: 25px;
+            width: 48px;
+            height: 48px;
           }
         }
       }
@@ -56,19 +57,19 @@
 }
 
 .AboutUs {
-  background-color: $about-color;
+  background-color: $mustard_1000;
 }
 
 .Collections {
-  background-color: $collections-color;
+  background-color: $orange_1000;
 }
 
 .Academics {
-  background-color: $academics-color;
+  background-color: $lilac_1000;
 }
 
 .PublicPrograms {
-  background-color: $public-programs-color;
+  background-color: $sage_1000;
 }
 
 .SubMenuList {
