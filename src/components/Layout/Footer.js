@@ -1,6 +1,7 @@
 import style from "@/components/Layout/Footer.module.scss";
 import Logo from "@/components/Logo/Logo";
 import {Col, Row} from "react-bootstrap";
+import {SocialIconFB, SocialIconInsta, SocialIconYT} from "@/components/Icon/SocialIcon";
 
 const Footer = () => {
 	return (
@@ -39,6 +40,12 @@ const Footer = () => {
 								<li>Sitemap</li>
 							</ul>
 						</div>
+					</div>
+					<br/>
+					<div className={style.SocialIcons}>
+						<a href={'#'}><SocialIconFB /></a>
+						<a href={'#'}><SocialIconInsta /></a>
+						<a href={'#'}><SocialIconYT /></a>
 					</div>
 				</Col>
 			</Row>
