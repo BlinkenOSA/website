@@ -22,8 +22,7 @@ const MaskedImage = ({src, type='landscape', alt="Image"}) => {
             <Image
                 alt={alt}
                 src={src}
-                layout="fill"
-                objectFit="contain" // Scale your image down to fit into the container
+                fill={true}
             />
         </div>
     )
