@@ -3,13 +3,18 @@
 .Wrapper {
   display: flex;
   flex-direction: column;
-  height: 550px;
+  height: 600px;
   border: 1px solid $neutral_1000;
-  padding: 16px 24px;
+  padding: 24px 16px;
 
   .Header {
     display: flex;
+    justify-content: space-between;
     margin-bottom: 16px;
+
+    .Icons {
+      display: flex;
+    }
 
     .ItemNumber {
       color: $neutral-500;
@@ -28,5 +33,6 @@
     flex: 1;
     overflow: hidden;
     color: $neutral-500;
+    margin-bottom: 16px
   }
 }
