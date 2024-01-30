@@ -1,0 +1,32 @@
+@import "@/styles/colors.scss";
+
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 550px;
+  border: 1px solid $neutral_1000;
+  padding: 16px 24px;
+
+  .Header {
+    display: flex;
+    margin-bottom: 16px;
+
+    .ItemNumber {
+      color: $neutral-500;
+    }
+  }
+
+  .Title {
+    margin-bottom: 8px
+  }
+
+  .Image {
+    margin-bottom: 16px;
+  }
+
+  .Description {
+    flex: 1;
+    overflow: hidden;
+    color: $neutral-500;
+  }
+}

@@ -2,6 +2,9 @@
 @import "@/styles/variables.scss";
 
 .Page {
+  padding: 0 $page-padding;
+  margin-top: $header-height-desktop + 10px;
+  margin-right: calc(4 * $menu-width - 3px);
   min-height: calc(100vh - $header-height-desktop);
 }
 
@@ -16,4 +19,6 @@
   top: 0;
   width: 100%;
   border-bottom: 1px solid $neutral_1000;
+  background-color: #FFF;
+  z-index: 10;
 }

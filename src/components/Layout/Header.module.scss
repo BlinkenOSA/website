@@ -12,6 +12,8 @@
   }
 
   .LanguageSelector {
+    display: flex;
+    justify-content: end;
     align-self: center;
   }
 }

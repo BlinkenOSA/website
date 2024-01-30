@@ -3,7 +3,7 @@ import '@/styles/custom.scss';
 import localFont from 'next/font/local'
 import Head from 'next/head';
 import {MediaContextProvider, mediaStyles} from "@/utils/media";
-import DesktopLayout from "@/components/experiementing/Layout/desktop/Layout";
+import DesktopLayout from "@/components/Layout/Layout";
 import { AnimatePresence } from 'framer-motion'
 
 import SSRProvider from 'react-bootstrap/SSRProvider';
