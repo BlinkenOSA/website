@@ -1,6 +1,8 @@
 import style from "@/pages/pages.module.scss";
 import CollectionCard from "@/components/Cards/CollectionCard";
 import {Col, Row} from "react-bootstrap";
+import NewsCard from "@/components/Cards/NewsCard";
+import {IconDocument} from "@/components/Icon/Icon";
 
 const TextPage = () => {
 	return (
@@ -44,6 +46,18 @@ const TextPage = () => {
 				</Col>
 			</Row>
 			<br/>
+			<h3>News Card</h3><br/><br/>
+			<Row>
+				<Col xs={4}>
+					<NewsCard
+						data={'18.08.2023.'}
+						title={'János Kornai Correspondence Donated to the Archivum'}
+						description={'János Kornai was an internationally acclaimed expert of Socialist economies and post-Communist tranistions.'}
+						image={'https://fortepan.download/file/fortepan-eu/480/fortepan_23685.jpg'}
+						icon={<IconDocument/>}
+					/>
+				</Col>
+			</Row>
 		</div>
 	)
 }
