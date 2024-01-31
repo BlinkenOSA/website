@@ -154,6 +154,7 @@ const IndexPage = () => {
                   />
               </Col>
           </SectionPanel>
+          <div style={{height: '40px'}}/>
           <SectionPanel title={'Blogs'}>
               <Col xs={4}>
                   <NewsCard
@@ -184,6 +185,7 @@ const IndexPage = () => {
                   />
               </Col>
           </SectionPanel>
+          <div style={{height: '40px'}}/>
           <SectionPanel title={'Podcasts'}>
               <Col xs={4}>
                   <NewsCard
