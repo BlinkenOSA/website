@@ -1,0 +1,15 @@
+@import "@/styles/colors.scss";
+
+.Wrapper {
+  border-bottom: 1px solid $neutral_1000;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+
+  .Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+}
+

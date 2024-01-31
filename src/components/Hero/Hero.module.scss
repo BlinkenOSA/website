@@ -1,0 +1,21 @@
+.HeroWrapper {
+  position: relative;
+
+  .TopRow {
+    position: absolute;
+    top: 0;
+    display: flex;
+    width: 100%;
+
+    .Date {
+      flex: 1;
+      color: #FFFFFF;
+    }
+  }
+
+  .Logo {
+    position: absolute;
+    padding: 16px;
+    bottom: 0;
+  }
+}

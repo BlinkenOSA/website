@@ -1,14 +1,26 @@
 import style from "@/pages/pages.module.scss";
 import CollectionCard from "@/components/Cards/CollectionCard";
-import {Col, Row} from "react-bootstrap";
+import {Carousel, Col, Row} from "react-bootstrap";
 import NewsCard from "@/components/Cards/NewsCard";
 import {IconDocument, IconExhibition, IconPrograms} from "@/components/Icon/Icon";
 import EventCard from "@/components/Cards/EventCard";
+import Hero from "@/components/Hero/Hero";
+import HeroControl from "@/components/Hero/HeroControl";
 
 const TextPage = () => {
 	return (
 		<div className={style.PageWithMenuOpen}>
 			<h1>Cards</h1><br/><br/>
+			<h3>Hero</h3><br/>
+			<Row>
+				<Col xs={12}>
+					<HeroControl>
+						<Hero image={'https://osaarchivum.org/files/images/announcements/2024/website-with-logos.png'} />
+						<Hero image={'https://osaarchivum.org/files/images/announcements/2024/img0551gray2.jpg'} />
+					</HeroControl>
+				</Col>
+			</Row>
+			<br/>
 			<h3>Collection Card</h3><br/>
 			<Row>
 				<Col xs={4}>

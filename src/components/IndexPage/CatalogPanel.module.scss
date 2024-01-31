@@ -1,0 +1,24 @@
+@import "@/styles/variables.scss";
+
+.PanelWrapper {
+  width: calc(100vw - 4*$menu-width + 3px);
+  position: relative;
+  height: 400px;
+  margin: 0 -92px;
+
+  img {
+    object-fit: cover;
+  }
+
+  .Overlay {
+    position: absolute;
+    width: 100%;
+    top: 120px;
+    padding: 0 84px;
+
+    h1 {
+      color: #FFFFFF;
+      margin-bottom: 40px;
+    }
+  }
+}

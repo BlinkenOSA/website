@@ -4,6 +4,9 @@
 
   img {
     clip-path: polygon(22% 0, 100% 0, 100% 95%, 78% 100%, 0 100%, 0 5%);
+    -webkit-filter: grayscale(80%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(80%);
+    object-fit: cover;
   }
 }
 
