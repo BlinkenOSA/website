@@ -1,9 +1,15 @@
 @import "@/styles/colors.scss";
 
 .Tag {
+  display: inline-flex;
+  gap: 8px;
   color: #FFF;
   background-color: $neutral_1000;
-  padding: 8px 16px;
+  padding: 4px 8px;
+
+  .Icon {
+    display: flex;
+  }
 
   span {
     color: #FFF;

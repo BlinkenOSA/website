@@ -8,12 +8,12 @@ const NewsCard = ({title, image, date, description, icon}) => {
               <div className={style.Icon}>{icon}</div>
               <div className={style.Date}>{date}</div>
           </div>
-          <div className={style.Image}>
-              <MaskedImage src={image} type={'landscape'} />
-          </div>
-          <h3 className={style.Title}>{title}</h3>
+          <h3 className={`${style.Title} subtitle-large`}>{title}</h3>
           <div className={style.Description}>
               {description}
+          </div>
+          <div className={style.Image}>
+              <MaskedImage src={image} type={'landscape'} />
           </div>
       </div>
     )

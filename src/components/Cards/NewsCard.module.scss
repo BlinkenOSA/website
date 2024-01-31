@@ -3,21 +3,19 @@
 .Wrapper {
   display: flex;
   flex-direction: column;
-  height: 600px;
-  border: 1px solid $neutral_1000;
-  padding: 24px 16px;
+  height: 440px;
 
   .Header {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 16px;
+    gap: 8px;
+    margin-bottom: 8px;
 
-    .Icons {
+    .Icon {
       display: flex;
     }
 
-    .ItemNumber {
-      color: $neutral-500;
+    .Date {
+      color: $neutral-500
     }
   }
 
@@ -27,6 +25,11 @@
 
   .Image {
     margin-bottom: 16px;
+
+    & img {
+      // -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+      // filter: grayscale(100%);
+    }
   }
 
   .Description {
