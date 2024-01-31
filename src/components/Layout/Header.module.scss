@@ -1,9 +1,10 @@
+@import "@/styles/variables.scss";
 @import "@/styles/colors.scss";
 
 .HeaderWrapper {
   display: flex;
   align-items: center;
-  height: 80px;
+  height: $header-height-desktop;
   padding: 0 84px;
   background-color: #FFF;
 
@@ -15,7 +16,7 @@
 
   .LanguageSelector {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-self: center;
   }
 }
