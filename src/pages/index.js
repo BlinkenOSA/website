@@ -11,6 +11,7 @@ import CatalogPanel from "@/components/IndexPage/CatalogPanel";
 import SectionPanel from "@/components/IndexPage/SectionPanel";
 import CredoPanel from "@/components/IndexPage/CredoPanel";
 import CollectionCard from "@/components/Cards/CollectionCard";
+import PartnersPanel from "@/components/IndexPage/PartnersPanel";
 
 const IndexPage = () => {
   return (
@@ -281,6 +282,8 @@ const IndexPage = () => {
                   />
               </Col>
           </SectionPanel>
+          <div style={{height: '40px'}}/>
+          <PartnersPanel />
           <div style={{height: '40px'}}/>
       </>
   )
