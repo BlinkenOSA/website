@@ -12,7 +12,7 @@ import SectionPanel from "@/components/IndexPage/SectionPanel";
 
 const IndexPage = () => {
   return (
-      <div className={style.IndexPage}>
+      <>
           <div style={{height: '48px'}}/>
           <Row>
               <Col xs={12}>
@@ -23,11 +23,7 @@ const IndexPage = () => {
               </Col>
           </Row>
           <div style={{height: '48px'}}/>
-          <Row>
-              <Col xs={12}>
-                    <EventsDivider/>
-              </Col>
-          </Row>
+          <EventsDivider/>
           <Row>
               <Col xs={4}>
                   <EventCard
@@ -244,7 +240,7 @@ const IndexPage = () => {
                   />
               </Col>
           </SectionPanel>
-      </div>
+      </>
   )
 }
 
