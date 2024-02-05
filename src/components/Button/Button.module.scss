@@ -50,6 +50,77 @@
     }
   }
 
+  /* Neutral */
+  :global .btn-primary-neutral {
+    color: #FFFFFF;
+    border: unset;
+    background-color: $neutral_1000;
+
+    &:hover {
+      background-color: $neutral_600;
+    }
+
+    &:active {
+      background-color: $neutral_1000;
+    }
+
+    &:focus {
+      background-color: $neutral_600;
+    }
+
+    &:disabled {
+      background-color: $neutral_100;
+      color: $neutral_500;
+    }
+  }
+
+  :global .btn-secondary-neutral {
+    border: 1px solid $neutral_1000;
+
+    &:hover {
+      color: $neutral_1000;
+      background-color: $neutral_100;
+    }
+
+    &:active {
+      color: $neutral_1000;
+      background-color: $neutral_1000;
+    }
+
+    &:focus {
+      color: $neutral_100;
+      background-color: $neutral_100;
+    }
+
+    &:disabled {
+      color: $neutral_300;
+      border-color: $neutral_300;
+      color: $neutral_300;
+    }
+  }
+
+  :global .btn-tertiary-neutral {
+    color: $neutral_1000;
+    font-family: var(--font-suisseIntlSemiBold);
+    border: unset;
+
+    &:hover {
+      color: $neutral_600;
+    }
+
+    &:active {
+      color: $mustard_1000;
+    }
+
+    &:focus {
+      color: $mustard_600;
+    }
+
+    &:disabled {
+      color: $neutral_600;
+    }
+  }
+
   /* Mustard */
   :global .btn-primary-mustard {
     border: unset;

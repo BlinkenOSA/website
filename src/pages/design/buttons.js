@@ -6,6 +6,15 @@ const ButtonsPage = () => {
 	return (
 		<div className={style.PageWithMenuOpen}>
 			<h1>Buttons</h1><br/><br/>
+			<h3>Neutral</h3><br/>
+			<div style={{display: 'flex', gap: '16px'}}>
+				<Button type={'primary'} size={'medium'} color={'neutral'}>Primary</Button>
+				<Button type={'primary'} size={'medium'} color={'neutral'} disabled={true}>Primary</Button>
+				<Button type={'secondary'} size={'medium'} color={'neutral'}>Secondary</Button>
+				<Button type={'secondary'} size={'medium'} color={'neutral'} disabled={true}>Secondary</Button>
+				<Button type={'tertiary'} size={'medium'} color={'neutral'}>Tertiary</Button>
+				<Button type={'tertiary'} size={'medium'} color={'neutral'} disabled={true}>Tertiary</Button>
+			</div><br/>
 			<h3>Mustard</h3><br/>
 			<div style={{display: 'flex', gap: '16px'}}>
 				<Button type={'primary'} size={'medium'} color={'mustard'}>Primary</Button>
