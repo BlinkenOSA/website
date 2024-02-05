@@ -1,6 +1,8 @@
 @import "@/styles/colors.scss";
 
 .Button {
+  display: inline-block;
+
   :global .btn {
     display: flex;
     align-items: center;

@@ -12,6 +12,7 @@ import SectionPanel from "@/components/IndexPage/SectionPanel";
 import CredoPanel from "@/components/IndexPage/CredoPanel";
 import CollectionCard from "@/components/Cards/CollectionCard";
 import PartnersPanel from "@/components/IndexPage/PartnersPanel";
+import NewsletterPanel from "@/components/IndexPage/NewsletterPanel";
 
 const IndexPage = () => {
   return (
@@ -284,6 +285,8 @@ const IndexPage = () => {
           </SectionPanel>
           <div style={{height: '40px'}}/>
           <PartnersPanel />
+          <div style={{height: '40px'}}/>
+          <NewsletterPanel />
           <div style={{height: '40px'}}/>
       </>
   )

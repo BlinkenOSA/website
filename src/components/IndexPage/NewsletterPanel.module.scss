@@ -1,0 +1,36 @@
+.Wrapper {
+  display: flex;
+
+  .Left {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    h2 {
+      margin-bottom: 24px;
+    }
+
+    p {
+      margin-bottom: 24px;
+    }
+
+    .Form {
+      display: flex;
+
+      .Email {
+        flex: 1;
+      }
+
+      .Button {
+        flex: 1;
+        text-align: right;
+      }
+    }
+  }
+
+  .Right {
+    flex: 1;
+    padding-left: 96px;
+  }
+}

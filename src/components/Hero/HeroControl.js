@@ -26,13 +26,16 @@ const HeroControl = ({children}) => {
     }
 
     return (
+        <>
         <Row>
-            <Col xs={11}>
+            <Col xs={12}>
                 <Carousel activeIndex={activeItem} controls={false} indicators={false} onSelect={handleSelect}>
                     {renderItems()}
                 </Carousel>
             </Col>
-            <Col xs={1}>
+        </Row>
+        <Row>
+            <Col xs={6}>
                 <div className={style.Controls}>
                     <Button
                         onClick={handlePrevious}
@@ -51,6 +54,7 @@ const HeroControl = ({children}) => {
                 </div>
             </Col>
         </Row>
+        </>
     )
 }
 
