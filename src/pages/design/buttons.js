@@ -49,22 +49,22 @@ const ButtonsPage = () => {
 				<Button type={'tertiary'} size={'large'} color={'orange'}>Tertiary</Button>
 				<Button type={'tertiary'} size={'large'} color={'orange'} disabled={true}>Tertiary</Button>
 			</div><br/><br/>
-			<h3>Lilac</h3><br/>
+			<h3>Aqua</h3><br/>
 			<div style={{display: 'flex', gap: '16px'}}>
-				<Button type={'primary'} size={'medium'} color={'lilac'}>Primary</Button>
-				<Button type={'primary'} size={'medium'} color={'lilac'} disabled={true}>Primary</Button>
-				<Button type={'secondary'} size={'medium'} color={'lilac'}>Secondary</Button>
-				<Button type={'secondary'} size={'medium'} color={'lilac'} disabled={true}>Secondary</Button>
-				<Button type={'tertiary'} size={'medium'} color={'lilac'}>Tertiary</Button>
-				<Button type={'tertiary'} size={'medium'} color={'lilac'} disabled={true}>Tertiary</Button>
+				<Button type={'primary'} size={'medium'} color={'aqua'}>Primary</Button>
+				<Button type={'primary'} size={'medium'} color={'aqua'} disabled={true}>Primary</Button>
+				<Button type={'secondary'} size={'medium'} color={'aqua'}>Secondary</Button>
+				<Button type={'secondary'} size={'medium'} color={'aqua'} disabled={true}>Secondary</Button>
+				<Button type={'tertiary'} size={'medium'} color={'aqua'}>Tertiary</Button>
+				<Button type={'tertiary'} size={'medium'} color={'aqua'} disabled={true}>Tertiary</Button>
 			</div><br/>
 			<div style={{display: 'flex', gap: '16px'}}>
-				<Button type={'primary'} size={'large'} color={'lilac'}>Primary</Button>
-				<Button type={'primary'} size={'large'} color={'lilac'} disabled={true}>Primary</Button>
-				<Button type={'secondary'} size={'large'} color={'lilac'} >Secondary</Button>
-				<Button type={'secondary'} size={'large'} color={'lilac'} disabled={true}>Secondary</Button>
-				<Button type={'tertiary'} size={'large'} color={'lilac'}>Tertiary</Button>
-				<Button type={'tertiary'} size={'large'} color={'lilac'} disabled={true}>Tertiary</Button>
+				<Button type={'primary'} size={'large'} color={'aqua'}>Primary</Button>
+				<Button type={'primary'} size={'large'} color={'aqua'} disabled={true}>Primary</Button>
+				<Button type={'secondary'} size={'large'} color={'aqua'} >Secondary</Button>
+				<Button type={'secondary'} size={'large'} color={'aqua'} disabled={true}>Secondary</Button>
+				<Button type={'tertiary'} size={'large'} color={'aqua'}>Tertiary</Button>
+				<Button type={'tertiary'} size={'large'} color={'aqua'} disabled={true}>Tertiary</Button>
 			</div><br/><br/>
 			<h3>Sage</h3><br/>
 			<div style={{display: 'flex', gap: '16px'}}>
@@ -89,8 +89,8 @@ const ButtonsPage = () => {
 				<Button type={'primary'} size={'medium'} color={'mustard'} isIcon={true} disabled={true}><IconGeneralRight/></Button>
 				<Button type={'primary'} size={'medium'} color={'orange'} isIcon={true}><IconGeneralRight/></Button>
 				<Button type={'primary'} size={'medium'} color={'orange'} isIcon={true} disabled={true}><IconGeneralRight/></Button>
-				<Button type={'primary'} size={'medium'} color={'lilac'} isIcon={true}><IconGeneralRight/></Button>
-				<Button type={'primary'} size={'medium'} color={'lilac'} isIcon={true} disabled={true}><IconGeneralRight/></Button>
+				<Button type={'primary'} size={'medium'} color={'aqua'} isIcon={true}><IconGeneralRight/></Button>
+				<Button type={'primary'} size={'medium'} color={'aqua'} isIcon={true} disabled={true}><IconGeneralRight/></Button>
 				<Button type={'primary'} size={'medium'} color={'sage'} isIcon={true}><IconGeneralRight/></Button>
 				<Button type={'primary'} size={'medium'} color={'sage'} isIcon={true} disabled={true}><IconGeneralRight/></Button>
 
@@ -100,8 +100,8 @@ const ButtonsPage = () => {
 				<Button type={'primary'} size={'large'} color={'mustard'} isIcon={true} disabled={true}><IconGeneralRight/></Button>
 				<Button type={'primary'} size={'large'} color={'orange'} isIcon={true}><IconGeneralRight/></Button>
 				<Button type={'primary'} size={'large'} color={'orange'} isIcon={true} disabled={true}><IconGeneralRight/></Button>
-				<Button type={'primary'} size={'large'} color={'lilac'} isIcon={true}><IconGeneralRight/></Button>
-				<Button type={'primary'} size={'large'} color={'lilac'} isIcon={true} disabled={true}><IconGeneralRight/></Button>
+				<Button type={'primary'} size={'large'} color={'aqua'} isIcon={true}><IconGeneralRight/></Button>
+				<Button type={'primary'} size={'large'} color={'aqua'} isIcon={true} disabled={true}><IconGeneralRight/></Button>
 				<Button type={'primary'} size={'large'} color={'sage'} isIcon={true}><IconGeneralRight/></Button>
 				<Button type={'primary'} size={'large'} color={'sage'} isIcon={true} disabled={true}><IconGeneralRight/></Button>
 			</div><br/><br/>

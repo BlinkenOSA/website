@@ -303,21 +303,21 @@
     }
   }
 
-  /* Lilac */
-  :global .btn-primary-lilac {
+  /* Aqua */
+  :global .btn-primary-aqua {
     border: unset;
-    background-color: $lilac_1000;
+    background-color: $aqua_1000;
 
     &:hover {
-      background-color: $lilac_600;
+      background-color: $aqua_600;
     }
 
     &:active {
-      background-color: $lilac_1000;
+      background-color: $aqua_1000;
     }
 
     &:focus {
-      background-color: $lilac_600;
+      background-color: $aqua_600;
     }
 
     &:disabled {
@@ -326,20 +326,20 @@
     }
   }
 
-  :global .btn-primary-lilac {
+  :global .btn-primary-aqua {
     border: unset;
-    background-color: $lilac_1000;
+    background-color: $aqua_1000;
 
     &:hover {
-      background-color: $lilac_600;
+      background-color: $aqua_600;
     }
 
     &:active {
-      background-color: $lilac_1000;
+      background-color: $aqua_1000;
     }
 
     &:focus {
-      background-color: $lilac_600;
+      background-color: $aqua_600;
     }
 
     &:disabled {
@@ -348,12 +348,12 @@
     }
   }
 
-  :global .btn-secondary-lilac {
+  :global .btn-secondary-aqua {
     border: 1px solid $neutral_1000;
 
     &:hover {
-      color: $lilac_1000;
-      border-color: $lilac_1000;
+      color: $aqua_1000;
+      border-color: $aqua_1000;
     }
 
     &:active {
@@ -362,8 +362,8 @@
     }
 
     &:focus {
-      color: $lilac_1000;
-      border-color: $lilac_1000;
+      color: $aqua_1000;
+      border-color: $aqua_1000;
     }
 
     &:disabled {
@@ -372,21 +372,21 @@
     }
   }
 
-  :global .btn-tertiary-lilac {
-    color: $lilac_1000;
+  :global .btn-tertiary-aqua {
+    color: $aqua_1000;
     font-family: var(--font-suisseIntlSemiBold);
     border: unset;
 
     &:hover {
-      color: $lilac_600;
+      color: $aqua_600;
     }
 
     &:active {
-      color: $lilac_1000;
+      color: $aqua_1000;
     }
 
     &:focus {
-      color: $lilac_600;
+      color: $aqua_600;
     }
 
     &:disabled {
