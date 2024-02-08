@@ -56,6 +56,10 @@
     border: unset;
     background-color: $neutral_1000;
 
+    img {
+      filter: brightness(0) invert(1);
+    }
+
     &:hover {
       background-color: $neutral_600;
     }
@@ -69,6 +73,10 @@
     }
 
     &:disabled {
+      img {
+        filter: unset;
+      }
+
       background-color: $neutral_100;
       color: $neutral_500;
     }
@@ -109,11 +117,11 @@
     }
 
     &:active {
-      color: $mustard_1000;
+      color: $neutral_1000;
     }
 
     &:focus {
-      color: $mustard_600;
+      color: $neutral_600;
     }
 
     &:disabled {
