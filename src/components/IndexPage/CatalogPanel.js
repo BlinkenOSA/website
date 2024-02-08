@@ -1,7 +1,7 @@
 import style from './CatalogPanel.module.scss'
 import SearchBox from "@/components/Input/SearchBox";
 import Image from "next/image";
-import {Col, Row} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 
 const CatalogPanel = () => {
     return (
@@ -13,12 +13,14 @@ const CatalogPanel = () => {
                 fill={true}
             />
             <div className={style.Overlay}>
-                <Row>
-                    <Col xs={4}>
-                        <h1>Catalog</h1>
-                        <SearchBox />
-                    </Col>
-                </Row>
+                <Container>
+                    <Row>
+                        <Col xs={4}>
+                            <h1>Catalog</h1>
+                            <SearchBox />
+                        </Col>
+                    </Row>
+                </Container>
             </div>
         </div>
     )

@@ -17,7 +17,7 @@ import NewsletterPanel from "@/components/IndexPage/NewsletterPanel";
 const IndexPage = () => {
   return (
       <>
-          <div style={{height: '48px'}}/>
+        <Container>
           <Row>
               <Col xs={12}>
                   <HeroControl>
@@ -94,7 +94,11 @@ const IndexPage = () => {
               </Col>
           </Row>
           <div style={{height: '24px'}}/>
+        </Container>
+        <Container fluid={true}>
           <CatalogPanel />
+        </Container>
+        <Container>
           <div style={{height: '48px'}}/>
           <SectionPanel title={'News'}>
               <Col xs={4}>
@@ -245,7 +249,11 @@ const IndexPage = () => {
               </Col>
           </SectionPanel>
           <div style={{height: '40px'}}/>
+        </Container>
+        <Container fluid={true}>
           <CredoPanel />
+        </Container>
+        <Container>
           <div style={{height: '40px'}}/>
           <SectionPanel title={'Collection Highlights'}>
               <Col xs={4}>
@@ -288,6 +296,7 @@ const IndexPage = () => {
           <div style={{height: '40px'}}/>
           <NewsletterPanel />
           <div style={{height: '40px'}}/>
+        </Container>
       </>
   )
 }

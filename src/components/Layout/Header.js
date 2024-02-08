@@ -7,7 +7,7 @@ import {Col, Container, Row} from "react-bootstrap";
 const Header = () => {
 	return (
 		<div className={style.HeaderWrapper}>
-			<Container fluid>
+			<Container>
 				<Row>
 					<Col xs={3} className={style.Logo}>
 						<Logo height={30} link={'/'} mode={'dark'}/>

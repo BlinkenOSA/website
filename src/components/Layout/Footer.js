@@ -6,12 +6,12 @@ import {SocialIconFB, SocialIconInsta, SocialIconYT} from "@/components/Icon/Soc
 const Footer = () => {
 	return (
 		<div className={style.FooterWrapper}>
-			<Container fluid={true}>
+			<Container>
 				<Row>
 					<Col xs={3}>
 						<Logo mode={'light'} height={30} />
 					</Col>
-					<Col xs={5} style={{paddingRight: '20px'}}>
+					<Col xs={6} style={{paddingRight: '20px'}}>
 						<div className={style.InfoWrapperLeft}>
 							<div className={style.Label}>Contact</div>
 							<div className={style.Info}>
@@ -31,7 +31,7 @@ const Footer = () => {
 							</div>
 						</div>
 					</Col>
-					<Col xs={4}>
+					<Col xs={3}>
 						<div className={style.InfoWrapperRight}>
 							<div className={style.Label}>About</div><br/>
 							<div className={style.Links}>

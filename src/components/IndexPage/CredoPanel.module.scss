@@ -3,14 +3,12 @@
 .Panel {
   position: relative;
   height: 600px;
-  margin: 0 -84px;
+  background-color: $mustard_1000;
 
   .Card {
     display: flex;
-    padding-left: 84px;
     align-items: center;
     height: 100%;
-    background-color: $mustard_1000;
 
     .Text {
       flex: 1;
@@ -23,6 +21,7 @@
     .Logo {
       display: flex;
       flex: 1;
+      justify-content: flex-end;
     }
 
   }

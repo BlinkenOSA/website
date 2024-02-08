@@ -2,7 +2,6 @@
 @import "@/styles/variables.scss";
 
 .Page {
-  padding: 0 $page-padding;
   margin-top: $header-height-desktop + 10px;
   margin-right: calc(4 * $menu-width - 3px);
   min-height: calc(100vh - $header-height-desktop);

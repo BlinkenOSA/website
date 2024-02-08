@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   height: $header-height-desktop;
-  padding: 0 84px;
+  padding-right: calc(4 * $menu-width - 3px);
   background-color: #FFF;
 
   .Logo {

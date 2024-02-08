@@ -1,10 +1,12 @@
 import style from "./CredoPanel.module.scss"
 import archivumLogo from "../../../public/icons/credo/archivum.svg"
 import Image from "next/image";
+import {Container} from "react-bootstrap";
 
 const CredoPanel = () => {
     return (
         <div className={style.Panel}>
+            <Container>
             <div className={style.Card}>
                 <div className={style.Text}>
                     <h1>We are the Archivum</h1>
@@ -22,6 +24,7 @@ const CredoPanel = () => {
                     />
                 </div>
             </div>
+            </Container>
         </div>
     )
 }
