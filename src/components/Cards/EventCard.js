@@ -2,13 +2,13 @@ import style from "./EventCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import Tag from "@/components/Tag/Tag";
 
-const EventCard = ({title, image, date, description, icon}) => {
+const EventCard = ({title, image, date, description, icon, color='neutral'}) => {
     return (
         <div className={style.Wrapper}>
             <div className={style.Image}>
                 <MaskedImage src={image} type={'landscape'} />
                 <div className={style.Tag}>
-                    <Tag text={date} icon={icon}/>
+                    <Tag text={date} icon={icon} color={color}/>
                 </div>
             </div>
             <h3 className={`${style.Title} subtitle-large`}>{title}</h3>

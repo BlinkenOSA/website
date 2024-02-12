@@ -3,7 +3,7 @@ import Input from "@/components/Input/Input";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import Button from "@/components/Button/Button";
 
-const NewsletterPanel = ({type='landing'}) => {
+const NewsletterPanel = ({type='landing', color='neutral'}) => {
     return (
         <div className={type === 'landing' ? `${style.Wrapper} ${style.Landing}` : style.Wrapper}>
             <div className={style.Left}>
@@ -18,7 +18,7 @@ const NewsletterPanel = ({type='landing'}) => {
                         <Input id={'email'} placeholder={'Email Address'} style={{width: 100}} />
                     </div>
                     <div className={style.Button}>
-                        <Button size={'large'}>
+                        <Button size={'large'} type={'primary'} color={color}>
                             Subscribe
                         </Button>
                     </div>

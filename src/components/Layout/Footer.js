@@ -26,8 +26,8 @@ const Footer = () => {
 						<div className={style.InfoWrapperLeft}>
 							<div className={style.Label}>Opening</div>
 							<div className={style.Info}>
-								Galeria: K-V 10:00 - 18:00
-								Research Room: H-P 10:00 - 17:45
+								Galeria: Tue-Sun 10:00 - 18:00<br/>
+								Research Room: Mon-Fri 10:00 - 17:45
 							</div>
 						</div>
 					</Col>

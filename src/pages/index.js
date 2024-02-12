@@ -1,11 +1,9 @@
-import style from "./pages.module.scss";
-import { LoremIpsum } from 'react-lorem-ipsum';
-import {Carousel, Col, Container, Row} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 import Hero from "@/components/Hero/Hero";
 import HeroControl from "@/components/Hero/HeroControl";
 import NewsCard from "@/components/Cards/NewsCard";
 import {IconDocument, IconExhibition, IconPrograms} from "@/components/Icon/Icon";
-import EventsDivider from "@/components/IndexPage/EventsDivider";
+import SectionDivider from "@/components/IndexPage/SectionDivider";
 import EventCard from "@/components/Cards/EventCard";
 import CatalogPanel from "@/components/IndexPage/CatalogPanel";
 import SectionPanel from "@/components/IndexPage/SectionPanel";
@@ -13,6 +11,7 @@ import CredoPanel from "@/components/IndexPage/CredoPanel";
 import CollectionCard from "@/components/Cards/CollectionCard";
 import PartnersPanel from "@/components/IndexPage/PartnersPanel";
 import NewsletterPanel from "@/components/IndexPage/NewsletterPanel";
+import SectionFlipper from "@/components/IndexPage/SectionFlipper";
 
 const IndexPage = () => {
   return (
@@ -27,7 +26,7 @@ const IndexPage = () => {
               </Col>
           </Row>
           <div style={{height: '48px'}}/>
-          <EventsDivider/>
+          <SectionDivider title={'Events'} buttonText={'View All Events'} subTitle={'* All our programs are free.'}/>
           <Row>
               <Col xs={4}>
                   <EventCard
@@ -39,6 +38,7 @@ const IndexPage = () => {
                           'The theme of the exhibition is human connection.'}
                       image={'https://osaarchivum.org/files/images/announcements/2024/website-with-logos.png'}
                       icon={<IconExhibition size={'small'}/>}
+                      color={'mustard'}
                   />
               </Col>
               <Col xs={4}>
@@ -48,6 +48,7 @@ const IndexPage = () => {
                       description={'On the 80th anniversary of the Hungarian Shoah, two related events will take place at the CEU Nádor Street building (entrance: 1051 Budapest, Nádor utca 15) on Wednesday, January 10, 2024. At 4 p.m., the working group of historians of the CEU Democracy Institute will present Viktor Karády and István Kemény’s book Zsidóság a magyar nemzetépítésben a numerus clausus előtt és azután [Jewishness in Hungarian nation-building before and after the Numerus Clausus]. At 6 p.m., András Böröcz’s kinetic sculpture Noisemaker, commissioned and supported by the Polgár Foundation, will be presented by art historian András Rényi in the presence of the artist. (A regular exhibitor in Budapest, András Böröcz has been living in Brooklyn since 1984.'}
                       image={'https://osaarchivum.org/files/images/announcements/2024/img0551gray2.jpg'}
                       icon={<IconPrograms size={'small'}/>}
+                      color={'sage'}
                   />
               </Col>
               <Col xs={4}>
@@ -57,6 +58,7 @@ const IndexPage = () => {
                       description={'János Kornai was an internationally acclaimed expert of Socialist economies and post-Communist tranistions.'}
                       image={'https://www.osaarchivum.org/files/images/announcements/2023/20230630kornai.jpg'}
                       icon={<IconDocument size={'small'}/>}
+                      color={'orange'}
                   />
               </Col>
           </Row>
@@ -69,6 +71,7 @@ const IndexPage = () => {
                       description={'János Kornai was an internationally acclaimed expert of Socialist economies and post-Communist tranistions.'}
                       image={'https://www.osaarchivum.org/files/images/announcements/2023/20230630kornai.jpg'}
                       icon={<IconDocument size={'small'}/>}
+                      color={'mustard'}
                   />
               </Col>
               <Col xs={4}>
@@ -81,6 +84,7 @@ const IndexPage = () => {
                           'The theme of the exhibition is human connection.'}
                       image={'https://osaarchivum.org/files/images/announcements/2024/website-with-logos.png'}
                       icon={<IconExhibition size={'small'}/>}
+                      color={'sage'}
                   />
               </Col>
               <Col xs={4}>
@@ -90,6 +94,7 @@ const IndexPage = () => {
                       description={'On the 80th anniversary of the Hungarian Shoah, two related events will take place at the CEU Nádor Street building (entrance: 1051 Budapest, Nádor utca 15) on Wednesday, January 10, 2024. At 4 p.m., the working group of historians of the CEU Democracy Institute will present Viktor Karády and István Kemény’s book Zsidóság a magyar nemzetépítésben a numerus clausus előtt és azután [Jewishness in Hungarian nation-building before and after the Numerus Clausus]. At 6 p.m., András Böröcz’s kinetic sculpture Noisemaker, commissioned and supported by the Polgár Foundation, will be presented by art historian András Rényi in the presence of the artist. (A regular exhibitor in Budapest, András Böröcz has been living in Brooklyn since 1984.'}
                       image={'https://osaarchivum.org/files/images/announcements/2024/img0551gray2.jpg'}
                       icon={<IconPrograms size={'small'}/>}
+                      color={'orange'}
                   />
               </Col>
           </Row>
@@ -100,66 +105,8 @@ const IndexPage = () => {
         </Container>
         <Container>
           <div style={{height: '48px'}}/>
-          <SectionPanel title={'News'}>
-              <Col xs={4}>
-                  <NewsCard
-                      date={'16.10.2023.'}
-                      title={'“I believe I’m next” – A Polish Political Assassination’s Echoes in Eastern Europe'}
-                      description={'In October 1984, the Radio Free Europe/Radio Liberty Research Institute, in Munich, ' +
-                          'received ominous news from Socialist Poland. The 37'}
-                      image={'https://osaarchivum.org/files/blog/8073/20231019_popieluszko-rfe_01.jpg'}
-                      icon={<IconDocument size={'small'}/>}
-                  />
-              </Col>
-              <Col xs={4}>
-                  <NewsCard
-                      date={'03.01.2024.'}
-                      title={'1944–2024 - Book launch and the presentation of András Böröcz’s kinetic sculpture the Noisemaker at the CEU Nádor Street building'}
-                      description={'On the 80th anniversary of the Hungarian Shoah, two related events will take place at the CEU Nádor Street building (entrance: 1051 Budapest, Nádor utca 15) on Wednesday, January 10, 2024. At 4 p.m., the working group of historians of the CEU Democracy Institute will present Viktor Karády and István Kemény’s book Zsidóság a magyar nemzetépítésben a numerus clausus előtt és azután [Jewishness in Hungarian nation-building before and after the Numerus Clausus]. At 6 p.m., András Böröcz’s kinetic sculpture Noisemaker, commissioned and supported by the Polgár Foundation, will be presented by art historian András Rényi in the presence of the artist. (A regular exhibitor in Budapest, András Böröcz has been living in Brooklyn since 1984.'}
-                      image={'https://osaarchivum.org/files/images/announcements/2024/img0551gray2.jpg'}
-                      icon={<IconPrograms size={'small'}/>}
-                  />
-              </Col>
-              <Col xs={4}>
-                  <NewsCard
-                      date={'18.08.2023.'}
-                      title={'János Kornai Correspondence Donated to the Archivum'}
-                      description={'János Kornai was an internationally acclaimed expert of Socialist economies and post-Communist tranistions.'}
-                      image={'https://www.osaarchivum.org/files/images/announcements/2023/20230630kornai.jpg'}
-                      icon={<IconDocument size={'small'}/>}
-                  />
-              </Col>
-              <Col xs={4}>
-                  <NewsCard
-                      date={'16.10.2023.'}
-                      title={'“I believe I’m next” – A Polish Political Assassination’s Echoes in Eastern Europe'}
-                      description={'In October 1984, the Radio Free Europe/Radio Liberty Research Institute, in Munich, ' +
-                          'received ominous news from Socialist Poland. The 37'}
-                      image={'https://osaarchivum.org/files/blog/8073/20231019_popieluszko-rfe_01.jpg'}
-                      icon={<IconDocument size={'small'}/>}
-                  />
-              </Col>
-              <Col xs={4}>
-                  <NewsCard
-                      date={'03.01.2024.'}
-                      title={'1944–2024 - Book launch and the presentation of András Böröcz’s kinetic sculpture the Noisemaker at the CEU Nádor Street building'}
-                      description={'On the 80th anniversary of the Hungarian Shoah, two related events will take place at the CEU Nádor Street building (entrance: 1051 Budapest, Nádor utca 15) on Wednesday, January 10, 2024. At 4 p.m., the working group of historians of the CEU Democracy Institute will present Viktor Karády and István Kemény’s book Zsidóság a magyar nemzetépítésben a numerus clausus előtt és azután [Jewishness in Hungarian nation-building before and after the Numerus Clausus]. At 6 p.m., András Böröcz’s kinetic sculpture Noisemaker, commissioned and supported by the Polgár Foundation, will be presented by art historian András Rényi in the presence of the artist. (A regular exhibitor in Budapest, András Böröcz has been living in Brooklyn since 1984.'}
-                      image={'https://osaarchivum.org/files/images/announcements/2024/img0551gray2.jpg'}
-                      icon={<IconPrograms size={'small'}/>}
-                  />
-              </Col>
-              <Col xs={4}>
-                  <NewsCard
-                      date={'18.08.2023.'}
-                      title={'János Kornai Correspondence Donated to the Archivum'}
-                      description={'János Kornai was an internationally acclaimed expert of Socialist economies and post-Communist tranistions.'}
-                      image={'https://www.osaarchivum.org/files/images/announcements/2023/20230630kornai.jpg'}
-                      icon={<IconDocument size={'small'}/>}
-                  />
-              </Col>
-          </SectionPanel>
-          <div style={{height: '40px'}}/>
-          <SectionPanel title={'Blogs'}>
+            <SectionFlipper title={'News'} />
+            <SectionPanel>
               <Col xs={4}>
                   <NewsCard
                       date={'16.10.2023.'}
@@ -190,7 +137,40 @@ const IndexPage = () => {
               </Col>
           </SectionPanel>
           <div style={{height: '40px'}}/>
-          <SectionPanel title={'Podcasts'}>
+            <SectionFlipper title={'Blogs'} />
+            <SectionPanel >
+              <Col xs={4}>
+                  <NewsCard
+                      date={'16.10.2023.'}
+                      title={'“I believe I’m next” – A Polish Political Assassination’s Echoes in Eastern Europe'}
+                      description={'In October 1984, the Radio Free Europe/Radio Liberty Research Institute, in Munich, ' +
+                          'received ominous news from Socialist Poland. The 37'}
+                      image={'https://osaarchivum.org/files/blog/8073/20231019_popieluszko-rfe_01.jpg'}
+                      icon={<IconDocument size={'small'}/>}
+                  />
+              </Col>
+              <Col xs={4}>
+                  <NewsCard
+                      date={'03.01.2024.'}
+                      title={'1944–2024 - Book launch and the presentation of András Böröcz’s kinetic sculpture the Noisemaker at the CEU Nádor Street building'}
+                      description={'On the 80th anniversary of the Hungarian Shoah, two related events will take place at the CEU Nádor Street building (entrance: 1051 Budapest, Nádor utca 15) on Wednesday, January 10, 2024. At 4 p.m., the working group of historians of the CEU Democracy Institute will present Viktor Karády and István Kemény’s book Zsidóság a magyar nemzetépítésben a numerus clausus előtt és azután [Jewishness in Hungarian nation-building before and after the Numerus Clausus]. At 6 p.m., András Böröcz’s kinetic sculpture Noisemaker, commissioned and supported by the Polgár Foundation, will be presented by art historian András Rényi in the presence of the artist. (A regular exhibitor in Budapest, András Böröcz has been living in Brooklyn since 1984.'}
+                      image={'https://osaarchivum.org/files/images/announcements/2024/img0551gray2.jpg'}
+                      icon={<IconPrograms size={'small'}/>}
+                  />
+              </Col>
+              <Col xs={4}>
+                  <NewsCard
+                      date={'18.08.2023.'}
+                      title={'János Kornai Correspondence Donated to the Archivum'}
+                      description={'János Kornai was an internationally acclaimed expert of Socialist economies and post-Communist tranistions.'}
+                      image={'https://www.osaarchivum.org/files/images/announcements/2023/20230630kornai.jpg'}
+                      icon={<IconDocument size={'small'}/>}
+                  />
+              </Col>
+          </SectionPanel>
+          <div style={{height: '40px'}}/>
+            <SectionFlipper title={'Podcasts'} />
+            <SectionPanel>
               <Col xs={4}>
                   <NewsCard
                       date={'16.10.2023.'}
@@ -255,7 +235,8 @@ const IndexPage = () => {
         </Container>
         <Container>
           <div style={{height: '40px'}}/>
-          <SectionPanel title={'Collection Highlights'}>
+            <SectionDivider title={'Collection Highlights'} buttonText={'View All Collection Highlights'} />
+            <SectionPanel title={'Collection Highlights'}>
               <Col xs={4}>
                   <CollectionCard
                       itemNumber={1285}

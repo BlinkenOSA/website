@@ -3,7 +3,7 @@ import {useState} from "react";
 import Button from "@/components/Button/Button";
 import {IconGeneralLeft, IconGeneralRight} from "@/components/Icon/Icon";
 import style from './SectionPanel.module.scss';
-import SectionDivider from "@/components/IndexPage/SectionDivider";
+import SectionFlipper from "@/components/IndexPage/SectionFlipper";
 
 const SectionPanel = ({title, children}) => {
     const [activeItem, setActiveItem] = useState(0);
@@ -28,7 +28,6 @@ const SectionPanel = ({title, children}) => {
 
     return (
         <>
-            <SectionDivider title={title} />
             <Row style={{flexWrap: 'nowrap', overflow: 'hidden'}}>
                 {renderItems()}
             </Row>

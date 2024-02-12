@@ -1,17 +1,61 @@
 @import "@/styles/colors.scss";
+@import "@/styles/variables.scss";
 
 .Tag {
   display: inline-flex;
   gap: 8px;
-  color: #FFF;
-  background-color: $neutral_1000;
+  color: $neutral_1000;
   padding: 4px 8px;
+
+  &.neutral {
+    span {
+      color: #FFFFFF;
+    }
+
+    background-color: $neutral_1000;
+  }
+
+  &.mustard {
+    background-color: $mustard_1000;
+
+    .Icon {
+      img {
+        filter: brightness(0%);
+      }
+    }
+  }
+
+  &.orange {
+    background-color: $orange_1000;
+
+    .Icon {
+      img {
+        filter: brightness(0%);
+      }
+    }
+  }
+
+  &.aqua {
+    background-color: $aqua_1000;
+
+    .Icon {
+      img {
+        filter: brightness(0%);
+      }
+    }
+  }
+
+  &.sage {
+    background-color: $sage_1000;
+
+    .Icon {
+      img {
+        filter: brightness(0%);
+      }
+    }
+  }
 
   .Icon {
     display: flex;
-  }
-
-  span {
-    color: #FFF;
   }
 }

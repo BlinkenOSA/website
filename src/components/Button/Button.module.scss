@@ -152,34 +152,11 @@
     }
   }
 
-  :global .btn-primary-mustard {
-    border: unset;
-    background-color: $mustard_1000;
-
-    &:hover {
-      background-color: $mustard_600;
-    }
-
-    &:active {
-      background-color: $mustard_1000;
-    }
-
-    &:focus {
-      background-color: $mustard_600;
-    }
-
-    &:disabled {
-      background-color: $neutral_100;
-      color: $neutral_500;
-    }
-  }
-
   :global .btn-secondary-mustard {
     border: 1px solid $neutral_1000;
 
     &:hover {
-      color: $mustard_1000;
-      border-color: $mustard_1000;
+      background-color: $mustard_1000;
     }
 
     &:active {
@@ -188,8 +165,7 @@
     }
 
     &:focus {
-      color: $mustard_1000;
-      border-color: $mustard_1000;
+      background-color: $mustard_1000;
     }
 
     &:disabled {
@@ -243,34 +219,11 @@
     }
   }
 
-  :global .btn-primary-orange {
-    border: unset;
-    background-color: $orange_1000;
-
-    &:hover {
-      background-color: $orange_600;
-    }
-
-    &:active {
-      background-color: $orange_1000;
-    }
-
-    &:focus {
-      background-color: $orange_600;
-    }
-
-    &:disabled {
-      background-color: $neutral_100;
-      color: $neutral_500;
-    }
-  }
-
   :global .btn-secondary-orange {
     border: 1px solid $neutral_1000;
 
     &:hover {
-      color: $orange_1000;
-      border-color: $orange_1000;
+      background-color: $orange_1000;
     }
 
     &:active {
@@ -279,8 +232,7 @@
     }
 
     &:focus {
-      color: $orange_1000;
-      border-color: $orange_1000;
+      background-color: $orange_1000;
     }
 
     &:disabled {
@@ -334,34 +286,11 @@
     }
   }
 
-  :global .btn-primary-aqua {
-    border: unset;
-    background-color: $aqua_1000;
-
-    &:hover {
-      background-color: $aqua_600;
-    }
-
-    &:active {
-      background-color: $aqua_1000;
-    }
-
-    &:focus {
-      background-color: $aqua_600;
-    }
-
-    &:disabled {
-      background-color: $neutral_100;
-      color: $neutral_500;
-    }
-  }
-
   :global .btn-secondary-aqua {
     border: 1px solid $neutral_1000;
 
     &:hover {
-      color: $aqua_1000;
-      border-color: $aqua_1000;
+      background-color: $aqua_1000;
     }
 
     &:active {
@@ -370,8 +299,7 @@
     }
 
     &:focus {
-      color: $aqua_1000;
-      border-color: $aqua_1000;
+      background-color: $aqua_1000;
     }
 
     &:disabled {
@@ -425,34 +353,11 @@
     }
   }
 
-  :global .btn-primary-sage {
-    border: unset;
-    background-color: $sage_1000;
-
-    &:hover {
-      background-color: $sage_600;
-    }
-
-    &:active {
-      background-color: $sage_1000;
-    }
-
-    &:focus {
-      background-color: $sage_600;
-    }
-
-    &:disabled {
-      background-color: $neutral_100;
-      color: $neutral_500;
-    }
-  }
-
   :global .btn-secondary-sage {
     border: 1px solid $neutral_1000;
 
     &:hover {
-      color: $sage_1000;
-      border-color: $sage_1000;
+      background-color: $sage_1000;
     }
 
     &:active {
@@ -461,8 +366,7 @@
     }
 
     &:focus {
-      color: $sage_1000;
-      border-color: $sage_1000;
+      background-color: $sage_1000;
     }
 
     &:disabled {

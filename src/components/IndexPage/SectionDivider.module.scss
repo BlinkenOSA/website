@@ -11,5 +11,14 @@
     justify-content: space-between;
     margin-bottom: 4px;
   }
+
+  .Controls {
+    display: flex;
+    gap: 8px;
+  }
+
+  .SubText {
+    color: $neutral_500;
+  }
 }
 
