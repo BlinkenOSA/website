@@ -1,4 +1,15 @@
-.Controls {
-  display: flex;
-  gap: 8px;
+.HeroControlWrapper {
+  position: relative;
+
+  .Controls {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-bottom: 24px;
+    z-index: 1;
+  }
 }
+

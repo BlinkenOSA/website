@@ -1,21 +1,72 @@
+@import "@/styles/colors.scss";
+
 .HeroWrapper {
   position: relative;
+  width: 100%;
+  height: 400px;
+  clip-path: polygon(22% 0, 100% 0, 100% 95%, 78% 100%, 0 100%, 0 5%);
+
+  &.mustard {
+    background-color: $mustard_1000;
+  }
+
+  &.orange {
+    background-color: $orange_1000;
+  }
+
+  &.aqua {
+    background-color: $aqua_1000;
+  }
+
+  &.sage {
+    background-color: $sage_1000;
+  }
 
   .TopRow {
     position: absolute;
     top: 0;
+    margin: 48px 0 0 48px;
     display: flex;
     width: 100%;
+    color: $neutral_1000;
+    line-height: 16px;
+
+    .Logo {
+      width: 120px;
+
+      img {
+        filter: brightness(0%);
+      }
+    }
 
     .Date {
       flex: 1;
-      color: #FFFFFF;
+    }
+
+    .Location {
+      flex: 1
     }
   }
 
-  .Logo {
+  .PosterWrapper {
+    padding: 48px;
     position: absolute;
-    padding: 16px;
-    bottom: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  .TitleRow {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+
+    .Title {
+      flex: 2;
+      padding-left: 48px;
+      z-index: 9;
+    }
   }
 }

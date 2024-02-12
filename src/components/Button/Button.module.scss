@@ -11,6 +11,10 @@
     font-family: var(--font-suisseIntlRegular);
     color: $neutral_1000;
     border-radius: 0;
+
+    &:disabled {
+      opacity: 1;
+    }
   }
 
   :global .btn-md {

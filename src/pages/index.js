@@ -20,8 +20,19 @@ const IndexPage = () => {
           <Row>
               <Col xs={12}>
                   <HeroControl>
-                      <Hero image={'https://osaarchivum.org/files/images/announcements/2024/website-with-logos.png'} />
-                      <Hero image={'https://osaarchivum.org/files/images/announcements/2024/img0551gray2.jpg'} />
+                      <Hero
+                          date={'29th January 2024'}
+                          location={'Blinken OSA Archivum'}
+                          title_1={'Darling, Let Me Hold You!'}
+                          image={'https://osaarchivum.org/files/images/announcements/2024/website-with-logos.png'}
+                          color={'sage'}
+                      />
+                      <Hero
+                          date={'3rd January 2024'}
+                          title_1={'András Böröcz'}
+                          title_2={'The Noisemaker'}
+                          location={'CEU Nádor Street building'}
+                          image={'https://osaarchivum.org/files/images/announcements/2024/img0551gray2.jpg'} />
                   </HeroControl>
               </Col>
           </Row>

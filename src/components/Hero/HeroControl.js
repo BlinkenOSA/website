@@ -29,28 +29,26 @@ const HeroControl = ({children}) => {
         <>
         <Row>
             <Col xs={12}>
-                <Carousel activeIndex={activeItem} controls={false} indicators={false} onSelect={handleSelect}>
-                    {renderItems()}
-                </Carousel>
-            </Col>
-        </Row>
-        <Row>
-            <Col xs={6}>
-                <div className={style.Controls}>
-                    <Button
-                        onClick={handlePrevious}
-                        disabled={activeItem === 0}
-                        type={'primary'}
-                        size={'medium'}
-                        color={'mustard'}
-                        isIcon={true}><IconGeneralLeft/></Button>
-                    <Button
-                        onClick={handleNext}
-                        disabled={activeItem === children.length - 1}
-                        type={'primary'}
-                        size={'medium'}
-                        color={'mustard'}
-                        isIcon={true}><IconGeneralRight/></Button>
+                <div className={style.HeroControlWrapper}>
+                    <div className={style.Controls}>
+                        <Button
+                            onClick={handlePrevious}
+                            disabled={activeItem === 0}
+                            type={'primary'}
+                            size={'medium'}
+                            color={'neutral'}
+                            isIcon={true}><IconGeneralLeft/></Button>
+                        <Button
+                            onClick={handleNext}
+                            disabled={activeItem === children.length - 1}
+                            type={'primary'}
+                            size={'medium'}
+                            color={'neutral'}
+                            isIcon={true}><IconGeneralRight/></Button>
+                    </div>
+                    <Carousel activeIndex={activeItem} controls={false} indicators={false} onSelect={handleSelect}>
+                        {renderItems()}
+                    </Carousel>
                 </div>
             </Col>
         </Row>

@@ -76,3 +76,15 @@ h3 {
   line-height: 24px;
   @extend .text-regular-base;
 }
+
+.hero-top-row {
+  @extend .text-semibold-base;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.hero-title {
+  @extend .text-semibold-base;
+  font-size: 48px;
+  line-height: 48px;
+}
