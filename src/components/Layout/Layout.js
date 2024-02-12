@@ -1,6 +1,6 @@
 import Header from "@/components/Layout/Header";
 import style from "@/components/Layout/Layout.module.scss";
-import Menu from "@/components/Menu/Menu";
+import Menu from "@/components/Menu/v2/Menu";
 import Footer from "@/components/Layout/Footer";
 
 const Layout = ({ children }) => {

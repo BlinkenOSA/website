@@ -4,6 +4,7 @@ import {Col, Container, Row} from "react-bootstrap";
 
 const IndexPage = () => {
   return (
+
     <div className={style.PageWithMenuOpen}>
         <Container>
             <Row>

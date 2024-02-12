@@ -88,3 +88,9 @@ h3 {
   font-size: 48px;
   line-height: 48px;
 }
+
+.menu-text {
+  @extend .text-regular-base;
+  font-size: 24px;
+  line-height: 36px;
+}

@@ -1,4 +1,4 @@
-import style from "@/components/Menu/Menu.module.scss";
+import style from "@/components/Menu/v1/Menu.module.scss";
 import {motion} from "framer-motion";
 import {useMeasure, useWindowSize} from "react-use";
 

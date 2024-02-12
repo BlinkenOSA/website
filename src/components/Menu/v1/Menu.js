@@ -2,7 +2,7 @@
 
 import style from "./Menu.module.scss";
 import {useState} from "react";
-import MenuItem from "@/components/Menu/MenuItem";
+import MenuItem from "@/components/Menu/v1/MenuItem";
 import {useRouter} from "next/router";
 import SubMenu from "@/components/experiementing/Layout/desktop/parts/menuParts/SubMenu";
 import {IconAcademics, IconArchivum, IconCollections, IconPublicPrograms} from "@/components/Icon/CategoriesIcon";
