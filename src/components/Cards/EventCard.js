@@ -1,6 +1,7 @@
 import style from "./EventCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import Tag from "@/components/Tag/Tag";
+import Dotdotdot from "react-dotdotdot";
 
 const EventCard = ({title, image, date, description, icon, color='neutral'}) => {
     return (
@@ -13,7 +14,9 @@ const EventCard = ({title, image, date, description, icon, color='neutral'}) => 
             </div>
             <h3 className={`${style.Title} subtitle-large`}>{title}</h3>
             <div className={style.Description}>
-                {description}
+                <Dotdotdot clamp={4} >
+                    {description}
+                </Dotdotdot>
             </div>
         </div>
     )

@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
             <div className={style.Header}>
                 <Header />
             </div>
-            <div className={`${style.Page} suisseIntlRegular`}>
+            <div className={`suisseIntlRegular`}>
                 {children}
             </div>
             <div className={style.Menu}>

@@ -1,15 +1,6 @@
 @import "@/styles/colors.scss";
 @import "@/styles/variables.scss";
 
-.Page {
-  margin-top: $header-height-desktop + 48px;
-  margin-right: calc(4 * $menu-width - 3px);
-  min-height: calc(100vh - $header-height-desktop);
-
-  :global .container {
-    padding: 0 84px;
-  }
-}
 
 .Menu {
   position: fixed;

@@ -1,8 +1,22 @@
 @import "@/styles/variables.scss";
 
-.IndexPage {
+.PageWithMenuClosed {
+  margin-top: $header-height-desktop + 48px;
+  margin-right: calc(4 * $menu-width - 3px);
+  min-height: calc(100vh - $header-height-desktop);
 
+  :global .container {
+    padding: 0 84px;
+  }
 }
 
 .PageWithMenuOpen {
+  margin-top: $header-height-desktop + $submenu-height + 48px;
+  margin-right: calc(3 * $menu-width - 2px);
+  margin-left: calc($menu-width - 1px);
+  min-height: calc(100vh - $header-height-desktop);
+
+  :global .container {
+    padding: 0 84px;
+  }
 }
