@@ -1,57 +1,67 @@
 @import "@/styles/colors.scss";
 @import "@/styles/variables.scss";
 
-.FooterWrapper {
-  display: flex;
-  align-items: center;
-  padding-left: 84px;
-  padding-right: 84px;
-  margin-right: calc(3 * $menu-width - 3px);
+.FooterContainer {
   background-color: $neutral_1000;
-  min-height: 300px;
 
-  .InfoWrapperLeft {
+  .FooterWrapper {
     display: flex;
+    align-items: center;
+    margin-right: calc(4 * $menu-width - 3px);
+    min-height: 300px;
 
-    .Label {
-      color: #FFFFFF;
-      width: 110px;
+    :global .container {
+      padding: 0 84px;
     }
 
-    .Info {
-      flex: 1;
-      color: $neutral_300;
-    }
-  }
-
-  .InfoWrapperRight {
-    display: flex;
-    flex-direction: column;
-    padding-left: 50px;
-
-    .Label {
-      color: #FFFFFF;
-      width: 110px;
+    .Logo {
+      margin-left: -35px;
+      margin-right: 35px;
     }
 
-    .Links {
-      color: $neutral_300;
+    .InfoWrapperLeft {
+      display: flex;
 
-      ul {
-        list-style: none;
+      .Label {
+        color: #FFFFFF;
+        width: 110px;
+      }
+
+      .Info {
+        flex: 1;
+        color: $neutral_300;
       }
     }
-  }
 
-  .SocialIcons {
-    display: flex;
-    gap: 16px;
-    padding-left: 50px;
-
-    a {
-      width: 16px;
-      height: 16px;
+    .InfoWrapperRight {
       display: flex;
+      flex-direction: column;
+      padding-left: 50px;
+
+      .Label {
+        color: #FFFFFF;
+        width: 110px;
+      }
+
+      .Links {
+        color: $neutral_300;
+
+        ul {
+          list-style: none;
+        }
+      }
+    }
+
+    .SocialIcons {
+      display: flex;
+      gap: 16px;
+      padding-left: 50px;
+
+      a {
+        width: 16px;
+        height: 16px;
+        display: flex;
+      }
     }
   }
 }
