@@ -2,7 +2,7 @@
 
 .PageWithMenuClosed {
   margin-top: $header-height-desktop + 48px;
-  margin-right: calc(4 * $menu-width - 3px);
+  margin-right: calc(4 * $menu-width - 4px);
   min-height: calc(100vh - $header-height-desktop);
 
   :global .container {

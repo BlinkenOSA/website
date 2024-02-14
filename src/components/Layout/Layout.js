@@ -1,6 +1,6 @@
 import Header from "@/components/Layout/Header";
 import style from "@/components/Layout/Layout.module.scss";
-import Menu from "@/components/Menu/v1/Menu";
+import Menu from "@/components/Menu/v2/Menu";
 import Footer from "@/components/Layout/Footer";
 
 const Layout = ({ children }) => {
@@ -9,11 +9,11 @@ const Layout = ({ children }) => {
             <div className={style.Header}>
                 <Header />
             </div>
-            <div className={`suisseIntlRegular`}>
+            <div className={`${style.Content} suisseIntlRegular`}>
                 {children}
-            </div>
-            <div className={style.Menu}>
-                <Menu />
+                <div className={style.Menu}>
+                    <Menu />
+                </div>
             </div>
             <Footer />
       </>

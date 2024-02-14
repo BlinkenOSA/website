@@ -33,17 +33,18 @@ const DesktopMenu = () => {
       <nav className={style.BarNavigation}>
           <div className={style.NavList}>
               {
-                Object.keys(menuConfig).map((key, index) => {
+                menuConfig.map((cfg, index) => {
                   return (
                       <MenuItem
                           key={index}
-                          title={menuConfig[key]['title']}
-                          color={menuConfig[key]['color']}
+                          title={cfg['title']}
+                          color={cfg['color']}
                           id={index}
                           number={index + 1}
                           menuOpen={menuOpen}
-                          icon={menuConfig[key]['icon']}
-                          submenu={menuConfig[key]['menu']}
+                          icon={cfg['icon']}
+                          bgIcon={cfg['menuBGIcon']}
+                          submenu={cfg['submenu']}
                           onClick={handleMenuClick} />
                   )
                 })

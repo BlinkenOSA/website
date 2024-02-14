@@ -1,11 +1,9 @@
 import {IconAcademics, IconArchivum, IconCollections, IconPublicPrograms} from "@/components/Icon/CategoriesIcon";
-import {IconAboutUsMenu} from "@/components/Icon/MenuBackgroundIcon";
 
 export const menuConfig = [
   {
     title: 'About Us',
     icon: <IconArchivum />,
-    menuBGIcon: <IconAboutUsMenu />,
     color: 'mustard',
     url: '/about',
     submenu: [

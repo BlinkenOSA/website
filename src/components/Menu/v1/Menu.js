@@ -4,37 +4,13 @@ import style from "./Menu.module.scss";
 import {useState} from "react";
 import MenuItem from "@/components/Menu/v1/MenuItem";
 import {useRouter} from "next/router";
-import SubMenu from "@/components/experiementing/Layout/desktop/parts/menuParts/SubMenu";
-import {IconAcademics, IconArchivum, IconCollections, IconPublicPrograms} from "@/components/Icon/CategoriesIcon";
+import {menuConfig} from "@/components/Menu/v1/config/menuConfig";
+import SubMenu from "@/components/Menu/v1/SubMenu";
 
 const Menu = () => {
   const [menuOpen, setMenuOpen] = useState(-1)
 
   const router = useRouter();
-
-  const menuConfig = [
-    {
-      title: 'About Us',
-      icon: <IconArchivum />,
-      css: style.AboutUs,
-      url: '/about'
-    }, {
-      title: 'Collections',
-      icon: <IconCollections />,
-      css: style.Collections,
-      url: '/collections'
-    }, {
-      title: 'Academics',
-      icon: <IconAcademics />,
-      css: style.Academics,
-      url: '/academics'
-    }, {
-      title: 'Public Programs',
-      icon: <IconPublicPrograms />,
-      css: style.PublicPrograms,
-      url: '/public-programs'
-    }
-  ]
 
   const handleMenuClick = (menuItem) => {
     if (menuOpen === menuItem) {
@@ -55,7 +31,7 @@ const Menu = () => {
               <MenuItem
                 key={index}
                 title={cfg['title']}
-                css={cfg['css']}
+                color={cfg['color']}
                 id={index}
                 number={menuOpen > index ? index + 2 : index + 1}
                 menuOpen={menuOpen}
@@ -66,7 +42,7 @@ const Menu = () => {
         }
       </ul>
       {
-        menuOpen > -1 && <SubMenu subMenu={menuOpen} css={menuConfig[menuOpen]['css']} />
+        menuOpen > -1 && <SubMenu submenuConfig={menuConfig[menuOpen]['submenu']} color={menuConfig[menuOpen]['color']} />
       }
     </nav>
   )

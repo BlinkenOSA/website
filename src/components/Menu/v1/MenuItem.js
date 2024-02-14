@@ -1,7 +1,7 @@
-import style from "./Menu.module.scss";
+import style from "./MenuItem.module.scss";
 import {motion} from "framer-motion";
 
-const MenuItem = ({title, id, number, menuOpen, icon, onClick, css}) => {
+const MenuItem = ({title, id, number, menuOpen, icon, onClick, color}) => {
   const menu = {
     open: { left: 0, right: 'unset'},
     closed: { left: 'unset', right: `${((4 - number)*55)}px`},
@@ -17,7 +17,7 @@ const MenuItem = ({title, id, number, menuOpen, icon, onClick, css}) => {
 
   return (
     <motion.li
-      className={`${style.NavItem} ${css}`}
+      className={`${style.MenuItem} ${style[color]}`}
       animate={menuOpen === id ? 'open': 'closed'}
       variants={menu}
       initial={{left: 'unset', right: 0}}

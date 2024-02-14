@@ -30,28 +30,3 @@ const submenuConfig = [
 ]
 
 
-const SubMenu = ({subMenu, css}) => {
-	const [ref, { height }] = useMeasure();
-
-	return (
-		<motion.div
-			initial={{x: '-120%'}}
-			animate={{ x: '0' }}
-			transition={{ delay: 0.5 }}
-			className={style.SubMenuList}
-		>
-			<motion.ul
-				ref={ref}
-				className={'suisseIntlBook'}
-			>
-				{
-					submenuConfig[subMenu].map((submenu, index) => {
-						return <li key={submenu['title']} className={css}>{submenu['title']}</li>
-					})
-				}
-			</motion.ul>
-		</motion.div>
-	)
-}
-
-export default SubMenu;

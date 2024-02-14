@@ -1,11 +1,18 @@
 import style from "./pages.module.scss";
 import { LoremIpsum } from 'react-lorem-ipsum';
+import {Col, Container, Row} from "react-bootstrap";
 
 const IndexPage = () => {
   return (
     <div className={style.PageWithMenuOpen}>
-      <h1>Academics</h1>
-      <LoremIpsum p={4} random={false} avgWordsPerSentence={22} avgSentencesPerParagraph={24} />
+        <Container>
+            <Row>
+                <Col xs={12}>
+                      <h1>Academics</h1>
+                      <LoremIpsum p={4} random={false} avgWordsPerSentence={22} avgSentencesPerParagraph={24} />
+                </Col>
+            </Row>
+        </Container>
     </div>
   )
 }
