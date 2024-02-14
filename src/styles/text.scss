@@ -90,7 +90,7 @@ h3 {
 }
 
 .menu-text {
-  @extend .text-regular-base;
-  font-size: 24px;
-  line-height: 36px;
+  @extend .text-semibold-base;
+  font-size: 36px;
+  line-height: 60px;
 }

@@ -38,7 +38,6 @@ const MenuItem = ({id, title, icon, bgIcon, number, color, menuOpen, onClick, su
                 <div className={style.MenuIcon}>{icon}</div>
             </div>
             <div className={`${style.MenuContent} ${style[color]}`}>
-                <div className={style.MenuTopTitle}>{title}</div>
                 {getSubmenu()}
                 <div className={style.BackgroundIcon}>
                     {bgIcon}

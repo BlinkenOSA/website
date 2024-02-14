@@ -1,5 +1,10 @@
 import {IconAcademics, IconArchivum, IconCollections, IconPublicPrograms} from "@/components/Icon/CategoriesIcon";
-import {IconAboutUsMenu} from "@/components/Icon/MenuBackgroundIcon";
+import {
+  IconAboutUsMenu,
+  IconAcademicsMenu,
+  IconCollectionsMenu,
+  IconPublicProgramsMenu
+} from "@/components/Icon/MenuBackgroundIcon";
 
 export const menuConfig = [
   {
@@ -26,6 +31,7 @@ export const menuConfig = [
   }, {
     title: 'Collections',
     icon: <IconCollections />,
+    menuBGIcon: <IconCollectionsMenu />,
     color: 'orange',
     url: '/collections',
     submenu: [
@@ -45,6 +51,7 @@ export const menuConfig = [
   }, {
     title: 'Academics',
     icon: <IconAcademics />,
+    menuBGIcon: <IconAcademicsMenu />,
     color: 'aqua',
     url: 'academics',
     submenu: [
@@ -60,6 +67,7 @@ export const menuConfig = [
   }, {
     title: 'Public Programs',
     icon: <IconPublicPrograms />,
+    menuBGIcon: <IconPublicProgramsMenu />,
     color: 'sage',
     url: '/public-programs',
     submenu: [
