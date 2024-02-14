@@ -8,7 +8,7 @@ const MenuItem = ({id, title, icon, bgIcon, number, color, menuOpen, onClick, su
     }
 
     const transition = {
-        ease: [0.8, 0.3, 0.3, 0.8], duration: 0.4
+        ease: [1, 0.3, 0.3, 1], duration: 0.7
     }
 
     const getStyle = () => {
