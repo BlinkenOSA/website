@@ -89,6 +89,12 @@ h3 {
   line-height: 48px;
 }
 
+.hero-subtitle {
+  @extend .text-semibold-base;
+  font-size: 16px;
+  line-height: 16px;
+}
+
 .menu-text {
   @extend .text-semibold-base;
   font-size: 36px;

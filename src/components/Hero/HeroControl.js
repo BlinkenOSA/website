@@ -34,14 +34,14 @@ const HeroControl = ({children}) => {
                         <Button
                             onClick={handlePrevious}
                             disabled={activeItem === 0}
-                            type={'hero'}
+                            type={'hero-secondary'}
                             size={'medium'}
                             color={'neutral'}
                             isIcon={true}><IconGeneralLeft/></Button>
                         <Button
                             onClick={handleNext}
                             disabled={activeItem === children.length - 1}
-                            type={'hero'}
+                            type={'hero-secondary'}
                             size={'medium'}
                             color={'neutral'}
                             isIcon={true}><IconGeneralRight/></Button>

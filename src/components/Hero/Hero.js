@@ -1,8 +1,8 @@
 import style from "./Hero.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
-import LogoHero from "@/components/Logo/LogoHero";
+import Button from "@/components/Button/Button";
 
-const Hero = ({image, title_1, title_2, date, location, color='mustard'}) => {
+const Hero = ({image, title_1, title_2, subtitle_1, subtitle_2, date, location, buttonText, color='mustard'}) => {
     return (
         <div className={`${style.HeroWrapper}`}>
             <div className={`${style.TopRow} hero-top-row`}>
@@ -13,7 +13,6 @@ const Hero = ({image, title_1, title_2, date, location, color='mustard'}) => {
                 <div className={style.Location}>
                     {location}
                 </div>
-                <div style={{flex: 3}}/>
             </div>
             <div className={style.TitleRow}>
                 <div style={{width: '120px'}}/>
@@ -23,12 +22,24 @@ const Hero = ({image, title_1, title_2, date, location, color='mustard'}) => {
                         title_2 &&
                         <><br/>{title_2}</>
                     }
+                    {
+                        subtitle_1 &&
+                        <div className={`${style.Subtitle} hero-subtitle`}>
+                            {subtitle_1}
+                            {
+                                subtitle_2 &&
+                                <><br/>{subtitle_2}</>
+                            }
+                        </div>
+                    }
                 </div>
-                <div style={{flex: 3}}/>
             </div>
-            <div className={style.SubtitleRow}>
-
-            </div>
+            {
+                buttonText &&
+                <div className={style.BottomRow}>
+                    <Button size={'medium'} type={'hero-primary'} color={'neutral'}>{buttonText}</Button>
+                </div>
+            }
             <div className={style.PosterWrapper}>
                 <MaskedImage src={image} type={'hero'}/>
             </div>

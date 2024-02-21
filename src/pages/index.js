@@ -25,6 +25,8 @@ const IndexPage = () => {
                               date={'29th January 2024'}
                               location={'Blinken OSA Archivum'}
                               title_1={'Darling, Let Me Hold You!'}
+                              subtitle_1={'This will be the subtitle'}
+                              buttonText={'Find out more!'}
                               image={'https://osaarchivum.org/files/images/announcements/2024/website-with-logos.png'}
                               color={'sage'}
                           />

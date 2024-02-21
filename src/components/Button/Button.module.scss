@@ -401,7 +401,31 @@
   }
 
   /* Hero */
-  :global .btn-hero-neutral {
+  :global .btn-hero-primary-neutral {
+    border: 1px solid $neutral_100;
+    background-color: $neutral_100;
+
+    img {
+      filter: brightness(0) invert(1);
+    }
+
+    &:hover {
+      border-color: $neutral_100;
+      color: $neutral_100;
+      background-color: $neutral_1000;
+    }
+
+    &:disabled {
+      border: 1px solid $neutral_600;
+      background-color: unset;
+
+      img {
+        filter: brightness(0) saturate(100%) invert(41%) sepia(100%) saturate(0%) hue-rotate(93deg) brightness(95%) contrast(94%);
+      }
+    }
+  }
+
+  :global .btn-hero-secondary-neutral {
     border: 1px solid $neutral_100;
     background-color: unset;
 

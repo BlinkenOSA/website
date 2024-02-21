@@ -54,4 +54,21 @@
       z-index: 9;
     }
   }
+
+  .Subtitle {
+    color: $neutral_100;
+    padding-top: 24px;
+    z-index: 9;
+  }
+
+  .BottomRow {
+    position: absolute;
+    bottom: 0;
+    padding: 0 0 24px 24px;
+    display: flex;
+    width: 100%;
+    color: $neutral_100;
+    line-height: 16px;
+    z-index: 2;
+  }
 }
