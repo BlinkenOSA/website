@@ -107,7 +107,6 @@
     &:disabled {
       color: $neutral_300;
       border-color: $neutral_300;
-      color: $neutral_300;
     }
   }
 
@@ -398,6 +397,29 @@
 
     &:disabled {
       color: $neutral_600;
+    }
+  }
+
+  /* Hero */
+  :global .btn-hero-neutral {
+    border: 1px solid $neutral_100;
+    background-color: unset;
+
+    img {
+      filter: brightness(0) invert(1);
+    }
+
+    &:hover {
+      background-color: $neutral_1000;
+    }
+
+    &:disabled {
+      border: 1px solid $neutral_600;
+      background-color: unset;
+
+      img {
+        filter: brightness(0) saturate(100%) invert(41%) sepia(100%) saturate(0%) hue-rotate(93deg) brightness(95%) contrast(94%);
+      }
     }
   }
 }

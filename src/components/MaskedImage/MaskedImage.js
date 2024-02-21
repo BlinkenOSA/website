@@ -17,15 +17,28 @@ const MaskedImage = ({src, type='landscape', alt="Image"}) => {
         }
     }
 
-    return (
-        <div className={getStyle()}>
-            <Image
-                alt={alt}
-                src={src}
-                fill={true}
-            />
-        </div>
-    )
+    if (type === 'hero') {
+        return (
+            <div className={getStyle()}>
+                <div className={style.DarkLayer}/>
+                <Image
+                    alt={alt}
+                    src={src}
+                    fill={true}
+                />
+            </div>
+        )
+    } else {
+        return (
+            <div className={getStyle()}>
+                <Image
+                    alt={alt}
+                    src={src}
+                    fill={true}
+                />
+            </div>
+        )
+    }
 }
 
 export default MaskedImage;

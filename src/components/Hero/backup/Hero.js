@@ -4,9 +4,11 @@ import LogoHero from "@/components/Logo/LogoHero";
 
 const Hero = ({image, title_1, title_2, date, location, color='mustard'}) => {
     return (
-        <div className={`${style.HeroWrapper}`}>
+        <div className={`${style.HeroWrapper} ${style[color]}`}>
             <div className={`${style.TopRow} hero-top-row`}>
-                <div className={style.Logo}/>
+                <div className={style.Logo}>
+                    <LogoHero />
+                </div>
                 <div className={style.Date}>
                     {date}
                 </div>
@@ -30,7 +32,10 @@ const Hero = ({image, title_1, title_2, date, location, color='mustard'}) => {
 
             </div>
             <div className={style.PosterWrapper}>
-                <MaskedImage src={image} type={'hero'}/>
+                <div style={{flex: 5}}></div>
+                <div style={{flex: 3}}>
+                    <MaskedImage src={image} type={'landscape'}/>
+                </div>
             </div>
         </div>
     )

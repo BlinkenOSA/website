@@ -4,7 +4,7 @@ import {Carousel, Col, Row} from "react-bootstrap";
 import NewsCard from "@/components/Cards/NewsCard";
 import {IconDocument, IconExhibition, IconPrograms} from "@/components/Icon/Icon";
 import EventCard from "@/components/Cards/EventCard";
-import Hero from "@/components/Hero/Hero";
+import Hero from "@/components/Hero/backup/Hero";
 import HeroControl from "@/components/Hero/HeroControl";
 
 const TextPage = () => {
