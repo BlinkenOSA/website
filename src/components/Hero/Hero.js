@@ -39,12 +39,24 @@ const Hero = ({data}) => {
         }
     }
 
+    const generateTime = () => {
+        const separator = time.indexOf(':')
+
+        if (time !== null) {
+            return <span style={{marginLeft: '10px'}}>{time.slice(0, separator+3)}</span>
+        } else {
+            return ''
+        }
+
+    }
+
     return (
         <div className={`${style.HeroWrapper}`}>
             <div className={`${style.TopRow} hero-top-row`}>
                 <div className={style.Logo}/>
                 <div className={style.Date}>
-                    {date} {time !== null ? time : ''}
+                    <span>{date}</span>
+                    {generateTime()}
                 </div>
                 <div className={style.Location}>
                     {location}
