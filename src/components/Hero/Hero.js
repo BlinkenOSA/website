@@ -7,6 +7,7 @@ const Hero = ({data}) => {
 
     // Populate fields
     const date = data['Date']
+    const time = data['Time']
     const location = data['Location']
     const title_1 = data['Title1stRow']
     const title_2 = data['Title2ndRow']
@@ -43,7 +44,7 @@ const Hero = ({data}) => {
             <div className={`${style.TopRow} hero-top-row`}>
                 <div className={style.Logo}/>
                 <div className={style.Date}>
-                    {date}
+                    {date} {time !== null ? time : ''}
                 </div>
                 <div className={style.Location}>
                     {location}
