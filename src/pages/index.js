@@ -13,30 +13,57 @@ import PartnersPanel from "@/components/IndexPage/PartnersPanel";
 import NewsletterPanel from "@/components/IndexPage/NewsletterPanel";
 import SectionFlipper from "@/components/IndexPage/SectionFlipper";
 import style from "@/pages/pages.module.scss";
+import {fetchHero} from "@/utils/api/fetchHero";
+import getImageUrl from "@/utils/getImageUrl";
 
-const IndexPage = () => {
+export const getServerSideProps = (async () => {
+    const [heroRes] = await Promise.all([
+        fetchHero()
+    ]);
+    const [heroData] = await Promise.all([
+        heroRes.json()
+    ])
+    return {
+        props: {
+            heroData
+        }
+    }
+})
+
+const IndexPage = ({heroData}) => {
+  const renderHeroes = () => {
+      const renderHero = () => {
+          return heroData["data"].map(hero => {
+              return <Hero
+                  key={hero["id"]}
+                  date={hero['attributes']['Date']}
+                  location={hero['attributes']['Location']}
+                  title_1={hero['attributes']['Title1stRow']}
+                  title_2={hero['attributes']['Title2ndRow']}
+                  subtitle_1={hero['attributes']['Subtitle1stRow']}
+                  subtitle_2={hero['attributes']['Subtitle2ndRow']}
+                  buttonText={hero['attributes']['ButtonText']}
+                  buttonLink={hero['attributes']['ButtonLink']}
+                  image={getImageUrl(hero['attributes']['Image'])}
+              />
+          })
+      }
+
+      if (heroData["data"] !== null) {
+          return (
+              <HeroControl>
+                  {renderHero()}
+              </HeroControl>
+          )
+      }
+  }
+
   return (
       <div className={style.PageWithMenuClosed}>
           <Container>
               <Row>
                   <Col xs={12}>
-                      <HeroControl>
-                          <Hero
-                              date={'29th January 2024'}
-                              location={'Blinken OSA Archivum'}
-                              title_1={'Darling, Let Me Hold You!'}
-                              subtitle_1={'This will be the subtitle'}
-                              buttonText={'Find out more!'}
-                              image={'https://osaarchivum.org/files/images/announcements/2024/website-with-logos.png'}
-                              color={'sage'}
-                          />
-                          <Hero
-                              date={'3rd January 2024'}
-                              title_1={'András Böröcz'}
-                              title_2={'The Noisemaker'}
-                              location={'CEU Nádor Street building'}
-                              image={'https://osaarchivum.org/files/images/announcements/2024/img0551gray2.jpg'} />
-                      </HeroControl>
+                      {renderHeroes()}
                   </Col>
               </Row>
               <div style={{height: '48px'}}/>

@@ -2,7 +2,9 @@ import style from "./Hero.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import Button from "@/components/Button/Button";
 
-const Hero = ({image, title_1, title_2, subtitle_1, subtitle_2, date, location, buttonText, color='mustard'}) => {
+const Hero = ({image, title_1, title_2, subtitle_1, subtitle_2, date, location, buttonText, buttonLink}) => {
+
+
     return (
         <div className={`${style.HeroWrapper}`}>
             <div className={`${style.TopRow} hero-top-row`}>
