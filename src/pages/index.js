@@ -51,7 +51,7 @@ const IndexPage = ({heroData}) => {
   }
 
   return (
-      <div className={style.PageWithMenuClosed}>
+      <div className={style.Page}>
           <Container>
               <Row>
                   <Col xs={12}>
