@@ -36,15 +36,7 @@ const IndexPage = ({heroData}) => {
           return heroData["data"].map(hero => {
               return <Hero
                   key={hero["id"]}
-                  date={hero['attributes']['Date']}
-                  location={hero['attributes']['Location']}
-                  title_1={hero['attributes']['Title1stRow']}
-                  title_2={hero['attributes']['Title2ndRow']}
-                  subtitle_1={hero['attributes']['Subtitle1stRow']}
-                  subtitle_2={hero['attributes']['Subtitle2ndRow']}
-                  buttonText={hero['attributes']['ButtonText']}
-                  buttonLink={hero['attributes']['ButtonLink']}
-                  image={getImageUrl(hero['attributes']['Image'])}
+                  data={hero['attributes']}
               />
           })
       }
