@@ -14,7 +14,6 @@ import NewsletterPanel from "@/components/IndexPage/NewsletterPanel";
 import SectionFlipper from "@/components/IndexPage/SectionFlipper";
 import style from "@/pages/pages.module.scss";
 import {fetchHero} from "@/utils/api/fetchHero";
-import getImageUrl from "@/utils/getImageUrl";
 import {fetchEventsFrontPage} from "@/utils/api/fetchEvents";
 
 export const getServerSideProps = (async () => {
