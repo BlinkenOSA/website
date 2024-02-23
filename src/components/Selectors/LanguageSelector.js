@@ -11,8 +11,8 @@ const LanguageSelector = ({onClick}) => {
 
     return (
         <div className={`${style.LanguageSelector} suisseIntlMedium`}>
-            <span className={selectedLanguage === 'EN' && style.Selected} onClick={() => handleClick('EN')}>EN</span>
-            <span className={selectedLanguage === 'HU' && style.Selected} onClick={() => handleClick('HU')}>HU</span>
+            <span className={selectedLanguage === 'EN' ? style.Selected : undefined} onClick={() => handleClick('EN')}>EN</span>
+            <span className={selectedLanguage === 'HU' ? style.Selected : undefined} onClick={() => handleClick('HU')}>HU</span>
         </div>
     )
 }

@@ -2,8 +2,21 @@ import style from "./EventCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import Tag from "@/components/Tag/Tag";
 import Dotdotdot from "react-dotdotdot";
+import {IconExhibition} from "@/components/Icon/Icon";
+import getImageUrl from "@/utils/getImageUrl";
+import getDateString from "@/utils/getDateString";
+import getColor from "@/utils/getColor";
+import getIconByEventType from "@/utils/getIconByType";
 
-const EventCard = ({title, image, date, description, icon, color='neutral'}) => {
+const EventCard = ({data}) => {
+    // Populate fields
+    const date = getDateString(data['StartDate'], 'YYYY-MM-DDTHH:MM:SS')
+    const title = data['Title']
+    const description = data['CardText']
+    const image = getImageUrl(data['Image'])
+    const icon = getIconByEventType(data['EventType'], 'small')
+    const color= getColor(data['Profile'])
+
     return (
         <div className={style.Wrapper}>
             <div className={style.Image}>

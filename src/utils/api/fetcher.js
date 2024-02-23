@@ -5,8 +5,6 @@ const fetcher = (url, params) => {
 
     const urlParams = new URLSearchParams(params)
 
-    console.log(`${process.env.STRAPI_URL}/${url}?${urlParams}`)
-
     return fetch(`${process.env.STRAPI_URL}/${url}?${urlParams}`, {
         headers: headers
     })

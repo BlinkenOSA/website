@@ -15,39 +15,63 @@ import SectionFlipper from "@/components/IndexPage/SectionFlipper";
 import style from "@/pages/pages.module.scss";
 import {fetchHero} from "@/utils/api/fetchHero";
 import getImageUrl from "@/utils/getImageUrl";
+import {fetchEventsFrontPage} from "@/utils/api/fetchEvents";
 
 export const getServerSideProps = (async () => {
-    const [heroRes] = await Promise.all([
-        fetchHero()
+    const [heroRes, eventsRes] = await Promise.all([
+        fetchHero(),
+        fetchEventsFrontPage()
     ]);
-    const [heroData] = await Promise.all([
-        heroRes.json()
+    const [heroData, eventsData] = await Promise.all([
+        heroRes.json(),
+        eventsRes.json()
     ])
     return {
         props: {
-            heroData
+            heroData,
+            eventsData
         }
     }
 })
 
-const IndexPage = ({heroData}) => {
+const IndexPage = ({heroData, eventsData}) => {
   const renderHeroes = () => {
       const renderHero = () => {
           return heroData["data"].map(hero => {
               return <Hero
-                  key={hero["id"]}
+                  key={`hero_${hero["id"]}`}
                   data={hero['attributes']}
               />
           })
       }
 
-      if (heroData["data"] !== null) {
-          return (
-              <HeroControl>
-                  {renderHero()}
-              </HeroControl>
-          )
+      return (
+          <HeroControl>
+              {renderHero()}
+          </HeroControl>
+      )
+  }
+
+  const renderEvents = () => {
+      const renderEventCard = () => {
+          return eventsData["data"].map(event => {
+              return event['attributes'] && <EventCard
+                  key={`event_${event["id"]}`}
+                  data={event['attributes']}
+              />
+          })
       }
+
+      return (
+          <>
+            <SectionDivider title={'Events'} buttonText={'View All Events'} subTitle={'* All our programs are free.'}/>
+            <Row>
+                <Col xs={4}>
+                    {renderEventCard()}
+                </Col>
+            </Row>
+          </>
+      )
   }
 
   return (
@@ -59,78 +83,7 @@ const IndexPage = ({heroData}) => {
                   </Col>
               </Row>
               <div style={{height: '48px'}}/>
-              <SectionDivider title={'Events'} buttonText={'View All Events'} subTitle={'* All our programs are free.'}/>
-              <Row>
-                  <Col xs={4}>
-                      <EventCard
-                          date={'29th January 2024'}
-                          title={'Media Art Exhibition: Darling, Let Me Hold You!'}
-                          description={'The Finnish Institute in Budapest FinnAgora and Blinken OSA Archivum present an ' +
-                              'audiovisual art exhibition: Darling, Let Me Hold You! The exhibition is organized as part ' +
-                              'of the Finnish Film Days, Finn Filmnapok, and presents audiovisual art by six Finnish artists. ' +
-                              'The theme of the exhibition is human connection.'}
-                          image={'https://osaarchivum.org/files/images/announcements/2024/website-with-logos.png'}
-                          icon={<IconExhibition size={'small'}/>}
-                          color={'mustard'}
-                      />
-                  </Col>
-                  <Col xs={4}>
-                      <EventCard
-                          date={'3rd January 2024'}
-                          title={'1944–2024 - Book launch and the presentation of András Böröcz’s kinetic sculpture the Noisemaker at the CEU Nádor Street building'}
-                          description={'On the 80th anniversary of the Hungarian Shoah, two related events will take place at the CEU Nádor Street building (entrance: 1051 Budapest, Nádor utca 15) on Wednesday, January 10, 2024. At 4 p.m., the working group of historians of the CEU Democracy Institute will present Viktor Karády and István Kemény’s book Zsidóság a magyar nemzetépítésben a numerus clausus előtt és azután [Jewishness in Hungarian nation-building before and after the Numerus Clausus]. At 6 p.m., András Böröcz’s kinetic sculpture Noisemaker, commissioned and supported by the Polgár Foundation, will be presented by art historian András Rényi in the presence of the artist. (A regular exhibitor in Budapest, András Böröcz has been living in Brooklyn since 1984.'}
-                          image={'https://osaarchivum.org/files/images/announcements/2024/img0551gray2.jpg'}
-                          icon={<IconPrograms size={'small'}/>}
-                          color={'sage'}
-                      />
-                  </Col>
-                  <Col xs={4}>
-                      <EventCard
-                          date={'18th August 2023'}
-                          title={'János Kornai Correspondence Donated to the Archivum'}
-                          description={'János Kornai was an internationally acclaimed expert of Socialist economies and post-Communist tranistions.'}
-                          image={'https://www.osaarchivum.org/files/images/announcements/2023/20230630kornai.jpg'}
-                          icon={<IconDocument size={'small'}/>}
-                          color={'orange'}
-                      />
-                  </Col>
-              </Row>
-              <div style={{height: '24px'}}/>
-              <Row>
-                  <Col xs={4}>
-                      <EventCard
-                          date={'18th August 2023'}
-                          title={'János Kornai Correspondence Donated to the Archivum'}
-                          description={'János Kornai was an internationally acclaimed expert of Socialist economies and post-Communist tranistions.'}
-                          image={'https://www.osaarchivum.org/files/images/announcements/2023/20230630kornai.jpg'}
-                          icon={<IconDocument size={'small'}/>}
-                          color={'mustard'}
-                      />
-                  </Col>
-                  <Col xs={4}>
-                      <EventCard
-                          date={'29th January 2024'}
-                          title={'Media Art Exhibition: Darling, Let Me Hold You!'}
-                          description={'The Finnish Institute in Budapest FinnAgora and Blinken OSA Archivum present an ' +
-                              'audiovisual art exhibition: Darling, Let Me Hold You! The exhibition is organized as part ' +
-                              'of the Finnish Film Days, Finn Filmnapok, and presents audiovisual art by six Finnish artists. ' +
-                              'The theme of the exhibition is human connection.'}
-                          image={'https://osaarchivum.org/files/images/announcements/2024/website-with-logos.png'}
-                          icon={<IconExhibition size={'small'}/>}
-                          color={'sage'}
-                      />
-                  </Col>
-                  <Col xs={4}>
-                      <EventCard
-                          date={'3rd January 2024'}
-                          title={'1944–2024 - Book launch and the presentation of András Böröcz’s kinetic sculpture the Noisemaker at the CEU Nádor Street building'}
-                          description={'On the 80th anniversary of the Hungarian Shoah, two related events will take place at the CEU Nádor Street building (entrance: 1051 Budapest, Nádor utca 15) on Wednesday, January 10, 2024. At 4 p.m., the working group of historians of the CEU Democracy Institute will present Viktor Karády and István Kemény’s book Zsidóság a magyar nemzetépítésben a numerus clausus előtt és azután [Jewishness in Hungarian nation-building before and after the Numerus Clausus]. At 6 p.m., András Böröcz’s kinetic sculpture Noisemaker, commissioned and supported by the Polgár Foundation, will be presented by art historian András Rényi in the presence of the artist. (A regular exhibitor in Budapest, András Böröcz has been living in Brooklyn since 1984.'}
-                          image={'https://osaarchivum.org/files/images/announcements/2024/img0551gray2.jpg'}
-                          icon={<IconPrograms size={'small'}/>}
-                          color={'orange'}
-                      />
-                  </Col>
-              </Row>
+              {renderEvents()}
               <div style={{height: '24px'}}/>
             </Container>
             <Container fluid={true}>
