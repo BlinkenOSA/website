@@ -8,7 +8,8 @@
   .Header {
     display: flex;
     gap: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
+    justify-content: space-between;
 
     .Icon {
       display: flex;
@@ -24,7 +25,7 @@
   }
 
   .Image {
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 
     & img {
       // -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */

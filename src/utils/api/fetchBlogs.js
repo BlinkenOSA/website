@@ -1,6 +1,6 @@
 import fetcher from "@/utils/api/fetcher";
 
-export const fetchEventsFrontPage = () => {
+export const fetchBlogsFrontPage = () => {
     const params = {
         'sort[0]': 'FrontPageSequence:desc',
         'sort[1]': 'createdAt:desc',
@@ -9,9 +9,8 @@ export const fetchEventsFrontPage = () => {
         'pagination[limit]': 6,
         'fields[0]': 'Title',
         'fields[1]': 'CardText',
-        'fields[2]': 'StartDate',
-        'fields[3]': 'EventType',
-        'fields[4]': 'Profile'
+        'fields[2]': 'Profile',
+        'filters[EntryType][$eq]': 'Blog',
     }
 
     return fetcher('events', params)
