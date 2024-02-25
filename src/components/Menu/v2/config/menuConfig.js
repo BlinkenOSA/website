@@ -8,6 +8,7 @@ import {
 
 export const menuConfig = [
   {
+    key: 'about_us',
     title: 'About Us',
     icon: <IconArchivum />,
     menuBGIcon: <IconAboutUsMenu />,
@@ -29,6 +30,7 @@ export const menuConfig = [
       { title: 'Annual Reports' },
     ]
   }, {
+    key: 'collections',
     title: 'Collections',
     icon: <IconCollections />,
     menuBGIcon: <IconCollectionsMenu />,
@@ -49,6 +51,7 @@ export const menuConfig = [
       { title: 'Archival News and Blog'}
     ]
   }, {
+    key: 'academics',
     title: 'Academics',
     icon: <IconAcademics />,
     menuBGIcon: <IconAcademicsMenu />,
@@ -65,6 +68,7 @@ export const menuConfig = [
       { title: 'Academic News and Blog'},
     ]
   }, {
+    key: 'public_programs',
     title: 'Public Programs',
     icon: <IconPublicPrograms />,
     menuBGIcon: <IconPublicProgramsMenu />,

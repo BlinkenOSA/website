@@ -1,0 +1,46 @@
+@import "@/styles/variables.scss";
+@import "@/styles/colors.scss";
+
+.Wrapper {
+  display: flex;
+  padding-left: 130px;
+  width: 783px;
+  height: 655px;
+  gap: 26px;
+  align-items: flex-end;
+
+  .Left {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+
+    .Top {
+      display: flex;
+
+      img {
+        width: 243px;
+        height: 243px;
+      }
+    }
+
+    .Bottom {
+      display: flex;
+
+      img {
+        width: 311px;
+        height: 243px;
+      }
+    }
+  }
+
+  .Right {
+    position: absolute;
+    top: 1px;
+    left: 341px;
+
+    img {
+      width: 513px;
+      height: 526px;
+    }
+  }
+}

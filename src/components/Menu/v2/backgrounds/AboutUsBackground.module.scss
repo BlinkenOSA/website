@@ -1,0 +1,13 @@
+@import "@/styles/variables.scss";
+@import "@/styles/colors.scss";
+
+.Wrapper {
+  display: flex;
+  padding-left: 130px;
+
+  img {
+    display: flex;
+    height: calc(100vh - $header-height-desktop);
+    width: unset;
+  }
+}

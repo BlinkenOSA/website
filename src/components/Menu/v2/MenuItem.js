@@ -1,7 +1,8 @@
 import style from "./MenuItem.module.scss"
 import {motion} from "framer-motion";
+import MenuPage from "@/components/Menu/v2/MenuPage";
 
-const MenuItem = ({id, title, icon, bgIcon, number, color, menuOpen, onClick, submenu, children}) => {
+const MenuItem = ({menuID, title, icon, bgIcon, number, color, menuOpen, onClick, submenu}) => {
     const menuVariants = {
         open: { left: (56 * (number - 1) - number)},
         closed: { left: `calc(100vw - ${(5 - number) * 56 - (5 - number)}px)`}
@@ -18,12 +19,6 @@ const MenuItem = ({id, title, icon, bgIcon, number, color, menuOpen, onClick, su
         }
     }
 
-    const getSubmenu = () => {
-        return submenu.map((sm, idx) => {
-            return <div key={`submenu_${number}_${idx}`} className={'menu-text'}>{sm['title']}</div>
-        })
-    }
-
     return (
         <motion.div
             className={`${style.MenuItem}`}
@@ -31,18 +26,13 @@ const MenuItem = ({id, title, icon, bgIcon, number, color, menuOpen, onClick, su
             animate={menuOpen.includes(number) ? 'open': 'closed'}
             variants={menuVariants}
             transition={transition}
-            onClick={(e) => onClick(number)}
         >
-            <div className={`${style.MenuHeader} ${style[color]}`}>
+            <div className={`${style.MenuHeader} ${style[color]}`}
+                 onClick={(e) => onClick(number)}>
                 <div className={style.MenuTitle}>{title}</div>
                 <div className={style.MenuIcon}>{icon}</div>
             </div>
-            <div className={`${style.MenuContent} ${style[color]}`}>
-                {getSubmenu()}
-                <div className={style.BackgroundIcon}>
-                    {bgIcon}
-                </div>
-            </div>
+            <MenuPage menuID={menuID} submenuConfig={submenu} bgIcon={bgIcon} number={number} />
         </motion.div>
     )
 }
