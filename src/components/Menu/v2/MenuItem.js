@@ -32,7 +32,11 @@ const MenuItem = ({menuID, title, icon, bgIcon, number, color, menuOpen, onClick
                 <div className={style.MenuTitle}>{title}</div>
                 <div className={style.MenuIcon}>{icon}</div>
             </div>
-            <MenuPage menuID={menuID} submenuConfig={submenu} bgIcon={bgIcon} number={number} />
+            <MenuPage
+                menuID={menuID}
+                submenuConfig={submenu}
+                number={number}
+                status={menuOpen.includes(number) ? 'open': 'closed'} />
         </motion.div>
     )
 }
