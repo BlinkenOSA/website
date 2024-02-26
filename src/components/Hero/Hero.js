@@ -40,9 +40,8 @@ const Hero = ({data}) => {
     }
 
     const generateTime = () => {
-        const separator = time.indexOf(':')
-
         if (time !== null) {
+            const separator = time.indexOf(':');
             return <span style={{marginLeft: '10px'}}>{time.slice(0, separator+3)}</span>
         } else {
             return ''
