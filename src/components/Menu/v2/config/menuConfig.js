@@ -17,17 +17,15 @@ export const menuConfig = [
     submenu: [
       { title: 'The Archivum' },
       { title: 'We are CEU' },
-      { title: 'Verzió' },
       { title: 'Partner Projects' },
-      { title: 'News & Blog' },
       { title: 'Staff' },
       { title: 'Join Us', submenu: [
           { title: 'Jobs' },
           { title: 'Archivum Internships' },
           { title: 'Volunteering' }]
       },
-      { title: 'Vist Us' },
       { title: 'Annual Reports' },
+      { title: 'Vist Us' }
     ]
   }, {
     key: 'collections',
@@ -47,7 +45,6 @@ export const menuConfig = [
       { title: 'Curated Collections' },
       { title: 'Archival Projects' },
       { title: 'Donate your Archive' },
-      { title: 'Deposit' },
       { title: 'Archival News and Blog'}
     ]
   }, {
@@ -59,7 +56,12 @@ export const menuConfig = [
     url: 'academics',
     submenu: [
       { title: 'Research and Publications' },
-      { title: 'Visegrad Scholarship & Fellowship' },
+      { title: 'Visegrad Scholarship & Fellowship', submenu: [
+          { title: 'About the V Fund' },
+          { title: 'Open call'},
+          { title: 'Visegrad current fellows'},
+          { title: 'Visegrad past fellows'}]
+      },
       { title: 'Other Fellowships' },
       { title: 'Archivum Internships' },
       { title: 'University Courses' },
