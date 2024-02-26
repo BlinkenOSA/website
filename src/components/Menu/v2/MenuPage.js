@@ -42,17 +42,21 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
                         <div
                             className={style.MenuItem}
                             onClick={() => handleSelectMenu(item['key'])}
-                            style={{display: "flex", justifyContent: "space-between"}}
+                            style={{display: "flex"}}
                         >
-                            <div>{item['title']}</div>
-                            <div style={{display: "flex", alignItems: "center"}}><IconGeneralRight /></div>
+                            <div className={style.Title}>{item['title']}</div>
+                            <div style={{display: "flex", flex: 1, justifyContent: 'center', alignItems: "center"}}>
+                                <IconGeneralRight />
+                            </div>
                         </div>
                     )
                 } else {
                     return (
                         <div className={style.MenuItem}>
                             <a href>
-                                {item['title']}
+                                <div className={style.Title}>
+                                    {item['title']}
+                                </div>
                             </a>
                         </div>
                     )
