@@ -1,4 +1,8 @@
 const getImageUrl = (imageData, size='large') => {
+    if (imageData['data'] === null) {
+        return undefined
+    }
+
     let url;
 
     if (size in imageData['data']['attributes']['formats']) {

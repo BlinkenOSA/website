@@ -3,8 +3,12 @@ import AboutUsBackground from "@/components/Menu/v2/backgrounds/AboutUsBackgroun
 import AcademicsBackground from "@/components/Menu/v2/backgrounds/AcademicsBackground";
 import PublicProgramsBackground from "@/components/Menu/v2/backgrounds/PublicProgramsBackground";
 import { motion } from "framer-motion"
+import {IconGeneralRight} from "@/components/Icon/Icon";
+import {useState} from "react";
 
-const MenuPage = ({submenuConfig, menuID, number, status}) => {
+const MenuPage = ({menuItems, menuID, number, status}) => {
+    const [selectedMenuItem, setSelectedMenuItem] = useState('')
+
     const submenuContainer = {
         closed: { opacity: 0 },
         open: {
@@ -22,19 +26,57 @@ const MenuPage = ({submenuConfig, menuID, number, status}) => {
         open: { opacity: 1, x: 0, ease: "linear" }
     }
 
-    const getSubmenu = () => {
-        return submenuConfig.map((sm, idx) => {
-            return <motion.div variants={submenu} key={`submenu_${idx}`} className={'menu-text'}>{sm['title']}</motion.div>
+    const handleSelectMenu = (key) => {
+        if (selectedMenuItem === key) {
+            setSelectedMenuItem('')
+        } else {
+            setSelectedMenuItem(key)
+        }
+    }
+
+    const getMenuList = () => {
+        return menuItems.map((menuItem, idx) => {
+            const renderMenuTitle = (item) => {
+                if ('submenu' in item) {
+                    return (
+                        <div
+                            className={style.MenuItem}
+                            onClick={() => handleSelectMenu(item['key'])}
+                            style={{display: "flex", justifyContent: "space-between"}}
+                        >
+                            <div>{item['title']}</div>
+                            <div style={{display: "flex", alignItems: "center"}}><IconGeneralRight /></div>
+                        </div>
+                    )
+                } else {
+                    return (
+                        <div className={style.MenuItem}>
+                            <a href>
+                                {item['title']}
+                            </a>
+                        </div>
+                    )
+                }
+            }
+
+            return (
+                <motion.div
+                    variants={submenu}
+                    key={`submenu_${idx}`}
+                    className={'menu-text'}>
+                    {renderMenuTitle(menuItem)}
+                </motion.div>
+            )
         })
     }
 
     const getMenuBackground = () => {
         switch (menuID) {
-            case 'about_us':
+            case 'about-us':
                 return <AboutUsBackground status={status} />
             case 'academics':
                 return <AcademicsBackground status={status} />
-            case 'public_programs':
+            case 'public-programs':
                 return <PublicProgramsBackground status={status} />
         }
     }
@@ -46,7 +88,7 @@ const MenuPage = ({submenuConfig, menuID, number, status}) => {
                     variants={submenuContainer}
                     animate={status}
                     className={style.Submenu}>
-                    {getSubmenu()}
+                    {getMenuList()}
                 </motion.div>
             </div>
             <div className={style.SubmenuSecondLevel}>

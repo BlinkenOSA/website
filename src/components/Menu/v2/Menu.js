@@ -44,7 +44,7 @@ const DesktopMenu = () => {
                           menuOpen={menuOpen}
                           icon={cfg['icon']}
                           bgIcon={cfg['menuBGIcon']}
-                          submenu={cfg['submenu']}
+                          menuItems={cfg['menuItems']}
                           onClick={handleMenuClick} />
                   )
                 })

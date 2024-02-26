@@ -15,6 +15,10 @@
 
     .Submenu {
       padding: $menu-width;
+      
+      .MenuItem {
+        cursor: pointer;
+      }
     }
   }
 

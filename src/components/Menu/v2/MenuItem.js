@@ -2,7 +2,7 @@ import style from "./MenuItem.module.scss"
 import {motion} from "framer-motion";
 import MenuPage from "@/components/Menu/v2/MenuPage";
 
-const MenuItem = ({menuID, title, icon, bgIcon, number, color, menuOpen, onClick, submenu}) => {
+const MenuItem = ({menuID, title, icon, number, color, menuOpen, onClick, menuItems}) => {
     const menuVariants = {
         open: { left: (56 * (number - 1) - number)},
         closed: { left: `calc(100% - ${(5 - number) * 56 - (5 - number)}px)`}
@@ -34,7 +34,7 @@ const MenuItem = ({menuID, title, icon, bgIcon, number, color, menuOpen, onClick
             </div>
             <MenuPage
                 menuID={menuID}
-                submenuConfig={submenu}
+                menuItems={menuItems}
                 number={number}
                 status={menuOpen.includes(number) ? 'open': 'closed'} />
         </motion.div>
