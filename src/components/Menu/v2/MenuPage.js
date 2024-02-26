@@ -40,7 +40,7 @@ const MenuPage = ({submenuConfig, menuID, number, status}) => {
     }
 
     return (
-        <div className={style.MenuPageWrapper} style={{width: `calc(100vw - (${number * 56 - (4 - number)}px))`}}>
+        <div className={style.MenuPageWrapper} style={{width: `calc(100% - (${number * 56 - (4 - number)}px))`}}>
             <div className={style.SubmenuWrapper}>
                 <motion.div
                     variants={submenuContainer}

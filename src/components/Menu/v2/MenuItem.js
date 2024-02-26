@@ -5,7 +5,7 @@ import MenuPage from "@/components/Menu/v2/MenuPage";
 const MenuItem = ({menuID, title, icon, bgIcon, number, color, menuOpen, onClick, submenu}) => {
     const menuVariants = {
         open: { left: (56 * (number - 1) - number)},
-        closed: { left: `calc(100vw - ${(5 - number) * 56 - (5 - number)}px)`}
+        closed: { left: `calc(100% - ${(5 - number) * 56 - (5 - number)}px)`}
     }
 
     const transition = {
