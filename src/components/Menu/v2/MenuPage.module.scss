@@ -21,13 +21,13 @@
   .SubmenuSecondLevel {
     flex: 1;
     position: relative;
+    overflow: hidden;
 
     .BackgroundIcon {
       position: absolute;
       bottom: 0;
       left: 0;
       z-index: 1;
-      overflow-x: hidden;
     }
   }
 }
