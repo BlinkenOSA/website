@@ -4,9 +4,9 @@ import publicProgramsRight from "../../../../../public/icons/menu/public_program
 
 import Image from "next/image";
 import style from "./PublicProgramsBackground.module.scss"
-import { motion } from "framer-motion"
+import {AnimatePresence, motion} from "framer-motion"
 
-const PublicProgramsBackground = ({status}) => {
+const PublicProgramsBackground = ({backgroundStatus}) => {
     const topVariants = {
         open: { opacity: 1, y: 0 },
         closed: { opacity: 0, y: "-100%" },
@@ -23,61 +23,66 @@ const PublicProgramsBackground = ({status}) => {
     }
 
     return (
-        <div className={style.Wrapper}>
-            <div className={style.Left}>
-                <div className={style.Top}>
-                    <motion.div
-                        initial={"closed"}
-                        variants={topVariants}
-                        animate={status}
-                        transition={{ ease: "easeInOut", duration: 0.5, delay: 0.5 }}
-                        style={{zIndex: 1}}
-                    >
-                        <Image
-                            priority
-                            src={publicProgramsTopLeft}
-                            width={300}
-                            height={300}
-                            alt="Icon"
-                        />
-                    </motion.div>
+        <AnimatePresence>
+            {
+                backgroundStatus === 'open' &&
+                <div className={style.Wrapper}>
+                    <div className={style.Left}>
+                        <div className={style.Top}>
+                            <motion.div
+                                initial={"closed"}
+                                variants={topVariants}
+                                animate={backgroundStatus}
+                                transition={{ ease: "easeInOut", duration: 0.5, delay: 0.5 }}
+                                style={{zIndex: 1}}
+                            >
+                                <Image
+                                    priority
+                                    src={publicProgramsTopLeft}
+                                    width={300}
+                                    height={300}
+                                    alt="Icon"
+                                />
+                            </motion.div>
+                        </div>
+                        <div className={style.Bottom}>
+                            <motion.div
+                                initial={"closed"}
+                                variants={bottomVariants}
+                                animate={backgroundStatus}
+                                transition={{ ease: "easeInOut", duration: 0.5, delay: 0.7 }}
+                                style={{zIndex: 1}}
+                            >
+                                <Image
+                                    priority
+                                    src={publicProgramsBottomLeft}
+                                    width={300}
+                                    height={300}
+                                    alt="Icon"
+                                />
+                            </motion.div>
+                        </div>
+                    </div>
+                    <div className={style.Right}>
+                        <motion.div
+                            initial={"closed"}
+                            variants={rightVariants}
+                            animate={backgroundStatus}
+                            transition={{ ease: "easeInOut", duration: 0.5, delay: 0.9 }}
+                            style={{zIndex: 1}}
+                        >
+                            <Image
+                                priority
+                                src={publicProgramsRight}
+                                width={300}
+                                height={300}
+                                alt="Icon"
+                            />
+                        </motion.div>
+                    </div>
                 </div>
-                <div className={style.Bottom}>
-                    <motion.div
-                        initial={"closed"}
-                        variants={bottomVariants}
-                        animate={status}
-                        transition={{ ease: "easeInOut", duration: 0.5, delay: 0.7 }}
-                        style={{zIndex: 1}}
-                    >
-                        <Image
-                            priority
-                            src={publicProgramsBottomLeft}
-                            width={300}
-                            height={300}
-                            alt="Icon"
-                        />
-                    </motion.div>
-                </div>
-            </div>
-            <div className={style.Right}>
-                <motion.div
-                    initial={"closed"}
-                    variants={rightVariants}
-                    animate={status}
-                    transition={{ ease: "easeInOut", duration: 0.5, delay: 0.9 }}
-                    style={{zIndex: 1}}
-                >
-                    <Image
-                        priority
-                        src={publicProgramsRight}
-                        width={300}
-                        height={300}
-                        alt="Icon"
-                    />
-                </motion.div>
-            </div>
-        </div>
+            }
+        </AnimatePresence>
     )
 
 }

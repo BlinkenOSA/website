@@ -13,9 +13,9 @@ export const menuConfig = [
       { key: 'partner-projects', title: 'Partner Projects' },
       { key: 'staff', title: 'Staff' },
       { key: 'join-us', title: 'Join Us', submenu: [
-          { key: 'jobs', title: 'Jobs' },
-          { key: 'archivum-internships', title: 'Archivum Internships' },
-          { key: 'volunteering', title: 'Volunteering' }]
+          { key: 'jobs', title: 'Jobs', highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid' },
+          { key: 'archivum-internships', title: 'Archivum Internships', highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid slightly less' },
+          { key: 'volunteering', title: 'Volunteering', highlight: "Work with us on arhcival processing, digitization projects, exhibitions. You won't get paid"}]
       },
       { key: 'annual-reports', title: 'Annual Reports' },
       { key: 'visit-us', title: 'Visit Us' }
@@ -28,10 +28,10 @@ export const menuConfig = [
     url: '/collections',
     menuItems: [
       { key: 'access-the-collections', title: 'Access the Collections', submenu: [
-          { key: 'catalog', title: 'Catalog' },
-          { key: 'help-with-your-research', title: 'Help with your Research'},
-          { key: 'research-room', title: 'Research Room Access'},
-          { key: 'digitization-on-demand', title: 'Digitization on Demand'}]
+          { key: 'catalog', title: 'Catalog', highlight: 'Search and browse our archival and library holdings, request materials.' },
+          { key: 'help-with-your-research', title: 'Help with your Research', highlight: 'Get stuck?! Let us find you useful stuff for your research.'},
+          { key: 'research-room', title: 'Research Room Access', highlight: 'Would you like to come to us? This is how you can reach our research room.'},
+          { key: 'digitization-on-demand', title: 'Digitization on Demand', highlight: 'Found something relevant? We will digitize it for you!'}]
       },
       { key: 'digital-collections', title: 'Digital Collections' },
       { key: 'curated-collections', title: 'Curated Collections' },
@@ -46,12 +46,12 @@ export const menuConfig = [
     color: 'aqua',
     url: 'academics',
     menuItems: [
-      { title: 'Research and Publications' },
-      { title: 'Visegrad Scholarship', submenu: [
-          { title: 'About the V Fund' },
-          { title: 'Open call'},
-          { title: 'Visegrad current fellows'},
-          { title: 'Visegrad past fellows'}]
+      { key: 'research-and-publications', title: 'Research and Publications' },
+      { key: 'visegrad-scholarship', title: 'Visegrad Scholarship', submenu: [
+          { key: 'about-the-visegrad-fund', title: 'About the V Fund', highlight: "Find out more about the history of the Visegrad Fund" },
+          { key: 'open-call', title: 'Open call', highlight: "We are waiting for your application"},
+          { key: 'visegrad-current-fellows', title: 'Visegrad current fellows',  highlight: "You can meet them, when you are in the Archivum."},
+          { key: 'visegrad-past-fellows', title: 'Visegrad past fellows', highlight: "All the participants of the Visegrad Fellowship Program."}]
       },
       { title: 'Other Fellowships' },
       { title: 'Archivum Internships' },

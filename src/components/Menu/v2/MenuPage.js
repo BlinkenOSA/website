@@ -1,10 +1,8 @@
 import style from "./MenuPage.module.scss"
-import AboutUsBackground from "@/components/Menu/v2/backgrounds/AboutUsBackground";
-import AcademicsBackground from "@/components/Menu/v2/backgrounds/AcademicsBackground";
-import PublicProgramsBackground from "@/components/Menu/v2/backgrounds/PublicProgramsBackground";
-import { motion } from "framer-motion"
+import {AnimatePresence, motion} from "framer-motion"
 import {IconGeneralRight} from "@/components/Icon/Icon";
 import {useState} from "react";
+import SubmenuPage from "@/components/Menu/v2/SubmenuPage";
 
 const MenuPage = ({menuItems, menuID, number, status}) => {
     const [selectedMenuItem, setSelectedMenuItem] = useState('')
@@ -41,10 +39,14 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
                     return (
                         <div
                             className={style.MenuItem}
-                            onClick={() => handleSelectMenu(item['key'])}
                             style={{display: "flex"}}
                         >
-                            <div className={style.Title}>{item['title']}</div>
+                            <div
+                                onClick={() => handleSelectMenu(item['key'])}
+                                className={menuItem['key'] === selectedMenuItem ? `${style.Title} ${style.Active}` : style.Title}
+                            >
+                                {item['title']}
+                            </div>
                             <div style={{display: "flex", flex: 1, justifyContent: 'center', alignItems: "center"}}>
                                 <IconGeneralRight />
                             </div>
@@ -54,7 +56,7 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
                     return (
                         <div className={style.MenuItem}>
                             <a href>
-                                <div className={style.Title}>
+                                <div className={selectedMenuItem !== '' ? `${style.Title} ${style.NotActive}` : style.Title}>
                                     {item['title']}
                                 </div>
                             </a>
@@ -67,22 +69,17 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
                 <motion.div
                     variants={submenu}
                     key={`submenu_${idx}`}
-                    className={'menu-text'}>
-                    {renderMenuTitle(menuItem)}
+                    className={'menu-text'}
+                >
+                    { renderMenuTitle(menuItem) }
                 </motion.div>
             )
         })
     }
 
-    const getMenuBackground = () => {
-        switch (menuID) {
-            case 'about-us':
-                return <AboutUsBackground status={status} />
-            case 'academics':
-                return <AcademicsBackground status={status} />
-            case 'public-programs':
-                return <PublicProgramsBackground status={status} />
-        }
+    const getSelectedSubmenu = () => {
+        const selectedSubmenus = menuItems.filter(menuItem => menuItem['key'] === selectedMenuItem)
+        return selectedSubmenus[0]
     }
 
     return (
@@ -92,13 +89,11 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
                     variants={submenuContainer}
                     animate={status}
                     className={style.Submenu}>
-                    {getMenuList()}
+                    { getMenuList() }
                 </motion.div>
             </div>
             <div className={style.SubmenuSecondLevel}>
-                <div className={style.BackgroundIcon}>
-                    {getMenuBackground()}
-                </div>
+                <SubmenuPage menuID={menuID} status={status} selectedSubmenu={getSelectedSubmenu()} />
             </div>
         </div>
     )

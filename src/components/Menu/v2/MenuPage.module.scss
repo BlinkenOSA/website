@@ -8,8 +8,8 @@
   overflow: auto;
 
   .SubmenuWrapper {
-    flex: 1;
-    border-right: 1px solid $neutral_1000;
+    flex: 3;
+    // border-right: 1px solid $neutral_1000;
     background-color: #FFFFFF;
     z-index: 2;
 
@@ -21,7 +21,15 @@
           display: inline-block;
           cursor: pointer;
           border-bottom: solid 1px transparent;
-          transition: border 0.5s ease;
+          transition: border 0.5s ease, color 0.5s ease;
+
+          &.Active {
+            border-bottom: solid 1px $neutral_1000;
+          }
+
+          &.NotActive {
+            color: $neutral_200;
+          }
 
           &:hover {
             border-bottom: solid 1px $neutral_1000;
@@ -32,15 +40,8 @@
   }
 
   .SubmenuSecondLevel {
-    flex: 1;
+    flex: 4;
     position: relative;
     overflow: hidden;
-
-    .BackgroundIcon {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: 1;
-    }
   }
 }

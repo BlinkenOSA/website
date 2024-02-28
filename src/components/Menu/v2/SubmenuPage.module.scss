@@ -1,0 +1,35 @@
+@import "@/styles/colors.scss";
+@import "@/styles/variables.scss";
+
+.BackgroundIcon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.SubmenuWrapper {
+  width: calc(100% - (3 * $menu-width));
+  padding: 56px 56px 56px 0;
+
+  .Submenu {
+    position: relative;
+
+    .SubmenuItem {
+      margin-bottom: 24px;
+
+      .Title {
+        font-size: 24px;
+        line-height: 36px;
+        margin-bottom: 8px;
+      }
+
+      .Description {
+        color: $neutral_600;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+}
