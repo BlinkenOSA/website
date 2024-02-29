@@ -1,17 +1,24 @@
 import style from "./CollectionCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import {IconAudio, IconDocument, IconFilm, IconPhoto} from "@/components/Icon/Icon";
+import getImageUrl from "@/utils/getImageUrl";
 
-const CollectionCard = ({title, image, itemNumber = 0, description, types=[], author}) => {
+const CollectionCard = ({data}) => {
+    const title = data['Title']
+    const image = getImageUrl(data['Image'])
+    const itemNumber = 0
+    const description = data['CardText']
+    const types = data['MaterialTypes']
+
     const chooseIcon = (type) => {
       switch(type) {
-        case 'audio':
+        case 'Audio':
           return <IconAudio size={'small'} />
-        case 'movingImage':
+        case 'Moving Image':
           return <IconFilm size={'small'} />
-        case 'textual':
+        case 'Textual':
           return <IconDocument size={'small'} />
-        case 'stillImage':
+        case 'Still Image':
           return <IconPhoto size={'small'} />
       }
     }
