@@ -20,8 +20,8 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
     }
 
     const submenu = {
-        closed: { opacity: 0, x: '-20%', ease: "linear",},
-        open: { opacity: 1, x: 0, ease: "linear" }
+        closed: { opacity: 0, x: '-20%'},
+        open: { opacity: 1, x: 0}
     }
 
     const handleSelectMenu = (key) => {

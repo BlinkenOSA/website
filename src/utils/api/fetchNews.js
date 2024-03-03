@@ -10,7 +10,8 @@ export const fetchNewsFrontPage = () => {
         'fields[0]': 'Title',
         'fields[1]': 'CardText',
         'fields[2]': 'Profile',
-        'fields[3]': 'createdAt',
+        'fields[3]': 'EventType',
+        'fields[4]': 'createdAt',
         'filters[EntryType][$eq]': 'News',
     }
 
