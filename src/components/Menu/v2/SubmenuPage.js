@@ -3,6 +3,7 @@ import AboutUsBackground from "@/components/Menu/v2/backgrounds/AboutUsBackgroun
 import AcademicsBackground from "@/components/Menu/v2/backgrounds/AcademicsBackground";
 import PublicProgramsBackground from "@/components/Menu/v2/backgrounds/PublicProgramsBackground";
 import style from "./SubmenuPage.module.scss";
+import CollectionsBackground from "@/components/Menu/v2/backgrounds/CollectionsBackground";
 
 const SubmenuPage = ({menuID, status, selectedSubmenu}) => {
     const getSubmenuBackground = () => {
@@ -11,6 +12,8 @@ const SubmenuPage = ({menuID, status, selectedSubmenu}) => {
         switch (menuID) {
             case 'about-us':
                 return <AboutUsBackground backgroundStatus={backgroundStatus} />
+            case 'collections':
+                return <CollectionsBackground backgroundStatus={backgroundStatus} />
             case 'academics':
                 return <AcademicsBackground backgroundStatus={backgroundStatus} />
             case 'public-programs':
