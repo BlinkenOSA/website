@@ -1,20 +1,19 @@
-import style from "./NewsCard.module.scss";
+import style from "./EntryCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import getDateString from "@/utils/getDateString";
 import getImageUrl from "@/utils/getImageUrl";
 import getIconByEventType from "@/utils/getIconByType";
 import truncateWithEllipses from "@/utils/truncateWithEllipsis";
-import Tag from "@/components/Tag/Tag";
 import getColor from "@/utils/getColor";
 
-const NewsCard = ({ data }) => {
+const EntryCard = ({ data, type='news' }) => {
     // Populate fields
     const date = getDateString(data['createdAt'], 'YYYY-MM-DDTHH:mm:ss', 'news')
     const title = data['Title']
     const description = data['CardText']
     const image = getImageUrl(data['Image'])
-    const icon = getIconByEventType(data['EventType'], 'normal')
-    const eventType = data['EventType']
+    const icon = getIconByEventType(type === 'news' ? data['ActivityType'] : data['EventType'], 'normal')
+    const entryType = type === 'news' ? data['ActivityType'] : data['EntryType']
     const color= getColor(data['Profile'])
 
     return (
@@ -26,7 +25,7 @@ const NewsCard = ({ data }) => {
               </div>
           </div>
           <div className={style.Header}>
-              <div className={`${style.EventType} subtitle-small`}>{eventType}</div>
+              <div className={`${style.EventType} subtitle-small`}>{entryType}</div>
               <div className={style.Date}>{date}</div>
           </div>
           <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 60)}</h3>
@@ -37,4 +36,4 @@ const NewsCard = ({ data }) => {
     )
 }
 
-export default NewsCard
+export default EntryCard

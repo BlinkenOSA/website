@@ -2,7 +2,7 @@ import fetcher from "@/utils/api/fetcher";
 
 export const fetchEventsFrontPage = () => {
     const params = {
-        'sort[0]': 'rank:desc',
+        'sort[0]': 'rank:asc',
         'sort[1]': 'createdAt:desc',
         'populate[0]': 'Image',
         'pagination[start]': 0,
