@@ -29,7 +29,7 @@ const NewsCard = ({ data }) => {
               <div className={`${style.EventType} subtitle-small`}>{eventType}</div>
               <div className={style.Date}>{date}</div>
           </div>
-          <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(description, 60)}</h3>
+          <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 60)}</h3>
           <div className={style.Description}>
               {truncateWithEllipses(description, 60)}
           </div>
