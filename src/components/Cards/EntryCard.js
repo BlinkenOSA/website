@@ -30,7 +30,7 @@ const EntryCard = ({ data, type='news' }) => {
           </div>
           <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 60)}</h3>
           <div className={style.Description}>
-              {truncateWithEllipses(description, 60)}
+              {truncateWithEllipses(description, 160)}
           </div>
       </div>
     )

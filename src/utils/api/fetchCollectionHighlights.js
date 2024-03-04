@@ -10,7 +10,9 @@ export const fetchCollectionHighlightsFrontPage = () => {
         'fields[0]': 'Title',
         'fields[1]': 'CardText',
         'fields[2]': 'ContentTypes',
-        'fields[3]': 'MaterialTypes'
+        'fields[3]': 'MaterialTypes',
+        'fields[4]': 'Size',
+        'fields[5]': 'ContentTypes'
     }
 
     return fetcher('collections', params)
