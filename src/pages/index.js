@@ -100,7 +100,7 @@ const IndexPage = ({heroData, eventsData, newsData, collectionsData}) => {
 
 		return (
 			<>
-				<SectionFlipper title={title}/>
+				<SectionFlipper title={title} border={true}/>
 				<Row>
 					{renderNewsCard()}
 				</Row>

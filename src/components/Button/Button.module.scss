@@ -3,6 +3,10 @@
 .Button {
   display: inline-block;
 
+  a {
+    text-decoration: none;
+  }
+
   :global .btn {
     display: flex;
     align-items: center;
