@@ -4,6 +4,8 @@ import getDateString from "@/utils/getDateString";
 import getImageUrl from "@/utils/getImageUrl";
 import getIconByEventType from "@/utils/getIconByType";
 import truncateWithEllipses from "@/utils/truncateWithEllipsis";
+import Tag from "@/components/Tag/Tag";
+import getColor from "@/utils/getColor";
 
 const NewsCard = ({ data }) => {
     // Populate fields
@@ -11,21 +13,25 @@ const NewsCard = ({ data }) => {
     const title = data['Title']
     const description = data['CardText']
     const image = getImageUrl(data['Image'])
-    const icon = getIconByEventType(data['EventType'], 'small')
+    const icon = getIconByEventType(data['EventType'], 'normal')
     const eventType = data['EventType']
+    const color= getColor(data['Profile'])
 
     return (
       <div className={style.Wrapper}>
           <div className={style.Image}>
               <MaskedImage src={image} type={'landscape'} />
+              <div className={`${style.Icon} ${style[color]}`}>
+                  {icon}
+              </div>
           </div>
           <div className={style.Header}>
               <div className={`${style.EventType} subtitle-small`}>{eventType}</div>
               <div className={style.Date}>{date}</div>
           </div>
-          <h3 className={`${style.Title} subtitle-large`}>{title}</h3>
+          <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(description, 60)}</h3>
           <div className={style.Description}>
-              {truncateWithEllipses(description, 50)}
+              {truncateWithEllipses(description, 60)}
           </div>
       </div>
     )

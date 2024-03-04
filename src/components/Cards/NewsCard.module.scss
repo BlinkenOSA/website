@@ -3,7 +3,7 @@
 .Wrapper {
   display: flex;
   flex-direction: column;
-  height: 440px;
+  max-height: 500px;
 
   .Header {
     display: flex;
@@ -25,12 +25,57 @@
   }
 
   .Image {
+    position: relative;
     margin-bottom: 24px;
 
-    & img {
-      // -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-      // filter: grayscale(100%);
+    .Icon {
+      position: absolute;
+      bottom: 0;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.neutral {
+        color: #FFFFFF;
+        background-color: $neutral_1000;
+      }
+
+      &.mustard {
+        background-color: $mustard_1000;
+
+        img {
+          filter: brightness(0%);
+        }
+      }
+
+      &.orange {
+        background-color: $orange_1000;
+
+        img {
+          filter: brightness(0%);
+        }
+      }
+
+      &.aqua {
+        background-color: $aqua_1000;
+
+        img {
+          filter: brightness(0%);
+        }
+      }
+
+      &.sage {
+        background-color: $sage_1000;
+
+        img {
+          filter: brightness(0%);
+        }
+      }
     }
+
+
   }
 
   .Description {
