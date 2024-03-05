@@ -3,7 +3,7 @@ import archivumLogo from "../../../public/icons/credo/archivum.svg"
 import Image from "next/image";
 import {Container} from "react-bootstrap";
 
-const CredoPanel = () => {
+const CredoPanel = ({credoData}) => {
     return (
         <div className={style.Panel}>
             <Container>

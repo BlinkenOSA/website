@@ -19,21 +19,24 @@ import {fetchNewsFrontPage} from "@/utils/api/fetchNews";
 import {fetchCollectionHighlightsFrontPage} from "@/utils/api/fetchCollectionHighlights";
 import {fetchEntriesFrontPage} from "@/utils/api/fetchEntries";
 import EntryCard from "@/components/Cards/EntryCard";
+import {fetchCredo} from "@/utils/api/fetchCredo";
 
 export const getServerSideProps = (async () => {
-	const [heroRes, eventsRes, newsRes, entriesRes, collectionsRes] = await Promise.all([
+	const [heroRes, eventsRes, newsRes, entriesRes, collectionsRes, credoRes] = await Promise.all([
 		fetchHero(),
 		fetchEventsFrontPage(),
 		fetchNewsFrontPage(),
 		fetchEntriesFrontPage(),
-		fetchCollectionHighlightsFrontPage()
+		fetchCollectionHighlightsFrontPage(),
+		fetchCredo()
 	]);
-	const [heroData, eventsData, newsData, entriesData, collectionsData] = await Promise.all([
+	const [heroData, eventsData, newsData, entriesData, collectionsData, credoData] = await Promise.all([
 		heroRes.json(),
 		eventsRes.json(),
 		newsRes.json(),
 		entriesRes.json(),
-		collectionsRes.json()
+		collectionsRes.json(),
+		credoRes.json()
 	])
 	return {
 		props: {
@@ -41,12 +44,13 @@ export const getServerSideProps = (async () => {
 			eventsData,
 			newsData,
 			entriesData,
-			collectionsData
+			collectionsData,
+			credoData
 		}
 	}
 })
 
-const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData}) => {
+const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData, credoData}) => {
 	const renderHeroes = () => {
 		const renderHero = () => {
 			return heroData["data"].map(hero => {
@@ -161,7 +165,7 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 				<div style={{height: '40px'}}/>
 			</Container>
 			<Container fluid={true}>
-				<CredoPanel/>
+				<CredoPanel data={credoData}/>
 			</Container>
 			<Container>
 				<div style={{height: '40px'}}/>
