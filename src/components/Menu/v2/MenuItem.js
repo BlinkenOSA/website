@@ -24,6 +24,7 @@ const MenuItem = ({menuID, title, icon, number, color, menuOpen, onClick, menuIt
             className={`${style.MenuItem}`}
             style={getStyle()}
             animate={menuOpen.includes(number) ? 'open': 'closed'}
+            initial={'closed'}
             variants={menuVariants}
             transition={transition}
         >
