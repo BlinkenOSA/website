@@ -29,6 +29,10 @@
   .Image {
     margin-bottom: 16px;
     position: relative;
+    
+    img {
+      transition: filter 0.5s;
+    }
   }
 
   .Description {

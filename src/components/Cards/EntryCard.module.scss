@@ -37,6 +37,10 @@
     position: relative;
     margin-bottom: 24px;
 
+    img {
+      transition: filter 0.5s;
+    }
+
     .Icon {
       position: absolute;
       bottom: 0;
