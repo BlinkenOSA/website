@@ -4,6 +4,15 @@
   display: flex;
   flex-direction: column;
   height: 440px;
+  cursor: pointer;
+
+  &:hover {
+    .Image {
+      img {
+        filter: none;
+      }
+    }
+  }
 
   .Tag {
     display: flex;

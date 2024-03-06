@@ -4,6 +4,15 @@
   display: flex;
   flex-direction: column;
   max-height: 500px;
+  cursor: pointer;
+
+  &:hover {
+    .Image {
+      img {
+        filter: none;
+      }
+    }
+  }
 
   .Header {
     display: flex;
