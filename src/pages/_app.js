@@ -32,11 +32,9 @@ export default function App({ Component, pageProps }) {
             breakpoints={['lg', 'md', 'sm', 'xs']}
             minBreakpoint="xs"
           >
-            <AnimatePresence initial={false} mode="popLayout">
               <DesktopLayout>
                 <Component {...pageProps} />
               </DesktopLayout>
-            </AnimatePresence>
           </ThemeProvider>
         </MediaContextProvider>
       </main>
