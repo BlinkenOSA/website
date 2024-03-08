@@ -1,12 +1,11 @@
 import {fetchEventDetail} from "@/utils/api/fetchEvents";
-import style from "@/pages/pages.module.scss";
+import style from "./style.module.scss";
 import {Col, Container, Row} from "react-bootstrap";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import Content from "@/components/Content/Content";
 import getDateString from "@/utils/getDateString";
-import getIconByEventType from "@/utils/getIconByType";
-import getColor from "@/utils/getColor";
 import EventTypeTag from "@/components/Tag/EventTypeTag";
+import Button from "@/components/Button/Button";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -84,10 +83,10 @@ const EventPage = ({eventData}) => {
 						</div>
 						{
 							(registrationLink && registrationLink !== null) &&
-							<div>
-								<span className={'subtitle-small'}>Register at: </span>
-								<span>{registrationLink}</span>
-							</div>
+							<>
+								<div style={{height: '24px'}}/>
+								<Button link={registrationLink} type={'primary'} size={'medium'} color={'neutral'}>Register</Button>
+							</>
 						}
 					</Col>
 				</Row>
