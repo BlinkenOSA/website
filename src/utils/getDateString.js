@@ -10,8 +10,12 @@ const getDateString = (dateString, format, type = 'event') => {
         case 'event':
             template = 'h:mm A MMMM DD'
             break
+        case 'eventFull':
+            template = 'h:mm A MMMM DD YYYY'
+            break
         case 'news':
             template = 'h:mm A · DD/MM/YYYY'
+            break
     }
 
     const dateTime = dayjs(dateString, format)

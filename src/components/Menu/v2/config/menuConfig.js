@@ -8,13 +8,20 @@ export const menuConfig = [
     color: 'mustard',
     url: '/about',
     menuItems: [
-      { key: 'the-archivum', title: 'The Archivum' },
+      { key: 'the-archivum', title: 'The Archivum', submenu: [
+          { key: 'about-us-menu', title: 'About Us', highlight: 'The story of the Vera & Donald Blinken Open Society Archives.' },
+          { key: 'vera-and-donald-blinken', title: 'Vera and Donald Blinken', highlight: 'Our main donors.' },
+          { key: 'goldberger-house', title: 'Goldberger House', highlight: 'Where are we located? The story of our building.'},
+          { key: 'what-archives-are', title: 'What archives are?', highlight: 'What is the role of the archives nowadays?'},
+        ]
+      },
       { key: 'we-are-ceu', title: 'We are CEU' },
       { key: 'partner-projects', title: 'Partner Projects' },
       { key: 'staff', title: 'Staff' },
       { key: 'join-us', title: 'Join Us', submenu: [
+          { key: 'visegrad-scholarships', title: 'Visegrad Scholarships', highlight: 'Information about the Visegrad Scholarship Program.' },
           { key: 'jobs', title: 'Jobs', highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid' },
-          { key: 'archivum-internships', title: 'Archivum Internships', highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid slightly less' },
+          { key: 'archivum-internships', title: 'Internships', highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid slightly less' },
           { key: 'volunteering', title: 'Volunteering', highlight: "Work with us on arhcival processing, digitization projects, exhibitions. You won't get paid"}]
       },
       { key: 'annual-reports', title: 'Annual Reports' },
@@ -27,14 +34,14 @@ export const menuConfig = [
     color: 'orange',
     url: '/collections',
     menuItems: [
+      { key: 'about-our-collections', title: 'About our Collections'},
+      { key: 'catalog', title: 'Catalog'},
       { key: 'access-the-collections', title: 'Access the Collections', submenu: [
-          { key: 'catalog', title: 'Catalog', highlight: 'Search and browse our archival and library holdings, request materials.' },
           { key: 'help-with-your-research', title: 'Help with your Research', highlight: 'Get stuck?! Let us find you useful stuff for your research.'},
           { key: 'research-room', title: 'Research Room Access', highlight: 'Would you like to come to us? This is how you can reach our research room.'},
           { key: 'digitization-on-demand', title: 'Digitization on Demand', highlight: 'Found something relevant? We will digitize it for you!'}]
       },
-      { key: 'digital-collections', title: 'Digital Collections' },
-      { key: 'curated-collections', title: 'Curated Collections' },
+      { key: 'collection-highlights', title: 'Collection Highlights' },
       { key: 'archival-projects', title: 'Archival Projects' },
       { key: 'donate-your-archive', title: 'Donate your Archive' },
       { key: 'archival-news-and-blog', title: 'Archival News and Blog'}
@@ -68,7 +75,7 @@ export const menuConfig = [
     url: '/public-programs',
     menuItems: [
       { title: 'Program calendar' },
-      { title: 'Galeria Centralis' },
+      { title: 'Galeria Centralis', },
       { title: 'Past Programs' },
       { title: 'Public History Projects' }
     ]

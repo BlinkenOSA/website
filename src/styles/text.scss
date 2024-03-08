@@ -100,3 +100,9 @@ h3 {
   font-size: 36px;
   line-height: 60px;
 }
+
+.breadcrumb {
+  font-size: 16px;
+  line-height: 100%;
+  @extend .text-semibold-base;
+}

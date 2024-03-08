@@ -74,6 +74,7 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 				return (
 					<Col xs={4}>
 						<EventCard
+							id={event['id']}
 							key={`event_${event["id"]}`}
 							data={event['attributes']}
 						/>

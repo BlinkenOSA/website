@@ -2,13 +2,12 @@ import style from "./EventCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import Tag from "@/components/Tag/Tag";
 import Dotdotdot from "react-dotdotdot";
-import {IconExhibition} from "@/components/Icon/Icon";
 import getImageUrl from "@/utils/getImageUrl";
 import getDateString from "@/utils/getDateString";
 import getColor from "@/utils/getColor";
 import getIconByEventType from "@/utils/getIconByType";
 
-const EventCard = ({data}) => {
+const EventCard = ({id, data}) => {
     // Populate fields
     const date = getDateString(data['StartDate'], 'YYYY-MM-DDTHH:MM:SS')
     const title = data['Title']
@@ -19,18 +18,20 @@ const EventCard = ({data}) => {
 
     return (
         <div className={style.Wrapper}>
-            <div className={style.Image}>
-                <MaskedImage src={image} type={'landscape'} />
-                <div className={style.Tag}>
-                    <Tag text={date} icon={icon} color={color}/>
+            <a href={`/events/${id}`}>
+                <div className={style.Image}>
+                    <MaskedImage src={image} type={'landscape'} />
+                    <div className={style.Tag}>
+                        <Tag text={date} icon={icon} color={color}/>
+                    </div>
                 </div>
-            </div>
-            <h3 className={`${style.Title} subtitle-large`}>{title}</h3>
-            <div className={style.Description}>
-                <Dotdotdot clamp={4} >
-                    {description}
-                </Dotdotdot>
-            </div>
+                <h3 className={`${style.Title} subtitle-large`}>{title}</h3>
+                <div className={style.Description}>
+                    <Dotdotdot clamp={4} >
+                        {description}
+                    </Dotdotdot>
+                </div>
+            </a>
         </div>
     )
 }

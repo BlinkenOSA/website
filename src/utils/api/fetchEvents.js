@@ -16,3 +16,14 @@ export const fetchEventsFrontPage = () => {
 
     return fetcher('events', params)
 }
+
+export const fetchEventDetail = (id) => {
+    const params = {
+        'populate[0]': 'Image',
+        'populate[1]': 'Content',
+        'populate[2]': 'Content.Image',
+        'populate[3]': 'Content.Images.Image',
+    }
+
+    return fetcher(`events/${id}`, params)
+}
