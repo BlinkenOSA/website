@@ -82,6 +82,13 @@ const EventPage = ({eventData}) => {
 						<div>
 							<span className={'subtitle-small'}>{hostingType}, {language}</span>
 						</div>
+						{
+							(registrationLink && registrationLink !== null) &&
+							<div>
+								<span className={'subtitle-small'}>Register at: </span>
+								<span>{registrationLink}</span>
+							</div>
+						}
 					</Col>
 				</Row>
 				<Content contentObject={data['Content']} />
