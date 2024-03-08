@@ -6,7 +6,7 @@ export const fetchEventsFrontPage = () => {
         'sort[1]': 'createdAt:desc',
         'populate[0]': 'Image',
         'pagination[start]': 0,
-        'pagination[limit]': 3,
+        'pagination[limit]': 9,
         'fields[0]': 'Title',
         'fields[1]': 'CardText',
         'fields[2]': 'StartDate',
