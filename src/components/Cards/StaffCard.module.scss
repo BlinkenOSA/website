@@ -1,0 +1,19 @@
+@import "@/styles/colors.scss";
+
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+
+  .Name {
+    margin: 8px 0;
+  }
+
+  .Position {
+    margin-bottom: 4px;
+  }
+
+  .Unit {
+    color: $neutral_800;
+  }
+}

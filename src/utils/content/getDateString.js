@@ -5,6 +5,10 @@ dayjs.extend(customParseFormat)
 
 
 const getDateString = (dateString, format, type = 'event') => {
+    if (dateString === null) {
+        return ''
+    }
+
     let template = ''
     switch (type) {
         case 'event':
@@ -22,7 +26,6 @@ const getDateString = (dateString, format, type = 'event') => {
     }
 
     const dateTime = dayjs(dateString, format)
-
     return dateTime.format(template)
 }
 

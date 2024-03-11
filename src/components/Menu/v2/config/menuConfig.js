@@ -17,7 +17,7 @@ export const menuConfig = [
       },
       { key: 'we-are-ceu', title: 'We are CEU' },
       { key: 'partner-projects', title: 'Partner Projects', url: '/about-us/partner-projects'},
-      { key: 'staff', title: 'Staff' },
+      { key: 'staff', title: 'Staff', url: '/about-us/staff'},
       { key: 'join-us', title: 'Join Us', submenu: [
           { key: 'visegrad-scholarships', title: 'Visegrad Scholarships', highlight: 'Information about the Visegrad Scholarship Program.' },
           { key: 'jobs', title: 'Jobs', highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid' },

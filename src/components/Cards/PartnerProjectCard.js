@@ -7,8 +7,6 @@ import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import Button from "@/components/Button/Button";
 
 const PartnerProjectCard = ({id, data}) => {
-    console.log(data)
-
     // Populate fields
     const title = data['Title']
     const description = data['CardText']
@@ -23,7 +21,7 @@ const PartnerProjectCard = ({id, data}) => {
                 <MaskedImage src={image} type={'hdtv'} />
             </div>
             <div className={`${style.Title} subtitle-large`}>
-                {title}
+                {title} {startDate ? startDate : undefined} {endDate ? `- ${endDate}` : undefined}
             </div>
             <div className={style.Description}>
                 {description}
