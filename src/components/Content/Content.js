@@ -2,7 +2,8 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import style from './Content.module.scss';
 import {Col, Row} from "react-bootstrap";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
-import getImageUrl from "@/utils/getImageUrl";
+import getImageUrl from "@/utils/content/getImageUrl";
+import getImageType from "@/utils/content/getImageType";
 
 const Content = ({contentObject}) => {
 	const renderContent = (content) => {
@@ -36,7 +37,7 @@ const Content = ({contentObject}) => {
 			return content['Images'].map((imageData, idx) => {
 				return (
 					<div className={style.ImageWrapper}>
-						{ renderImage(imageData, 'portrait') }
+						{ renderImage(imageData) }
 					</div>
 				)
 			})
@@ -72,19 +73,21 @@ const Content = ({contentObject}) => {
 		return (
 			<Row>
 				<Col xs={12}>
-					{ renderImage(content, 'landscape') }
+					<div className={style.ImageFull}>
+						{ renderImage(content) }
+					</div>
 				</Col>
 			</Row>
 		)
 	}
 
-	const renderImage = (imageContent, type) => {
+	const renderImage = (imageContent) => {
 		const source = getImageUrl(imageContent['Image'])
 		const caption = imageContent['Caption']
 
 		return (
-			<div className={style.ImageWrapper}>
-				<MaskedImage src={source} type={type} />
+			<div>
+				<MaskedImage src={source} type={getImageType(imageContent['Image'])} />
 				{
 					(caption && caption !== '') && <div className={style.Caption}>{caption}</div>
 				}

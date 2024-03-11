@@ -1,0 +1,19 @@
+.Authors {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  .AuthorBadge {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .Image {
+      width: 50px
+    }
+
+    .Name {
+      flex: 1;
+    }
+  }
+}

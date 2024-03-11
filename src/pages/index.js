@@ -1,12 +1,9 @@
 import {Col, Container, Row} from "react-bootstrap";
 import Hero from "@/components/Hero/Hero";
 import HeroControl from "@/components/Hero/HeroControl";
-import NewsCard from "@/components/Cards/EntryCard";
-import {IconDocument, IconExhibition, IconPrograms} from "@/components/Icon/Icon";
 import SectionDivider from "@/components/IndexPage/SectionDivider";
 import EventCard from "@/components/Cards/EventCard";
 import CatalogPanel from "@/components/IndexPage/CatalogPanel";
-import SectionPanel from "@/components/IndexPage/SectionPanel";
 import CredoPanel from "@/components/IndexPage/CredoPanel";
 import CollectionCard from "@/components/Cards/CollectionCard";
 import PartnersPanel from "@/components/IndexPage/PartnersPanel";
@@ -20,6 +17,7 @@ import {fetchCollectionHighlightsFrontPage} from "@/utils/api/fetchCollectionHig
 import {fetchEntriesFrontPage} from "@/utils/api/fetchEntries";
 import EntryCard from "@/components/Cards/EntryCard";
 import {fetchCredo} from "@/utils/api/fetchCredo";
+import NewsCard from "@/components/Cards/NewsCard";
 
 export const getServerSideProps = (async () => {
 	const [heroRes, eventsRes, newsRes, entriesRes, collectionsRes, credoRes] = await Promise.all([
@@ -94,15 +92,16 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 		)
 	}
 
-	const renderEntryCards = (entryData, title) => {
+	const renderEntryCards = (entryData) => {
 		const renderEntryCard = () => {
 			return entryData["data"].map(entry => {
 				return (
 					<Col xs={4}>
 						<EntryCard
+							id={`${entry["id"]}`}
 							key={`${entry["id"]}`}
 							data={entry['attributes']}
-							type={title === 'News' ? 'news' : 'entry'}
+							type={entry['EntryType']}
 						/>
 					</Col>
 				)
@@ -111,9 +110,34 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 
 		return (
 			<>
-				<SectionFlipper title={title} border={true}/>
+				<SectionFlipper title={'Blogs, Podcasts, Videos'} border={true}/>
 				<Row>
 					{renderEntryCard()}
+				</Row>
+			</>
+		)
+	}
+
+	const renderNewsCards = (newsData) => {
+		const renderNewsCard = () => {
+			return newsData["data"].map(entry => {
+				return (
+					<Col xs={4}>
+						<NewsCard
+							id={`${entry["id"]}`}
+							key={`${entry["id"]}`}
+							data={entry['attributes']}
+						/>
+					</Col>
+				)
+			})
+		}
+
+		return (
+			<>
+				<SectionFlipper title={'News'} border={true}/>
+				<Row>
+					{renderNewsCard()}
 				</Row>
 			</>
 		)
@@ -160,9 +184,9 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 			</Container>
 			<Container>
 				<div style={{height: '48px'}}/>
-				{renderEntryCards(newsData, 'News')}
+				{renderNewsCards(newsData)}
 				<div style={{height: '40px'}}/>
-				{renderEntryCards(entriesData, 'Blogs, Podcasts, Videos')}
+				{renderEntryCards(entriesData)}
 				<div style={{height: '40px'}}/>
 			</Container>
 			<Container fluid={true}>

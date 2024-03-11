@@ -3,7 +3,7 @@ import style from "./style.module.scss";
 import {Col, Container, Row} from "react-bootstrap";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import Content from "@/components/Content/Content";
-import getDateString from "@/utils/getDateString";
+import getDateString from "@/utils/content/getDateString";
 import EventTypeTag from "@/components/Tag/EventTypeTag";
 import Button from "@/components/Button/Button";
 

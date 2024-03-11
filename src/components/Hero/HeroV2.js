@@ -1,9 +1,10 @@
-import style from "./Hero.module.scss";
+import style from "./HeroV2.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import Button from "@/components/Button/Button";
 import getImageUrl from "@/utils/content/getImageUrl";
+import {Container} from "react-bootstrap";
 
-const Hero = ({data}) => {
+const HeroV2 = ({data}) => {
 
     // Populate fields
     const date = data['Date']
@@ -52,7 +53,6 @@ const Hero = ({data}) => {
     return (
         <div className={`${style.HeroWrapper}`}>
             <div className={`${style.TopRow} hero-top-row`}>
-                <div className={style.Logo}/>
                 <div className={style.Date}>
                     <span>{date}</span>
                     {generateTime()}
@@ -62,12 +62,11 @@ const Hero = ({data}) => {
                 </div>
             </div>
             <div className={style.TitleRow}>
-                <div style={{width: '120px'}}/>
                 <div className={`${style.Title} hero-title`}>
                     {title_1}
                     {
                         title_2 !== null &&
-                        <><br/>{title_2}</>
+                        <><br/><span className={style.SecondTitleRow}>{title_2}</span></>
                     }
                     {
                         subtitle_1 !== null &&
@@ -81,12 +80,12 @@ const Hero = ({data}) => {
                     }
                 </div>
             </div>
-            { generateButton () }
             <div className={style.PosterWrapper}>
                 <MaskedImage src={image} type={'hero'}/>
             </div>
+            <div className={style.Background}/>
         </div>
     )
 }
 
-export default Hero;
+export default HeroV2;

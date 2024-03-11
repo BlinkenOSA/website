@@ -1,4 +1,5 @@
 import {
+    IconAudio,
     IconConference,
     IconExhibition,
     IconFilm, IconInternship,
@@ -39,6 +40,12 @@ const getIconByEventType = (type, size) => {
             return <IconInternship size={size} />
         case 'Lecture':
             return <IconTeaching size={size} />
+        case 'Podcast':
+            return <IconAudio size={size} />
+        case 'Blog':
+            return <IconTalk size={size} />
+        case 'Video':
+            return <IconFilm size={size} />
     }
 }
 

@@ -17,3 +17,16 @@ export const fetchEntriesFrontPage = () => {
 
     return fetcher('entries', params)
 }
+
+export const fetchEntriesDetail = (id) => {
+    const params = {
+        'populate[0]': 'Image',
+        'populate[1]': 'Content',
+        'populate[2]': 'Content.Image',
+        'populate[3]': 'Content.Images.Image',
+        'populate[4]': 'AuthorStaff',
+        'populate[5]': 'AuthorStaff.Image'
+    }
+
+    return fetcher(`entries/${id}`, params)
+}

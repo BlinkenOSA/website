@@ -16,3 +16,17 @@ export const fetchNewsFrontPage = () => {
 
     return fetcher('news-items', params)
 }
+
+
+export const fetchNewsDetail = (id) => {
+    const params = {
+        'populate[0]': 'Image',
+        'populate[1]': 'Content',
+        'populate[2]': 'Content.Image',
+        'populate[3]': 'Content.Images.Image',
+        'populate[4]': 'AuthorStaff',
+        'populate[5]': 'AuthorStaff.Image'
+    }
+
+    return fetcher(`news-items/${id}`, params)
+}

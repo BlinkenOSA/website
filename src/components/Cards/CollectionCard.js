@@ -1,7 +1,7 @@
 import style from "./CollectionCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import {IconAudio, IconDocument, IconFilm, IconPhoto} from "@/components/Icon/Icon";
-import getImageUrl from "@/utils/getImageUrl";
+import getImageUrl from "@/utils/content/getImageUrl";
 import truncateWithEllipses from "@/utils/truncateWithEllipsis";
 
 const CollectionCard = ({data}) => {

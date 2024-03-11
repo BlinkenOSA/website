@@ -6,20 +6,18 @@ import getIconByEventType from "@/utils/content/getIconByType";
 import truncateWithEllipses from "@/utils/truncateWithEllipsis";
 import getColor from "@/utils/content/getColor";
 
-const EntryCard = ({ id, data}) => {
+const NewsCard = ({ id, data}) => {
     // Populate fields
     const date = getDateString(data['createdAt'], 'YYYY-MM-DDTHH:mm:ss', 'news')
     const title = data['Title']
     const description = data['CardText']
     const image = getImageUrl(data['Image'])
-    const icon = getIconByEventType(data['EntryType'], 'normal')
+    const icon = getIconByEventType(data['ActivityType'], 'normal')
     const color= getColor(data['Profile'])
-
-    const url = data['EntryType'].toLowerCase();
 
     return (
       <div className={style.Wrapper}>
-          <a href={`/entry/${url}/${id}`}>
+          <a href={`/news/${id}`}>
               <div className={style.Image}>
                   <MaskedImage src={image} type={'landscape'} />
                   <div className={`${style.Icon} ${style[color]}`}>
@@ -28,10 +26,10 @@ const EntryCard = ({ id, data}) => {
               </div>
           </a>
           <div className={style.Header}>
-              <div className={`${style.EventType} subtitle-small`}>{data['EntryType']}</div>
+              <div className={`${style.EventType} subtitle-small`}>{data['ActivityType']}</div>
               <div className={style.Date}>{date}</div>
           </div>
-          <a href={`/entry/${url}/${id}`}>
+          <a href={`/news/${id}`}>
             <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 60)}</h3>
           </a>
           <div className={style.Description}>
@@ -41,4 +39,4 @@ const EntryCard = ({ id, data}) => {
     )
 }
 
-export default EntryCard
+export default NewsCard;
