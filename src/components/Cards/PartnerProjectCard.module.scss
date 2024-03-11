@@ -1,0 +1,37 @@
+@import "@/styles/colors.scss";
+
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  border-top: 1px solid $neutral_1000;
+  padding-top: 32px;
+  margin-bottom: 24px;
+
+  .Title {
+    margin-top: 16px;
+  }
+
+  .Description {
+    margin-top: 16px;
+    color: $neutral_800;
+  }
+
+  .Footer {
+    margin: 24px 0;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+
+    .Button {
+      flex: 1;
+    }
+
+    .Warning {
+      flex: 1;
+      font-size: 12px;
+      color: $neutral_600;
+      line-height: 16px;
+    }
+  }
+}

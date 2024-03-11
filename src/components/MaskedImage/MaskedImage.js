@@ -12,6 +12,10 @@ const MaskedImage = ({src, type='landscape', alt="Image"}) => {
                 return style.Landscape
             case 'portrait':
                 return style.Portrait
+            case 'square':
+                return style.Square
+            case 'hdtv':
+                return style.HDTV
             case 'hero':
                 return style.Hero
         }
@@ -20,7 +24,6 @@ const MaskedImage = ({src, type='landscape', alt="Image"}) => {
     if (type === 'hero') {
         return (
             <div className={getStyle()}>
-                <div className={style.DarkLayer}/>
                 <Image
                     alt={alt}
                     src={src}

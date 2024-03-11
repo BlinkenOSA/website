@@ -16,7 +16,7 @@ export const menuConfig = [
         ]
       },
       { key: 'we-are-ceu', title: 'We are CEU' },
-      { key: 'partner-projects', title: 'Partner Projects' },
+      { key: 'partner-projects', title: 'Partner Projects', url: '/about-us/partner-projects'},
       { key: 'staff', title: 'Staff' },
       { key: 'join-us', title: 'Join Us', submenu: [
           { key: 'visegrad-scholarships', title: 'Visegrad Scholarships', highlight: 'Information about the Visegrad Scholarship Program.' },
@@ -24,7 +24,7 @@ export const menuConfig = [
           { key: 'archivum-internships', title: 'Internships', highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid slightly less' },
           { key: 'volunteering', title: 'Volunteering', highlight: "Work with us on arhcival processing, digitization projects, exhibitions. You won't get paid"}]
       },
-      { key: 'annual-reports', title: 'Annual Reports' },
+      { key: 'annual-reports', title: 'Annual Reports', url: '/about-us/annual-reports' },
       { key: 'visit-us', title: 'Visit Us' }
     ]
   }, {

@@ -16,6 +16,9 @@ const getDateString = (dateString, format, type = 'event') => {
         case 'news':
             template = 'h:mm A · DD/MM/YYYY'
             break
+        case 'date_only':
+            template = 'YYYY-MM-DD'
+            break
     }
 
     const dateTime = dayjs(dateString, format)

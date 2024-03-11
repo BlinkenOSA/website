@@ -33,6 +33,18 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
     }
 
     const getMenuList = () => {
+        const getClass = (menuItemKey) => {
+            if ( menuItemKey === selectedMenuItem ) {
+                return `${style.Title} ${style.Active}`
+            } else {
+                if (selectedMenuItem === '') {
+                    return style.Title
+                } else {
+                    return `${style.Title} ${style.NotActive}`
+                }
+            }
+        }
+
         return menuItems.map((menuItem, idx) => {
             const renderMenuTitle = (item) => {
                 if ('submenu' in item) {
@@ -43,7 +55,7 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
                         >
                             <div
                                 onClick={() => handleSelectMenu(item['key'])}
-                                className={menuItem['key'] === selectedMenuItem ? `${style.Title} ${style.Active}` : style.Title}
+                                className={getClass(item['key'])}
                             >
                                 {item['title']}
                             </div>
@@ -55,8 +67,8 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
                 } else {
                     return (
                         <div className={style.MenuItem}>
-                            <a href>
-                                <div className={selectedMenuItem !== '' ? `${style.Title} ${style.NotActive}` : style.Title}>
+                            <a href={'url' in item ? item['url'] : undefined}>
+                                <div className={getClass(item['key'])}>
                                     {item['title']}
                                 </div>
                             </a>
