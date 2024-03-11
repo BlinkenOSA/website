@@ -35,12 +35,12 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
     const getMenuList = () => {
         const getClass = (menuItemKey) => {
             if ( menuItemKey === selectedMenuItem ) {
-                return `${style.Title} ${style.Active}`
+                return `${style.MenuItem} ${style.Active}`
             } else {
                 if (selectedMenuItem === '') {
-                    return style.Title
+                    return style.MenuItem
                 } else {
-                    return `${style.Title} ${style.NotActive}`
+                    return `${style.MenuItem} ${style.NotActive}`
                 }
             }
         }
@@ -50,25 +50,26 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
                 if ('submenu' in item) {
                     return (
                         <div
-                            className={style.MenuItem}
+                            className={getClass(item['key'])}
                             style={{display: "flex"}}
                         >
                             <div
                                 onClick={() => handleSelectMenu(item['key'])}
-                                className={getClass(item['key'])}
+                                className={style.Title}
                             >
                                 {item['title']}
                             </div>
-                            <div style={{display: "flex", flex: 1, justifyContent: 'center', alignItems: "center"}}>
+                            <div style={{flex: 1}} />
+                            <div style={{display: "flex", width: '100px', justifyContent: 'center', alignItems: "center"}}>
                                 <IconGeneralRight />
                             </div>
                         </div>
                     )
                 } else {
                     return (
-                        <div className={style.MenuItem}>
+                        <div className={getClass(item['key'])}>
                             <a href={'url' in item ? item['url'] : undefined}>
-                                <div className={getClass(item['key'])}>
+                                <div className={style.Title}>
                                     {item['title']}
                                 </div>
                             </a>

@@ -27,12 +27,20 @@
             border-bottom: solid 1px $neutral_1000;
           }
 
-          &.NotActive {
-            color: $neutral_200;
-          }
-
           &:hover {
             border-bottom: solid 1px $neutral_1000;
+          }
+        }
+
+        img {
+          transition: filter 0.5s ease;
+        }
+
+        &.NotActive {
+          color: $neutral_200;
+
+          img {
+            filter: invert(85%) sepia(2%) saturate(33%) hue-rotate(344deg) brightness(100%) contrast(92%);
           }
         }
       }
