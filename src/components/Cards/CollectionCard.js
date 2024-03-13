@@ -40,9 +40,9 @@ const CollectionCard = ({data}) => {
             <div className={style.Image}>
                 <MaskedImage src={image} type={'landscape'} />
             </div>
-            <h3 className={style.Title}>{title}</h3>
+            <h3 className={style.Title}>{truncateWithEllipses(title, 50)}</h3>
             <div className={style.Description}>
-                {truncateWithEllipses(description, title.length > 40 ? 150 : 250)}
+                {truncateWithEllipses(description, title.length > 30 ? 150 : 250)}
             </div>
             <div className={style.CollectionType}>
                 {contentTypes}
