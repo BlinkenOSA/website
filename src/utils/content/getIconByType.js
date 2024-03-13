@@ -1,9 +1,8 @@
 import {
-    IconAudio, IconBlog,
+    IconBlog, IconBookLaunch,
     IconConference,
     IconExhibition,
     IconFilm, IconInternship,
-    IconLibrary,
     IconMovieScreening, IconMusic, IconPodcast, IconPublication, IconResearch, IconScholarship,
     IconTalk, IconTeaching, IconTheatre, IconVideo, IconWorkshop
 } from "@/components/Icon/Icon";
@@ -11,7 +10,7 @@ import {
 const getIconByEventType = (type, size) => {
     switch (type) {
         case 'Book Launch':
-            return <IconLibrary size={size} />
+            return <IconBookLaunch size={size} />
         case 'Exhibition':
             return <IconExhibition size={size} />
         case 'Film':

@@ -1,4 +1,5 @@
 import audio from "../../../public/icons/osa/audio.svg";
+import book_launch from "../../../public/icons/osa/book_launch.svg";
 import blog from "../../../public/icons/osa/blog.svg";
 import community from "../../../public/icons/osa/community.svg";
 import conference from "../../../public/icons/osa/conference.svg";
@@ -65,6 +66,10 @@ const IconBase = ({src, size}) => {
 
 export const IconAudio = ({size='normal'}) => {
 	return <IconBase src={audio} size={size} />
+}
+
+export const IconBookLaunch = ({size='normal'}) => {
+	return <IconBase src={book_launch} size={size} />
 }
 
 export const IconBlog = ({size='normal'}) => {
