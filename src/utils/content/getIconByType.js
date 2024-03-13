@@ -1,11 +1,11 @@
 import {
-    IconAudio,
+    IconAudio, IconBlog,
     IconConference,
     IconExhibition,
     IconFilm, IconInternship,
     IconLibrary,
-    IconMovieScreening, IconMusic, IconPublication, IconResearch, IconScholarship,
-    IconTalk, IconTeaching, IconTheatre, IconWorkshop
+    IconMovieScreening, IconMusic, IconPodcast, IconPublication, IconResearch, IconScholarship,
+    IconTalk, IconTeaching, IconTheatre, IconVideo, IconWorkshop
 } from "@/components/Icon/Icon";
 
 const getIconByEventType = (type, size) => {
@@ -41,11 +41,11 @@ const getIconByEventType = (type, size) => {
         case 'Lecture':
             return <IconTeaching size={size} />
         case 'Podcast':
-            return <IconAudio size={size} />
+            return <IconPodcast size={size} />
         case 'Blog':
-            return <IconTalk size={size} />
+            return <IconBlog size={size} />
         case 'Video':
-            return <IconFilm size={size} />
+            return <IconVideo size={size} />
     }
 }
 

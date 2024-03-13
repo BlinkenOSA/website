@@ -1,4 +1,5 @@
 import audio from "../../../public/icons/osa/audio.svg";
+import blog from "../../../public/icons/osa/blog.svg";
 import community from "../../../public/icons/osa/community.svg";
 import conference from "../../../public/icons/osa/conference.svg";
 import curated_collections from "../../../public/icons/osa/curated_collections.svg";
@@ -14,11 +15,13 @@ import music from "../../../public/icons/osa/music.svg";
 import photo from "../../../public/icons/osa/photo.svg";
 import programs from "../../../public/icons/osa/programs.svg";
 import publication from "../../../public/icons/osa/publication.svg";
+import podcast from "../../../public/icons/osa/podcast.svg";
 import research from "../../../public/icons/osa/research.svg";
 import scholarship from "../../../public/icons/osa/scholarship.svg";
 import talk from "../../../public/icons/osa/talk.svg";
 import teaching from "../../../public/icons/osa/teaching.svg";
 import theatre from "../../../public/icons/osa/theatre.svg";
+import video from "../../../public/icons/osa/video.svg";
 import workshop from "../../../public/icons/osa/workshop.svg";
 
 import close from "../../../public/icons/general/close.svg";
@@ -62,6 +65,10 @@ const IconBase = ({src, size}) => {
 
 export const IconAudio = ({size='normal'}) => {
 	return <IconBase src={audio} size={size} />
+}
+
+export const IconBlog = ({size='normal'}) => {
+	return <IconBase src={blog} size={size} />
 }
 
 export const IconCommunity = ({size='normal'}) => {
@@ -116,6 +123,10 @@ export const IconPhoto = ({size='normal'}) => {
 	return <IconBase src={photo} size={size} />
 }
 
+export const IconPodcast = ({size='normal'}) => {
+	return <IconBase src={podcast} size={size} />
+}
+
 export const IconPrograms = ({size='normal'}) => {
 	return <IconBase src={programs} size={size} />
 }
@@ -142,6 +153,10 @@ export const IconTeaching = ({size='normal'}) => {
 
 export const IconTheatre = ({size='normal'}) => {
 	return <IconBase src={theatre} size={size} />
+}
+
+export const IconVideo = ({size='normal'}) => {
+	return <IconBase src={video} size={size} />
 }
 
 export const IconWorkshop = ({size='normal'}) => {
