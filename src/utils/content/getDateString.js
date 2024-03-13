@@ -12,7 +12,7 @@ const getDateString = (dateString, format, type = 'event') => {
     let template = ''
     switch (type) {
         case 'event':
-            template = 'h:mm A MMMM DD'
+            template = 'MMMM DD, h:mm A '
             break
         case 'eventFull':
             template = 'h:mm A MMMM DD YYYY'
