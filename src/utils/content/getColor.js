@@ -4,7 +4,7 @@ const getColor = (profile) => {
             return 'mustard'
         case 'Academic':
             return 'aqua'
-        case 'Collection':
+        case 'Collections':
             return 'orange'
         case 'Public':
             return 'sage'
