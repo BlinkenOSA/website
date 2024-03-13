@@ -11,7 +11,8 @@ export const fetchNewsFrontPage = () => {
         'fields[1]': 'CardText',
         'fields[2]': 'Profile',
         'fields[3]': 'ActivityType',
-        'fields[4]': 'createdAt'
+        'fields[5]': 'OriginalCreationDate',
+        'fields[6]': 'createdAt'
     }
 
     return fetcher('news-items', params)

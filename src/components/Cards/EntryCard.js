@@ -8,6 +8,7 @@ import getColor from "@/utils/content/getColor";
 
 const EntryCard = ({ id, data}) => {
     // Populate fields
+    const originalDate = getDateString(data['OriginalCreationDate'], 'YYYY-MM-DD', 'news')
     const date = getDateString(data['createdAt'], 'YYYY-MM-DDTHH:mm:ss', 'news')
     const title = data['Title']
     const description = data['CardText']
@@ -29,7 +30,7 @@ const EntryCard = ({ id, data}) => {
           </a>
           <div className={style.Header}>
               <div className={`${style.EventType} subtitle-small`}>{data['EntryType']}</div>
-              <div className={style.Date}>{date}</div>
+              <div className={style.Date}>{originalDate !== '' ? originalDate : date}</div>
           </div>
           <a href={`/entry/${url}/${id}`}>
             <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 60)}</h3>

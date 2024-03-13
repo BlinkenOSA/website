@@ -12,7 +12,8 @@ export const fetchEntriesFrontPage = () => {
         'fields[2]': 'Profile',
         'fields[4]': 'EntryType',
         'fields[5]': 'EventType',
-        'fields[6]': 'createdAt'
+        'fields[6]': 'OriginalCreationDate',
+        'fields[7]': 'createdAt'
     }
 
     return fetcher('entries', params)
