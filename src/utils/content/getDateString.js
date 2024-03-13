@@ -18,10 +18,10 @@ const getDateString = (dateString, format, type = 'event') => {
             template = 'h:mm A MMMM DD YYYY'
             break
         case 'news':
-            template = 'h:mm A · DD/MM/YYYY'
+            template = 'DD/MM/YYYY'
             break
         case 'date_only':
-            template = 'YYYY-MM-DD'
+            template = 'DD/MM/YYYY'
             break
     }
 
