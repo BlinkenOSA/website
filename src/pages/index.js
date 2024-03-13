@@ -13,7 +13,7 @@ import style from "@/pages/pages.module.scss";
 import {fetchHero} from "@/utils/api/fetchHero";
 import {fetchEventsFrontPage} from "@/utils/api/fetchEvents";
 import {fetchNewsFrontPage} from "@/utils/api/fetchNews";
-import {fetchCollectionHighlightsFrontPage} from "@/utils/api/fetchCollectionHighlights";
+import {fetchCollectionHighlightsList} from "@/utils/api/fetchCollectionHighlights";
 import {fetchEntriesFrontPage} from "@/utils/api/fetchEntries";
 import EntryCard from "@/components/Cards/EntryCard";
 import {fetchCredo} from "@/utils/api/fetchCredo";
@@ -25,7 +25,7 @@ export const getServerSideProps = (async () => {
 		fetchEventsFrontPage(),
 		fetchNewsFrontPage(),
 		fetchEntriesFrontPage(),
-		fetchCollectionHighlightsFrontPage(),
+		fetchCollectionHighlightsList(6),
 		fetchCredo()
 	]);
 	const [heroData, eventsData, newsData, entriesData, collectionsData, credoData] = await Promise.all([

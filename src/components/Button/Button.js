@@ -2,9 +2,9 @@ import style from './Button.module.scss'
 import Button from 'react-bootstrap/Button';
 import Link from "next/link";
 
-const CustomButton = ({size, type='primary', color='mustard', disabled=false, isIcon=false, onClick, link, children}) => {
+const CustomButton = ({size, type='primary', color='mustard', disabled=false, isActive=false, isIcon=false, onClick, link, children}) => {
     const getVariant = () => {
-        return `${type}-${color}`
+        return isActive ? `${type}-${color}-active` : `${type}-${color}`
     }
 
     if (link) {

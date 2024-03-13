@@ -104,7 +104,7 @@
     }
 
     &:focus {
-      color: $neutral_100;
+      color: $neutral_1000;
       background-color: $neutral_100;
     }
 
@@ -112,6 +112,12 @@
       color: $neutral_300;
       border-color: $neutral_300;
     }
+  }
+
+  :global .btn-secondary-neutral-active {
+    border: 1px solid $neutral_1000;
+    background-color: $neutral_1000;
+    color: $neutral_100
   }
 
   :global .btn-tertiary-neutral {

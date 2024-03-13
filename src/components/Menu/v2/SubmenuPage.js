@@ -33,11 +33,13 @@ const SubmenuPage = ({menuID, status, selectedSubmenu}) => {
     }
 
     const handleMenuClick = (e, url) => {
-        e.preventDefault();
-        dispatch({
-            type: 'close'
-        })
-        url && router.push(url)
+        if (url) {
+            e.preventDefault();
+            dispatch({
+                type: 'close'
+            })
+            router.push(url);
+        }
     }
 
 

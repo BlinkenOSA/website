@@ -41,7 +41,7 @@ export const menuConfig = [
           { key: 'research-room', title: 'Research Room Access', highlight: 'Would you like to come to us? This is how you can reach our research room.'},
           { key: 'digitization-on-demand', title: 'Digitization on Demand', highlight: 'Found something relevant? We will digitize it for you!'}]
       },
-      { key: 'collection-highlights', title: 'Collection Highlights' },
+      { key: 'collection-highlights', title: 'Collection Highlights', url: '/collections/collection-highlights' },
       { key: 'archival-projects', title: 'Archival Projects' },
       { key: 'donate-your-archive', title: 'Donate your Archive' },
       { key: 'archival-news-and-blog', title: 'Archival News and Blog'}
