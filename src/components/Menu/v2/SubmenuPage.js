@@ -4,8 +4,14 @@ import AcademicsBackground from "@/components/Menu/v2/backgrounds/AcademicsBackg
 import PublicProgramsBackground from "@/components/Menu/v2/backgrounds/PublicProgramsBackground";
 import style from "./SubmenuPage.module.scss";
 import CollectionsBackground from "@/components/Menu/v2/backgrounds/CollectionsBackground";
+import {useContext} from "react";
+import {MenuDispatchContext} from "@/utils/context/MenuContext";
+import {useRouter} from "next/router";
 
 const SubmenuPage = ({menuID, status, selectedSubmenu}) => {
+    const dispatch = useContext(MenuDispatchContext);
+    const router = useRouter();
+
     const getSubmenuBackground = () => {
         const backgroundStatus = selectedSubmenu ? 'closed' : status
 
@@ -26,24 +32,35 @@ const SubmenuPage = ({menuID, status, selectedSubmenu}) => {
         open: { opacity: 1, y: 0 }
     }
 
+    const handleMenuClick = (e, url) => {
+        e.preventDefault();
+        dispatch({
+            type: 'close'
+        })
+        url && router.push(url)
+    }
+
+
     const getSubmenuItems = () => {
         const submenuStatus = selectedSubmenu ? 'open' : status
 
         const getSubMenuList = () => {
             return selectedSubmenu['submenu'].map((sm, idx) => {
                 return (
-                    <motion.div
-                        key={sm['key']}
-                        initial={"closed"}
-                        variants={submenu}
-                        animate={submenuStatus}
-                        transition={{delay: 0.05 * (idx + 1)}}
-                        exit={{ opacity: 0, y: '-30%', transition: {delay: 0.05 * (idx + 1)}}}
-                        className={style.SubmenuItem}
-                    >
-                        <div className={style.Title}>{sm['title']}</div>
-                        <div className={style.Description}>{sm['highlight']}</div>
-                    </motion.div>
+                    <a href={'url' in sm ? sm['url'] : undefined} onClick={(e) => handleMenuClick(e, sm['url'])}>
+                        <motion.div
+                            key={sm['key']}
+                            initial={"closed"}
+                            variants={submenu}
+                            animate={submenuStatus}
+                            transition={{delay: 0.05 * (idx + 1)}}
+                            exit={{ opacity: 0, y: '-30%', transition: {delay: 0.05 * (idx + 1)}}}
+                            className={style.SubmenuItem}
+                        >
+                            <div className={style.Title}>{sm['title']}</div>
+                            <div className={style.Description}>{sm['highlight']}</div>
+                        </motion.div>
+                    </a>
                 )
             })
         }

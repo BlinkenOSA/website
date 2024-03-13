@@ -1,11 +1,15 @@
 import style from "./MenuPage.module.scss"
 import {AnimatePresence, motion} from "framer-motion"
 import {IconGeneralRight} from "@/components/Icon/Icon";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import SubmenuPage from "@/components/Menu/v2/SubmenuPage";
+import {MenuDispatchContext} from "@/utils/context/MenuContext";
+import {useRouter} from "next/router";
 
 const MenuPage = ({menuItems, menuID, number, status}) => {
     const [selectedMenuItem, setSelectedMenuItem] = useState('')
+    const dispatch = useContext(MenuDispatchContext);
+    const router = useRouter();
 
     const submenuContainer = {
         closed: { opacity: 0 },
@@ -30,6 +34,14 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
         } else {
             setSelectedMenuItem(key)
         }
+    }
+
+    const handleMenuClick = (e, url) => {
+        e.preventDefault();
+        dispatch({
+            type: 'close'
+        })
+        url && router.push(url)
     }
 
     const getMenuList = () => {
@@ -68,7 +80,7 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
                 } else {
                     return (
                         <div className={getClass(item['key'])}>
-                            <a href={'url' in item ? item['url'] : undefined}>
+                            <a href={'url' in item ? item['url'] : undefined} onClick={(e) => handleMenuClick(e, item['url'])}>
                                 <div className={style.Title}>
                                     {item['title']}
                                 </div>

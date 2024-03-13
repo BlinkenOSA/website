@@ -20,7 +20,7 @@ export const menuConfig = [
       { key: 'staff', title: 'Staff', url: '/about-us/staff'},
       { key: 'join-us', title: 'Join Us', submenu: [
           { key: 'visegrad-scholarships', title: 'Visegrad Scholarships', highlight: 'Information about the Visegrad Scholarship Program.' },
-          { key: 'jobs', title: 'Jobs', highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid' },
+          { key: 'jobs', title: 'Jobs', highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid', url: '/about-us/jobs' },
           { key: 'archivum-internships', title: 'Internships', highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid slightly less' },
           { key: 'volunteering', title: 'Volunteering', highlight: "Work with us on arhcival processing, digitization projects, exhibitions. You won't get paid"}]
       },

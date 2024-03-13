@@ -1,0 +1,16 @@
+@import "@/styles/colors.scss";
+@import "@/styles/variables.scss";
+
+.Wrapper {
+  margin-top: $header-height-desktop;
+  margin-right: 221px;
+  height: 250px;
+
+  :global .container {
+    padding: 0 84px;
+  }
+
+  .Image {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}

@@ -5,7 +5,7 @@ import Image from 'next/image';
  *
  * @param type One of 'landscape', 'portrait', 'hero'
  */
-const MaskedImage = ({src, type='landscape', alt="Image"}) => {
+const MaskedImage = ({src, type='landscape', alt="Image", mask=true}) => {
     const getStyle = () => {
         switch (type) {
             case 'landscape':
@@ -21,27 +21,15 @@ const MaskedImage = ({src, type='landscape', alt="Image"}) => {
         }
     }
 
-    if (type === 'hero') {
-        return (
-            <div className={getStyle()}>
-                <Image
-                    alt={alt}
-                    src={src}
-                    fill={true}
-                />
-            </div>
-        )
-    } else {
-        return (
-            <div className={getStyle()}>
-                <Image
-                    alt={alt}
-                    src={src}
-                    fill={true}
-                />
-            </div>
-        )
-    }
+    return (
+        <div className={mask ? getStyle() : `${getStyle()} ${style.NoMask}`}>
+            <Image
+                alt={alt}
+                src={src}
+                fill={true}
+            />
+        </div>
+    )
 }
 
 export default MaskedImage;
