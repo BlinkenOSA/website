@@ -9,4 +9,8 @@
   :global .container {
     padding: 0 84px;
   }
+
+  :global .row {
+    --bs-gutter-y: 24px;
+  }
 }
