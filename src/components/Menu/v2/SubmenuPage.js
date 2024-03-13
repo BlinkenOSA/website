@@ -49,9 +49,8 @@ const SubmenuPage = ({menuID, status, selectedSubmenu}) => {
         const getSubMenuList = () => {
             return selectedSubmenu['submenu'].map((sm, idx) => {
                 return (
-                    <a href={'url' in sm ? sm['url'] : undefined} onClick={(e) => handleMenuClick(e, sm['url'])}>
+                    <a key={sm['key']} href={'url' in sm ? sm['url'] : undefined} onClick={(e) => handleMenuClick(e, sm['url'])}>
                         <motion.div
-                            key={sm['key']}
                             initial={"closed"}
                             variants={submenu}
                             animate={submenuStatus}

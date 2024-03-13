@@ -60,12 +60,12 @@ export const menuConfig = [
           { key: 'visegrad-current-fellows', title: 'Visegrad current fellows',  highlight: "You can meet them, when you are in the Archivum."},
           { key: 'visegrad-past-fellows', title: 'Visegrad past fellows', highlight: "All the participants of the Visegrad Fellowship Program."}]
       },
-      { title: 'Other Fellowships' },
-      { title: 'Archivum Internships' },
-      { title: 'University Courses' },
-      { title: 'Edupro' },
-      { title: 'Academic Events'},
-      { title: 'Academic News and Blog'},
+      { key: 'other-fellowships', title: 'Other Fellowships' },
+      { key: 'archivum-internships', title: 'Archivum Internships' },
+      { key: 'university-courses', title: 'University Courses' },
+      { key: 'edupro', title: 'Edupro' },
+      { key: 'academic-events', title: 'Academic Events'},
+      { key: 'academic-news-and-blog', title: 'Academic News and Blog'},
     ]
   }, {
     key: 'public-programs',
@@ -74,10 +74,10 @@ export const menuConfig = [
     color: 'sage',
     url: '/public-programs',
     menuItems: [
-      { title: 'Program calendar' },
-      { title: 'Galeria Centralis', },
-      { title: 'Past Programs' },
-      { title: 'Public History Projects' }
+      { key: 'program-calendar', title: 'Program calendar' },
+      { key: 'galeria-centralis', title: 'Galeria Centralis', },
+      { key: 'past-programs', title: 'Past Programs' },
+      { key: 'public-history-projects', title: 'Public History Projects' }
     ]
   }
 ]
