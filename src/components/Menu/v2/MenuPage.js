@@ -32,13 +32,15 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
         if (selectedMenuItem === key) {
             setSelectedMenuItem('')
         } else {
-            setSelectedMenuItem(key)
+            if (selectedMenuItem === '') {
+                setSelectedMenuItem(key)
+            }
         }
     }
 
     const handleMenuClick = (e, url) => {
-        if (url) {
-            e.preventDefault();
+        e.preventDefault();
+        if (url && selectedMenuItem === '') {
             dispatch({
                 type: 'close'
             })

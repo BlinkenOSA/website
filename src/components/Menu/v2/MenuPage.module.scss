@@ -42,6 +42,15 @@
           img {
             filter: invert(85%) sepia(2%) saturate(33%) hue-rotate(344deg) brightness(100%) contrast(92%);
           }
+
+          .Title {
+            border-bottom: solid 1px transparent;
+            cursor: not-allowed;
+
+            &:hover {
+              border-bottom: solid 1px transparent;
+            }
+          }
         }
       }
     }
