@@ -5,11 +5,12 @@ import getImageUrl from "@/utils/content/getImageUrl";
 import getIconByEventType from "@/utils/content/getIconByType";
 import truncateWithEllipses from "@/utils/truncateWithEllipsis";
 import getColor from "@/utils/content/getColor";
+import getCreationDate from "@/utils/content/getCreationDate";
 
 const NewsCard = ({ id, data}) => {
     // Populate fields
-    const originalDate = getDateString(data['OriginalCreationDate'], 'YYYY-MM-DD', 'news')
-    const date = getDateString(data['createdAt'], 'YYYY-MM-DDTHH:mm:ss', 'news')
+    const originalDate = data['OriginalCreationDate']
+    const date = data['createdAt']
     const title = data['Title']
     const description = data['CardText']
     const image = getImageUrl(data['Image'])
@@ -28,7 +29,7 @@ const NewsCard = ({ id, data}) => {
           </a>
           <div className={style.Header}>
               <div className={`${style.EventType} subtitle-small`}>{data['ActivityType']}</div>
-              <div className={style.Date}>{originalDate !== '' ? originalDate : date}</div>
+              <div className={style.Date}>{getCreationDate(originalDate, date)}</div>
           </div>
           <a href={`/news/${id}`}>
             <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 60)}</h3>
