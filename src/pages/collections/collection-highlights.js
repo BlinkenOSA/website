@@ -2,7 +2,6 @@ import {fetchCollectionHighlightsList} from "@/utils/api/fetchCollectionHighligh
 import style from "@/pages/pages.module.scss";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {Col, Container, Row} from "react-bootstrap";
-import AnnualReportCard from "@/components/Cards/AnnualReportCard";
 import CollectionCard from "@/components/Cards/CollectionCard";
 import HorizontalFilters from "@/components/Filters/HorizontalFilters";
 

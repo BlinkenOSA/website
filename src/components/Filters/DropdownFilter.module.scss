@@ -1,0 +1,10 @@
+@import "@/styles/colors.scss";
+
+.Dropdown {
+  .DropdownButton {
+    border-radius: 0;
+    background-color: transparent;
+    color: $neutral_1000;
+    height: 40px;
+  }
+}

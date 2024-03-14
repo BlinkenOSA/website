@@ -254,6 +254,12 @@
     }
   }
 
+  :global .btn-secondary-orange-active {
+    border: 1px solid $neutral_1000;
+    background-color: $orange_1000;
+    color: $neutral_1000
+  }
+
   :global .btn-tertiary-orange {
     color: $orange_1000;
     font-family: var(--font-suisseIntlSemiBold);
@@ -321,6 +327,12 @@
     }
   }
 
+  :global .btn-secondary-aqua-active {
+    border: 1px solid $neutral_1000;
+    background-color: $aqua_1000;
+    color: $neutral_1000
+  }
+
   :global .btn-tertiary-aqua {
     color: $aqua_1000;
     font-family: var(--font-suisseIntlSemiBold);
@@ -386,6 +398,12 @@
       border-color: $neutral_300;
       color: $neutral_300;
     }
+  }
+
+  :global .btn-secondary-sage-active {
+    border: 1px solid $neutral_1000;
+    background-color: $sage_1000;
+    color: $neutral_1000
   }
 
   :global .btn-tertiary-sage {

@@ -74,7 +74,7 @@ export const menuConfig = [
     color: 'sage',
     url: '/public-programs',
     menuItems: [
-      { key: 'program-calendar', title: 'Program calendar' },
+      { key: 'program-calendar', title: 'Program Calendar', url: '/public-programs/program-calendar' },
       { key: 'galeria-centralis', title: 'Galeria Centralis', },
       { key: 'past-programs', title: 'Past Programs' },
       { key: 'public-history-projects', title: 'Public History Projects' }
