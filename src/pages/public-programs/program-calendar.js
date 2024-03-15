@@ -12,6 +12,7 @@ import React from "react";
 import getImageUrl from "@/utils/content/getImageUrl";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import {useList} from "react-use";
+import Button from "@/components/Button/Button";
 
 export const getServerSideProps = (async () => {
 	const [programsRes] = await Promise.all([
@@ -53,9 +54,11 @@ const ProgramDataRow = ({id, data, onTitleClick}) => {
 	)
 }
 
-const ProgramDetail = ({data, isOpened}) => {
+const ProgramDetail = ({id, data, isOpened}) => {
 	const image = getImageUrl(data['Image'])
 	const description = data['CardText']
+	const color = getColor(data['Profile'])
+	const registrationLink = data['RegistrationLink']
 
 	return (
 		<Collapse isOpened={isOpened}>
@@ -65,6 +68,24 @@ const ProgramDetail = ({data, isOpened}) => {
 				</Col>
 				<Col xs={8}>
 					{description}
+					<div className={style.ProgramDetailButtons}>
+						<Button
+							type={'secondary'}
+							size={'medium'}
+							color={color}
+							link={`/events/${id}`}>More Info</Button>
+						{
+							registrationLink &&
+							<Button
+								type={'primary'}
+								size={'medium'}
+								color={color}
+								link={registrationLink}>
+								Registration Link
+							</Button>
+						}
+
+					</div>
 				</Col>
 			</Row>
 		</Collapse>
@@ -87,7 +108,7 @@ const ProgramCalendarPage = ({programsData}) => {
 			return (
 				<React.Fragment key={`program_${program['id']}`}>
 					<ProgramDataRow id={program['id']} data={program['attributes']} onTitleClick={onTitleClick} />
-					<ProgramDetail data={program['attributes']} isOpened={openedPrograms.includes(program['id'])} />
+					<ProgramDetail id={program['id']} data={program['attributes']} isOpened={openedPrograms.includes(program['id'])} />
 				</React.Fragment>
 			)
 		})
