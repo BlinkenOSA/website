@@ -11,6 +11,16 @@
   }
 
   .Image {
+    position: relative;
     clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+
+    .Icon {
+      position: absolute;
+      top: 50%;
+
+      img {
+        width: 100%
+      }
+    }
   }
 }

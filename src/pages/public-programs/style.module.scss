@@ -11,12 +11,38 @@
     padding: 0 84px;
   }
 
-  :global .row {
-    --bs-gutter-y: 24px;
+  .DropdownFiltersWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 24px;
+    height: 40px;
+
+    .DropdownFilter {
+      align-self: flex-start;
+    }
   }
 
-  .Filters {
-    display: flex;
-    gap: 24px;
+  .ProgramRow {
+    border-top: 1px solid $neutral_1000;
+    align-items: center;
+    height: 80px;
+
+    &:hover {
+      background-color: $neutral_100;
+    }
+
+    .Title {
+      cursor: pointer;
+    }
+
+    .Icon {
+      display: flex;
+      align-items: center;
+    }
+
+    .Date {
+      text-align: right;
+    }
   }
 }

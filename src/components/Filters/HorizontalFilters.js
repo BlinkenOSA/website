@@ -8,7 +8,7 @@ const HorizontalFilters = ({values, description = '', align='center'}) => {
     const renderFilters = () => {
         return values.map(value => {
             return (
-                <div>
+                <div key={`horizontal-filter-${value['value']}`}>
                     <Button
                         type={'secondary'}
                         color={'color' in value ? value['color'] : 'neutral'}

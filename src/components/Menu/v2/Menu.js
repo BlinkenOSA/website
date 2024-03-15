@@ -24,6 +24,7 @@ const DesktopMenu = () => {
                 menuConfig.map((cfg, index) => {
                   return (
                       <MenuItem
+                          key={cfg['key']}
                           menuID={cfg['key']}
                           title={cfg['title']}
                           color={cfg['color']}

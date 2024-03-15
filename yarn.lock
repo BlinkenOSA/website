@@ -101,11 +101,6 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz#d7c6e6755c78567a951e04ab52ef0fd26de59f32"
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
-"@mantine/hooks@^6.0.20":
-  version "6.0.20"
-  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-6.0.20.tgz#b52b385ff3a92caba0711c6015899a112efe66fa"
-  integrity sha512-Sys2qr6KwyNjAWgzm94F9rGG94l709G69pO3iofQXwzKX/fZushk1NMIt5g9De9F+qXm+67wa0DpA0QWLNLxlg==
-
 "@next/env@14.1.0":
   version "14.1.0"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-14.1.0.tgz#43d92ebb53bc0ae43dcc64fb4d418f8f17d7a341"
@@ -1548,11 +1543,6 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
 
-isobject@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
-  integrity sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg==
-
 iterator.prototype@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/iterator.prototype/-/iterator.prototype-1.1.1.tgz#ab5b790e23ec00658f5974e032a2b05188bd3a5c"
@@ -1818,13 +1808,6 @@ object.hasown@^1.1.2:
     define-properties "^1.2.0"
     es-abstract "^1.22.1"
 
-object.pick@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/object.pick/-/object.pick-1.3.0.tgz#87a10ac4c1694bd2e1cbf53591a66141fb5dd747"
-  integrity sha512-tqa/UMy/CCoYmj+H5qc07qvSL9dqcs/WZENZ1JbtWBlATP+iVOe778gE6MSijnyCnORzDuX6hU+LA4SZ09YjFQ==
-  dependencies:
-    isobject "^3.0.1"
-
 object.values@^1.1.6:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/object.values/-/object.values-1.1.7.tgz#617ed13272e7e1071b43973aa1655d9291b8442a"
@@ -1968,6 +1951,11 @@ react-bootstrap@^2.10.0:
     uncontrollable "^7.2.1"
     warning "^4.0.3"
 
+react-collapse@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/react-collapse/-/react-collapse-5.1.1.tgz#a2fa08ef13f372141b02e6a7d49ef72427bcbc2b"
+  integrity sha512-k6cd7csF1o9LBhQ4AGBIdxB60SUEUMQDAnL2z1YvYNr9KoKr+nDkhN6FK7uGaBd/rYrYfrMpzpmJEIeHRYogBw==
+
 react-dom@18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
@@ -1975,13 +1963,6 @@ react-dom@18.2.0:
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
-
-react-dotdotdot@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/react-dotdotdot/-/react-dotdotdot-1.3.1.tgz#b94324bf66cdb70e4acffe5460e4480a91135e50"
-  integrity sha512-ImqoKTD4ZdyfF/h7jdPCZur01QlZxx3A9/gZSf9mbvseNZwVTvd+dPwi/hg1UTtP+30luy2d5j0KG+XEfdBPLQ==
-  dependencies:
-    object.pick "^1.3.0"
 
 react-is@^16.13.1, react-is@^16.3.2:
   version "16.13.1"

@@ -3,8 +3,48 @@
 .Dropdown {
   .DropdownButton {
     border-radius: 0;
+    border-color: $neutral_1000;
     background-color: transparent;
     color: $neutral_1000;
     height: 40px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-width: 160px;
+
+    &::after {
+      display: none;
+    }
+
+    &:active {
+      border-color: $neutral_1000;
+      color: $neutral_1000;
+      background-color: $neutral_100;
+    }
   }
+
+  .DropdownMenu {
+    margin: 8px 0;
+    border-color: $neutral_1000;
+    border-radius: 0;
+    min-width: 100%;
+
+    .DropdownItem {
+      padding: 8px 24px;
+
+      &:hover {
+        color: $neutral_100;
+        background-color: $neutral_1000;
+      }
+    }
+  }
+}
+
+.Reset {
+  font-size: 10px;
+  line-height: 10px;
+  border-bottom: 1px dotted $neutral_1000;
+  cursor: pointer;
 }

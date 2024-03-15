@@ -1,0 +1,44 @@
+.neutral {
+  display: flex;
+  align-items: center;
+
+  img {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(8%) saturate(319%) hue-rotate(337deg) brightness(93%) contrast(78%);
+  }
+}
+
+.mustard {
+  display: flex;
+  align-items: center;
+
+  img {
+    filter: brightness(0) saturate(100%) invert(75%) sepia(48%) saturate(317%) hue-rotate(13deg) brightness(99%) contrast(92%);
+  }
+}
+
+.orange {
+  display: flex;
+  align-items: center;
+
+  img {
+    filter: brightness(0) saturate(100%) invert(56%) sepia(40%) saturate(772%) hue-rotate(332deg) brightness(99%) contrast(87%);
+  }
+}
+
+.aqua {
+  display: flex;
+  align-items: center;
+
+  img {
+    filter: brightness(0) saturate(100%) invert(81%) sepia(19%) saturate(395%) hue-rotate(138deg) brightness(82%) contrast(89%);
+  }
+}
+
+.sage {
+  display: flex;
+  align-items: center;
+
+  img {
+    filter: brightness(0) saturate(100%) invert(83%) sepia(16%) saturate(193%) hue-rotate(73deg) brightness(88%) contrast(98%);
+  }
+}

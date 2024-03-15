@@ -7,52 +7,52 @@ import {
     IconTalk, IconTeaching, IconTheatre, IconVideo, IconWorkshop
 } from "@/components/Icon/Icon";
 
-const getIconByEventType = (type, size) => {
+const getIconByEventType = (type, size, color='neutral') => {
     switch (type) {
         case 'Book Launch':
-            return <IconBookLaunch size={size} />
+            return <IconBookLaunch size={size} color={color}/>
         case 'Blog':
-            return <IconBlog size={size} />
+            return <IconBlog size={size} color={color} />
         case 'Conference':
-            return <IconConference size={size} />
+            return <IconConference size={size} color={color} />
         case 'Concert':
-            return <IconTheatre size={size} />
+            return <IconTheatre size={size} color={color} />
         case 'Exhibition':
-            return <IconExhibition size={size} />
+            return <IconExhibition size={size} color={color} />
         case 'Film':
-            return <IconVideo size={size} />
+            return <IconVideo size={size} color={color} />
         case 'Film Screening':
-            return <IconFilm size={size} />
+            return <IconFilm size={size} color={color} />
         case 'Internship':
-            return <IconInternship size={size} />
+            return <IconInternship size={size} color={color} />
         case 'Lecture':
-            return <IconTalk size={size} />
+            return <IconTalk size={size} color={color} />
         case 'Movie Screening':
-            return <IconMovieScreening size={size} />
+            return <IconMovieScreening size={size} color={color} />
         case 'Music':
-            return <IconMusic size={size} />
+            return <IconMusic size={size} color={color} />
         case 'Podcast':
-            return <IconPodcast size={size} />
+            return <IconPodcast size={size} color={color} />
         case 'Performance':
-            return <IconTheatre size={size} />
+            return <IconTheatre size={size} color={color} />
         case 'Publication':
-            return <IconPublication size={size} />
+            return <IconPublication size={size} color={color} />
         case 'Research':
-            return <IconResearch size={size} />
+            return <IconResearch size={size} color={color} />
         case 'Roundtable':
-            return <IconTalk size={size} />
+            return <IconTalk size={size} color={color} />
         case 'Scholarship':
-            return <IconScholarship size={size} />
+            return <IconScholarship size={size} color={color} />
         case 'Talk':
-            return <IconTalk size={size} />
+            return <IconTalk size={size} color={color} />
         case 'Theatre':
-            return <IconTheatre size={size} />
+            return <IconTheatre size={size} color={color} />
         case 'University Teaching':
-            return <IconTeaching size={size} />
+            return <IconTeaching size={size} color={color} />
         case 'Video':
-            return <IconVideo size={size} />
+            return <IconVideo size={size} color={color} />
         case 'Workshop':
-            return <IconWorkshop size={size} />
+            return <IconWorkshop size={size} color={color} />
     }
 }
 

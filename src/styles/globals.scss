@@ -67,3 +67,7 @@ ul {
   // margin-left: 0;
   // margin-right: 0;
 }
+
+.ReactCollapse--collapse {
+  transition: height 400ms;
+}

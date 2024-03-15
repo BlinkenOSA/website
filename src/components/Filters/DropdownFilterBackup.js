@@ -19,18 +19,13 @@ const DropdownFilter = ({label, values, onValueClick}) => {
 	}
 
 	return (
-		<>
-			<Dropdown className={style.Dropdown}>
-				<Dropdown.Toggle className={style.DropdownButton}> {selectedValue === '' ? label : selectedValue} <IconGeneralDown size={'small'} /> </Dropdown.Toggle>
+		<Dropdown className={style.Dropdown}>
+			<Dropdown.Toggle className={style.DropdownButton}> {selectedValue === '' ? label : selectedValue} <IconGeneralDown size={'small'} /> </Dropdown.Toggle>
 
-				<Dropdown.Menu className={style.DropdownMenu}>
-					{renderValues()}
-				</Dropdown.Menu>
-			</Dropdown>
-			{
-				selectedValue !== '' && <span className={style.Reset} onClick={() => handleSelect('')}>Reset Filter</span>
-			}
-		</>
+			<Dropdown.Menu className={style.DropdownMenu}>
+				{renderValues()}
+			</Dropdown.Menu>
+		</Dropdown>
 	)
 }
 

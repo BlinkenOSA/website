@@ -41,9 +41,10 @@ import trash from "../../../public/icons/general/trash.svg";
 import up from "../../../public/icons/general/up.svg";
 import warning from "../../../public/icons/general/warning.svg";
 
+import style from "./Icon.module.scss";
 import Image from "next/image";
 
-const IconBase = ({src, size}) => {
+const IconBase = ({src, size, color}) => {
 	const getSize = () => {
 		switch (size) {
 			case 'small':
@@ -55,175 +56,177 @@ const IconBase = ({src, size}) => {
 		}
 	}
 
-	return <Image
-			priority
-			src={src}
-			width={getSize()}
-			height={getSize()}
-			alt="Icon"
-		/>
+	return (
+		<div className={style[color]}>
+			<Image
+				src={src}
+				width={getSize()}
+				height={getSize()}
+				alt="Icon"
+			/>
+		</div>)
 }
 
-export const IconAudio = ({size='normal'}) => {
-	return <IconBase src={audio} size={size} />
+export const IconAudio = ({size='normal', color='neutral'}) => {
+	return <IconBase src={audio} size={size} color={color} />
 }
 
-export const IconBookLaunch = ({size='normal'}) => {
-	return <IconBase src={book_launch} size={size} />
+export const IconBookLaunch = ({size='normal', color='neutral'}) => {
+	return <IconBase src={book_launch} size={size} color={color} />
 }
 
-export const IconBlog = ({size='normal'}) => {
-	return <IconBase src={blog} size={size} />
+export const IconBlog = ({size='normal', color='neutral'}) => {
+	return <IconBase src={blog} size={size} color={color} />
 }
 
-export const IconCommunity = ({size='normal'}) => {
-	return <IconBase src={community} size={size} />
+export const IconCommunity = ({size='normal', color='neutral'}) => {
+	return <IconBase src={community} size={size} color={color} />
 }
 
-export const IconConference = ({size='normal'}) => {
-	return <IconBase src={conference} size={size} />
+export const IconConference = ({size='normal', color='neutral'}) => {
+	return <IconBase src={conference} size={size} color={color} />
 }
 
-export const IconCuratedCollections = ({size='normal'}) => {
-	return <IconBase src={curated_collections} size={size} />
+export const IconCuratedCollections = ({size='normal', color='neutral'}) => {
+	return <IconBase src={curated_collections} size={size} color={color} />
 }
 
-export const IconDigitalRepository = ({size='normal'}) => {
-	return <IconBase src={digital_repository} size={size} />
+export const IconDigitalRepository = ({size='normal', color='neutral'}) => {
+	return <IconBase src={digital_repository} size={size} color={color} />
 }
 
-export const IconDocument = ({size='normal'}) => {
-	return <IconBase src={document} size={size} />
+export const IconDocument = ({size='normal', color='neutral'}) => {
+	return <IconBase src={document} size={size} color={color} />
 }
 
-export const IconEduPro = ({size='normal'}) => {
-	return <IconBase src={edupro} size={size} />
+export const IconEduPro = ({size='normal', color='neutral'}) => {
+	return <IconBase src={edupro} size={size} color={color} />
 }
 
-export const IconExhibition = ({size='normal'}) => {
-	return <IconBase src={exhibition} size={size} />
+export const IconExhibition = ({size='normal', color='neutral'}) => {
+	return <IconBase src={exhibition} size={size} color={color} />
 }
 
-export const IconFilm = ({size='normal'}) => {
-	return <IconBase src={film} size={size} />
+export const IconFilm = ({size='normal', color='neutral'}) => {
+	return <IconBase src={film} size={size} color={color} />
 }
 
-export const IconInternship = ({size='normal'}) => {
-	return <IconBase src={internship} size={size} />
+export const IconInternship = ({size='normal', color='neutral'}) => {
+	return <IconBase src={internship} size={size} color={color} />
 }
 
-export const IconLibrary = ({size='normal'}) => {
-	return <IconBase src={library} size={size} />
+export const IconLibrary = ({size='normal', color='neutral'}) => {
+	return <IconBase src={library} size={size} color={color} />
 }
 
-export const IconMovieScreening = ({size='normal'}) => {
-	return <IconBase src={movie_screening} size={size} />
+export const IconMovieScreening = ({size='normal', color='neutral'}) => {
+	return <IconBase src={movie_screening} size={size} color={color} />
 }
 
-export const IconMusic = ({size='normal'}) => {
-	return <IconBase src={music} size={size} />
+export const IconMusic = ({size='normal', color='neutral'}) => {
+	return <IconBase src={music} size={size} color={color} />
 }
 
-export const IconPhoto = ({size='normal'}) => {
-	return <IconBase src={photo} size={size} />
+export const IconPhoto = ({size='normal', color='neutral'}) => {
+	return <IconBase src={photo} size={size} color={color} />
 }
 
-export const IconPodcast = ({size='normal'}) => {
-	return <IconBase src={podcast} size={size} />
+export const IconPodcast = ({size='normal', color='neutral'}) => {
+	return <IconBase src={podcast} size={size} color={color} />
 }
 
-export const IconPrograms = ({size='normal'}) => {
-	return <IconBase src={programs} size={size} />
+export const IconPrograms = ({size='normal', color='neutral'}) => {
+	return <IconBase src={programs} size={size} color={color} />
 }
 
-export const IconPublication = ({size='normal'}) => {
-	return <IconBase src={publication} size={size} />
+export const IconPublication = ({size='normal', color='neutral'}) => {
+	return <IconBase src={publication} size={size} color={color} />
 }
 
-export const IconResearch = ({size='normal'}) => {
-	return <IconBase src={research} size={size} />
+export const IconResearch = ({size='normal', color='neutral'}) => {
+	return <IconBase src={research} size={size} color={color} />
 }
 
-export const IconScholarship = ({size='normal'}) => {
-	return <IconBase src={scholarship} size={size} />
+export const IconScholarship = ({size='normal', color='neutral'}) => {
+	return <IconBase src={scholarship} size={size} color={color} />
 }
 
-export const IconTalk = ({size='normal'}) => {
-	return <IconBase src={talk} size={size} />
+export const IconTalk = ({size='normal', color='neutral'}) => {
+	return <IconBase src={talk} size={size} color={color} />
 }
 
-export const IconTeaching = ({size='normal'}) => {
-	return <IconBase src={teaching} size={size} />
+export const IconTeaching = ({size='normal', color='neutral'}) => {
+	return <IconBase src={teaching} size={size} color={color} />
 }
 
-export const IconTheatre = ({size='normal'}) => {
-	return <IconBase src={theatre} size={size} />
+export const IconTheatre = ({size='normal', color='neutral'}) => {
+	return <IconBase src={theatre} size={size} color={color} />
 }
 
-export const IconVideo = ({size='normal'}) => {
-	return <IconBase src={video} size={size} />
+export const IconVideo = ({size='normal', color='neutral'}) => {
+	return <IconBase src={video} size={size} color={color} />
 }
 
-export const IconWorkshop = ({size='normal'}) => {
-	return <IconBase src={workshop} size={size} />
+export const IconWorkshop = ({size='normal', color='neutral'}) => {
+	return <IconBase src={workshop} size={size} color={color} />
 }
 
-export const IconGeneralClose = ({size='normal'}) => {
-	return <IconBase src={close} size={size} />
+export const IconGeneralClose = ({size='normal', color='neutral'}) => {
+	return <IconBase src={close} size={size} color={color} />
 }
 
-export const IconGeneralDown = ({size='normal'}) => {
-	return <IconBase src={down} size={size} />
+export const IconGeneralDown = ({size='normal', color='neutral'}) => {
+	return <IconBase src={down} size={size} color={color} />
 }
 
-export const IconGeneralEye = ({size='normal'}) => {
-	return <IconBase src={eye} size={size} />
+export const IconGeneralEye = ({size='normal', color='neutral'}) => {
+	return <IconBase src={eye} size={size} color={color} />
 }
 
-export const IconGeneralHelp = ({size='normal'}) => {
-	return <IconBase src={help} size={size} />
+export const IconGeneralHelp = ({size='normal', color='neutral'}) => {
+	return <IconBase src={help} size={size} color={color} />
 }
 
-export const IconGeneralInfo = ({size='normal'}) => {
-	return <IconBase src={info} size={size} />
+export const IconGeneralInfo = ({size='normal', color='neutral'}) => {
+	return <IconBase src={info} size={size} color={color} />
 }
 
-export const IconGeneralLeft = ({size='normal'}) => {
-	return <IconBase src={left} size={size} />
+export const IconGeneralLeft = ({size='normal', color='neutral'}) => {
+	return <IconBase src={left} size={size} color={color} />
 }
 
-export const IconGeneralMenu = ({size='normal'}) => {
-	return <IconBase src={menu} size={size} />
+export const IconGeneralMenu = ({size='normal', color='neutral'}) => {
+	return <IconBase src={menu} size={size} color={color} />
 }
 
-export const IconGeneralMinus = ({size='normal'}) => {
-	return <IconBase src={minus} size={size} />
+export const IconGeneralMinus = ({size='normal', color='neutral'}) => {
+	return <IconBase src={minus} size={size} color={color} />
 }
 
-export const IconGeneralMore = ({size='normal'}) => {
-	return <IconBase src={more} size={size} />
+export const IconGeneralMore = ({size='normal', color='neutral'}) => {
+	return <IconBase src={more} size={size} color={color} />
 }
 
-export const IconGeneralPlus = ({size='normal'}) => {
-	return <IconBase src={plus} size={size} />
+export const IconGeneralPlus = ({size='normal', color='neutral'}) => {
+	return <IconBase src={plus} size={size} color={color} />
 }
 
-export const IconGeneralRight = ({size='normal'}) => {
-	return <IconBase src={right} size={size} />
+export const IconGeneralRight = ({size='normal', color='neutral'}) => {
+	return <IconBase src={right} size={size} color={color} />
 }
 
-export const IconGeneralSearch = ({size='normal'}) => {
-	return <IconBase src={search} size={size} />
+export const IconGeneralSearch = ({size='normal', color='neutral'}) => {
+	return <IconBase src={search} size={size} color={color} />
 }
 
-export const IconGeneralTrash = ({size='normal'}) => {
-	return <IconBase src={trash} size={size} />
+export const IconGeneralTrash = ({size='normal', color='neutral'}) => {
+	return <IconBase src={trash} size={size} color={color} />
 }
 
-export const IconGeneralUp = ({size='normal'}) => {
-	return <IconBase src={up} size={size} />
+export const IconGeneralUp = ({size='normal', color='neutral'}) => {
+	return <IconBase src={up} size={size} color={color} />
 }
 
-export const IconGeneralWarning = ({size='normal'}) => {
-	return <IconBase src={warning} size={size} />
+export const IconGeneralWarning = ({size='normal', color='neutral'}) => {
+	return <IconBase src={warning} size={size} color={color} />
 }
