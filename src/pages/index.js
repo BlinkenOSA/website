@@ -97,7 +97,9 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 
 		return (
 			<>
-				<SectionDivider title={'Events'} buttonText={'View All Events'}
+				<SectionDivider title={'Events'}
+								buttonText={'View All Events'}
+								buttonLink={'/public-programs/program-calendar'}
 								subTitle={'* All our programs are free.'}/>
 				<Row>
 					{renderEventCard()}
@@ -199,7 +201,11 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 
 		return (
 			<>
-				<SectionDivider title={'Collection Highlights'} buttonText={'View All Collection Highlights'}/>
+				<SectionDivider
+					title={'Collection Highlights'}
+					buttonText={'View All Collection Highlights'}
+					buttonLink={'/collections/collection-highlights'}
+				/>
 				<Row>
 					{renderCollectionCard()}
 				</Row>

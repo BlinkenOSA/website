@@ -2,7 +2,8 @@ import style from './Button.module.scss'
 import Button from 'react-bootstrap/Button';
 import Link from "next/link";
 
-const CustomButton = ({size, type='primary', color='mustard', disabled=false, isActive=false, isIcon=false, onClick, link, children}) => {
+const CustomButton = ({ size, type='primary', color='mustard', disabled=false,
+                        isActive=false, isIcon=false, onClick, link, linkTarget='_blank', children}) => {
     const getVariant = () => {
         return isActive ? `${type}-${color}-active` : `${type}-${color}`
     }
@@ -10,7 +11,7 @@ const CustomButton = ({size, type='primary', color='mustard', disabled=false, is
     if (link) {
         return (
             <div className={isIcon ? `${style.Button} ${style.Icon}`: style.Button}>
-                <Link href={link} passHref={true} target="_blank">
+                <Link href={link} passHref={true} target={linkTarget}>
                     <Button variant={getVariant()} size={size === 'medium' ? 'md' : 'lg'} disabled={disabled} onClick={onClick}>
                         {children}
                     </Button>

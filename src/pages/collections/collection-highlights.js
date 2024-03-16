@@ -55,6 +55,7 @@ const CollectionHighlightsPage = ({collectionsData}) => {
                 </Row>
                 <div style={{height: '48px'}} />
                 <HorizontalFilters values={filterValues} />
+                <div style={{height: '48px'}} />
                 <Row>
                     {renderHighlights()}
                 </Row>
