@@ -5,33 +5,45 @@ import {fetchStaffList} from "@/utils/api/fetchStaff";
 import StaffCard from "@/components/Cards/StaffCard";
 import VerticalFilters from "@/components/Filters/VerticalFilters";
 import {useList} from "react-use";
+import useSWR, {SWRConfig, unstable_serialize} from "swr";
+import fetcher from "@/utils/api/fetcher";
+import {fetchCollectionHighlightsList} from "@/utils/api/fetchCollectionHighlights";
+import clientFetcher from "@/utils/api/clientFetcher";
 
 export const getServerSideProps = (async () => {
+    const [url, params] = fetchStaffList()
     const [staffData] = await Promise.all([
-        fetchStaffList()
+        fetcher(url, params)
     ])
     return {
         props: {
-            staffData
+            initialData: {
+                [unstable_serialize([url, params])]: staffData
+            }
         }
     }
 })
 
-const StaffPage = ({staffData}) => {
-    const [unitFilter, {push, removeAt}] = useList([])
+const StaffCards = ({selectedFilters}) => {
+    const { data } = useSWR(
+        fetchStaffList(selectedFilters),
+        ([url, params]) => clientFetcher(url, params)
+    )
 
-    const renderStaff = () => {
-        return staffData["data"].map(staff => {
-            return (
-                <Col xs={4}>
-                    <StaffCard
-                        key={staff["id"]}
-                        data={staff['attributes']}
-                    />
-                </Col>
-            )
-        })
-    }
+    return data && data["data"].map(staff => {
+        return (
+            <Col xs={4}>
+                <StaffCard
+                    key={staff["id"]}
+                    data={staff['attributes']}
+                />
+            </Col>
+        )
+    })
+}
+
+const StaffPage = ({initialData}) => {
+    const [unitFilter, {push, removeAt}] = useList([])
 
     const filterValues = [
         {label: 'Administration'},
@@ -82,7 +94,9 @@ const StaffPage = ({staffData}) => {
                     </Col>
                     <Col xs={8}>
                         <Row>
-                            {renderStaff()}
+                            <SWRConfig value={{ fallback: initialData }}>
+                                <StaffCards selectedFilters={unitFilter} />
+                            </SWRConfig>
                         </Row>
                     </Col>
                 </Row>

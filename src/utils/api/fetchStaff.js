@@ -1,14 +1,18 @@
-import fetcher from "@/utils/api/fetcher";
-
-export const fetchStaffList = (OSAUnit) => {
+export const fetchStaffList = (OSAUnits) => {
     const params = {
         'populate': 'Image',
         'sort[0]': 'Name'
     }
 
-    if (OSAUnit) {
-        params['filters[ProjectType][$eq]'] = OSAUnit
+    if (OSAUnits) {
+        if (OSAUnits.length === 1) {
+            params[`filters[Unit][$eq]`] = OSAUnits[0]
+        } else {
+            OSAUnits.map((unit, idx) => {
+                params[`filters[$or][${idx}][Unit][$eq]`] = unit
+            })
+        }
     }
 
-    return fetcher('staff-records', params)
+    return ['staff-records', params]
 }
