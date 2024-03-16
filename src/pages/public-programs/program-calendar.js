@@ -8,19 +8,26 @@ import getIconByType from "@/utils/content/getIconByType";
 import getDateString from "@/utils/content/getDateString";
 import getColor from "@/utils/content/getColor";
 import {Collapse} from 'react-collapse';
-import React from "react";
+import React, {useState} from "react";
 import getImageUrl from "@/utils/content/getImageUrl";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import {useList} from "react-use";
 import Button from "@/components/Button/Button";
+import fetcher from "@/utils/api/fetcher";
+import useSWR, {SWRConfig, unstable_serialize} from "swr";
+import {fetchCollectionHighlightsList} from "@/utils/api/fetchCollectionHighlights";
+import clientFetcher from "@/utils/api/clientFetcher";
 
 export const getServerSideProps = (async () => {
+	const [url, params] = fetchPrograms()
 	const [programsData] = await Promise.all([
-		fetchPrograms()
+		fetcher(url, params)
 	])
 	return {
 		props: {
-			programsData
+			initialData: {
+				[unstable_serialize([url, params])]: programsData
+			}
 		}
 	}
 })
@@ -42,7 +49,7 @@ const ProgramDataRow = ({id, data, onTitleClick}) => {
 				<div className={`${style.Title} subtitle-small`} onClick={() => onTitleClick(id)}>{title}</div>
 			</Col>
 			<Col xs={2}>
-				{id} {hostingType} {language !== null ? `/ ${language}` : ''}
+				{hostingType} {language !== null ? `/ ${language}` : ''}
 			</Col>
 			<Col xs={3} className={style.Date}>
 				<div className={'subtitle-small'}>{date}</div>
@@ -89,7 +96,8 @@ const ProgramDetail = ({id, data, isOpened}) => {
 	)
 }
 
-const ProgramCalendarPage = ({programsData}) => {
+
+const ProgramRows = ({programTypeFilter, languageFilter, hostingTypeFilter}) => {
 	const [openedPrograms, {push, removeAt}] = useList([])
 
 	const onTitleClick = (id) => {
@@ -100,23 +108,32 @@ const ProgramCalendarPage = ({programsData}) => {
 		}
 	}
 
-	const displayEvents = () => {
-		return programsData['data'].map(program => {
-			return (
-				<React.Fragment key={`program_${program['id']}`}>
-					<ProgramDataRow id={program['id']} data={program['attributes']} onTitleClick={onTitleClick} />
-					<ProgramDetail id={program['id']} data={program['attributes']} isOpened={openedPrograms.includes(program['id'])} />
-				</React.Fragment>
-			)
-		})
-	}
+	const { data } = useSWR(
+		fetchPrograms(programTypeFilter, languageFilter, hostingTypeFilter),
+		([url, params]) => clientFetcher(url, params)
+	)
+
+	return data && data['data'].map(program => {
+		return (
+			<React.Fragment key={`program_${program['id']}`}>
+				<ProgramDataRow id={program['id']} data={program['attributes']} onTitleClick={onTitleClick} />
+				<ProgramDetail id={program['id']} data={program['attributes']} isOpened={openedPrograms.includes(program['id'])} />
+			</React.Fragment>
+		)
+	})
+}
+
+const ProgramCalendarPage = ({initialData}) => {
+	const [programTypeFilter, setProgramTypeFilter] = useState('All')
+	const [languageFilter, setLanguageFilter] = useState('')
+	const [hostingTypeFilter, setHostingTypeFilter] = useState('')
 
 	const breadcrumbObject = [
 		{ key: 'public-programs', title: 'Public Programs'},
 	]
 
 	const programTypeFilterValues = [
-		{value: 'all', label: 'All', color: 'neutral'},
+		{value: 'All', label: 'All', color: 'neutral'},
 		{value: 'Academic', label: 'Academic Programs', color: 'aqua'},
 		{value: 'Public', label: 'Public Programs', color: 'sage'}
 	]
@@ -145,22 +162,42 @@ const ProgramCalendarPage = ({programsData}) => {
 				<div style={{height: '48px'}} />
 				<Row>
 					<Col md={12} lg={6}>
-						<HorizontalFilters values={programTypeFilterValues} align={'left'} onSelect={() => {}}/>
+						<HorizontalFilters
+							values={programTypeFilterValues}
+							selectedFilter={programTypeFilter}
+							align={'left'}
+							onSelect={setProgramTypeFilter}/>
 					</Col>
 					<Col md={12} lg={6}>
 						<div className={style.DropdownFiltersWrapper}>
 							<div>Filter By</div>
 							<div className={style.DropdownFilter}>
-								<DropdownFilter label={'Langauge'} values={languageFilterValues} />
+								<DropdownFilter
+									label={'Langauge'}
+									values={languageFilterValues}
+									selectedValue={languageFilter}
+									onSelect={setLanguageFilter}
+								/>
 							</div>
 							<div className={style.DropdownFilter}>
-								<DropdownFilter label={'Hosting Type'} values={hostingTypeFilterValues} />
+								<DropdownFilter
+									label={'Hosting Type'}
+									values={hostingTypeFilterValues}
+									selectedValue={hostingTypeFilter}
+									onSelect={setHostingTypeFilter}
+								/>
 							</div>
 						</div>
 					</Col>
 				</Row>
 				<div style={{height: '48px'}}/>
-				{displayEvents()}
+				<SWRConfig value={{ fallback: initialData }}>
+					<ProgramRows
+						programTypeFilter={programTypeFilter}
+						languageFilter={languageFilter}
+						hostingTypeFilter={hostingTypeFilter}
+					/>
+				</SWRConfig>
 			</Container>
 		</Col>
 	)

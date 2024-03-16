@@ -3,17 +3,11 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import {IconGeneralDown} from "@/components/Icon/Icon";
 import {useState} from "react";
 
-const DropdownFilter = ({label, values, onValueClick}) => {
-	const [selectedValue, setSelectedValue] = useState('')
-
-	const handleSelect = (value) => {
-		setSelectedValue(value)
-	}
-
+const DropdownFilter = ({label, values, selectedValue, onSelect}) => {
 	const renderValues = () => {
 		return (
 			values.map(value => {
-				return <Dropdown.Item className={style.DropdownItem} key={value['value']} onClick={() => handleSelect(value['value'])}>{value['label']}</Dropdown.Item>
+				return <Dropdown.Item className={style.DropdownItem} key={value['value']} onClick={() => onSelect(value['value'])}>{value['label']}</Dropdown.Item>
 			})
 		)
 	}
@@ -28,7 +22,7 @@ const DropdownFilter = ({label, values, onValueClick}) => {
 				</Dropdown.Menu>
 			</Dropdown>
 			{
-				selectedValue !== '' && <span className={style.Reset} onClick={() => handleSelect('')}>Reset Filter</span>
+				selectedValue !== '' && <span className={style.Reset} onClick={() => onSelect('')}>Reset Filter</span>
 			}
 		</>
 	)

@@ -1,7 +1,7 @@
 import fetcher from "@/utils/api/fetcher";
 import dayjs from "dayjs";
 
-export const fetchPrograms = (type='all', language, hostingType) => {
+export const fetchPrograms = (type='All', language, hostingType) => {
 	const params = {
 		'fields[0]': 'Title',
 		'fields[1]': 'StartDate',
@@ -18,7 +18,7 @@ export const fetchPrograms = (type='all', language, hostingType) => {
 		'filters[StartDate][$gt]': '1999-01-01'
 	}
 
-	if (type !== 'all') {
+	if (type !== 'All') {
 		params['filters[Profile][$eq]'] = type
 	}
 
@@ -30,5 +30,5 @@ export const fetchPrograms = (type='all', language, hostingType) => {
 		params['filters[HostingType][$eq]'] = hostingType
 	}
 
-	return fetcher('events', params)
+	return ['events', params]
 }

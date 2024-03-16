@@ -16,7 +16,7 @@ export const getServerSideProps = (async () => {
     ])
     return {
         props: {
-            collectionsInitialData: {
+            initialData: {
                 [unstable_serialize([url, params])]: collectionsData
             }
         }
@@ -43,7 +43,7 @@ const CollectionCards = ({selectedFilter}) => {
 }
 
 
-const CollectionHighlightsPage = ({collectionsInitialData}) => {
+const CollectionHighlightsPage = ({initialData}) => {
     const [selectedFilter, setSelectedFilter] = useState('All')
 
     const breadcrumbObject = [
@@ -57,24 +57,24 @@ const CollectionHighlightsPage = ({collectionsInitialData}) => {
     ]
 
     return (
-        <SWRConfig value={{ fallback: collectionsInitialData }}>
-            <div className={style.Page}>
-                <Container>
-                    <Breadcrumb breadcrumbObject={breadcrumbObject} />
-                    <Row>
-                        <Col xs={12}>
-                            <h1>Collection Highlights</h1>
-                        </Col>
-                    </Row>
-                    <div style={{height: '48px'}} />
-                    <HorizontalFilters values={filterValues} onSelect={setSelectedFilter} />
-                    <div style={{height: '48px'}} />
-                    <Row>
+        <div className={style.Page}>
+            <Container>
+                <Breadcrumb breadcrumbObject={breadcrumbObject} />
+                <Row>
+                    <Col xs={12}>
+                        <h1>Collection Highlights</h1>
+                    </Col>
+                </Row>
+                <div style={{height: '48px'}} />
+                <HorizontalFilters values={filterValues} selectedFilter={selectedFilter} onSelect={setSelectedFilter} />
+                <div style={{height: '48px'}} />
+                <Row>
+                    <SWRConfig value={{ fallback: initialData }}>
                         <CollectionCards selectedFilter={selectedFilter} />
-                    </Row>
-                </Container>
-            </div>
-        </SWRConfig>
+                    </SWRConfig>
+                </Row>
+            </Container>
+        </div>
     )
 }
 
