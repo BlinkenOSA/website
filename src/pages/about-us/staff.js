@@ -25,6 +25,8 @@ export const getServerSideProps = (async () => {
 })
 
 const StaffCards = ({selectedFilters}) => {
+    console.log(selectedFilters)
+
     const { data } = useSWR(
         fetchStaffList(selectedFilters),
         ([url, params]) => clientFetcher(url, params)
@@ -43,7 +45,7 @@ const StaffCards = ({selectedFilters}) => {
 }
 
 const StaffPage = ({initialData}) => {
-    const [unitFilter, {push, removeAt}] = useList([])
+    const [unitFilter, {clear, push, removeAt}] = useList([])
 
     const filterValues = [
         {label: 'Administration'},
@@ -66,10 +68,14 @@ const StaffPage = ({initialData}) => {
     ]
 
     const handleFilterChange = (id) => {
-        if (unitFilter.includes(id)) {
-            removeAt(unitFilter.indexOf(id))
+        if (id === '') {
+            clear()
         } else {
-            push(id)
+            if (unitFilter.includes(id)) {
+                removeAt(unitFilter.indexOf(id))
+            } else {
+                push(id)
+            }
         }
     }
 
