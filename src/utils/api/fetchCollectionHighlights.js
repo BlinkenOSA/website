@@ -1,6 +1,4 @@
-import fetcher from "@/utils/api/fetcher";
-
-export const fetchCollectionHighlightsList = (max) => {
+export const fetchCollectionHighlightsList = (max, contentType) => {
     const params = {
         'sort[0]': 'rank:asc',
         'sort[1]': 'createdAt:desc',
@@ -14,9 +12,15 @@ export const fetchCollectionHighlightsList = (max) => {
         'fields[5]': 'ContentTypes'
     }
 
+    if (contentType) {
+        if (contentType !== 'All') {
+            params['filters[ContentTypes][$contains]'] = contentType
+        }
+    }
+
     if (max) {
         params['pagination[limit]'] = max
     }
 
-    return fetcher('collections', params)
+    return ['collections', params]
 }

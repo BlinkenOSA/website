@@ -5,7 +5,7 @@ const fetcher = (url, params) => {
 
     const urlParams = new URLSearchParams(params)
 
-    return fetch(`${process.env.STRAPI_URL}/${url}?${urlParams}`, {
+    return fetch(`/api/${url}?${urlParams}`, {
         headers: headers
     }).then(r => r.json())
 }

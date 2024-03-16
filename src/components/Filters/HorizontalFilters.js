@@ -2,8 +2,13 @@ import style from "./HorizontalFilters.module.scss";
 import Button from "@/components/Button/Button";
 import {useState} from "react";
 
-const HorizontalFilters = ({values, description = '', align='center'}) => {
+const HorizontalFilters = ({values, description = '', align='center', onSelect}) => {
     const [selectedFilter, setSelectedFilter] = useState('all')
+
+    const handleFilterSelect = (value) => {
+        setSelectedFilter(value)
+        onSelect(value)
+    }
 
     const renderFilters = () => {
         return values.map(value => {
@@ -14,7 +19,7 @@ const HorizontalFilters = ({values, description = '', align='center'}) => {
                         color={'color' in value ? value['color'] : 'neutral'}
                         size={'medium'}
                         isActive={selectedFilter === value['value']}
-                        onClick={() => setSelectedFilter(value['value'])}>{value['label']}
+                        onClick={() => handleFilterSelect(value['value'])}>{value['label']}
                     </Button>
                 </div>
             )

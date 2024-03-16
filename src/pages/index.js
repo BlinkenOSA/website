@@ -23,24 +23,19 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {useRef} from "react";
+import fetcher from "@/utils/api/fetcher";
 
 export const getServerSideProps = (async () => {
-	const [heroRes, eventsRes, newsRes, entriesRes, collectionsRes, credoRes] = await Promise.all([
+	const [collectionURL, collectionParams] = fetchCollectionHighlightsList(6)
+
+	const [heroData, eventsData, newsData, entriesData, collectionsData, credoData] = await Promise.all([
 		fetchHero(),
 		fetchEventsFrontPage(),
 		fetchNewsFrontPage(),
 		fetchEntriesFrontPage(),
-		fetchCollectionHighlightsList(6),
+		fetcher(collectionURL, collectionParams),
 		fetchCredo()
 	]);
-	const [heroData, eventsData, newsData, entriesData, collectionsData, credoData] = await Promise.all([
-		heroRes.json(),
-		eventsRes.json(),
-		newsRes.json(),
-		entriesRes.json(),
-		collectionsRes.json(),
-		credoRes.json()
-	])
 	return {
 		props: {
 			heroData,
@@ -189,7 +184,7 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 		const renderCollectionCard = () => {
 			return collectionsData["data"].map(collection => {
 				return (
-					<Col xs={4}>
+					<Col key={collection['id']} xs={4}>
 						<CollectionCard
 							key={`${collection["id"]}`}
 							data={collection['attributes']}
