@@ -6,11 +6,8 @@ import StaffCard from "@/components/Cards/StaffCard";
 import VerticalFilters from "@/components/Filters/VerticalFilters";
 
 export const getServerSideProps = (async () => {
-    const [staffRes] = await Promise.all([
-        fetchStaffList()
-    ]);
     const [staffData] = await Promise.all([
-        staffRes.json()
+        fetchStaffList()
     ])
     return {
         props: {

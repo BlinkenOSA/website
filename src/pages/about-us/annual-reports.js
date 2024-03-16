@@ -5,11 +5,8 @@ import AnnualReportCard from "@/components/Cards/AnnualReportCard";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 
 export const getServerSideProps = (async () => {
-    const [reportRes] = await Promise.all([
-        fetchAnnualReports()
-    ]);
     const [reportData] = await Promise.all([
-        reportRes.json()
+        fetchAnnualReports()
     ])
     return {
         props: {

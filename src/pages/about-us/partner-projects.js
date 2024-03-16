@@ -7,11 +7,8 @@ import {fetchPartnerProjects} from "@/utils/api/fetchPartnerProjects";
 import PartnerProjectCard from "@/components/Cards/PartnerProjectCard";
 
 export const getServerSideProps = (async () => {
-    const [projectsRes] = await Promise.all([
-        fetchPartnerProjects()
-    ]);
     const [projectsData] = await Promise.all([
-        projectsRes.json()
+        fetchPartnerProjects()
     ])
     return {
         props: {

@@ -8,11 +8,8 @@ import VerticalFilters from "@/components/Filters/VerticalFilters";
 import JobCard from "@/components/Cards/JobCard";
 
 export const getServerSideProps = (async () => {
-    const [jobsRes] = await Promise.all([
-        fetchJobs()
-    ]);
     const [jobsData] = await Promise.all([
-        jobsRes.json()
+        fetchJobs()
     ])
     return {
         props: {

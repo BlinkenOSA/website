@@ -15,11 +15,8 @@ import {useList} from "react-use";
 import Button from "@/components/Button/Button";
 
 export const getServerSideProps = (async () => {
-	const [programsRes] = await Promise.all([
-		fetchPrograms()
-	]);
 	const [programsData] = await Promise.all([
-		programsRes.json()
+		fetchPrograms()
 	])
 	return {
 		props: {
