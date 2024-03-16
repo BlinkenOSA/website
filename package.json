@@ -22,8 +22,10 @@
     "react-collapse": "^5.1.1",
     "react-dom": "18.2.0",
     "react-lorem-ipsum": "^1.4.10",
+    "react-slick": "^0.30.2",
     "react-use": "^17.4.2",
     "sass": "^1.66.1",
+    "slick-carousel": "^1.8.1",
     "swr": "^2.2.5",
     "ua-parser-js": "^1.0.36"
   }

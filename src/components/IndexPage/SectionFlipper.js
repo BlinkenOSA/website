@@ -3,7 +3,7 @@ import Button from "@/components/Button/Button";
 import {IconGeneralLeft, IconGeneralRight} from "@/components/Icon/Icon";
 import {Row} from "react-bootstrap";
 
-const SectionFlipper = ({title, border = false}) => {
+const SectionFlipper = ({title, border = false, onNextClick, onPreviousClick}) => {
     return (
         <Row>
             <div className={style.Wrapper}>
@@ -14,11 +14,13 @@ const SectionFlipper = ({title, border = false}) => {
                             type={'primary'}
                             size={'medium'}
                             color={'neutral'}
+                            onClick={onPreviousClick}
                             isIcon={true}><IconGeneralLeft/></Button>
                         <Button
                             type={'primary'}
                             size={'medium'}
                             color={'neutral'}
+                            onClick={onNextClick}
                             isIcon={true}><IconGeneralRight/></Button>
                     </div>
                 </div>

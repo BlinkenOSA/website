@@ -18,6 +18,11 @@ import {fetchEntriesFrontPage} from "@/utils/api/fetchEntries";
 import EntryCard from "@/components/Cards/EntryCard";
 import {fetchCredo} from "@/utils/api/fetchCredo";
 import NewsCard from "@/components/Cards/NewsCard";
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import {useRef} from "react";
 
 export const getServerSideProps = (async () => {
 	const [heroRes, eventsRes, newsRes, entriesRes, collectionsRes, credoRes] = await Promise.all([
@@ -49,6 +54,15 @@ export const getServerSideProps = (async () => {
 })
 
 const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData, credoData}) => {
+	const sliderSettings = {
+		dots: false,
+		arrows: false,
+		infinite: true,
+		speed: 300,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+	};
+
 	const renderHeroes = () => {
 		const renderHero = () => {
 			return heroData["data"].map(hero => {
@@ -93,52 +107,78 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 	}
 
 	const renderEntryCards = (entryData) => {
+		let sliderRef = useRef(null);
+
 		const renderEntryCard = () => {
 			return entryData["data"].map(entry => {
 				return (
-					<Col xs={4}>
+					<div className={style.SliderCard}>
 						<EntryCard
 							id={`${entry["id"]}`}
 							key={`${entry["id"]}`}
 							data={entry['attributes']}
 							type={entry['EntryType']}
 						/>
-					</Col>
+					</div>
 				)
 			})
 		}
 
+		const onNextClick = () => {
+			sliderRef.slickNext();
+		};
+		const onPreviousClick = () => {
+			sliderRef.slickPrev();
+		};
+
 		return (
 			<>
-				<SectionFlipper title={'Blogs, Podcasts, Videos'} border={true}/>
-				<Row>
+				<SectionFlipper title={'Blogs, Podcasts, Videos'} border={true}  onNextClick={onNextClick} onPreviousClick={onPreviousClick}/>
+				<Slider
+					ref={slider => {
+						sliderRef = slider;
+					}}
+					{...sliderSettings}>
 					{renderEntryCard()}
-				</Row>
+				</Slider>
 			</>
 		)
 	}
 
 	const renderNewsCards = (newsData) => {
+		let sliderRef = useRef(null);
+
 		const renderNewsCard = () => {
 			return newsData["data"].map(entry => {
 				return (
-					<Col xs={4}>
+					<div className={style.SliderCard}>
 						<NewsCard
 							id={`${entry["id"]}`}
 							key={`${entry["id"]}`}
 							data={entry['attributes']}
 						/>
-					</Col>
+					</div>
 				)
 			})
 		}
 
+		const onNextClick = () => {
+			sliderRef.slickNext();
+		};
+		const onPreviousClick = () => {
+			sliderRef.slickPrev();
+		};
+
 		return (
 			<>
-				<SectionFlipper title={'News'} border={true}/>
-				<Row>
+				<SectionFlipper title={'News'} border={true} onNextClick={onNextClick} onPreviousClick={onPreviousClick}/>
+				<Slider
+					ref={slider => {
+						sliderRef = slider;
+					}}
+					{...sliderSettings}>
 					{renderNewsCard()}
-				</Row>
+				</Slider>
 			</>
 		)
 	}
@@ -184,6 +224,7 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 			</Container>
 			<Container>
 				<div style={{height: '48px'}}/>
+
 				{renderNewsCards(newsData)}
 				<div style={{height: '40px'}}/>
 				{renderEntryCards(entriesData)}
