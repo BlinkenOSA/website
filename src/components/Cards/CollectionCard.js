@@ -15,13 +15,13 @@ const CollectionCard = ({data}) => {
     const chooseIcon = (type) => {
       switch(type) {
         case 'Audio':
-          return <IconAudio size={'small'} />
+          return <IconAudio size={'small'} color={'orange'} />
         case 'Moving Image':
-          return <IconFilm size={'small'} />
+          return <IconFilm size={'small'} color={'orange'} />
         case 'Textual':
-          return <IconDocument size={'small'} />
+          return <IconDocument size={'small'} color={'orange'} />
         case 'Still Image':
-          return <IconPhoto size={'small'} />
+          return <IconPhoto size={'small'} color={'orange'} />
       }
     }
 
