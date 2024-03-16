@@ -145,7 +145,7 @@ const ProgramCalendarPage = ({programsData}) => {
 				<div style={{height: '48px'}} />
 				<Row>
 					<Col md={12} lg={6}>
-						<HorizontalFilters values={programTypeFilterValues} align={'left'} />
+						<HorizontalFilters values={programTypeFilterValues} align={'left'} onSelect={() => {}}/>
 					</Col>
 					<Col md={12} lg={6}>
 						<div className={style.DropdownFiltersWrapper}>
