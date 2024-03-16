@@ -58,7 +58,7 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 		dots: false,
 		arrows: false,
 		infinite: true,
-		speed: 300,
+		speed: 400,
 		slidesToShow: 3,
 		slidesToScroll: 1,
 	};
