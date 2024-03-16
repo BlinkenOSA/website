@@ -2,12 +2,17 @@ import style from "./VerticalFilters.module.scss";
 import Checkbox from "@/components/Selectors/Checkbox";
 import Button from "@/components/Button/Button";
 
-const VerticalFilters = ({title, values}) => {
+const VerticalFilters = ({title, values, selectedFilters, onChange}) => {
     const renderFilters = () => {
         return values.map(value => {
             return (
                 <div>
-                    <Checkbox id={value['label']} size={'small'} text={value['label']} />
+                    <Checkbox
+                        id={value['label']}
+                        size={'small'}
+                        text={value['label']}
+                        checked={selectedFilters.includes(value['label'])}
+                        onClick={onChange}/>
                 </div>
             )
         })

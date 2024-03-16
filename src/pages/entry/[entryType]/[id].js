@@ -13,12 +13,8 @@ import getCreationDate from "@/utils/content/getCreationDate";
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
 
-	const [entriesRes] = await Promise.all([
-		fetchEntriesDetail(id),
-	]);
-
 	const [entriesData] = await Promise.all([
-		entriesRes.json()
+		fetchEntriesDetail(id)
 	])
 
 	if (entriesData['data'] === null) {

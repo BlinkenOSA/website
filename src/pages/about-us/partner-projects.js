@@ -1,7 +1,5 @@
-import {fetchAnnualReports} from "@/utils/api/fetchAnnualReports";
 import {Col, Container, Row} from "react-bootstrap";
 import style from "@/pages/pages.module.scss";
-import AnnualReportCard from "@/components/Cards/AnnualReportCard";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {fetchPartnerProjects} from "@/utils/api/fetchPartnerProjects";
 import PartnerProjectCard from "@/components/Cards/PartnerProjectCard";

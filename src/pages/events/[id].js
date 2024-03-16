@@ -12,12 +12,8 @@ import getImageUrl from "@/utils/content/getImageUrl";
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
 
-	const [eventRes] = await Promise.all([
-		fetchEventDetail(id),
-	]);
-
 	const [eventData] = await Promise.all([
-		eventRes.json()
+		fetchEventDetail(id)
 	])
 
 	if (eventData['data'] === null) {

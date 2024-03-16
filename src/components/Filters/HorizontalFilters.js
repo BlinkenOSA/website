@@ -1,6 +1,5 @@
 import style from "./HorizontalFilters.module.scss";
 import Button from "@/components/Button/Button";
-import {useState} from "react";
 
 const HorizontalFilters = ({values, selectedFilter, description = '', align='center', onSelect}) => {
     const handleFilterSelect = (value) => {

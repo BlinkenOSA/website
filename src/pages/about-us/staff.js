@@ -4,6 +4,7 @@ import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {fetchStaffList} from "@/utils/api/fetchStaff";
 import StaffCard from "@/components/Cards/StaffCard";
 import VerticalFilters from "@/components/Filters/VerticalFilters";
+import {useList} from "react-use";
 
 export const getServerSideProps = (async () => {
     const [staffData] = await Promise.all([
@@ -17,6 +18,8 @@ export const getServerSideProps = (async () => {
 })
 
 const StaffPage = ({staffData}) => {
+    const [unitFilter, {push, removeAt}] = useList([])
+
     const renderStaff = () => {
         return staffData["data"].map(staff => {
             return (
@@ -50,6 +53,14 @@ const StaffPage = ({staffData}) => {
         { key: 'about-us', title: 'About Us'},
     ]
 
+    const handleFilterChange = (id) => {
+        if (unitFilter.includes(id)) {
+            removeAt(unitFilter.indexOf(id))
+        } else {
+            push(id)
+        }
+    }
+
     return (
         <div className={style.Page}>
             <Container>
@@ -62,7 +73,12 @@ const StaffPage = ({staffData}) => {
                 <div style={{height: '48px'}} />
                 <Row>
                     <Col xs={4}>
-                        <VerticalFilters title={'Filter by Department'} values={filterValues} />
+                        <VerticalFilters
+                            title={'Filter by Department'}
+                            values={filterValues}
+                            selectedFilters={unitFilter}
+                            onChange={handleFilterChange}
+                        />
                     </Col>
                     <Col xs={8}>
                         <Row>

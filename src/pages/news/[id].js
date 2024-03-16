@@ -12,12 +12,8 @@ import getCreationDate from "@/utils/content/getCreationDate";
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
 
-	const [newsRes] = await Promise.all([
-		fetchNewsDetail(id),
-	]);
-
 	const [newsData] = await Promise.all([
-		newsRes.json()
+		fetchNewsDetail(id)
 	])
 
 	if (newsData['data'] === null) {

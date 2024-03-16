@@ -6,6 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {fetchJobs} from "@/utils/api/fetchJobs";
 import VerticalFilters from "@/components/Filters/VerticalFilters";
 import JobCard from "@/components/Cards/JobCard";
+import {useList} from "react-use";
 
 export const getServerSideProps = (async () => {
     const [jobsData] = await Promise.all([
@@ -19,6 +20,8 @@ export const getServerSideProps = (async () => {
 })
 
 const JobsPage = ({jobsData}) => {
+    const [jobTypeFilter, {push, removeAt}] = useList([])
+
     const renderJobs = () => {
         return jobsData["data"].map(job => {
             return <JobCard
@@ -33,10 +36,18 @@ const JobsPage = ({jobsData}) => {
     ]
 
     const filterValues = [
-        {label: 'Jobs'},
-        {label: 'Archivum Internships'},
-        {label: 'Volunteering'}
+        {value: 'Jobs', label: 'Jobs'},
+        {value: 'Archivum Internships', label: 'Archivum Internships'},
+        {value: 'Volunteering', label: 'Volunteering'}
     ]
+
+    const handleFilterChange = (id) => {
+        if (jobTypeFilter.includes(id)) {
+            removeAt(jobTypeFilter.indexOf(id))
+        } else {
+            push(id)
+        }
+    }
 
     return (
         <div className={style.Page}>
@@ -50,7 +61,12 @@ const JobsPage = ({jobsData}) => {
                 <div style={{height: '48px'}} />
                 <Row>
                     <Col xs={4}>
-                        <VerticalFilters title={'Job Type'} values={filterValues} />
+                        <VerticalFilters
+                            title={'Job Type'}
+                            values={filterValues}
+                            selectedFilters={jobTypeFilter}
+                            onChange={handleFilterChange}
+                        />
                     </Col>
                     <Col xs={8}>
                         <Row>
