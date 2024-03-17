@@ -1,51 +1,65 @@
 import {fetchAnnualReports} from "@/utils/api/fetchAnnualReports";
 import {Col, Container, Row} from "react-bootstrap";
 import style from "@/pages/pages.module.scss";
-import AnnualReportCard from "@/components/Cards/AnnualReportCard";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {fetchJobs} from "@/utils/api/fetchJobs";
 import VerticalFilters from "@/components/Filters/VerticalFilters";
 import JobCard from "@/components/Cards/JobCard";
 import {useList} from "react-use";
+import fetcher from "@/utils/api/fetcher";
+import useSWR, {SWRConfig, unstable_serialize} from "swr";
+import clientFetcher from "@/utils/api/clientFetcher";
 
 export const getServerSideProps = (async () => {
+    const [url, params] = fetchJobs()
     const [jobsData] = await Promise.all([
-        fetchJobs()
+        fetcher(url, params)
     ])
     return {
         props: {
-            jobsData
+            initialData: {
+                [unstable_serialize([url, params])]: jobsData
+            }
         }
     }
 })
 
-const JobsPage = ({jobsData}) => {
-    const [jobTypeFilter, {push, removeAt}] = useList([])
+const JobCards = ({selectedFilters}) => {
+    const { data } = useSWR(
+        fetchJobs(selectedFilters),
+        ([url, params]) => clientFetcher(url, params)
+    )
 
-    const renderJobs = () => {
-        return jobsData["data"].map(job => {
-            return <JobCard
-                key={job["id"]}
-                data={job['attributes']}
-            />
-        })
-    }
+    return data && data["data"].map(job => {
+        return <JobCard
+            key={job["id"]}
+            data={job['attributes']}
+        />
+    })
+}
+
+const JobsPage = ({initialData}) => {
+    const [jobTypeFilter, {clear, push, removeAt}] = useList([])
 
     const breadcrumbObject = [
         { key: 'about-us', title: 'About Us'},
     ]
 
     const filterValues = [
-        {value: 'Jobs', label: 'Jobs'},
-        {value: 'Archivum Internships', label: 'Archivum Internships'},
+        {value: 'Jobs', label: 'Job'},
+        {value: 'Archivum Internships', label: 'Archivum Internship'},
         {value: 'Volunteering', label: 'Volunteering'}
     ]
 
     const handleFilterChange = (id) => {
-        if (jobTypeFilter.includes(id)) {
-            removeAt(jobTypeFilter.indexOf(id))
+        if (id === '') {
+            clear()
         } else {
-            push(id)
+            if (jobTypeFilter.includes(id)) {
+                removeAt(jobTypeFilter.indexOf(id))
+            } else {
+                push(id)
+            }
         }
     }
 
@@ -70,7 +84,9 @@ const JobsPage = ({jobsData}) => {
                     </Col>
                     <Col xs={8}>
                         <Row>
-                            {renderJobs()}
+                            <SWRConfig value={{ fallback: initialData }}>
+                                <JobCards selectedFilters={jobTypeFilter} />
+                            </SWRConfig>
                         </Row>
                     </Col>
                 </Row>

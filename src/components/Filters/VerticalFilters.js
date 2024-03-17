@@ -6,7 +6,7 @@ const VerticalFilters = ({title, values, selectedFilters, onChange}) => {
     const renderFilters = () => {
         return values.map(value => {
             return (
-                <div>
+                <div key={value['label']}>
                     <Checkbox
                         id={value['label']}
                         size={'small'}

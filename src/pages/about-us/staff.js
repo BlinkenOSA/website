@@ -25,8 +25,6 @@ export const getServerSideProps = (async () => {
 })
 
 const StaffCards = ({selectedFilters}) => {
-    console.log(selectedFilters)
-
     const { data } = useSWR(
         fetchStaffList(selectedFilters),
         ([url, params]) => clientFetcher(url, params)
