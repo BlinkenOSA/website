@@ -62,7 +62,7 @@ const SubmenuPage = ({menuID, status, selectedSubmenu}) => {
                             className={style.SubmenuItem}
                         >
                             <div className={style.Title}>{t(sm['key'])}</div>
-                            <div className={style.Description}>{sm['highlight']}</div>
+                            <div className={style.Description}>{t(`${sm['key']}__text`)}</div>
                         </motion.div>
                     </a>
                 )
