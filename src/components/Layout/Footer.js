@@ -2,8 +2,11 @@ import style from "@/components/Layout/Footer.module.scss";
 import Logo from "@/components/Logo/Logo";
 import {Col, Container, Row} from "react-bootstrap";
 import {SocialIconFB, SocialIconInsta, SocialIconYT} from "@/components/Icon/SocialIcon";
+import useTranslation from "next-translate/useTranslation";
 
 const Footer = () => {
+	const { t } = useTranslation('footer')
+
 	return (
 		<div className={style.FooterContainer}>
 			<div className={style.FooterWrapper}>
@@ -16,32 +19,32 @@ const Footer = () => {
 						</Col>
 						<Col xs={6} style={{paddingRight: '20px'}}>
 							<div className={style.InfoWrapperLeft}>
-								<div className={style.Label}>Contact</div>
+								<div className={style.Label}>{t('contact')}</div>
 								<div className={style.Info}>
-									For archival matters: info@osaarchivum.org<br/>
-									For public programs: comms@ceu.edu<br/>
+									{t('contact__archival')}<br/>
+									{t('contact__programs')}<br/>
 									<br/>
-									Address: Arany János u. 32, 1051  Budapest, Hungary<br/>
-									Tel: +36-1-327-3250
+									{t('address')}<br/>
+									{t('phone')}
 								</div>
 							</div>
 							<br/>
 							<div className={style.InfoWrapperLeft}>
-								<div className={style.Label}>Opening</div>
+								<div className={style.Label}>{t('opening')}</div>
 								<div className={style.Info}>
-									Galeria: Tue-Sun 10:00 - 18:00<br/>
-									Research Room: Mon-Fri 10:00 - 17:45
+									{t('opening__galeria')}<br/>
+									{t('opening__research-room')}
 								</div>
 							</div>
 						</Col>
 						<Col xs={3}>
 							<div className={style.InfoWrapperRight}>
-								<div className={style.Label}>About</div><br/>
+								<div className={style.Label}>{t('about')}</div><br/>
 								<div className={style.Links}>
 									<ul>
-										<li>Privacy Policy</li>
-										<li>Terms & Conditions</li>
-										<li>Sitemap</li>
+										<li>{t('privacy-policy')}</li>
+										<li>{t('terms-conditions')}</li>
+										<li>{t('sitemap')}</li>
 									</ul>
 								</div>
 							</div>
