@@ -4,8 +4,10 @@ import verzioLogo from "../../../public/logos/verzio.svg"
 import Image from "next/image";
 import {Col, Container, Row} from "react-bootstrap";
 import Button from "@/components/Button/Button";
+import useTranslation from "next-translate/useTranslation";
 
 const PartnersPanel = () => {
+    const { t } = useTranslation('index')
 
     return (
         <>
@@ -13,7 +15,7 @@ const PartnersPanel = () => {
                 <Col xs={12} md={6}>
                     <div className={`${style.Panel} ${style.Left}`}>
                         <div className={style.Text}>
-                            <h2>Visit Galeria<br/>Centralis</h2>
+                            <h2>{t('partners__galeria')}</h2>
                         </div>
                         <div className={style.Row}>
                             <div className={style.Button}>
@@ -22,7 +24,7 @@ const PartnersPanel = () => {
                                     size={'medium'}
                                     color={'sage'}
                                     link={'https://galeriacentralis.osaarchivum.org'}
-                                >Find out more</Button>
+                                >{t('partners__button')}</Button>
                             </div>
                             <div className={style.Logo}>
                                 <Image
@@ -38,7 +40,7 @@ const PartnersPanel = () => {
                 <Col xs={12} md={6}>
                     <div className={`${style.Panel} ${style.Right}`}>
                         <div className={style.Text}>
-                            <h2>Visit Verzio<br/>Filmfestival</h2>
+                            <h2>{t('partners__verzio')}</h2>
                         </div>
                         <div className={style.Row}>
                             <div className={style.Button}>
@@ -47,7 +49,7 @@ const PartnersPanel = () => {
                                     size={'medium'}
                                     color={'sage'}
                                     link={'https://verzio.org'}
-                                >Find out more</Button>
+                                >{t('partners__button')}</Button>
                             </div>
                             <div className={style.Logo}>
                                 <Image
