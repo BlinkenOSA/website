@@ -5,8 +5,11 @@ import MenuItem from "@/components/Menu/v2/MenuItem";
 import {menuConfig} from "@/components/Menu/v2/config/menuConfig";
 import {useContext} from 'react';
 import {MenuContext, MenuDispatchContext} from "@/utils/context/MenuContext";
+import useTranslation from "next-translate/useTranslation";
 
 const DesktopMenu = () => {
+    const { t } = useTranslation('menu')
+
     const menuOpen = useContext(MenuContext);
     const dispatch = useContext(MenuDispatchContext);
 
@@ -26,7 +29,7 @@ const DesktopMenu = () => {
                       <MenuItem
                           key={cfg['key']}
                           menuID={cfg['key']}
-                          title={cfg['title']}
+                          title={t(cfg['key'])}
                           color={cfg['color']}
                           id={index}
                           number={index + 1}

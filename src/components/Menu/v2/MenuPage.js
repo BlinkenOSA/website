@@ -5,8 +5,11 @@ import {useContext, useState} from "react";
 import SubmenuPage from "@/components/Menu/v2/SubmenuPage";
 import {MenuDispatchContext} from "@/utils/context/MenuContext";
 import {useRouter} from "next/router";
+import useTranslation from "next-translate/useTranslation";
 
 const MenuPage = ({menuItems, menuID, number, status}) => {
+    const { t } = useTranslation('menu')
+
     const [selectedMenuItem, setSelectedMenuItem] = useState('')
     const dispatch = useContext(MenuDispatchContext);
     const router = useRouter();
@@ -73,7 +76,7 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
                                 onClick={() => handleSelectMenu(item['key'])}
                                 className={style.Title}
                             >
-                                {item['title']}
+                                {t(item['key'])}
                             </div>
                             <div style={{flex: 1}} />
                             <div style={{display: "flex", width: '100px', justifyContent: 'center', alignItems: "center"}}>
@@ -86,7 +89,7 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
                         <div className={getClass(item['key'])}>
                             <a href={'url' in item ? item['url'] : undefined} onClick={(e) => handleMenuClick(e, item['url'])}>
                                 <div className={style.Title}>
-                                    {item['title']}
+                                    {t(item['key'])}
                                 </div>
                             </a>
                         </div>

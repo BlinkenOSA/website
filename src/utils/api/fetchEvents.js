@@ -1,6 +1,6 @@
 import fetcher from "@/utils/api/fetcher";
 
-export const fetchEventsFrontPage = () => {
+export const fetchEventsFrontPage = (locale) => {
     const params = {
         'sort[0]': 'rank:asc',
         'sort[1]': 'createdAt:desc',

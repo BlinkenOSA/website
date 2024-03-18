@@ -7,8 +7,11 @@ import CollectionsBackground from "@/components/Menu/v2/backgrounds/CollectionsB
 import {useContext} from "react";
 import {MenuDispatchContext} from "@/utils/context/MenuContext";
 import {useRouter} from "next/router";
+import useTranslation from "next-translate/useTranslation";
 
 const SubmenuPage = ({menuID, status, selectedSubmenu}) => {
+    const { t } = useTranslation('menu')
+
     const dispatch = useContext(MenuDispatchContext);
     const router = useRouter();
 
@@ -58,7 +61,7 @@ const SubmenuPage = ({menuID, status, selectedSubmenu}) => {
                             exit={{ opacity: 0, y: '-30%', transition: {delay: 0.05 * (idx + 1)}}}
                             className={style.SubmenuItem}
                         >
-                            <div className={style.Title}>{sm['title']}</div>
+                            <div className={style.Title}>{t(sm['key'])}</div>
                             <div className={style.Description}>{sm['highlight']}</div>
                         </motion.div>
                     </a>

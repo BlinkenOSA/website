@@ -13,7 +13,7 @@ import style from "@/pages/pages.module.scss";
 import {fetchHero} from "@/utils/api/fetchHero";
 import {fetchEventsFrontPage} from "@/utils/api/fetchEvents";
 import {fetchNewsFrontPage} from "@/utils/api/fetchNews";
-import {fetchCollectionHighlightsList} from "@/utils/api/fetchCollectionHighlights";
+import {fetchCollectionHighlightsFrontPage} from "@/utils/api/fetchCollectionHighlights";
 import {fetchEntriesFrontPage} from "@/utils/api/fetchEntries";
 import EntryCard from "@/components/Cards/EntryCard";
 import {fetchCredo} from "@/utils/api/fetchCredo";
@@ -23,17 +23,16 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {useRef} from "react";
-import fetcher from "@/utils/api/fetcher";
 
-export const getServerSideProps = (async () => {
-	const [collectionURL, collectionParams] = fetchCollectionHighlightsList(6)
+export const getServerSideProps = (async (context) => {
+	const {locale} = context
 
 	const [heroData, eventsData, newsData, entriesData, collectionsData, credoData] = await Promise.all([
-		fetchHero(),
-		fetchEventsFrontPage(),
-		fetchNewsFrontPage(),
-		fetchEntriesFrontPage(),
-		fetcher(collectionURL, collectionParams),
+		fetchHero(locale),
+		fetchEventsFrontPage(locale),
+		fetchNewsFrontPage(locale),
+		fetchEntriesFrontPage(locale),
+		fetchCollectionHighlightsFrontPage(locale),
 		fetchCredo()
 	]);
 	return {

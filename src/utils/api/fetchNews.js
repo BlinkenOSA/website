@@ -1,6 +1,6 @@
 import fetcher from "@/utils/api/fetcher";
 
-export const fetchNewsFrontPage = () => {
+export const fetchNewsFrontPage = (locale) => {
     const params = {
         'sort[0]': 'rank:asc',
         'sort[1]': 'createdAt:desc',
