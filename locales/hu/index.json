@@ -1,0 +1,16 @@
+{
+  "events": "Események",
+  "events__button": "Összes Esemény",
+  "events__free-text": "* Az összes programunk ingyenes.",
+  "catalog": "Katalógus",
+  "catalog__search": "Keresés...",
+  "entries": "Blog, Podcastok, Videók",
+  "news": "Hírek",
+  "collection-highlights": "Gyűjtemény Bemutatók",
+  "collection-highlights__button": "Összes Gyűjtemény Bemutató",
+  "newsletter__title": "Maradjunk kapcsolatban",
+  "newsletter__content_01": "Iratkozzon fel hírlevelünkre, hogy friss híreket kapjon, tekintsen be a kulisszák mögé, nyerjen betekintést a levéltári kincsek világába.",
+  "newsletter__content_02": "Csatlakozzon közösségünkhöz, és ne maradjon le egyetlen pillanatról sem.",
+  "newsletter__email": "Email Cím",
+  "newsletter__subscribe": "Feliratkozás"
+}

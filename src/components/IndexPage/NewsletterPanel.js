@@ -2,24 +2,26 @@ import style from "./NewsletterPanel.module.scss";
 import Input from "@/components/Input/Input";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import Button from "@/components/Button/Button";
+import useTranslation from "next-translate/useTranslation";
 
 const NewsletterPanel = ({type='landing', color='neutral'}) => {
+    const { t } = useTranslation('index')
+
     return (
         <div className={type === 'landing' ? `${style.Wrapper} ${style.Landing}` : style.Wrapper}>
             <div className={style.Left}>
-                <h2>Keep in touch</h2>
+                <h2>{t('newsletter__title')}</h2>
                 <p>
-                    Subscribe to our newsletter for updates, behind-the-scenes
-                    content, and curated insights into the world of archival treasures.<br/>
-                    Join our community and never miss a moment.
+                    {t('newsletter__content_01')}<br/>
+                    {t('newsletter__content_02')}
                 </p>
                 <div className={style.Form}>
                     <div className={style.Email}>
-                        <Input id={'email'} placeholder={'Email Address'} style={{width: 100}} />
+                        <Input id={'email'} placeholder={t('newsletter__email')} style={{width: 100}} />
                     </div>
                     <div className={style.Button}>
                         <Button size={'large'} type={'primary'} color={color}>
-                            Subscribe
+                            {t('newsletter__subscribe')}
                         </Button>
                     </div>
                 </div>

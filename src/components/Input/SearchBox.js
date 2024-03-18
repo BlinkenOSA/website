@@ -5,7 +5,7 @@ import {IconGeneralSearch} from "@/components/Icon/Icon";
 import useTranslation from "next-translate/useTranslation";
 
 const SearchBox = ({disabled}) => {
-	const { t } = useTranslation('common')
+	const { t } = useTranslation('header')
 
 	return (
 		<InputGroup className={style.InputGroup}>

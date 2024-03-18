@@ -1,0 +1,16 @@
+{
+  "events": "Events",
+  "events__button": "View All Events",
+  "events__free-text": "* All our programs are free.",
+  "catalog": "Catalog",
+  "catalog__search": "Search for...",
+  "entries": "Blogs, Podcasts, Videos",
+  "news": "News",
+  "collection-highlights": "Collection Highlights",
+  "collection-highlights__button": "View All Collection Highlights",
+  "newsletter__title": "Keep in touch",
+  "newsletter__content_01": "Subscribe to our newsletter for updates, behind-the-scenes content, and curated insights into the world of archival treasures.",
+  "newsletter__content_02": "Join our community and never miss a moment.",
+  "newsletter__email": "Email Address",
+  "newsletter__subscribe": "Subscribe"
+}

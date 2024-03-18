@@ -2,8 +2,11 @@ import style from './CatalogPanel.module.scss'
 import SearchBox from "@/components/Input/SearchBox";
 import Image from "next/image";
 import {Col, Container, Row} from "react-bootstrap";
+import useTranslation from "next-translate/useTranslation";
 
 const CatalogPanel = () => {
+    const { t } = useTranslation('index')
+
     return (
         <div className={style.PanelWrapper}>
             <Image
@@ -16,7 +19,7 @@ const CatalogPanel = () => {
                 <Container>
                     <Row>
                         <Col xs={4}>
-                            <h1>Catalog</h1>
+                            <h1>{t('catalog')}</h1>
                             <SearchBox />
                         </Col>
                     </Row>

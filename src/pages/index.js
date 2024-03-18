@@ -23,6 +23,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {useRef} from "react";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps = (async (context) => {
 	const {locale} = context
@@ -48,6 +49,8 @@ export const getServerSideProps = (async (context) => {
 })
 
 const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData, credoData}) => {
+	const { t } = useTranslation('index')
+
 	const sliderSettings = {
 		dots: false,
 		arrows: false,
@@ -91,10 +94,10 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 
 		return (
 			<>
-				<SectionDivider title={'Events'}
-								buttonText={'View All Events'}
+				<SectionDivider title={t('events')}
+								buttonText={t('events__button')}
 								buttonLink={'/public-programs/program-calendar'}
-								subTitle={'* All our programs are free.'}/>
+								subTitle={t('events__free-text')}/>
 				<Row>
 					{renderEventCard()}
 				</Row>
@@ -129,7 +132,11 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 
 		return (
 			<>
-				<SectionFlipper title={'Blogs, Podcasts, Videos'} border={true}  onNextClick={onNextClick} onPreviousClick={onPreviousClick}/>
+				<SectionFlipper
+					title={t('entries')}
+					border={true}
+					onNextClick={onNextClick}
+					onPreviousClick={onPreviousClick}/>
 				<Slider
 					ref={slider => {
 						sliderRef = slider;
@@ -167,7 +174,11 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 
 		return (
 			<>
-				<SectionFlipper title={'News'} border={true} onNextClick={onNextClick} onPreviousClick={onPreviousClick}/>
+				<SectionFlipper
+					title={t('news')}
+					border={true}
+					onNextClick={onNextClick}
+					onPreviousClick={onPreviousClick}/>
 				<Slider
 					ref={slider => {
 						sliderRef = slider;
@@ -196,8 +207,8 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 		return (
 			<>
 				<SectionDivider
-					title={'Collection Highlights'}
-					buttonText={'View All Collection Highlights'}
+					title={t('collection-highlights')}
+					buttonText={t('collection-highlights__button')}
 					buttonLink={'/collections/collection-highlights'}
 				/>
 				<Row>
@@ -224,7 +235,6 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 			</Container>
 			<Container>
 				<div style={{height: '48px'}}/>
-
 				{renderNewsCards(newsData)}
 				<div style={{height: '40px'}}/>
 				{renderEntryCards(entriesData)}
