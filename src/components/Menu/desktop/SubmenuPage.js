@@ -1,9 +1,9 @@
 import {AnimatePresence, motion} from "framer-motion"
-import AboutUsBackground from "@/components/Menu/v2/backgrounds/AboutUsBackground";
-import AcademicsBackground from "@/components/Menu/v2/backgrounds/AcademicsBackground";
-import PublicProgramsBackground from "@/components/Menu/v2/backgrounds/PublicProgramsBackground";
+import AboutUsBackground from "@/components/Menu/desktop/backgrounds/AboutUsBackground";
+import AcademicsBackground from "@/components/Menu/desktop/backgrounds/AcademicsBackground";
+import PublicProgramsBackground from "@/components/Menu/desktop/backgrounds/PublicProgramsBackground";
 import style from "./SubmenuPage.module.scss";
-import CollectionsBackground from "@/components/Menu/v2/backgrounds/CollectionsBackground";
+import CollectionsBackground from "@/components/Menu/desktop/backgrounds/CollectionsBackground";
 import {useContext} from "react";
 import {MenuDispatchContext} from "@/utils/context/MenuContext";
 import {useRouter} from "next/router";

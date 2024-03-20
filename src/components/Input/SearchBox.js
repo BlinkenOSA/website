@@ -4,7 +4,7 @@ import {InputGroup} from "react-bootstrap";
 import {IconGeneralSearch} from "@/components/Icon/Icon";
 import useTranslation from "next-translate/useTranslation";
 
-const SearchBox = ({disabled}) => {
+const SearchBox = ({disabled, isMobile=false}) => {
 	const { t } = useTranslation('header')
 
 	return (
@@ -12,12 +12,15 @@ const SearchBox = ({disabled}) => {
 			<InputGroup.Text id={disabled ? 'search-icon-disabled' : 'search-icon'}>
 				<IconGeneralSearch size={'small'} />
 			</InputGroup.Text>
-			<Form.Control
-				type={"search"}
-				id={"search-box"}
-				disabled={disabled}
-				placeholder={t('search')}
-			/>
+			{
+				!isMobile &&
+				<Form.Control
+					type={"search"}
+					id={"search-box"}
+					disabled={disabled}
+					placeholder={t('search')}
+				/>
+			}
 		</InputGroup>
 	)
 }

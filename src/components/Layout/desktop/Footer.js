@@ -1,4 +1,4 @@
-import style from "@/components/Layout/Footer.module.scss";
+import style from "@/components/Layout/desktop/Footer.module.scss";
 import Logo from "@/components/Logo/Logo";
 import {Col, Container, Row} from "react-bootstrap";
 import {SocialIconFB, SocialIconInsta, SocialIconYT} from "@/components/Icon/SocialIcon";

@@ -2,7 +2,7 @@ import style from "./MenuPage.module.scss"
 import {AnimatePresence, motion} from "framer-motion"
 import {IconGeneralRight} from "@/components/Icon/Icon";
 import {useContext, useState} from "react";
-import SubmenuPage from "@/components/Menu/v2/SubmenuPage";
+import SubmenuPage from "@/components/Menu/desktop/SubmenuPage";
 import {MenuDispatchContext} from "@/utils/context/MenuContext";
 import {useRouter} from "next/router";
 import useTranslation from "next-translate/useTranslation";
@@ -11,6 +11,7 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
     const { t } = useTranslation('menu')
 
     const [selectedMenuItem, setSelectedMenuItem] = useState('')
+
     const dispatch = useContext(MenuDispatchContext);
     const router = useRouter();
 

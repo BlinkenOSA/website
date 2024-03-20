@@ -1,8 +1,8 @@
 "use client"
 
 import style from "./Menu.module.scss";
-import MenuItem from "@/components/Menu/v2/MenuItem";
-import {menuConfig} from "@/components/Menu/v2/config/menuConfig";
+import MenuItem from "@/components/Menu/desktop/MenuItem";
+import {menuConfig} from "@/components/Menu/desktop/config/menuConfig";
 import {useContext} from 'react';
 import {MenuContext, MenuDispatchContext} from "@/utils/context/MenuContext";
 import useTranslation from "next-translate/useTranslation";

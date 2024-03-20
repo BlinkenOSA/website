@@ -1,6 +1,6 @@
 import style from "./MenuItem.module.scss"
 import {motion} from "framer-motion";
-import MenuPage from "@/components/Menu/v2/MenuPage";
+import MenuPage from "@/components/Menu/desktop/MenuPage";
 
 const MenuItem = ({menuID, title, icon, number, color, menuOpen, onClick, menuItems}) => {
     const menuVariants = {
