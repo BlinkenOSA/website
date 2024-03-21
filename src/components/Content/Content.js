@@ -37,7 +37,9 @@ const Content = ({contentObject}) => {
 			return content['Images'].map((imageData, idx) => {
 				return (
 					<div className={style.ImageWrapper}>
-						{ renderImage(imageData) }
+						<div className={style.StickyImage}>
+							{ renderImage(imageData) }
+						</div>
 					</div>
 				)
 			})
@@ -51,7 +53,9 @@ const Content = ({contentObject}) => {
 							<BlocksRenderer content={content['Content']} />
 						</Col>
 						<Col xs={4}>
-							{renderImages()}
+							<div className={style.ImageColumn}>
+								{renderImages()}
+							</div>
 						</Col>
 					</Row>
 				)
@@ -59,7 +63,9 @@ const Content = ({contentObject}) => {
 				return (
 					<Row>
 						<Col xs={4}>
-							{renderImages()}
+							<div className={style.ImageColumn}>
+								{renderImages()}
+							</div>
 						</Col>
 						<Col xs={8}>
 							<BlocksRenderer content={content['Content']} />
