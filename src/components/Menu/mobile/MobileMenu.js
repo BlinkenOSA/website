@@ -5,7 +5,7 @@ import {useContext, useState} from "react";
 import MobileMenuItem from "@/components/Menu/mobile/MobileMenuItem";
 import useTranslation from "next-translate/useTranslation";
 import {MenuContext, MenuDispatchContext} from "@/utils/context/MenuContext";
-import {menuConfig} from "@/components/Menu/config/menuConfig";
+import {menuConfig} from "@/config/menuConfig";
 
 const Menu = () => {
     const { t } = useTranslation('menu')

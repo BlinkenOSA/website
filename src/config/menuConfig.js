@@ -9,10 +9,10 @@ export const menuConfig = [
     url: '/about',
     menuItems: [
       { key: 'the-archivum', title: 'The Archivum', submenu: [
-          { key: 'about-us-menu', title: 'About Us', highlight: 'The story of the Vera & Donald Blinken Open Society Archives.' },
-          { key: 'vera-and-donald-blinken', title: 'Vera and Donald Blinken', highlight: 'Our main donors.' },
-          { key: 'goldberger-house', title: 'Goldberger House', highlight: 'Where are we located? The story of our building.'},
-          { key: 'what-archives-are', title: 'What are archives?', highlight: 'What is the role of the archives nowadays?'},
+          { key: 'about-us-menu', title: 'About Us', url: '/about-us/archivum' },
+          { key: 'vera-and-donald-blinken', title: 'Vera and Donald Blinken', url: '/about-us/vera-and-donald-blinken'},
+          { key: 'goldberger-house', title: 'Goldberger House', url: '/about-us/goldberger-house'},
+          { key: 'what-archives-are', title: 'What are archives?', url: '/about-us/what-are-archives'},
         ]
       },
       { key: 'we-are-ceu', title: 'We are CEU' },
