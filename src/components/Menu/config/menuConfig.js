@@ -46,7 +46,8 @@ export const menuConfig = [
       { key: 'collection-highlights', title: 'Collection Highlights', url: '/collections/collection-highlights' },
       { key: 'archival-projects', title: 'Archival Projects' },
       { key: 'donate-your-archive', title: 'Donate your Archive' },
-      { key: 'archival-news-and-blog', title: 'Archival News and Blog'}
+      { key: 'archival-news-and-blog', title: 'Archival News'},
+      { key: 'blog', title: 'Blog'}
     ]
   }, {
     key: 'academics',
@@ -55,19 +56,22 @@ export const menuConfig = [
     color: 'aqua',
     url: 'academics',
     menuItems: [
-      { key: 'research-and-publications', title: 'Research and Publications' },
+      { key: 'research-and-publications', title: 'Our Research and Publications' },
       { key: 'visegrad-scholarship', title: 'Visegrad Scholarship', submenu: [
           { key: 'about-the-visegrad-fund', title: 'About the V Fund', highlight: "Find out more about the history of the Visegrad Fund" },
           { key: 'open-call', title: 'Open call', highlight: "We are waiting for your application"},
-          { key: 'visegrad-current-fellows', title: 'Visegrad current fellows',  highlight: "You can meet them, when you are in the Archivum."},
-          { key: 'visegrad-past-fellows', title: 'Visegrad past fellows', highlight: "All the participants of the Visegrad Fellowship Program."}]
+          { key: 'visegrad-current-fellows', title: 'Current Fellows',  highlight: "You can meet them, when you are in the Archivum."},
+          { key: 'visegrad-past-fellows', title: 'Past fellows', highlight: "All the participants of the Visegrad Fellowship Program."}]
       },
       { key: 'other-fellowships', title: 'Other Fellowships' },
       { key: 'archivum-internships', title: 'Archivum Internships' },
       { key: 'university-courses', title: 'University Courses' },
-      { key: 'edupro', title: 'Edupro' },
+      { key: 'edupro', title: 'Edupro', submenu: [
+          {key: 'for-teachers', title: 'For Teachers'},
+          {key: 'for-students', title: 'For Students'}
+        ]},
       { key: 'academic-events', title: 'Academic Events'},
-      { key: 'academic-news-and-blog', title: 'Academic News and Blog'},
+      { key: 'academic-news-and-blog', title: 'Academic News'},
     ]
   }, {
     key: 'public-programs',
@@ -77,7 +81,11 @@ export const menuConfig = [
     url: '/public-programs',
     menuItems: [
       { key: 'program-calendar', title: 'Program Calendar', url: '/public-programs/program-calendar' },
-      { key: 'galeria-centralis', title: 'Galeria Centralis', },
+      { key: 'galeria-centralis', title: 'Galeria Centralis', submenu: [
+          { key: 'current-exhibitions', title: ''},
+          { key: 'online-exhibitions', title: ''},
+          { key: 'past-exhibitions', title: ''},
+          ]},
       { key: 'past-programs', title: 'Past Programs' },
       { key: 'public-history-projects', title: 'Public History Projects' }
     ]
