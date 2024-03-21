@@ -1,0 +1,59 @@
+import {fetchStaticPage} from "@/utils/api/fetchStaticPage";
+import pageConfig from "@/config/pageConfig";
+import style from "./style.module.scss";
+import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
+import {Col, Container, Row} from "react-bootstrap";
+import Content from "@/components/Content/Content";
+
+export const getServerSideProps = (async (context) => {
+    const { pid } = context.query;
+
+    if (pid in pageConfig) {
+        const identifier = pageConfig[pid]
+        const [pageData] = await Promise.all([
+            fetchStaticPage(identifier)
+        ])
+
+        if (pageData['data'] === null) {
+            return {
+                notFound: true,
+            }
+        }
+
+        return {
+            props: {
+                pageData
+            }
+        }
+    } else {
+        return {
+            notFound: true,
+        }
+    }
+})
+
+const breadcrumbObject = [
+    { key: 'collections', title: 'Collections'},
+    // { key: eventData['id'], title: data['Title']},
+]
+
+const StaticPage = ({pageData}) => {
+    const data = pageData['data']['attributes'];
+
+    return (
+        <div className={style.Page}>
+            <Container>
+                <Breadcrumb breadcrumbObject={breadcrumbObject} />
+                <Row>
+                    <Col xs={12}>
+                        <h1>{data['Title']}</h1>
+                    </Col>
+                </Row>
+                <div style={{height: '48px'}}/>
+                <Content contentObject={data['Content']} />
+            </Container>
+        </div>
+    )
+}
+
+export default StaticPage

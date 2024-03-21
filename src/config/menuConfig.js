@@ -15,7 +15,7 @@ export const menuConfig = [
           { key: 'what-archives-are', title: 'What are archives?', url: '/about-us/what-are-archives'},
         ]
       },
-      { key: 'we-are-ceu', title: 'We are CEU' },
+      { key: 'we-are-ceu', title: 'We are CEU', url: '/about-us/we-are-ceu' },
       { key: 'partner-projects', title: 'Partner Projects', url: '/about-us/partner-projects'},
       { key: 'staff', title: 'Staff', url: '/about-us/staff'},
       { key: 'join-us', title: 'Join Us', submenu: [
@@ -25,7 +25,7 @@ export const menuConfig = [
           { key: 'volunteering', title: 'Volunteering', highlight: "Work with us on arhcival processing, digitization projects, exhibitions. You won't get paid"}]
       },
       { key: 'annual-reports', title: 'Annual Reports', url: '/about-us/annual-reports' },
-      { key: 'visit-us', title: 'Visit Us' },
+      { key: 'visit-us', title: 'Visit Us', url: '/about-us/visit-us' },
       { key: 'blog', title: 'Blog' },
       { key: 'news', title: 'News' }
     ]
@@ -36,12 +36,12 @@ export const menuConfig = [
     color: 'orange',
     url: '/collections',
     menuItems: [
-      { key: 'about-our-collections', title: 'About our Collections'},
+      { key: 'about-our-collections', title: 'About our Collections', url: '/collections/about-our-collections'},
       { key: 'catalog', title: 'Catalog'},
       { key: 'access-the-collections', title: 'Access the Collections', submenu: [
-          { key: 'help-with-your-research', title: 'Help with your Research', highlight: 'Get stuck?! Let us find you useful stuff for your research.'},
-          { key: 'research-room', title: 'Research Room Access', highlight: 'Would you like to come to us? This is how you can reach our research room.'},
-          { key: 'digitization-on-demand', title: 'Digitization on Demand', highlight: 'Found something relevant? We will digitize it for you!'}]
+          { key: 'help-with-your-research', title: 'Help with your Research', url: '/collections/help-with-your-research'},
+          { key: 'research-room', title: 'Research Room Access', url: '/collections/research-room'},
+          { key: 'digitization-on-demand', title: 'Digitization on Demand', url: '/collections/digitization-on-demand'}]
       },
       { key: 'collection-highlights', title: 'Collection Highlights', url: '/collections/collection-highlights' },
       { key: 'archival-projects', title: 'Archival Projects' },
@@ -87,7 +87,7 @@ export const menuConfig = [
           { key: 'past-exhibitions', title: ''},
           ]},
       { key: 'past-programs', title: 'Past Programs' },
-      { key: 'public-history-projects', title: 'Public History Projects' }
+      { key: 'public-history-projects', title: 'Public History Projects', url: '/public-programs/public-history-projects' }
     ]
   }
 ]

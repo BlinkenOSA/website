@@ -1,12 +1,12 @@
 import {Col, Container, Row} from "react-bootstrap";
 import style from "@/pages/pages.module.scss";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
-import {fetchPartnerProjects} from "@/utils/api/fetchProjects";
+import {fetchArchivalProjects, fetchPartnerProjects, fetchPublicHistoryProjects} from "@/utils/api/fetchProjects";
 import PartnerProjectCard from "@/components/Cards/PartnerProjectCard";
 
 export const getServerSideProps = (async () => {
     const [projectsData] = await Promise.all([
-        fetchPartnerProjects()
+        fetchPublicHistoryProjects()
     ])
     return {
         props: {
@@ -15,7 +15,8 @@ export const getServerSideProps = (async () => {
     }
 })
 
-const PartnerProjectsPage = ({projectsData}) => {
+
+const PublicHistoryProjectsPage = ({projectsData}) => {
     const renderProjects = () => {
         return projectsData["data"].map(project => {
             return (
@@ -30,7 +31,7 @@ const PartnerProjectsPage = ({projectsData}) => {
     }
 
     const breadcrumbObject = [
-        { key: 'about-us', title: 'About Us'},
+        { key: 'public-programs', title: 'Public Programs'},
     ]
 
     return (
@@ -39,7 +40,7 @@ const PartnerProjectsPage = ({projectsData}) => {
                 <Breadcrumb breadcrumbObject={breadcrumbObject} />
                 <Row>
                     <Col xs={12}>
-                        <h1>Partner Projects</h1>
+                        <h1>Public History Projects</h1>
                     </Col>
                 </Row>
                 <div style={{height: '48px'}} />
@@ -51,4 +52,4 @@ const PartnerProjectsPage = ({projectsData}) => {
     )
 }
 
-export default PartnerProjectsPage;
+export default PublicHistoryProjectsPage;
