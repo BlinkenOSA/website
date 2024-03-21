@@ -12,7 +12,7 @@ export const menuConfig = [
           { key: 'about-us-menu', title: 'About Us', highlight: 'The story of the Vera & Donald Blinken Open Society Archives.' },
           { key: 'vera-and-donald-blinken', title: 'Vera and Donald Blinken', highlight: 'Our main donors.' },
           { key: 'goldberger-house', title: 'Goldberger House', highlight: 'Where are we located? The story of our building.'},
-          { key: 'what-archives-are', title: 'What archives are?', highlight: 'What is the role of the archives nowadays?'},
+          { key: 'what-archives-are', title: 'What are archives?', highlight: 'What is the role of the archives nowadays?'},
         ]
       },
       { key: 'we-are-ceu', title: 'We are CEU' },
@@ -25,7 +25,9 @@ export const menuConfig = [
           { key: 'volunteering', title: 'Volunteering', highlight: "Work with us on arhcival processing, digitization projects, exhibitions. You won't get paid"}]
       },
       { key: 'annual-reports', title: 'Annual Reports', url: '/about-us/annual-reports' },
-      { key: 'visit-us', title: 'Visit Us' }
+      { key: 'visit-us', title: 'Visit Us' },
+      { key: 'blog', title: 'Blog' },
+      { key: 'news', title: 'News' }
     ]
   }, {
     key: 'collections',

@@ -16,8 +16,7 @@ const Header = () => {
 			})
 		} else {
 			dispatch({
-				type: 'open',
-				value: 'openMain'
+				type: 'open-mobile-menu'
 			});
 		}
 	}

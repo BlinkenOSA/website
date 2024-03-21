@@ -23,6 +23,8 @@ const menuReducer = (menuOpen, action) => {
             } else {
                 return Array.from(Array(action.value + 1).keys())
             }
+        case 'open-mobile-menu':
+            return ['openMobileMenu'];
         case 'close':
             return []
         default: {

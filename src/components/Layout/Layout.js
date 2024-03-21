@@ -7,6 +7,7 @@ import MobileHeader from "@/components/Layout/mobile/Header";
 import style from "@/components/Layout/Layout.module.scss";
 import { MenuProvider} from "@/utils/context/MenuContext";
 import {Media} from "@/utils/media";
+import MobileMenu from "@/components/Menu/mobile/MobileMenu";
 
 const Layout = ({ children }) => {
     return (
@@ -27,7 +28,7 @@ const Layout = ({ children }) => {
                     </div>
                 </Media>
                 <Media lessThan="md">
-                    <div/>
+                    <MobileMenu />
                 </Media>
             </div>
             <Media greaterThanOrEqual="md">

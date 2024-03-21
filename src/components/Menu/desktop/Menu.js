@@ -2,7 +2,7 @@
 
 import style from "./Menu.module.scss";
 import MenuItem from "@/components/Menu/desktop/MenuItem";
-import {menuConfig} from "@/components/Menu/desktop/config/menuConfig";
+import {menuConfig} from "@/components/Menu/config/menuConfig";
 import {useContext} from 'react';
 import {MenuContext, MenuDispatchContext} from "@/utils/context/MenuContext";
 import useTranslation from "next-translate/useTranslation";
