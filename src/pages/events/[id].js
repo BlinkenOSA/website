@@ -79,7 +79,16 @@ const EventPage = ({eventData}) => {
 								</div>
 							}
 							<div>
-								<span className={'subtitle-small'}>{hostingType}, {language}</span>
+								<div>
+									<span className={'subtitle-small'}>Hosting: </span>
+									<span>{hostingType}</span>
+								</div>
+							</div>
+							<div>
+								<div>
+									<span className={'subtitle-small'}>Language: </span>
+									<span>{language}</span>
+								</div>
 							</div>
 							{
 								(registrationLink && registrationLink !== null || zoomLink && zoomLink !== null) &&

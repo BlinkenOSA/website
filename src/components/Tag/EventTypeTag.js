@@ -7,9 +7,9 @@ const EventTypeTag = ({eventType, profile}) => {
 	const icon = getIconByEventType(eventType, 'small')
 
 	return (
-		<div className={`${style.EventType} ${style[color]}`}>
+		<div className={`${style.EventType}`}>
+			<div><span className={'subtitle-small'}>Event Type:</span> {eventType}</div>
 			<div className={style.Icon}>{icon}</div>
-			<div className={'subtitle-small'}>{eventType}</div>
 		</div>
 	)
 }
