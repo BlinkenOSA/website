@@ -1,5 +1,5 @@
 import {fetchStaticPage} from "@/utils/api/fetchStaticPage";
-import pageConfig from "@/config/pageConfig";
+import staticPageConfig from "@/config/staticPageConfig";
 import style from "./style.module.scss";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {Col, Container, Row} from "react-bootstrap";
@@ -8,8 +8,8 @@ import Content from "@/components/Content/Content";
 export const getServerSideProps = (async (context) => {
     const { pid } = context.query;
 
-    if (pid in pageConfig) {
-        const identifier = pageConfig[pid]['id']
+    if (pid in staticPageConfig) {
+        const identifier = staticPageConfig[pid]['id']
         const [pageData] = await Promise.all([
             fetchStaticPage(identifier)
         ])

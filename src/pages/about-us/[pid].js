@@ -1,17 +1,18 @@
 import {fetchStaticPage} from "@/utils/api/fetchStaticPage";
-import pageConfig from "@/config/pageConfig";
+import staticPageConfig from "@/config/staticPageConfig";
 import style from "./style.module.scss";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {Col, Container, Row} from "react-bootstrap";
 import Content from "@/components/Content/Content";
 import {useRouter} from "next/router";
 import Image from "next/image";
+import PageHeader from "@/components/PageHeader/PageHeader";
 
 export const getServerSideProps = (async (context) => {
     const { pid } = context.query;
 
-    if (pid in pageConfig) {
-        const identifier = pageConfig[pid]['id']
+    if (pid in staticPageConfig) {
+        const identifier = staticPageConfig[pid]['id']
         const [pageData] = await Promise.all([
             fetchStaticPage(identifier)
         ])
@@ -34,11 +35,6 @@ export const getServerSideProps = (async (context) => {
     }
 })
 
-const breadcrumbObject = [
-    { key: 'about-us', title: 'About Us'},
-    // { key: eventData['id'], title: data['Title']},
-]
-
 const StaticPage = ({pageData}) => {
     const router = useRouter();
     const {pid} = router.query;
@@ -46,14 +42,8 @@ const StaticPage = ({pageData}) => {
 
     return (
         <div className={style.Page}>
+            <PageHeader title={data['Title']} image={staticPageConfig[pid]['header']} />
             <Container>
-                <Breadcrumb breadcrumbObject={breadcrumbObject} />
-                <Row>
-                    <Col xs={12}>
-                        <h1>{data['Title']}</h1>
-                    </Col>
-                </Row>
-                <div style={{height: '48px'}}/>
                 <Content contentObject={data['Content']} />
             </Container>
         </div>

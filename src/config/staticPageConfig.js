@@ -1,4 +1,4 @@
-const pageConfig = {
+const staticPageConfig = {
     'archivum': {id: 1, header: '/images/header-archivum.jpg'},
     'goldberger-house': {id: 3},
     'vera-and-donald-blinken': {id: 4},
@@ -10,4 +10,4 @@ const pageConfig = {
     'digitization-on-demand': {id: 13}
 }
 
-export default pageConfig;
+export default staticPageConfig;

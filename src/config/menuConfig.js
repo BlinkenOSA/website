@@ -15,7 +15,7 @@ export const menuConfig = [
           { key: 'what-archives-are', title: 'What are archives?', url: '/about-us/what-are-archives'},
         ]
       },
-      { key: 'we-are-ceu', title: 'We are CEU', url: '/about-us/we-are-ceu' },
+      { key: 'we-are-ceu', title: 'We are CEU', url: '/external/we-are-ceu' },
       { key: 'partner-projects', title: 'Partner Projects', url: '/about-us/partner-projects'},
       { key: 'staff', title: 'Staff', url: '/about-us/staff'},
       { key: 'join-us', title: 'Join Us', submenu: [

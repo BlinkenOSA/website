@@ -2,25 +2,31 @@
 @import "@/styles/variables.scss";
 
 .Wrapper {
-  margin-top: $header-height-desktop;
-  margin-right: 221px;
-  height: 250px;
+  // margin-top: $header-height-desktop;
+  height: 350px;
+  border-bottom: 1px solid $neutral_1000;
+  filter: grayscale(100%);
+  margin-bottom: 48px;
+
+  .Container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 
   :global .container {
     padding: 0 84px;
   }
 
-  .Image {
-    position: relative;
-    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+  .TitleBox {
+    margin-left: -40px;
+    padding: 20px 40px;
+    background-color: $neutral_1000;
+    display: inline-block;
+    clip-path: polygon(10% 0, 100% 0, 100% 95%, 90% 100%, 0 100%, 0 5%);
 
-    .Icon {
-      position: absolute;
-      top: 50%;
-
-      img {
-        width: 100%
-      }
+    h1 {
+      color: $neutral_100;
     }
   }
 }

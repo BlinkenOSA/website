@@ -2,7 +2,7 @@
 @import "@/styles/colors.scss";
 
 .Page {
-  margin-top: $header-height-desktop;
+  margin-top: $header-height-desktop + 48px;
   margin-right: calc(4 * $menu-width - 4px);
   min-height: calc(100vh - $header-height-desktop);
 
@@ -12,11 +12,5 @@
 
   :global .row {
     --bs-gutter-x: 96px;
-  }
-
-  :global p {
-    font-size: 18px;
-    line-height: 26px;
-    margin-bottom: 36px;
   }
 }

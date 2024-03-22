@@ -3,6 +3,8 @@ import {Col, Container, Row} from "react-bootstrap";
 import style from "@/pages/pages.module.scss";
 import AnnualReportCard from "@/components/Cards/AnnualReportCard";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
+import PageHeader from "@/components/PageHeader/PageHeader";
+import staticPageConfig from "@/config/staticPageConfig";
 
 export const getServerSideProps = (async () => {
     const [reportData] = await Promise.all([
@@ -25,20 +27,10 @@ const AnnualReportsPage = ({reportData}) => {
         })
     }
 
-    const breadcrumbObject = [
-        { key: 'about-us', title: 'About Us'},
-    ]
-
     return (
         <div className={style.Page}>
+            <PageHeader title={'Annual Reports'} image={''} />
             <Container>
-                <Breadcrumb breadcrumbObject={breadcrumbObject} />
-                <Row>
-                    <Col xs={12}>
-                        <h1>Annual Reports</h1>
-                    </Col>
-                </Row>
-                <div style={{height: '48px'}} />
                 <Row>
                     <Col xs={12}>
                         {renderReports()}
