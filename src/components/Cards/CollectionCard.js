@@ -42,7 +42,7 @@ const CollectionCard = ({data}) => {
             </div>
             <h3 className={style.Title}>{truncateWithEllipses(title, 50)}</h3>
             <div className={style.Description}>
-                {truncateWithEllipses(description, title.length > 30 ? 150 : 250)}
+                {truncateWithEllipses(description, 200)}
             </div>
             <div className={style.CollectionType}>
                 {contentTypes}
