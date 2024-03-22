@@ -1,6 +1,6 @@
 import style from "./SectionDivider.module.scss";
 import Button from "@/components/Button/Button";
-import {IconGeneralLeft, IconGeneralRight} from "@/components/Icon/Icon";
+import {IconGeneralLeft, IconGeneralRight} from "@/components/Icon/GeneralIcon";
 import {Row} from "react-bootstrap";
 
 const SectionFlipper = ({title, border = false, onNextClick, onPreviousClick}) => {

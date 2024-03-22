@@ -11,9 +11,8 @@ export const fetchEntriesFrontPage = (locale) => {
         'fields[1]': 'CardText',
         'fields[2]': 'Profile',
         'fields[4]': 'EntryType',
-        'fields[5]': 'EventType',
-        'fields[6]': 'OriginalCreationDate',
-        'fields[7]': 'createdAt'
+        'fields[5]': 'OriginalCreationDate',
+        'fields[6]': 'createdAt'
     }
 
     return fetcher('entries', params)

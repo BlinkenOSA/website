@@ -4,7 +4,7 @@ import Tag from "@/components/Tag/Tag";
 import getImageUrl from "@/utils/content/getImageUrl";
 import getDateString from "@/utils/content/getDateString";
 import getColor from "@/utils/content/getColor";
-import getIconByEventType from "@/utils/content/getIconByType";
+import getIconByType from "@/utils/content/getIconByType";
 import truncateWithEllipsis from "@/utils/truncateWithEllipsis";
 
 const EventCard = ({id, data}) => {
@@ -13,7 +13,7 @@ const EventCard = ({id, data}) => {
     const title = data['Title']
     const description = data['CardText']
     const image = getImageUrl(data['Image'])
-    const icon = getIconByEventType(data['EventType'], 'small')
+    const icon = getIconByType(data['EventType'], 'small')
     const color= getColor(data['Profile'])
 
     return (

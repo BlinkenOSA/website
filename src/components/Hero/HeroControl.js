@@ -1,7 +1,7 @@
 import {Carousel, Col, Row} from "react-bootstrap";
 import {useState} from "react";
 import Button from "@/components/Button/Button";
-import {IconGeneralLeft, IconGeneralRight} from "@/components/Icon/Icon";
+import {IconGeneralLeft, IconGeneralRight} from "@/components/Icon/GeneralIcon";
 import style from './HeroControl.module.scss';
 
 const HeroControl = ({children}) => {

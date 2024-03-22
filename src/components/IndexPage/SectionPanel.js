@@ -1,9 +1,4 @@
-import {Carousel, Col, Row} from "react-bootstrap";
-import {useState} from "react";
-import Button from "@/components/Button/Button";
-import {IconGeneralLeft, IconGeneralRight} from "@/components/Icon/Icon";
-import style from './SectionPanel.module.scss';
-import SectionFlipper from "@/components/IndexPage/SectionFlipper";
+import {Row} from "react-bootstrap";
 
 const SectionPanel = ({title, children}) => {
     return (

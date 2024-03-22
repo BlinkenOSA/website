@@ -1,7 +1,7 @@
 import style from "@/components/Input/SearchBox.module.scss";
 import Form from "react-bootstrap/Form";
 import {InputGroup} from "react-bootstrap";
-import {IconGeneralSearch} from "@/components/Icon/Icon";
+import {IconGeneralSearch} from "@/components/Icon/GeneralIcon";
 import useTranslation from "next-translate/useTranslation";
 
 const SearchBox = ({disabled, isMobile=false}) => {

@@ -1,6 +1,6 @@
 import style from "./CollectionCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
-import {IconAudio, IconDocument, IconFilm, IconPhoto} from "@/components/Icon/Icon";
+import {IconAudio, IconDocument, IconFilm, IconMovingImage, IconPhoto} from "@/components/Icon/Icon";
 import getImageUrl from "@/utils/content/getImageUrl";
 import truncateWithEllipses from "@/utils/truncateWithEllipsis";
 
@@ -17,7 +17,7 @@ const CollectionCard = ({data}) => {
         case 'Audio':
           return <IconAudio size={'small'} color={'orange'} />
         case 'Moving Image':
-          return <IconFilm size={'small'} color={'orange'} />
+          return <IconMovingImage size={'small'} color={'orange'} />
         case 'Textual':
           return <IconDocument size={'small'} color={'orange'} />
         case 'Still Image':

@@ -2,7 +2,7 @@ import Form from 'react-bootstrap/Form';
 import style from "./Input.module.scss";
 import {useState} from "react";
 import {InputGroup} from "react-bootstrap";
-import {IconGeneralEye, IconGeneralSearch} from "@/components/Icon/Icon";
+import {IconGeneralEye, IconGeneralSearch} from "@/components/Icon/GeneralIcon";
 
 const Input = ({id, type='input', disabled=false, placeholder, hasError=false}) => {
     const [showPassword, setShowPassword] = useState(false)

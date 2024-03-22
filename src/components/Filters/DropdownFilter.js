@@ -1,6 +1,6 @@
 import style from "./DropdownFilter.module.scss";
 import Dropdown from 'react-bootstrap/Dropdown';
-import {IconGeneralDown} from "@/components/Icon/Icon";
+import {IconGeneralDown} from "@/components/Icon/GeneralIcon";
 
 const DropdownFilter = ({label, values, selectedValue, onSelect}) => {
 	const renderValues = () => {

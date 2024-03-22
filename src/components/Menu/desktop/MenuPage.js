@@ -1,6 +1,6 @@
 import style from "./MenuPage.module.scss"
 import {AnimatePresence, motion} from "framer-motion"
-import {IconGeneralRight} from "@/components/Icon/Icon";
+import {IconGeneralRight} from "@/components/Icon/GeneralIcon";
 import {useContext, useState} from "react";
 import SubmenuPage from "@/components/Menu/desktop/SubmenuPage";
 import {MenuDispatchContext} from "@/utils/context/MenuContext";

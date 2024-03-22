@@ -1,6 +1,6 @@
 import style from "./Breadcrumb.module.scss";
 import {Col, Row} from "react-bootstrap";
-import {IconGeneralRight} from "@/components/Icon/Icon";
+import {IconGeneralRight} from "@/components/Icon/GeneralIcon";
 import React from 'react';
 
 const Breadcrumb = ({breadcrumbObject}) => {

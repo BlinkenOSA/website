@@ -2,7 +2,7 @@ import style from "./EntryCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import getDateString from "@/utils/content/getDateString";
 import getImageUrl from "@/utils/content/getImageUrl";
-import getIconByEventType from "@/utils/content/getIconByType";
+import getIconByType from "@/utils/content/getIconByType";
 import truncateWithEllipses from "@/utils/truncateWithEllipsis";
 import getColor from "@/utils/content/getColor";
 import getCreationDate from "@/utils/content/getCreationDate";
@@ -14,7 +14,7 @@ const NewsCard = ({ id, data}) => {
     const title = data['Title']
     const description = data['CardText']
     const image = getImageUrl(data['Image'])
-    const icon = getIconByEventType(data['ActivityType'], 'normal')
+    const icon = getIconByType(data['ActivityType'], 'normal')
     const color= getColor(data['Profile'])
 
     return (
