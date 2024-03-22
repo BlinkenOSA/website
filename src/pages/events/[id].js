@@ -39,6 +39,7 @@ const EventPage = ({eventData}) => {
 	const hostingType = data['HostingType']
 	const profile = data['Profile']
 	const image = getImageUrl(data['Image'])
+	const zoomLink = data['ZoomLink']
 	const registrationLink = data['RegistrationLink']
 
 	const breadcrumbObject = [
@@ -81,10 +82,19 @@ const EventPage = ({eventData}) => {
 								<span className={'subtitle-small'}>{hostingType}, {language}</span>
 							</div>
 							{
-								(registrationLink && registrationLink !== null) &&
+								(registrationLink && registrationLink !== null || zoomLink && zoomLink !== null) &&
 								<>
 									<div style={{height: '24px'}}/>
-									<Button link={registrationLink} type={'primary'} size={'medium'} color={'neutral'}>Register</Button>
+									<div className={style.Buttons}>
+										{
+											registrationLink && registrationLink !== null &&
+											<Button link={registrationLink} type={'primary'} size={'medium'} color={'neutral'}>Register</Button>
+										}
+										{
+											zoomLink && zoomLink !== null &&
+											<Button link={registrationLink} type={'primary'} size={'medium'} color={'neutral'}>Join on Zoom</Button>
+										}
+									</div>
 								</>
 							}
 						</Col>

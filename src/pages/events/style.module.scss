@@ -12,4 +12,9 @@
   :global .row {
     --bs-gutter-x: 96px;
   }
+
+  .Buttons {
+    display: flex;
+    gap: 24px;
+  }
 }
