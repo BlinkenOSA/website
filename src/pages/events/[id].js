@@ -59,7 +59,7 @@ const EventPage = ({eventData}) => {
 				<Container>
 					<Row>
 						<Col xs={12}>
-							<EventTypeTag eventType={eventType} profile={profile} />
+							<EventTypeTag label={'Event Type'} eventType={eventType} profile={profile} />
 							<div>
 								<span className={'subtitle-small'}>Start: </span>
 								<span>{getDateString(startDate, 'YYYY-MM-DDTHH:MM:SS', 'eventFull')}</span>

@@ -57,7 +57,7 @@ const EntryPage = ({entriesData}) => {
 				<div style={{height: '48px'}}/>
 				<Row>
 					<Col xs={6}>
-						<EventTypeTag eventType={eventType} profile={profile} />
+						<EventTypeTag label={'Activity Type'} eventType={eventType} profile={profile} />
 						<div>
 							<span>{getCreationDate(originalCreationDate, createdAt)}</span>
 						</div>

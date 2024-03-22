@@ -56,7 +56,7 @@ const NewsPage = ({newsData}) => {
 				<div style={{height: '48px'}}/>
 				<Row>
 					<Col xs={6}>
-						<EventTypeTag eventType={activityType} profile={profile} />
+						<EventTypeTag label={'News Type'} eventType={activityType} profile={profile} />
 						<div>
 							<span>{getCreationDate(originalCreationDate, createdAt)}</span>
 						</div>
