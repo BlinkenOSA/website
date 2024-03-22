@@ -39,7 +39,7 @@ const getIconByType = (type, size, color='neutral') => {
             return <IconArchivumNews size={size} color={color}/>
         case 'Book Launch':
             return <IconBookLaunch size={size} color={color}/>
-        case 'Collection News':
+        case 'Collections News':
             return <IconCollectionNews size={size} color={color}/>
         case 'Community':
             return <IconCommunity size={size} color={color}/>
@@ -85,7 +85,7 @@ const getIconByType = (type, size, color='neutral') => {
             return <IconUniversityCourse size={size} color={color} />
         case 'Workshop':
             return <IconWorkshop size={size} color={color} />
-        
+
         case 'Blog':
             return <IconBlog size={size} color={color} />
         case 'Podcast':
