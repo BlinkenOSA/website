@@ -4,12 +4,14 @@ import style from "./style.module.scss";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {Col, Container, Row} from "react-bootstrap";
 import Content from "@/components/Content/Content";
+import {useRouter} from "next/router";
+import Image from "next/image";
 
 export const getServerSideProps = (async (context) => {
     const { pid } = context.query;
 
     if (pid in pageConfig) {
-        const identifier = pageConfig[pid]
+        const identifier = pageConfig[pid]['id']
         const [pageData] = await Promise.all([
             fetchStaticPage(identifier)
         ])
@@ -38,6 +40,8 @@ const breadcrumbObject = [
 ]
 
 const StaticPage = ({pageData}) => {
+    const router = useRouter();
+    const {pid} = router.query;
     const data = pageData['data']['attributes'];
 
     return (

@@ -1,13 +1,13 @@
 const pageConfig = {
-    'archivum': 1,
-    'goldberger-house': 3,
-    'vera-and-donald-blinken': 4,
-    'what-are-archives': 9,
-    'visit-us': 10,
-    'about-our-collections': 7,
-    'help-with-your-research': 11,
-    'research-room': 12,
-    'digitization-on-demand': 13
+    'archivum': {id: 1, header: '/images/header-archivum.jpg'},
+    'goldberger-house': {id: 3},
+    'vera-and-donald-blinken': {id: 4},
+    'what-are-archives': {id: 9},
+    'visit-us': {id: 10},
+    'about-our-collections': {id: 7},
+    'help-with-your-research': {id: 11},
+    'research-room': {id: 12},
+    'digitization-on-demand': {id: 13}
 }
 
 export default pageConfig;

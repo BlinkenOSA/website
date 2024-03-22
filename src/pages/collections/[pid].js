@@ -9,7 +9,7 @@ export const getServerSideProps = (async (context) => {
     const { pid } = context.query;
 
     if (pid in pageConfig) {
-        const identifier = pageConfig[pid]
+        const identifier = pageConfig[pid]['id']
         const [pageData] = await Promise.all([
             fetchStaticPage(identifier)
         ])
