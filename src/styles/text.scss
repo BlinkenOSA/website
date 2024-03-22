@@ -21,11 +21,6 @@ h1 {
   font-size: 52px;
   line-height: 120%;
   @extend .text-regular-base;
-  background-color: $neutral_1000;
-  color: $neutral_100;
-  display: inline-block;
-  padding: 0 24px;
-  clip-path: polygon(15% 0, 100% 0, 100% 95%, 85% 100%, 0 100%, 0 5%);
 }
 
 h2 {
