@@ -6,8 +6,8 @@
   a {
     position: relative;
     text-decoration: none;
-    padding: 2px;
-    margin: -2px;
+    padding: 2px 4px;
+    margin: -2px -4px;
 
     &::before {
       content: "";
