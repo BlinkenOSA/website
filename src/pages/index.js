@@ -1,5 +1,5 @@
 import {Col, Container, Row} from "react-bootstrap";
-import Hero from "@/components/Hero/Hero";
+import Hero from "@/components/Hero/HeroV2";
 import HeroControl from "@/components/Hero/HeroControl";
 import SectionDivider from "@/components/IndexPage/SectionDivider";
 import EventCard from "@/components/Cards/EventCard";
@@ -220,12 +220,10 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 
 	return (
 		<div className={style.Page}>
+			<Container fluid={true}>
+				{renderHeroes()}
+			</Container>
 			<Container>
-				<Row>
-					<Col xs={12}>
-						{renderHeroes()}
-					</Col>
-				</Row>
 				<div style={{height: '48px'}}/>
 				{renderEvents()}
 				<div style={{height: '24px'}}/>

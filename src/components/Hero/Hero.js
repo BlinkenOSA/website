@@ -50,7 +50,10 @@ const Hero = ({data}) => {
     }
 
     return (
-        <div className={`${style.HeroWrapper}`}>
+        <div
+            style={{backgroundImage: `url(/icons/hero/about-us.svg)`}}
+            className={`${style.HeroWrapper}`}
+        >
             <div className={`${style.TopRow} hero-top-row`}>
                 <div className={style.Logo}/>
                 <div className={style.Date}>
@@ -62,7 +65,6 @@ const Hero = ({data}) => {
                 </div>
             </div>
             <div className={style.TitleRow}>
-                <div style={{width: '120px'}}/>
                 <div className={`${style.Title} hero-title`}>
                     {title_1}
                     {
@@ -80,10 +82,6 @@ const Hero = ({data}) => {
                         </div>
                     }
                 </div>
-            </div>
-            { generateButton () }
-            <div className={style.PosterWrapper}>
-                <MaskedImage src={image} type={'hero'}/>
             </div>
         </div>
     )
