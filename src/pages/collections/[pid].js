@@ -50,7 +50,7 @@ const StaticPage = ({pageData}) => {
                     </Col>
                 </Row>
                 <div style={{height: '48px'}}/>
-                <Content contentObject={data['Content']} />
+                <Content contentObject={data['Content']} profile={'Collections'} />
             </Container>
         </div>
     )

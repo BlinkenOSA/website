@@ -3,6 +3,52 @@
 .ContentWrapper {
   margin-top: 48px;
 
+  a {
+    position: relative;
+    text-decoration: none;
+    padding: 2px;
+    margin: -2px;
+
+    &::before {
+      content: "";
+      inset: 0;
+      position: absolute;
+      transform: scaleY(0.1);
+      transform-origin: bottom;
+      transition: transform 0.3s ease-in-out;
+      z-index: -1;
+    }
+
+    &:hover::before {
+      transform: scaleY(1);
+      transform-origin: bottom;
+    }
+  }
+
+  &.mustard {
+    a::before {
+      background: $mustard_1000;
+    }
+  }
+
+  &.orange {
+    a::before {
+      background: $orange_1000;
+    }
+  }
+
+  &.sage {
+    a::before {
+      background: $sage_1000;
+    }
+  }
+
+  &.aqua {
+    a::before {
+      background: $aqua_1000;
+    }
+  }
+
   .Caption {
     margin-top: 8px;
     color: $neutral_800;

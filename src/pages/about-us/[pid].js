@@ -44,7 +44,7 @@ const StaticPage = ({pageData}) => {
         <div className={style.Page}>
             <PageHeader title={data['Title']} image={staticPageConfig[pid]['header']} />
             <Container>
-                <Content contentObject={data['Content']} />
+                <Content contentObject={data['Content']} profile={'Archivum'} />
             </Container>
         </div>
     )

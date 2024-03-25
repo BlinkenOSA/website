@@ -4,8 +4,11 @@ import {Col, Row} from "react-bootstrap";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import getImageUrl from "@/utils/content/getImageUrl";
 import getImageType from "@/utils/content/getImageType";
+import getColor from "@/utils/content/getColor";
 
-const Content = ({contentObject}) => {
+const Content = ({contentObject, profile='Archivum'}) => {
+	const color = getColor(profile)
+
 	const renderContent = (content) => {
 		switch (content['__component']) {
 			// ContentWithImage
@@ -102,7 +105,7 @@ const Content = ({contentObject}) => {
 	}
 
 	return (
-		<div className={style.ContentWrapper}>
+		<div className={`${style.ContentWrapper} ${style[color]}`}>
 			{
 				contentObject.map((co, idx) => {
 					return (

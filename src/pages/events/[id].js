@@ -108,7 +108,7 @@ const EventPage = ({eventData}) => {
 							}
 						</Col>
 					</Row>
-					<Content contentObject={data['Content']} />
+					<Content contentObject={data['Content']} profile={profile} />
 				</Container>
 			</div>
 		</>

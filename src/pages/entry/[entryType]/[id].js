@@ -66,7 +66,7 @@ const EntryPage = ({entriesData}) => {
 						<Authors author={author} authorStaff={authorStaff} />
 					</Col>
 				</Row>
-				<Content contentObject={data['Content']} />
+				<Content contentObject={data['Content']} profile={profile} />
 			</Container>
 		</div>
 	)
