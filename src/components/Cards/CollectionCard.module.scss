@@ -24,6 +24,7 @@
   .Title {
     margin-bottom: 8px;
     height: 80px;
+    overflow: hidden;
   }
 
   .Image {
@@ -34,5 +35,6 @@
     flex: 1;
     overflow: hidden;
     color: $neutral-500;
+    margin-bottom: 20px;
   }
 }

@@ -49,13 +49,13 @@ const EventPage = ({eventData}) => {
 
 	return (
 		<>
-			<PageHeader
-				title={data['Title']}
-				color={data['Profile']}
-				image={image}
-				breadcrumbObject={breadcrumbObject}
-			/>
 			<div className={style.Page}>
+				<PageHeader
+					title={data['Title']}
+					color={data['Profile']}
+					image={image}
+					breadcrumbObject={breadcrumbObject}
+				/>
 				<Container>
 					<Row>
 						<Col xs={12}>

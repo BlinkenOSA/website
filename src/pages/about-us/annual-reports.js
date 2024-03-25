@@ -2,9 +2,7 @@ import {fetchAnnualReports} from "@/utils/api/fetchAnnualReports";
 import {Col, Container, Row} from "react-bootstrap";
 import style from "@/pages/pages.module.scss";
 import AnnualReportCard from "@/components/Cards/AnnualReportCard";
-import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import PageHeader from "@/components/PageHeader/PageHeader";
-import staticPageConfig from "@/config/staticPageConfig";
 
 export const getServerSideProps = (async () => {
     const [reportData] = await Promise.all([
@@ -29,7 +27,7 @@ const AnnualReportsPage = ({reportData}) => {
 
     return (
         <div className={style.Page}>
-            <PageHeader title={'Annual Reports'} image={''} />
+            <PageHeader title={'Annual Reports'} image={'/images/header-annual-reports.jpg'} />
             <Container>
                 <Row>
                     <Col xs={12}>

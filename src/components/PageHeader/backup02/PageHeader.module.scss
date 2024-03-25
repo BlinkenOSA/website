@@ -1,0 +1,43 @@
+@import "@/styles/colors.scss";
+@import "@/styles/variables.scss";
+
+.Wrapper {
+  // margin-top: $header-height-desktop;
+  height: 350px;
+  border-bottom: 1px solid $neutral_1000;
+  filter: grayscale(100%);
+  margin-bottom: 48px;
+  overflow: hidden;
+
+  .BackgroundImage {
+    perspective: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  .Container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  :global .container {
+    padding: 0 84px;
+  }
+
+  .TitleBox {
+    margin-left: -40px;
+    padding: 20px 40px;
+    background-color: $neutral_1000;
+    display: inline-block;
+    clip-path: polygon(10% 0, 100% 0, 100% 95%, 90% 100%, 0 100%, 0 5%);
+
+    h1 {
+      color: $neutral_100;
+    }
+  }
+}

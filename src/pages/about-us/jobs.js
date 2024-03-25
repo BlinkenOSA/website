@@ -9,6 +9,7 @@ import {useList} from "react-use";
 import fetcher from "@/utils/api/fetcher";
 import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import clientFetcher from "@/utils/api/clientFetcher";
+import PageHeader from "@/components/PageHeader/PageHeader";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchJobs()
@@ -65,14 +66,8 @@ const JobsPage = ({initialData}) => {
 
     return (
         <div className={style.Page}>
+            <PageHeader title={'Jobs'} image={''} />
             <Container>
-                <Breadcrumb breadcrumbObject={breadcrumbObject} />
-                <Row>
-                    <Col xs={12}>
-                        <h1>Jobs</h1>
-                    </Col>
-                </Row>
-                <div style={{height: '48px'}} />
                 <Row>
                     <Col xs={4}>
                         <VerticalFilters

@@ -1,21 +1,37 @@
 import {Col, Container, Row} from "react-bootstrap";
 import style from "./PageHeader.module.scss";
-import getColor from "@/utils/content/getColor";
+import {useRef} from "react";
+import {motion, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
+
 
 const PageHeader = ({title, profile, image}) => {
-    const color = getColor(profile)
+    const ref = useRef(null)
+    const {scrollYProgress} = useScroll();
+
+    useMotionValueEvent(scrollYProgress, "change", (latest) => {
+        console.log("Page scroll: ", latest)
+    })
+
+    const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -2000]);
+    const textY = useTransform(scrollYProgress, [0, 1], [0, 1000]);
 
     return (
-        <div className={style.Wrapper} style={{background: `center center url(${image})`}}>
+        <div ref={ref} className={style.Parallax}>
             <Container className={style.Container}>
                 <Row>
                     <Col xs={12}>
-                        <div className={style.TitleBox}>
+                        <motion.div
+                            style={{y: textY}}
+                            className={style.TitleBox}
+                        >
                             <h1>{title}</h1>
-                        </div>
+                        </motion.div>
                     </Col>
                 </Row>
             </Container>
+            <motion.div
+                style={{backgroundImage: `url(${image})`, y: backgroundY}}
+                className={style.BackgroundImage} />
         </div>
     )
 }
