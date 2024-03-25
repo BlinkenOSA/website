@@ -8,12 +8,8 @@ const PageHeader = ({title, profile, image}) => {
     const ref = useRef(null)
     const {scrollYProgress} = useScroll();
 
-    useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        console.log("Page scroll: ", latest)
-    })
-
-    const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -2000]);
-    const textY = useTransform(scrollYProgress, [0, 1], [0, 1000]);
+    const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -1500]);
+    const textY = useTransform(scrollYProgress, [0, 1], [0, 1300]);
 
     return (
         <div ref={ref} className={style.Parallax}>
