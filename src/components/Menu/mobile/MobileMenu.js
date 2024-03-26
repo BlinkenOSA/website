@@ -15,7 +15,7 @@ const Menu = () => {
 
     const handleMenuClick = (menuItem) => {
         dispatch({
-            type: 'open',
+            type: 'open-mobile-menu-item',
             value: menuItem
         });
     }
@@ -28,11 +28,12 @@ const Menu = () => {
                         return (
                             <MobileMenuItem
                                 title={t(cfg['key'])}
+                                icon={cfg['icon']}
                                 color={cfg['color']}
                                 number={index+1}
                                 menuOpen={menuOpen}
                                 onClick={handleMenuClick}
-                                menuVisible={menuOpen.length > 0}
+                                menuVisible={menuOpen.includes('openMobileMenu')}
                             />
                         )
                     }

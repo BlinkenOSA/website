@@ -25,6 +25,12 @@ const menuReducer = (menuOpen, action) => {
             }
         case 'open-mobile-menu':
             return ['openMobileMenu'];
+        case 'open-mobile-menu-item':
+            if (menuOpen.includes(action.value)) {
+                return ['openMobileMenu']
+            } else {
+                return ['openMobileMenu', action.value]
+            }
         case 'close':
             return []
         default: {
