@@ -28,9 +28,10 @@
     .TitleBox {
       margin-left: -40px;
       padding: 20px 40px;
-      background-color: $neutral_1000;
+      background-color: rgba($neutral_1000, 0.9);
       display: inline-block;
       clip-path: polygon(10% 0, 100% 0, 100% 95%, 90% 100%, 0 100%, 0 5%);
+
 
       h1 {
         color: $neutral_100;

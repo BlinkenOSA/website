@@ -79,8 +79,9 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
                             >
                                 {t(item['key'])}
                             </div>
-                            <div style={{flex: 1}} />
-                            <div style={{display: "flex", width: '100px', justifyContent: 'center', alignItems: "center"}}>
+                            <div
+                                onClick={() => handleSelectMenu(item['key'])}
+                                className={style.Icon}>
                                 <IconGeneralRight />
                             </div>
                         </div>
