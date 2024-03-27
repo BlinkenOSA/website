@@ -2,7 +2,7 @@ import style from "./style.module.scss";
 import {Col, Container, Row} from "react-bootstrap";
 import fetcher from "@/utils/api/fetcher";
 import useSWR, {SWRConfig, unstable_serialize} from "swr";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import clientFetcher from "@/utils/api/clientFetcher";
 import {fetchEntriesList} from "@/utils/api/fetchEntries";
 import PageHeader from "@/components/PageHeader/PageHeader";
@@ -55,8 +55,26 @@ const EntriesPage = ({initialData}) => {
     const [entryTypeFilter, setEntryTypeFilter] = useState('')
 
     const router = useRouter();
-    const {entryType, ...params} = router.query;
-    const profile = 'profile' in params ? params['profile'] : undefined
+    const {profile, entryType} = router.query;
+
+    useEffect(() => {
+        setProfileFilter(profile ? profile : '')
+    }, [profile])
+
+    useEffect(() => {
+        setEntryTypeFilter(entryType ? entryType : '')
+    }, [entryType])
+
+    useEffect(() => {
+        if (entryTypeFilter) {
+            router.push({
+                path: '/entries',
+                query: { entryType: entryTypeFilter },
+            }, undefined, { shallow: true })
+        } else {
+            router.push('/entries', undefined, { shallow: true })
+        }
+    }, [entryTypeFilter])
 
     const breadcrumbObject = [
         { key: 'collections', title: 'Collections'},
