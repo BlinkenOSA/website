@@ -7,6 +7,10 @@ import useTranslation from "next-translate/useTranslation";
 const CatalogPanel = () => {
     const { t } = useTranslation('index')
 
+    const handleEnter = (value) => {
+        window.open(`https://catalog.osaarchivum.org/?query=${value}`)
+    }
+
     return (
         <div className={style.PanelWrapper}>
             <Image
@@ -20,7 +24,7 @@ const CatalogPanel = () => {
                     <Row>
                         <Col xs={4} className={style.Left}>
                             <h1>{t('catalog')}</h1>
-                            <SearchBox />
+                            <SearchBox onPressEnter={handleEnter} />
                         </Col>
                         <Col xs={8}>
                             <p>

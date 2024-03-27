@@ -3,9 +3,17 @@ import Form from "react-bootstrap/Form";
 import {InputGroup} from "react-bootstrap";
 import {IconGeneralSearch} from "@/components/Icon/GeneralIcon";
 import useTranslation from "next-translate/useTranslation";
+import {useState} from "react";
 
-const SearchBox = ({disabled, isMobile=false}) => {
+const SearchBox = ({disabled, onPressEnter, isMobile=false}) => {
+	const [value, setValue] = useState('')
 	const { t } = useTranslation('header')
+
+	const handleKeyDown = (e) => {
+		if (e.key === 'Enter') {
+			onPressEnter && onPressEnter(value)
+		}
+	}
 
 	return (
 		<InputGroup className={style.InputGroup}>
@@ -18,6 +26,8 @@ const SearchBox = ({disabled, isMobile=false}) => {
 					type={"search"}
 					id={"search-box"}
 					disabled={disabled}
+					onKeyDown={handleKeyDown}
+					onChange={(e) => setValue(e.target.value) }
 					placeholder={t('search')}
 				/>
 			}

@@ -82,11 +82,12 @@ export const menuConfig = [
     menuItems: [
       { key: 'program-calendar', title: 'Program Calendar', url: '/public-programs/program-calendar' },
       { key: 'galeria-centralis', title: 'Galeria Centralis', submenu: [
-          { key: 'current-exhibitions', title: ''},
-          { key: 'online-exhibitions', title: ''},
-          { key: 'past-exhibitions', title: ''},
+          { key: 'current-exhibitions', title: '', url: 'https://galeriacentralis.osaarchivum.org'},
+          { key: 'online-exhibitions', title: '', url: 'https://galeriacentralis.osaarchivum.org/exhibitions?filter=virtual'},
+          { key: 'past-exhibitions', title: '', url: 'https://galeriacentralis.osaarchivum.org/exhibitions?filter=past'},
           ]},
       { key: 'past-programs', title: 'Past Programs' },
+      { key: 'verzio', title: 'Verzio', url: '/external/verzio' },
       { key: 'public-history-projects', title: 'Public History Projects', url: '/public-programs/public-history-projects' }
     ]
   }

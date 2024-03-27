@@ -12,6 +12,7 @@
 .SubmenuWrapper {
   width: calc(100% - (3 * $menu-width));
   padding: 56px 56px 56px 0;
+  margin-top: 10px;
 
   .Submenu {
     position: relative;

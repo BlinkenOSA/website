@@ -3,7 +3,7 @@
 
 .Page {
   // Mobile
-  @media (max-width: $md) {
+  @media (max-width: $lg) {
     margin-right: 0;
 
     :global .container {
@@ -11,6 +11,7 @@
     }
   }
 
+  margin-top: $header-height-desktop;
   margin-right: calc(4 * $menu-width - 4px);
   min-height: calc(100vh - $header-height-desktop);
 

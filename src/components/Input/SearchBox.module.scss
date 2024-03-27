@@ -47,4 +47,8 @@
       filter: brightness(0) saturate(100%) invert(69%) sepia(16%) saturate(12%) hue-rotate(314deg) brightness(93%) contrast(89%);
     }
   }
+
+  :global input[type = 'search']::-webkit-search-cancel-button {
+    display: none;
+  }
 }

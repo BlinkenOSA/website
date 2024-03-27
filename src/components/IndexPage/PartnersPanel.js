@@ -48,7 +48,8 @@ const PartnersPanel = () => {
                                     type={'primary'}
                                     size={'medium'}
                                     color={'sage'}
-                                    link={'https://verzio.org'}
+                                    linkTarget={'_self'}
+                                    link={'/external/verzio'}
                                 >{t('partners__button')}</Button>
                             </div>
                             <div className={style.Logo}>

@@ -13,28 +13,28 @@ const Layout = ({ children }) => {
     return (
         <MenuProvider>
             <div className={style.Header}>
-                <Media greaterThanOrEqual="md">
+                <Media greaterThanOrEqual="lg">
                     <DesktopHeader />
                 </Media>
-                <Media lessThan="md">
+                <Media lessThan="lg">
                     <MobileHeader />
                 </Media>
             </div>
             <div className={`suisseIntlRegular`}>
                 {children}
-                <Media greaterThanOrEqual="md">
+                <Media greaterThanOrEqual="lg">
                     <div className={style.Menu}>
                         <DesktopMenu />
                     </div>
                 </Media>
-                <Media lessThan="md">
+                <Media lessThan="lg">
                     <MobileMenu />
                 </Media>
             </div>
-            <Media greaterThanOrEqual="md">
+            <Media greaterThanOrEqual="lg">
                 <DesktopFooter />
             </Media>
-            <Media lessThan="md">
+            <Media lessThan="lg">
                 <div/>
             </Media>
         </MenuProvider>

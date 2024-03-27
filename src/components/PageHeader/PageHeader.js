@@ -4,12 +4,12 @@ import {useRef} from "react";
 import {motion, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
 
 
-const PageHeader = ({title, profile, image}) => {
+const PageHeader = ({title, profile, image, scrollScale=1}) => {
     const ref = useRef(null)
     const {scrollYProgress} = useScroll();
 
-    const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -1500]);
-    const textY = useTransform(scrollYProgress, [0, 1], [0, 1300]);
+    const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -1500*scrollScale]);
+    const textY = useTransform(scrollYProgress, [0, 1], [0, -100*scrollScale]);
 
     return (
         <div ref={ref} className={style.Parallax}>

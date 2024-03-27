@@ -1,4 +1,5 @@
 import fetcher from "@/utils/api/fetcher";
+import {toCapitalize} from "@/utils/toCapitalize";
 
 export const fetchEntriesFrontPage = (locale) => {
     const params = {
@@ -29,4 +30,38 @@ export const fetchEntriesDetail = (id) => {
     }
 
     return fetcher(`entries/${id}`, params)
+}
+
+export const fetchEntriesList = (max, profile, entryType) => {
+    const params = {
+        'sort[0]': 'OriginalCreationDate:desc',
+        'sort[1]': 'createdAt:desc',
+        'populate[0]': 'Image',
+        'pagination[page]': 1,
+        'pagination[pageSize]': 24,
+        'fields[0]': 'Title',
+        'fields[1]': 'CardText',
+        'fields[2]': 'Profile',
+        'fields[4]': 'EntryType',
+        'fields[5]': 'OriginalCreationDate',
+        'fields[6]': 'createdAt',
+    }
+
+    if (profile) {
+        if (profile === 'all') {
+            params['filters[Profile][$eq]'] = profile
+        } else {
+            params['filters[Profile][$eq]'] = toCapitalize(entryType)
+        }
+    }
+
+    if (entryType) {
+        params['filters[EntryType][$eq]'] = toCapitalize(entryType)
+    }
+
+    if (max) {
+        params['pagination[limit]'] = max
+    }
+
+    return ['entries', params]
 }

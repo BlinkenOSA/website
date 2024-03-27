@@ -1,11 +1,12 @@
-import style from "./style.module.scss";
+import style from "../style.module.scss";
 import {Col, Container, Row} from "react-bootstrap";
-import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import Content from "@/components/Content/Content";
 import EventTypeTag from "@/components/Tag/EventTypeTag";
 import {fetchEntriesDetail} from "@/utils/api/fetchEntries";
 import Authors from "@/components/Authors/Authors";
 import getCreationDate from "@/utils/content/getCreationDate";
+import PageHeader from "@/components/PageHeader/PageHeader";
+import {toCapitalize} from "@/utils/toCapitalize";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -30,14 +31,13 @@ export const getServerSideProps = (async (context) => {
 const EntryPage = ({entriesData}) => {
 	const data = entriesData['data']['attributes'];
 
-	const language = data['Language']
+	const title = data['Title']
 	const profile = data['Profile']
-	const entryType = data['EntryType']
 	const author = data['Author']
 	const authorStaff = data['AuthorStaff']
+	const entryType = data['EntryType']
 	const originalCreationDate = data['OriginalCreationDate']
 	const createdAt = data['createdAt']
-	const podcastLink = data['PodcastLink']
 	const eventType = data['EventType']
 
 	const breadcrumbObject = [
@@ -47,11 +47,15 @@ const EntryPage = ({entriesData}) => {
 
 	return (
 		<div className={style.Page}>
+			<PageHeader
+				title={`${toCapitalize(entryType)}s`}
+				image={undefined}
+				breadcrumbObject={breadcrumbObject}
+			/>
 			<Container>
-				<Breadcrumb breadcrumbObject={breadcrumbObject} />
 				<Row>
 					<Col xs={12}>
-						<h1>{data['Title']}</h1>
+						<h1>{title}</h1>
 					</Col>
 				</Row>
 				<div style={{height: '48px'}}/>
