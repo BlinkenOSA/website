@@ -81,7 +81,7 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 		const renderEventCard = () => {
 			return eventsData["data"].map(event => {
 				return (
-					<Col xs={12}>
+					<Col xs={4}>
 						<EventCard
 							id={event['id']}
 							key={`event_${event["id"]}`}
