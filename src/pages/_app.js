@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }) {
         style={{height: '100%'}}>
         <MediaContextProvider disableDynamicMediaQueries>
           <ThemeProvider
-            breakpoints={['sm', 'md', 'lg']}
+            breakpoints={['xs', 'sm', 'md', 'lg', 'xl']}
           >
               <Layout>
                 <Component {...pageProps} />

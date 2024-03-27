@@ -26,9 +26,7 @@ const CatalogPanel = () => {
                             <p>
                                 10,000 linear meters, 17,000 hours of audiovisual, and 15 TB of digital records, as well
                                 as 150,000 photographs, 6000+ documentary film titles and 19,000 library items on
-                                four main areas of interest:
-                            </p>
-                            <p>
+                                four main areas of interest: <br/><br/>
                                 Communism and Cold War, and their Afterlives in Europe
                                 Human Rights and Social Justice globally the Central European University in
                                 Budapest and Vienna and the Open Society Foundations Network worldwide.
