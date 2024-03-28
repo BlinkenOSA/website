@@ -38,7 +38,7 @@ export const fetchEntriesList = (max, profile, entryType) => {
         'sort[1]': 'createdAt:desc',
         'populate[0]': 'Image',
         'pagination[page]': 1,
-        'pagination[pageSize]': 24,
+        'pagination[pageSize]': 6,
         'fields[0]': 'Title',
         'fields[1]': 'CardText',
         'fields[2]': 'Profile',
@@ -51,7 +51,7 @@ export const fetchEntriesList = (max, profile, entryType) => {
         if (profile === 'all') {
             params['filters[Profile][$eq]'] = profile
         } else {
-            params['filters[Profile][$eq]'] = toCapitalize(entryType)
+            params['filters[Profile][$eq]'] = toCapitalize(profile)
         }
     }
 

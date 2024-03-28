@@ -30,9 +30,9 @@ export const getServerSideProps = (async (context) => {
 })
 
 
-const EntryCards = ({profile}) => {
+const EntryCards = ({profile, entryType}) => {
     const { data } = useSWR(
-        fetchEntriesList(undefined, profile),
+        fetchEntriesList(undefined, profile, entryType),
         ([url, params]) => clientFetcher(url, params)
     )
 
@@ -66,15 +66,21 @@ const EntriesPage = ({initialData}) => {
     }, [entryType])
 
     useEffect(() => {
+        const params = {}
+
         if (entryTypeFilter) {
-            router.push({
-                path: '/entries',
-                query: { entryType: entryTypeFilter },
-            }, undefined, { shallow: true })
-        } else {
-            router.push('/entries', undefined, { shallow: true })
+            params['entryType'] = entryTypeFilter
         }
-    }, [entryTypeFilter])
+
+        if (profileFilter) {
+            params['profile'] = profileFilter
+        }
+
+        router.push({
+            path: '/entries',
+            query: params,
+        }, undefined, { shallow: true })
+    }, [profileFilter, entryTypeFilter])
 
     const breadcrumbObject = [
         { key: 'collections', title: 'Collections'},
@@ -84,7 +90,7 @@ const EntriesPage = ({initialData}) => {
         {value: 'Archivum', label: 'Archivum'},
         {value: 'Collections', label: 'Collections'},
         {value: 'Academics', label: 'Academics'},
-        {value: 'Public Programs', label: 'Public Programs'},
+        {value: 'Public', label: 'Public Programs'},
     ]
 
     const entryTypeValues = [
@@ -128,7 +134,7 @@ const EntriesPage = ({initialData}) => {
                 <div style={{height: '48px'}}/>
                 <Row>
                     <SWRConfig value={{ fallback: initialData }}>
-                        <EntryCards profile={profile} />
+                        <EntryCards profile={profileFilter} entryType={entryTypeFilter} />
                     </SWRConfig>
                 </Row>
                 <div style={{height: '48px'}}/>
