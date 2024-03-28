@@ -10,7 +10,6 @@
   }
 
   .Overlay {
-    position: absolute;
     display: flex;
     align-items: center;
     height: 100%;
@@ -20,6 +19,7 @@
       flex-direction: column;
       justify-content: center;
       margin-top: 0;
+      z-index: 2;
     }
 
     h1 {
