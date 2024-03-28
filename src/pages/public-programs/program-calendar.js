@@ -32,29 +32,50 @@ export const getServerSideProps = (async () => {
 	}
 })
 
+const ProgramCalendarHeader = () => {
+	return (
+		<Row className={style.ProgramHeaderRow}>
+			<Col xs={1} className={style.Icon}>
+				<span className={'subtitle-small'}>Type</span>
+			</Col>
+			<Col xs={6}>
+				<span className={'subtitle-small'}>Title</span>
+			</Col>
+			<Col xs={2}>
+				<span className={'subtitle-small'}>Hosting / Language</span>
+			</Col>
+			<Col xs={3} className={style.Date}>
+				<span className={'subtitle-small'}>Date</span>
+			</Col>
+		</Row>
+	)
+}
+
 const ProgramDataRow = ({id, data, onTitleClick}) => {
 	const color = getColor(data['Profile'])
-	const icon = getIconByType(data['EventType'], 'medium', color)
+	const icon = getIconByType(data['EventType'], 'normal', color)
 	const title = data['Title']
 	const language = data['Language']
 	const hostingType = data['HostingType']
 	const date = getDateString(data['StartDate'], 'YYYY-MM-DDTHH:MM:SS', 'eventFull')
 
 	return (
-		<Row className={style.ProgramRow}>
-			<Col xs={1} className={style.Icon}>
-				{icon}
-			</Col>
-			<Col xs={6}>
-				<div className={`${style.Title} subtitle-small`} onClick={() => onTitleClick(id)}>{title}</div>
-			</Col>
-			<Col xs={2}>
-				{hostingType} {language !== null ? `/ ${language}` : ''}
-			</Col>
-			<Col xs={3} className={style.Date}>
-				<div className={'subtitle-small'}>{date}</div>
-			</Col>
-		</Row>
+		<>
+			<Row className={style.ProgramRow} onClick={() => onTitleClick(id)}>
+				<Col xs={1} className={style.Icon}>
+					{icon}
+				</Col>
+				<Col xs={6}>
+					<div className={`${style.Title} subtitle-small`}>{title}</div>
+				</Col>
+				<Col xs={2}>
+					{hostingType} {language !== null ? `/ ${language}` : ''}
+				</Col>
+				<Col xs={3} className={style.Date}>
+					<div className={'subtitle-small'}>{date}</div>
+				</Col>
+			</Row>
+		</>
 	)
 }
 
@@ -192,6 +213,7 @@ const ProgramCalendarPage = ({initialData}) => {
 				</Row>
 				<div style={{height: '48px'}}/>
 				<SWRConfig value={{ fallback: initialData }}>
+					<ProgramCalendarHeader/>
 					<ProgramRows
 						programTypeFilter={programTypeFilter}
 						languageFilter={languageFilter}
