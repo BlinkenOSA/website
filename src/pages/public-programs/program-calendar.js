@@ -15,7 +15,6 @@ import {useList} from "react-use";
 import Button from "@/components/Button/Button";
 import fetcher from "@/utils/api/fetcher";
 import useSWR, {SWRConfig, unstable_serialize} from "swr";
-import {fetchCollectionHighlightsList} from "@/utils/api/fetchCollectionHighlights";
 import clientFetcher from "@/utils/api/clientFetcher";
 
 export const getServerSideProps = (async () => {

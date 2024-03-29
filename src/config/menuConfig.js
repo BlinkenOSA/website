@@ -26,8 +26,8 @@ export const menuConfig = [
       },
       { key: 'annual-reports', title: 'Annual Reports', url: '/about-us/annual-reports' },
       { key: 'visit-us', title: 'Visit Us', url: '/about-us/visit-us' },
-      { key: 'blog', title: 'Blog' },
-      { key: 'news', title: 'News' }
+      { key: 'blog', title: 'Blog', url: '/entries' },
+      { key: 'news', title: 'News', url: '/news'}
     ]
   }, {
     key: 'collections',
@@ -46,8 +46,8 @@ export const menuConfig = [
       { key: 'collection-highlights', title: 'Collection Highlights', url: '/collections/collection-highlights' },
       { key: 'archival-projects', title: 'Archival Projects' },
       { key: 'donate-your-archive', title: 'Donate your Archive' },
-      { key: 'archival-news-and-blog', title: 'Archival News'},
-      { key: 'blog', title: 'Blog'}
+      { key: 'archival-news-and-blog', title: 'Archival News', url: '/news?profile=Archivum'},
+      { key: 'blog', title: 'Blog', url: '/entries'}
     ]
   }, {
     key: 'academics',
@@ -71,7 +71,7 @@ export const menuConfig = [
           {key: 'for-students', title: 'For Students'}
         ]},
       { key: 'academic-events', title: 'Academic Events'},
-      { key: 'academic-news-and-blog', title: 'Academic News'},
+      { key: 'academic-news-and-blog', title: 'Academic News', url: '/news?profile=Academic'},
     ]
   }, {
     key: 'public-programs',

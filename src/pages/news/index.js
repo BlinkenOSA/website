@@ -10,33 +10,35 @@ import {useRouter} from "next/router";
 import EntryCard from "@/components/Cards/EntryCard";
 import DropdownFilter from "@/components/Filters/DropdownFilter";
 import ContentPagination from "@/components/Pagination/ContentPagination";
+import {fetchNewsList} from "@/utils/api/fetchNews";
+import NewsCard from "@/components/Cards/NewsCard";
 import {profileFilterValues} from "@/utils/filterValues/profileFilterValues";
-import {entryTypeFilterValues} from "@/utils/filterValues/entryTypeFilterValues";
+import {activityTypeFilterValues} from "@/utils/filterValues/activityTypeFilterValues";
 
 export const getServerSideProps = (async (context) => {
-    const { entryType, ...parameters } = context.query;
+    const { activityType, ...parameters } = context.query;
 
     const page = 'page' in parameters ? parameters['page'] : undefined
     const profile = 'profile' in parameters ? parameters['profile'] : undefined
 
-    const [url, params] = fetchEntriesList(page, profile, entryType)
-    const [entriesData] = await Promise.all([
+    const [url, params] = fetchNewsList(page, profile, activityType)
+    const [newsData] = await Promise.all([
         fetcher(url, params)
     ])
 
     return {
         props: {
             initialData: {
-                [unstable_serialize([url, params])]: entriesData
+                [unstable_serialize([url, params])]: newsData
             }
         }
     }
 })
 
 
-const EntryCards = ({page, profile, entryType, onPageSelect}) => {
+const NewsCards = ({page, profile, activityType, onPageSelect}) => {
     const { data } = useSWR(
-        fetchEntriesList(page, profile, entryType),
+        fetchNewsList(page, profile, activityType),
         ([url, params]) => clientFetcher(url, params)
     )
 
@@ -44,7 +46,7 @@ const EntryCards = ({page, profile, entryType, onPageSelect}) => {
         return data && data["data"].map(entry => {
             return (
                 <Col xs={4}>
-                    <EntryCard
+                    <NewsCard
                         key={entry["id"]}
                         id={entry["id"]}
                         data={entry['attributes']}
@@ -80,13 +82,13 @@ const EntryCards = ({page, profile, entryType, onPageSelect}) => {
 }
 
 
-const EntriesPage = ({initialData}) => {
+const NewsPage = ({initialData}) => {
     const [profileFilter, setProfileFilter] = useState('')
-    const [entryTypeFilter, setEntryTypeFilter] = useState('')
+    const [activityTypeFilter, setActivityTypeFilter] = useState('')
     const [selectedPage, setSelectedPage] = useState(1)
 
     const router = useRouter();
-    const {page, profile, entryType} = router.query;
+    const {page, profile, activityType} = router.query;
 
     useEffect(() => {
         setSelectedPage(1)
@@ -95,8 +97,8 @@ const EntriesPage = ({initialData}) => {
 
     useEffect(() => {
         setSelectedPage(1)
-        setEntryTypeFilter(entryType ? entryType : '')
-    }, [entryType])
+        setActivityTypeFilter(activityType ? activityType : '')
+    }, [activityType])
 
     useEffect(() => {
         setSelectedPage(page ? page : '')
@@ -105,8 +107,8 @@ const EntriesPage = ({initialData}) => {
     useEffect(() => {
         const params = {}
 
-        if (entryTypeFilter) {
-            params['entryType'] = entryTypeFilter
+        if (activityTypeFilter) {
+            params['activityType'] = activityTypeFilter
         }
 
         if (profileFilter) {
@@ -121,7 +123,7 @@ const EntriesPage = ({initialData}) => {
             path: '/entries',
             query: params,
         }, undefined, { shallow: true })
-    }, [profileFilter, entryTypeFilter, selectedPage])
+    }, [profileFilter, activityTypeFilter, selectedPage])
 
     const breadcrumbObject = [
         { key: 'collections', title: 'Collections'},
@@ -130,7 +132,7 @@ const EntriesPage = ({initialData}) => {
     return (
         <div className={style.Page}>
             <PageHeader
-                title={`Blogs, Podcasts, Videos`}
+                title={`News`}
                 image={undefined}
                 breadcrumbObject={breadcrumbObject}
                 scrollScale={5}
@@ -151,9 +153,9 @@ const EntriesPage = ({initialData}) => {
                             <div className={style.DropdownFilter}>
                                 <DropdownFilter
                                     label={'Entry Type'}
-                                    values={entryTypeFilterValues}
-                                    selectedValue={entryTypeFilter}
-                                    onSelect={setEntryTypeFilter}
+                                    values={activityTypeFilterValues}
+                                    selectedValue={activityTypeFilter}
+                                    onSelect={setActivityTypeFilter}
                                 />
                             </div>
                         </div>
@@ -161,10 +163,10 @@ const EntriesPage = ({initialData}) => {
                 </Row>
                 <div style={{height: '48px'}}/>
                 <SWRConfig value={{ fallback: initialData }}>
-                    <EntryCards
+                    <NewsCards
                         page={selectedPage}
                         profile={profileFilter}
-                        entryType={entryTypeFilter}
+                        activityType={activityTypeFilter}
                         onPageSelect={setSelectedPage}
                     />
                 </SWRConfig>
@@ -176,4 +178,4 @@ const EntriesPage = ({initialData}) => {
     )
 }
 
-export default EntriesPage;
+export default NewsPage;

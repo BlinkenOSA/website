@@ -1,4 +1,5 @@
 import fetcher from "@/utils/api/fetcher";
+import {toCapitalize} from "@/utils/toCapitalize";
 
 export const fetchNewsFrontPage = (locale) => {
     const params = {
@@ -30,4 +31,38 @@ export const fetchNewsDetail = (id) => {
     }
 
     return fetcher(`news-items/${id}`, params)
+}
+
+export const fetchNewsList = (page, profile, activityType) => {
+    const params = {
+        'sort[0]': 'OriginalCreationDate:desc',
+        'sort[1]': 'createdAt:desc',
+        'populate[0]': 'Image',
+        'pagination[page]': 1,
+        'pagination[pageSize]': 12,
+        'fields[0]': 'Title',
+        'fields[1]': 'CardText',
+        'fields[2]': 'Profile',
+        'fields[4]': 'ActivityType',
+        'fields[5]': 'OriginalCreationDate',
+        'fields[6]': 'createdAt',
+    }
+
+    if (profile) {
+        if (profile === 'all') {
+            params['filters[Profile][$eq]'] = profile
+        } else {
+            params['filters[Profile][$eq]'] = toCapitalize(profile)
+        }
+    }
+
+    if (activityType) {
+        params['filters[ActivityType][$eq]'] = toCapitalize(activityType)
+    }
+
+    if (page) {
+        params['pagination[page]'] = page
+    }
+
+    return ['news-items', params]
 }

@@ -63,7 +63,5 @@ export const fetchEntriesList = (page, profile, entryType) => {
         params['pagination[page]'] = page
     }
 
-    console.log(params);
-
     return ['entries', params]
 }
