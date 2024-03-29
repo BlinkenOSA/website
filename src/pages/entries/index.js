@@ -83,7 +83,7 @@ const EntryCards = ({page, profile, entryType, onPageSelect}) => {
 const EntriesPage = ({initialData}) => {
     const [profileFilter, setProfileFilter] = useState('')
     const [entryTypeFilter, setEntryTypeFilter] = useState('')
-    const [selectedPage, setSelectedPage] = useState(1)
+    const [selectedPage, setSelectedPage] = useState('')
 
     const router = useRouter();
     const {page, profile, entryType} = router.query;

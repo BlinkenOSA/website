@@ -85,7 +85,7 @@ const NewsCards = ({page, profile, activityType, onPageSelect}) => {
 const NewsPage = ({initialData}) => {
     const [profileFilter, setProfileFilter] = useState('')
     const [activityTypeFilter, setActivityTypeFilter] = useState('')
-    const [selectedPage, setSelectedPage] = useState(1)
+    const [selectedPage, setSelectedPage] = useState('')
 
     const router = useRouter();
     const {page, profile, activityType} = router.query;
