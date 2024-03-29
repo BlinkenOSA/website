@@ -9,6 +9,7 @@ import PageHeader from "@/components/PageHeader/PageHeader";
 import {useRouter} from "next/router";
 import EntryCard from "@/components/Cards/EntryCard";
 import DropdownFilter from "@/components/Filters/DropdownFilter";
+import ContentPagination from "@/components/Pagination/ContentPagination";
 
 export const getServerSideProps = (async (context) => {
     const { entryType, ...parameters } = context.query;
@@ -30,32 +31,59 @@ export const getServerSideProps = (async (context) => {
 })
 
 
-const EntryCards = ({profile, entryType}) => {
+const EntryCards = ({page, profile, entryType, onPageSelect}) => {
     const { data } = useSWR(
-        fetchEntriesList(undefined, profile, entryType),
+        fetchEntriesList(page, profile, entryType),
         ([url, params]) => clientFetcher(url, params)
     )
 
-    return data && data["data"].map(entry => {
-        return (
-            <Col xs={4}>
-                <EntryCard
-                    key={entry["id"]}
-                    id={entry["id"]}
-                    data={entry['attributes']}
-                />
-            </Col>
-        )
-    })
+    const renderCards = () => {
+        return data && data["data"].map(entry => {
+            return (
+                <Col xs={4}>
+                    <EntryCard
+                        key={entry["id"]}
+                        id={entry["id"]}
+                        data={entry['attributes']}
+                    />
+                </Col>
+            )
+        })
+    }
+
+    const handleClick = (page) => {
+        onPageSelect(page)
+    }
+
+    return (
+        <>
+            <Row>
+                {renderCards()}
+            </Row>
+            <Row>
+                <Col xs={12}>
+                    {
+                        data &&
+                        <ContentPagination
+                            onClick={handleClick}
+                            page={data["meta"]["pagination"]["page"]}
+                            pageCount={data["meta"]["pagination"]["pageCount"]}
+                        />
+                    }
+                </Col>
+            </Row>
+        </>
+    )
 }
 
 
 const EntriesPage = ({initialData}) => {
     const [profileFilter, setProfileFilter] = useState('')
     const [entryTypeFilter, setEntryTypeFilter] = useState('')
+    const [selectedPage, setSelectedPage] = useState(1)
 
     const router = useRouter();
-    const {profile, entryType} = router.query;
+    const {page, profile, entryType} = router.query;
 
     useEffect(() => {
         setProfileFilter(profile ? profile : '')
@@ -64,6 +92,10 @@ const EntriesPage = ({initialData}) => {
     useEffect(() => {
         setEntryTypeFilter(entryType ? entryType : '')
     }, [entryType])
+
+    useEffect(() => {
+        setSelectedPage(page ? page : '')
+    }, [page])
 
     useEffect(() => {
         const params = {}
@@ -76,11 +108,15 @@ const EntriesPage = ({initialData}) => {
             params['profile'] = profileFilter
         }
 
+        if (selectedPage) {
+            params['page'] = selectedPage
+        }
+
         router.push({
             path: '/entries',
             query: params,
         }, undefined, { shallow: true })
-    }, [profileFilter, entryTypeFilter])
+    }, [profileFilter, entryTypeFilter, selectedPage])
 
     const breadcrumbObject = [
         { key: 'collections', title: 'Collections'},
@@ -132,12 +168,17 @@ const EntriesPage = ({initialData}) => {
                     </Col>
                 </Row>
                 <div style={{height: '48px'}}/>
+                <SWRConfig value={{ fallback: initialData }}>
+                    <EntryCards
+                        page={selectedPage}
+                        profile={profileFilter}
+                        entryType={entryTypeFilter}
+                        onPageSelect={setSelectedPage}
+                    />
+                </SWRConfig>
                 <Row>
-                    <SWRConfig value={{ fallback: initialData }}>
-                        <EntryCards profile={profileFilter} entryType={entryTypeFilter} />
-                    </SWRConfig>
+                    <div style={{height: '48px'}}/>
                 </Row>
-                <div style={{height: '48px'}}/>
             </Container>
         </div>
     )

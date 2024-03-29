@@ -1,0 +1,56 @@
+@import "@/styles/colors.scss";
+@import "@/styles/variables.scss";
+
+.Pagination {
+  padding: 0;
+  border-radius: 0;
+  justify-content: right;
+
+  .Ellipsis {
+    :global .page-link {
+      &:hover {
+        border: 1px solid transparent !important;
+      }
+    }
+  }
+
+  :global .page-item {
+    min-width: 48px;
+    text-align: center;
+
+    &.disabled {
+      .page-link {
+        color: $neutral_400;
+        background-color: #FFF;
+      }
+    }
+
+    &.active {
+      .page-link {
+        color: $neutral_100;
+        background-color: $neutral_1000;
+
+        &:hover {
+          background-color: $neutral_1000;
+        }
+      }
+    }
+
+    .page-link {
+      border: 1px solid transparent;
+      color: $neutral_1000;
+      height: 48px;
+      line-height: 36px;
+      transition: unset;
+
+      &:focus {
+        box-shadow: unset;
+      }
+
+      &:hover {
+        border: 1px solid $neutral_1000;
+        background-color: #FFF;
+      }
+    }
+  }
+}

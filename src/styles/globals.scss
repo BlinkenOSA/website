@@ -4,6 +4,9 @@
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+
+  // Variables overwrite
+  --bs-border-radius: 0;
 }
 
 html {

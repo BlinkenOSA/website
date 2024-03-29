@@ -32,13 +32,13 @@ export const fetchEntriesDetail = (id) => {
     return fetcher(`entries/${id}`, params)
 }
 
-export const fetchEntriesList = (max, profile, entryType) => {
+export const fetchEntriesList = (page, profile, entryType) => {
     const params = {
         'sort[0]': 'OriginalCreationDate:desc',
         'sort[1]': 'createdAt:desc',
         'populate[0]': 'Image',
         'pagination[page]': 1,
-        'pagination[pageSize]': 6,
+        'pagination[pageSize]': 12,
         'fields[0]': 'Title',
         'fields[1]': 'CardText',
         'fields[2]': 'Profile',
@@ -59,9 +59,11 @@ export const fetchEntriesList = (max, profile, entryType) => {
         params['filters[EntryType][$eq]'] = toCapitalize(entryType)
     }
 
-    if (max) {
-        params['pagination[limit]'] = max
+    if (page) {
+        params['pagination[page]'] = page
     }
+
+    console.log(params);
 
     return ['entries', params]
 }
