@@ -89,12 +89,12 @@ const EntriesPage = ({initialData}) => {
     const {page, profile, entryType} = router.query;
 
     useEffect(() => {
-        setSelectedPage(1)
+        setSelectedPage(profile ? 1 : '')
         setProfileFilter(profile ? profile : '')
     }, [profile])
 
     useEffect(() => {
-        setSelectedPage(1)
+        setSelectedPage(entryType ? 1 : '')
         setEntryTypeFilter(entryType ? entryType : '')
     }, [entryType])
 

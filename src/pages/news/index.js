@@ -91,12 +91,12 @@ const NewsPage = ({initialData}) => {
     const {page, profile, activityType} = router.query;
 
     useEffect(() => {
-        setSelectedPage(1)
+        setSelectedPage(profile ? 1 : '')
         setProfileFilter(profile ? profile : '')
     }, [profile])
 
     useEffect(() => {
-        setSelectedPage(1)
+        setSelectedPage(activityType ? 1 : '')
         setActivityTypeFilter(activityType ? activityType : '')
     }, [activityType])
 
@@ -152,7 +152,7 @@ const NewsPage = ({initialData}) => {
                             </div>
                             <div className={style.DropdownFilter}>
                                 <DropdownFilter
-                                    label={'Entry Type'}
+                                    label={'Activity Type'}
                                     values={activityTypeFilterValues}
                                     selectedValue={activityTypeFilter}
                                     onSelect={setActivityTypeFilter}
