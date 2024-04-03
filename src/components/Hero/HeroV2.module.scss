@@ -10,7 +10,7 @@
     position: absolute;
     top: 0;
     height: 400px;
-    width: 50%;
+    width: 45%;
     display: flex;
     flex-direction: column;
 
@@ -43,10 +43,10 @@
       display: flex;
       gap: 16px;
       flex-direction: column;
-      justify-content: center;
       color: $neutral_1000;
       flex: 2;
       z-index: 9;
+      margin-top: 24px;
     }
 
     .SecondTitleRow {
@@ -56,7 +56,6 @@
 
     .Subtitle {
       display: flex;
-      align-items: center;
       flex: 1;
       color: $neutral_1000;
       z-index: 9;
