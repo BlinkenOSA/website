@@ -23,15 +23,19 @@ const HeroV2 = ({data}) => {
             if (buttonLink) {
                 return (
                     <a href={buttonLink}>
-                        <div className={style.BottomRow}>
-                            <Button size={'medium'} type={'hero-primary'} color={'neutral'}>{buttonText}</Button>
+                        <div className={style.ButtonWrapper}>
+                            <div className={style.Button}>
+                                <Button size={'large'} type={'hero-primary'} color={'neutral'}>{buttonText}</Button>
+                            </div>
                         </div>
                     </a>
                 )
             } else {
                 return (
-                    <div className={style.BottomRow}>
-                        <Button size={'medium'} type={'hero-primary'} color={'neutral'}>{buttonText}</Button>
+                    <div className={style.ButtonWrapper}>
+                        <div className={style.Button}>
+                            <Button size={'large'} type={'hero-primary'} color={'neutral'}>{buttonText}</Button>
+                        </div>
                     </div>
                 )
             }
@@ -54,7 +58,7 @@ const HeroV2 = ({data}) => {
         <div className={`${style.HeroWrapper}`}>
             <Container style={{position: 'relative'}}>
                 <Row>
-                    <Col xs={12}>
+                    <Col xs={6}>
                         <div className={style.TextWrapper}>
                             <div className={`${style.TopRow} hero-top-row`}>
                                 <div className={style.Date}>
@@ -83,6 +87,9 @@ const HeroV2 = ({data}) => {
                                 </div>
                             }
                         </div>
+                    </Col>
+                    <Col xs={6} style={{position: 'relative'}}>
+                        {generateButton()}
                     </Col>
                 </Row>
             </Container>
