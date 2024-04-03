@@ -1,4 +1,4 @@
-import {Carousel, Col, Row} from "react-bootstrap";
+import {Carousel, Col, Container, Row} from "react-bootstrap";
 import {useState} from "react";
 import Button from "@/components/Button/Button";
 import {IconGeneralLeft, IconGeneralRight} from "@/components/Icon/GeneralIcon";
@@ -27,31 +27,33 @@ const HeroControl = ({children}) => {
 
     return (
         <>
-        <Row>
-            <Col xs={12}>
-                <div className={style.HeroControlWrapper}>
-                    <div className={style.Controls}>
-                        <Button
-                            onClick={handlePrevious}
-                            disabled={activeItem === 0}
-                            type={'hero-secondary'}
-                            size={'medium'}
-                            color={'neutral'}
-                            isIcon={true}><IconGeneralLeft/></Button>
-                        <Button
-                            onClick={handleNext}
-                            disabled={activeItem === children.length - 1}
-                            type={'hero-secondary'}
-                            size={'medium'}
-                            color={'neutral'}
-                            isIcon={true}><IconGeneralRight/></Button>
-                    </div>
-                    <Carousel activeIndex={activeItem} controls={false} indicators={false} onSelect={handleSelect}>
-                        {renderItems()}
-                    </Carousel>
-                </div>
-            </Col>
-        </Row>
+            <Container>
+                <Row className={style.HeroRow}>
+                    <Col xs={12}>
+                        <div className={style.HeroControlWrapper}>
+                            <div className={style.Controls}>
+                                <Button
+                                    onClick={handlePrevious}
+                                    disabled={activeItem === 0}
+                                    type={'hero-primary'}
+                                    size={'medium'}
+                                    color={'neutral'}
+                                    isIcon={true}><IconGeneralLeft/></Button>
+                                <Button
+                                    onClick={handleNext}
+                                    disabled={activeItem === children.length - 1}
+                                    type={'hero-primary'}
+                                    size={'medium'}
+                                    color={'neutral'}
+                                    isIcon={true}><IconGeneralRight/></Button>
+                            </div>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+            <Carousel activeIndex={activeItem} controls={false} indicators={false} onSelect={handleSelect}>
+                {renderItems()}
+            </Carousel>
         </>
     )
 }

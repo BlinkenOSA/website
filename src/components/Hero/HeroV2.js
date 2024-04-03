@@ -2,7 +2,7 @@ import style from "./HeroV2.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import Button from "@/components/Button/Button";
 import getImageUrl from "@/utils/content/getImageUrl";
-import {Container} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 
 const HeroV2 = ({data}) => {
 
@@ -52,34 +52,40 @@ const HeroV2 = ({data}) => {
 
     return (
         <div className={`${style.HeroWrapper}`}>
-            <div className={`${style.TopRow} hero-top-row`}>
-                <div className={style.Date}>
-                    <span>{date}</span>
-                    {generateTime()}
-                </div>
-                <div className={style.Location}>
-                    {location}
-                </div>
-            </div>
-            <div className={style.TitleRow}>
-                <div className={`${style.Title} hero-title`}>
-                    {title_1}
-                    {
-                        title_2 !== null &&
-                        <><br/><span className={style.SecondTitleRow}>{title_2}</span></>
-                    }
-                    {
-                        subtitle_1 !== null &&
-                        <div className={`${style.Subtitle} hero-subtitle`}>
-                            {subtitle_1}
+            <Container style={{position: 'relative'}}>
+                <Row>
+                    <Col xs={12}>
+                        <div className={style.TextWrapper}>
+                            <div className={`${style.TopRow} hero-top-row`}>
+                                <div className={style.Date}>
+                                    <span>{date}</span>
+                                    {generateTime()}
+                                </div>
+                                <div className={style.Location}>
+                                    {location}
+                                </div>
+                            </div>
+                            <div className={`${style.Title} hero-title`}>
+                                <div>{title_1}</div>
+                                {
+                                    title_2 !== null &&
+                                    <div className={style.SecondTitleRow}>{title_2}</div>
+                                }
+                            </div>
                             {
-                                subtitle_2 !== null &&
-                                <><br/>{subtitle_2}</>
+                                subtitle_1 !== null &&
+                                <div className={`${style.Subtitle} hero-subtitle`}>
+                                    {subtitle_1}
+                                    {
+                                        subtitle_2 !== null &&
+                                        <><br/>{subtitle_2}</>
+                                    }
+                                </div>
                             }
                         </div>
-                    }
-                </div>
-            </div>
+                    </Col>
+                </Row>
+            </Container>
             <div className={style.PosterWrapper}>
                 <MaskedImage src={image} type={'hero'}/>
             </div>

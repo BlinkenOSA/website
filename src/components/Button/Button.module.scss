@@ -435,22 +435,22 @@
 
   /* Hero */
   :global .btn-hero-primary-neutral {
-    border: 1px solid $neutral_100;
-    background-color: $neutral_100;
+    // border: 1px solid $neutral_100;
+    background-color: $neutral_1000;
 
     img {
       filter: brightness(0) invert(1);
     }
 
     &:hover {
-      border-color: $neutral_100;
+      // border-color: $neutral_100;
       color: $neutral_100;
-      background-color: $neutral_1000;
+      background-color: $neutral_600;
     }
 
     &:disabled {
-      border: 1px solid $neutral_600;
-      background-color: unset;
+      border: 0;
+      background-color: $neutral_400;
 
       img {
         filter: brightness(0) saturate(100%) invert(41%) sepia(100%) saturate(0%) hue-rotate(93deg) brightness(95%) contrast(94%);

@@ -20,10 +20,6 @@
     padding: 0 84px;
   }
 
-  :global .row {
-    --bs-gutter-y: 24px;
-  }
-
   .SliderCard {
     padding: 0 12px;
   }
@@ -31,5 +27,9 @@
   .Hero {
     //background-color: $neutral_200;
     border-bottom: 1px solid $neutral_1000;
+  }
+
+  .CardDisplay {
+      --bs-gutter-y: 24px;
   }
 }

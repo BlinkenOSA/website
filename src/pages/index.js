@@ -71,9 +71,11 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 		}
 
 		return (
-			<HeroControl>
-				{renderHero()}
-			</HeroControl>
+			<Container fluid={true}>
+				<HeroControl>
+					{renderHero()}
+				</HeroControl>
+			</Container>
 		)
 	}
 
@@ -211,7 +213,7 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 					buttonText={t('collection-highlights__button')}
 					buttonLink={'/collections/collection-highlights'}
 				/>
-				<Row>
+				<Row className={style.CardDisplay}>
 					{renderCollectionCard()}
 				</Row>
 			</>
@@ -220,9 +222,7 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 
 	return (
 		<div className={style.Page}>
-			<Container fluid={true}>
-				{renderHeroes()}
-			</Container>
+			{renderHeroes()}
 			<Container>
 				<div style={{height: '48px'}}/>
 				{renderEvents()}
