@@ -2,13 +2,26 @@ import style from "./SectionDivider.module.scss";
 import Button from "@/components/Button/Button";
 import {IconGeneralLeft, IconGeneralRight} from "@/components/Icon/GeneralIcon";
 import {Row} from "react-bootstrap";
+import Link from "next/link";
 
-const SectionFlipper = ({title, border = false, onNextClick, onPreviousClick}) => {
+const SectionFlipper = ({title, link, border = false, onNextClick, onPreviousClick}) => {
+    const getTitle = () => {
+        if (link) {
+            return (
+                <Link href={link}>
+                    <h1>{title}</h1>
+                </Link>
+            )
+        } else {
+            return (<h1>{title}</h1>)
+        }
+    }
+
     return (
         <Row>
             <div className={style.Wrapper}>
                 <div className={style.Header}>
-                    <h1>{title}</h1>
+                    {getTitle()}
                     <div className={style.Controls}>
                         <Button
                             type={'primary'}

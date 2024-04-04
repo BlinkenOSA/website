@@ -2,7 +2,6 @@ import {Col, Container, Row} from "react-bootstrap";
 import Hero from "@/components/Hero/HeroV2";
 import HeroControl from "@/components/Hero/HeroControl";
 import SectionDivider from "@/components/IndexPage/SectionDivider";
-import EventCard from "@/components/Cards/EventCard";
 import CatalogPanel from "@/components/IndexPage/CatalogPanel";
 import CredoPanel from "@/components/IndexPage/CredoPanel";
 import CollectionCard from "@/components/Cards/CollectionCard";
@@ -17,13 +16,16 @@ import {fetchCollectionHighlightsFrontPage} from "@/utils/api/fetchCollectionHig
 import {fetchEntriesFrontPage} from "@/utils/api/fetchEntries";
 import EntryCard from "@/components/Cards/EntryCard";
 import {fetchCredo} from "@/utils/api/fetchCredo";
-import NewsCard from "@/components/Cards/NewsCard";
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {useRef} from "react";
 import useTranslation from "next-translate/useTranslation";
+import EventsPanel from "@/components/IndexPage/EventsPanel";
+import NewsPanel from "@/components/IndexPage/NewsPanel";
+import EntriesPanel from "@/components/IndexPage/EntriesPanel";
+import CollectionsPanel from "@/components/IndexPage/CollectionsPanel";
 
 export const getServerSideProps = (async (context) => {
 	const {locale} = context
@@ -51,15 +53,6 @@ export const getServerSideProps = (async (context) => {
 const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData, credoData}) => {
 	const { t } = useTranslation('index')
 
-	const sliderSettings = {
-		dots: false,
-		arrows: false,
-		infinite: true,
-		speed: 400,
-		slidesToShow: 3,
-		slidesToScroll: 1,
-	};
-
 	const renderHeroes = () => {
 		const renderHero = () => {
 			return heroData["data"].map(hero => {
@@ -79,153 +72,12 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 		)
 	}
 
-	const renderEvents = () => {
-		const renderEventCard = () => {
-			return eventsData["data"].map(event => {
-				return (
-					<Col sm={6} md={6} lg={4}>
-						<EventCard
-							id={event['id']}
-							key={`event_${event["id"]}`}
-							data={event['attributes']}
-						/>
-					</Col>
-				)
-			})
-		}
-
-		return (
-			<>
-				<SectionDivider title={t('events')}
-								buttonText={t('events__button')}
-								buttonLink={'/public-programs/program-calendar'}
-								subTitle={t('events__free-text')}/>
-				<Row>
-					{renderEventCard()}
-				</Row>
-			</>
-		)
-	}
-
-	const renderEntryCards = (entryData) => {
-		let sliderRef = useRef(null);
-
-		const renderEntryCard = () => {
-			return entryData["data"].map(entry => {
-				return (
-					<div className={style.SliderCard}>
-						<EntryCard
-							id={`${entry["id"]}`}
-							key={`${entry["id"]}`}
-							data={entry['attributes']}
-							type={entry['EntryType']}
-						/>
-					</div>
-				)
-			})
-		}
-
-		const onNextClick = () => {
-			sliderRef.slickNext();
-		};
-		const onPreviousClick = () => {
-			sliderRef.slickPrev();
-		};
-
-		return (
-			<>
-				<SectionFlipper
-					title={t('entries')}
-					border={true}
-					onNextClick={onNextClick}
-					onPreviousClick={onPreviousClick}/>
-				<Slider
-					ref={slider => {
-						sliderRef = slider;
-					}}
-					{...sliderSettings}>
-					{renderEntryCard()}
-				</Slider>
-			</>
-		)
-	}
-
-	const renderNewsCards = (newsData) => {
-		let sliderRef = useRef(null);
-
-		const renderNewsCard = () => {
-			return newsData["data"].map(entry => {
-				return (
-					<div className={style.SliderCard}>
-						<NewsCard
-							id={`${entry["id"]}`}
-							key={`${entry["id"]}`}
-							data={entry['attributes']}
-						/>
-					</div>
-				)
-			})
-		}
-
-		const onNextClick = () => {
-			sliderRef.slickNext();
-		};
-		const onPreviousClick = () => {
-			sliderRef.slickPrev();
-		};
-
-		return (
-			<>
-				<SectionFlipper
-					title={t('news')}
-					border={true}
-					onNextClick={onNextClick}
-					onPreviousClick={onPreviousClick}/>
-				<Slider
-					ref={slider => {
-						sliderRef = slider;
-					}}
-					{...sliderSettings}>
-					{renderNewsCard()}
-				</Slider>
-			</>
-		)
-	}
-
-	const renderCollectionCards = () => {
-		const renderCollectionCard = () => {
-			return collectionsData["data"].map(collection => {
-				return (
-					<Col key={collection['id']} xs={4}>
-						<CollectionCard
-							key={`${collection["id"]}`}
-							data={collection['attributes']}
-						/>
-					</Col>
-				)
-			})
-		}
-
-		return (
-			<>
-				<SectionDivider
-					title={t('collection-highlights')}
-					buttonText={t('collection-highlights__button')}
-					buttonLink={'/collections/collection-highlights'}
-				/>
-				<Row className={style.CardDisplay}>
-					{renderCollectionCard()}
-				</Row>
-			</>
-		)
-	}
-
 	return (
 		<div className={style.Page}>
 			{renderHeroes()}
 			<Container>
 				<div style={{height: '48px'}}/>
-				{renderEvents()}
+				<EventsPanel eventsData={eventsData} />
 				<div style={{height: '24px'}}/>
 			</Container>
 			<Container fluid={true}>
@@ -233,9 +85,9 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 			</Container>
 			<Container>
 				<div style={{height: '48px'}}/>
-				{renderNewsCards(newsData)}
+				<NewsPanel newsData={newsData} />
 				<div style={{height: '40px'}}/>
-				{renderEntryCards(entriesData)}
+				<EntriesPanel entriesData={entriesData} />
 				<div style={{height: '40px'}}/>
 			</Container>
 			<Container fluid={true}>
@@ -243,7 +95,7 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 			</Container>
 			<Container>
 				<div style={{height: '40px'}}/>
-				{renderCollectionCards()}
+				<CollectionsPanel collectionsData={collectionsData} />
 				<div style={{height: '40px'}}/>
 				<PartnersPanel/>
 				<div style={{height: '40px'}}/>

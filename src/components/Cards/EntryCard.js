@@ -33,7 +33,7 @@ const EntryCard = ({ id, data}) => {
               <div className={`${style.EventType} subtitle-small`}>{data['EntryType']}</div>
               <div className={style.Date}>{getCreationDate(originalDate, date)}</div>
           </div>
-          <a href={`/entry/${url}/${id}`}>
+          <a href={`/entries/${url}/${id}`}>
             <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 60)}</h3>
           </a>
           <div className={style.Description}>
