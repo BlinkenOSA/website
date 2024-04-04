@@ -21,7 +21,7 @@ const CredoPanel = ({credoData}) => {
                     <Image
                         priority
                         src={archivumLogo}
-                        height={600}
+                        height={400}
                         alt="Blinken OSA Archivum"
                     />
                 </div>
