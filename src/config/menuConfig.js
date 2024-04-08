@@ -63,10 +63,13 @@ export const menuConfig = [
           { key: 'visegrad-current-fellows', title: 'Current Fellows',  highlight: "You can meet them, when you are in the Archivum."},
           { key: 'visegrad-past-fellows', title: 'Past fellows', highlight: "All the participants of the Visegrad Fellowship Program."}]
       },
-      { key: 'other-fellowships', title: 'Other Fellowships' },
+      { key: 'fellows', title: 'Fellows', submenu: [
+          { key: 'current-fellows', title: 'Current Fellows',  highlight: "You can meet them, when you are in the Archivum."},
+          { key: 'past-fellows', title: 'Past fellows', highlight: "All the participants of the Visegrad Fellowship Program."}]
+      },
       { key: 'archivum-internships', title: 'Archivum Internships' },
       { key: 'university-courses', title: 'University Courses' },
-      { key: 'edupro', title: 'Edupro', submenu: [
+      { key: 'edupro', title: 'Education Program', submenu: [
           {key: 'for-teachers', title: 'For Teachers'},
           {key: 'for-students', title: 'For Students'}
         ]},
