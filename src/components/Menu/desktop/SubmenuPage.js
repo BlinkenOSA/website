@@ -57,7 +57,7 @@ const SubmenuPage = ({menuID, status, selectedSubmenu}) => {
                             initial={"closed"}
                             variants={submenu}
                             animate={submenuStatus}
-                            transition={{delay: 0.05 * (idx + 1)}}
+                            transition={{delay: 0.6 + (0.05 * (idx + 1))}}
                             exit={{ opacity: 0, y: '-30%', transition: {delay: 0.05 * (idx + 1)}}}
                             className={style.SubmenuItem}
                         >

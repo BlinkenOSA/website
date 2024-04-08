@@ -36,20 +36,16 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
         if (selectedMenuItem === key) {
             setSelectedMenuItem('')
         } else {
-            if (selectedMenuItem === '') {
-                setSelectedMenuItem(key)
-            }
+            setSelectedMenuItem(key)
         }
     }
 
     const handleMenuClick = (e, url) => {
         e.preventDefault();
-        if (url && selectedMenuItem === '') {
-            dispatch({
-                type: 'close'
-            })
-            router.push(url);
-        }
+        dispatch({
+            type: 'close'
+        })
+        router.push(url);
     }
 
     const getMenuList = () => {
