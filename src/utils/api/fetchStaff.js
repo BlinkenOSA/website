@@ -1,7 +1,8 @@
 export const fetchStaffList = (OSAUnits) => {
     const params = {
         'populate': 'Image',
-        'sort[0]': 'Name',
+        'sort[0]': 'LastName',
+        'sort[1]': 'FirstName',
         'pagination[pageSize]': 100
     }
 
