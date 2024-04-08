@@ -1,7 +1,7 @@
 import {fetchPrograms} from "@/utils/api/fetchPrograms";
 import style from "./style.module.scss";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Container, OverlayTrigger, Row, Tooltip} from "react-bootstrap";
 import HorizontalFilters from "@/components/Filters/HorizontalFilters";
 import DropdownFilter from "@/components/Filters/DropdownFilter";
 import getIconByType from "@/utils/content/getIconByType";
@@ -50,6 +50,12 @@ const ProgramCalendarHeader = () => {
 	)
 }
 
+const ToolTipStuff = ({ id, children, title }) => (
+	<OverlayTrigger overlay={<Tooltip id={id}>{title}</Tooltip>}>
+		<a href="#">{children}</a>
+	</OverlayTrigger>
+);
+
 const ProgramDataRow = ({id, data, onTitleClick}) => {
 	const color = getColor(data['Profile'])
 	const icon = getIconByType(data['EventType'], 'normal', color)
@@ -62,7 +68,9 @@ const ProgramDataRow = ({id, data, onTitleClick}) => {
 		<>
 			<Row className={style.ProgramRow} onClick={() => onTitleClick(id)}>
 				<Col xs={1} className={style.Icon}>
-					{icon}
+					<ToolTipStuff id={id} title={data['EventType']}>
+						{icon}
+					</ToolTipStuff>
 				</Col>
 				<Col xs={6}>
 					<div className={`${style.Title} subtitle-small`}>{title}</div>
