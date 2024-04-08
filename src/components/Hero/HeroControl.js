@@ -51,7 +51,7 @@ const HeroControl = ({children}) => {
                     </Col>
                 </Row>
             </Container>
-            <Carousel activeIndex={activeItem} controls={false} indicators={false} onSelect={handleSelect}>
+            <Carousel activeIndex={activeItem} controls={false} indicators={false} onSelect={handleSelect} pause={false}>
                 {renderItems()}
             </Carousel>
         </>
