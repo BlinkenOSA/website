@@ -130,7 +130,7 @@ const EntriesPage = ({initialData}) => {
     return (
         <div className={style.Page}>
             <PageHeader
-                title={`Blogs, Podcasts, Videos`}
+                title={`Blog - Podcast - Video`}
                 image={undefined}
                 breadcrumbObject={breadcrumbObject}
                 scrollScale={5}
