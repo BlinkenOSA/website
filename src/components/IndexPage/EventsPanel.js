@@ -7,9 +7,9 @@ const EventsPanel = ({eventsData, }) => {
     const { t } = useTranslation('index')
 
     const renderEventCard = () => {
-        return eventsData["data"].map(event => {
+        return eventsData["data"].map((event, idx) => {
             return (
-                <Col sm={6} md={6} lg={4}>
+                <Col key={`event_${idx}`} sm={6} md={6} lg={4}>
                     <EventCard
                         id={event['id']}
                         key={`event_${event["id"]}`}

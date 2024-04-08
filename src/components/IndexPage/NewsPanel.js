@@ -20,9 +20,9 @@ const NewsPanel = ({newsData}) => {
     let sliderRef = useRef(null);
 
     const renderNewsCard = () => {
-        return newsData["data"].map(entry => {
+        return newsData["data"].map((entry, idx) => {
             return (
-                <div className={style.SliderCard}>
+                <div key={`news_${idx}`} className={style.SliderCard}>
                     <NewsCard
                         id={`${entry["id"]}`}
                         key={`${entry["id"]}`}

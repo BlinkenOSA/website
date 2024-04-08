@@ -12,22 +12,23 @@ const CollectionCard = ({data}) => {
     const types = data['MaterialTypes']
     const contentTypes = data['ContentTypes'].join(', ')
 
-    const chooseIcon = (type) => {
+    const chooseIcon = (type, key) => {
       switch(type) {
         case 'Audio':
-          return <IconAudio size={'small'} color={'orange'} />
+          return <IconAudio key={key} size={'small'} color={'orange'} />
         case 'Moving Image':
-          return <IconMovingImage size={'small'} color={'orange'} />
+          return <IconMovingImage key={key} size={'small'} color={'orange'} />
         case 'Textual':
-          return <IconDocument size={'small'} color={'orange'} />
+          return <IconDocument key={key} size={'small'} color={'orange'} />
         case 'Still Image':
-          return <IconPhoto size={'small'} color={'orange'} />
+          return <IconPhoto key={key} size={'small'} color={'orange'} />
       }
     }
 
     const getIcons = () => {
-      return types.map(t => {
-        return (chooseIcon(t))
+      return types.map((t, idx) => {
+        return (
+            chooseIcon(t, `${data['Title']}_icon_${idx}`))
       })
     }
 

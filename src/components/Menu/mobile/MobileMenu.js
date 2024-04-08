@@ -27,6 +27,7 @@ const Menu = () => {
                     menuConfig.map((cfg, index) => {
                         return (
                             <MobileMenuItem
+                                key={cfg['key']}
                                 title={t(cfg['key'])}
                                 icon={cfg['icon']}
                                 color={cfg['color']}

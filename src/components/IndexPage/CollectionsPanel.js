@@ -20,11 +20,10 @@ const CollectionsPanel = ({collectionsData}) => {
     };
 
     const renderCollectionCard = () => {
-        return collectionsData["data"].map(collection => {
+        return collectionsData["data"].map((collection, idx) => {
             return (
-                <div key={collection['id']} className={style.SliderCard}>
+                <div key={`collection_${idx}`} className={style.SliderCard}>
                     <CollectionCard
-                        key={`${collection["id"]}`}
                         data={collection['attributes']}
                     />
                 </div>

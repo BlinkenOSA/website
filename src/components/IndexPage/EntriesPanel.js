@@ -20,9 +20,9 @@ const EntriesPanel = ({entriesData}) => {
     };
 
     const renderEntryCard = () => {
-        return entriesData["data"].map(entry => {
+        return entriesData["data"].map((entry, idx) => {
             return (
-                <div className={style.SliderCard}>
+                <div key={`entry_${idx}`} className={style.SliderCard}>
                     <EntryCard
                         id={`${entry["id"]}`}
                         key={`${entry["id"]}`}
