@@ -4,16 +4,13 @@ import fetcher from "@/utils/api/fetcher";
 import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import React, {useEffect, useState} from "react";
 import clientFetcher from "@/utils/api/clientFetcher";
-import {fetchEntriesList} from "@/utils/api/fetchEntries";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import {useRouter} from "next/router";
-import EntryCard from "@/components/Cards/EntryCard";
 import DropdownFilter from "@/components/Filters/DropdownFilter";
 import ContentPagination from "@/components/Pagination/ContentPagination";
 import {fetchNewsList} from "@/utils/api/fetchNews";
 import NewsCard from "@/components/Cards/NewsCard";
 import {profileFilterValues} from "@/utils/filterValues/profileFilterValues";
-import {activityTypeFilterValues} from "@/utils/filterValues/activityTypeFilterValues";
 
 export const getServerSideProps = (async (context) => {
     const { activityType, ...parameters } = context.query;
@@ -84,11 +81,10 @@ const NewsCards = ({page, profile, activityType, onPageSelect}) => {
 
 const NewsPage = ({initialData}) => {
     const [profileFilter, setProfileFilter] = useState('')
-    const [activityTypeFilter, setActivityTypeFilter] = useState('')
     const [selectedPage, setSelectedPage] = useState('')
 
     const router = useRouter();
-    const {page, profile, activityType} = router.query;
+    const {page, profile} = router.query;
 
     useEffect(() => {
         setSelectedPage(profile ? 1 : '')
@@ -96,20 +92,11 @@ const NewsPage = ({initialData}) => {
     }, [profile])
 
     useEffect(() => {
-        setSelectedPage(activityType ? 1 : '')
-        setActivityTypeFilter(activityType ? activityType : '')
-    }, [activityType])
-
-    useEffect(() => {
         setSelectedPage(page ? page : '')
     }, [page])
 
     useEffect(() => {
         const params = {}
-
-        if (activityTypeFilter) {
-            params['activityType'] = activityTypeFilter
-        }
 
         if (profileFilter) {
             params['profile'] = profileFilter
@@ -123,7 +110,7 @@ const NewsPage = ({initialData}) => {
             path: '/entries',
             query: params,
         }, undefined, { shallow: true })
-    }, [profileFilter, activityTypeFilter, selectedPage])
+    }, [profileFilter, selectedPage])
 
     const breadcrumbObject = [
         { key: 'collections', title: 'Collections'},
@@ -150,14 +137,6 @@ const NewsPage = ({initialData}) => {
                                     onSelect={setProfileFilter}
                                 />
                             </div>
-                            <div className={style.DropdownFilter}>
-                                <DropdownFilter
-                                    label={'Activity Type'}
-                                    values={activityTypeFilterValues}
-                                    selectedValue={activityTypeFilter}
-                                    onSelect={setActivityTypeFilter}
-                                />
-                            </div>
                         </div>
                     </Col>
                 </Row>
@@ -166,7 +145,6 @@ const NewsPage = ({initialData}) => {
                     <NewsCards
                         page={selectedPage}
                         profile={profileFilter}
-                        activityType={activityTypeFilter}
                         onPageSelect={setSelectedPage}
                     />
                 </SWRConfig>
