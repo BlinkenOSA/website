@@ -21,6 +21,7 @@ const CredoPanel = ({credoData}) => {
         autoplay: true,
         autoplaySpeed: 5000,
         waitForAnimate: false,
+        pauseOnHover: false,
         afterChange: handleChange
     };
 
