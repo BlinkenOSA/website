@@ -1,6 +1,7 @@
 import fb from "../../../public/icons/social/fb.svg";
 import insta from "../../../public/icons/social/insta.svg";
 import yt from "../../../public/icons/social/yt.svg";
+import x from "../../../public/icons/social/x.svg";
 import Image from "next/image";
 
 
@@ -24,4 +25,8 @@ export const SocialIconInsta = () => {
 
 export const SocialIconYT = () => {
     return <SocialIconBase src={yt} />
+}
+
+export const SocialIconX = () => {
+    return <SocialIconBase src={x} />
 }

@@ -1,7 +1,7 @@
 import style from "@/components/Layout/desktop/Footer.module.scss";
 import Logo from "@/components/Logo/Logo";
 import {Col, Container, Row} from "react-bootstrap";
-import {SocialIconFB, SocialIconInsta, SocialIconYT} from "@/components/Icon/SocialIcon";
+import {SocialIconFB, SocialIconInsta, SocialIconX, SocialIconYT} from "@/components/Icon/SocialIcon";
 import useTranslation from "next-translate/useTranslation";
 
 const Footer = () => {
@@ -50,9 +50,10 @@ const Footer = () => {
 							</div>
 							<br/>
 							<div className={style.SocialIcons}>
-								<a href={'#'}><SocialIconFB /></a>
-								<a href={'#'}><SocialIconInsta /></a>
-								<a href={'#'}><SocialIconYT /></a>
+								<a href={'https://www.facebook.com/OSAarchivum'} target={'_blank'}><SocialIconFB /></a>
+								<a href={'https://www.instagram.com/blinkenosaarchivum/'} target={'_blank'}><SocialIconInsta /></a>
+								<a href={'https://www.youtube.com/channel/UCToZ4NBHMP_DjBPh6XYF0og'} target={'_blank'}><SocialIconYT /></a>
+								<a href={'https://twitter.com/blinkenosa'} target={'_blank'}><SocialIconX /></a>
 							</div>
 						</Col>
 					</Row>
