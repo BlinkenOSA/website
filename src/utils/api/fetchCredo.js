@@ -1,6 +1,6 @@
 import fetcher from "@/utils/api/fetcher";
 
-export const fetchCredo = () => {
+export const fetchCredo = ({locale}) => {
 	const params = {
 		'sort[0]': 'rank:asc',
 		'sort[1]': 'createdAt:desc',
@@ -9,5 +9,5 @@ export const fetchCredo = () => {
 		'fields[2]': 'Type',
 	}
 
-	return fetcher('entries', params)
+	return fetcher('credos', params)
 }

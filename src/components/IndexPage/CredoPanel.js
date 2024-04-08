@@ -1,33 +1,39 @@
-import style from "./CredoPanel.module.scss"
-import archivumLogo from "../../../public/icons/credo/archivum.svg"
-import Image from "next/image";
-import {Container} from "react-bootstrap";
+import Credo from "@/components/Credo/Credo";
+import {useEffect, useState} from "react";
+import {AnimatePresence} from "framer-motion";
+import Slider from "react-slick";
 
 const CredoPanel = ({credoData}) => {
+    const [activeCredo, setActiveCredo] = useState(0)
+    const data = credoData['data']
 
+    const handleChange = (index) => {
+        setActiveCredo(index)
+    }
+
+    const sliderSettings = {
+        dots: false,
+        fade: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 6000,
+        waitForAnimate: false,
+        afterChange: handleChange
+    };
 
     return (
-        <div className={style.Panel}>
-            <Container>
-            <div className={style.Card}>
-                <div className={style.Text}>
-                    <h1>We are the Archivum</h1>
-                    <span>
-                        The Blinken OSA at Central European University is a dynamic archival institution focused on
-                        Cold War and human rights collections, employing innovative practices.
-                    </span>
-                </div>
-                <div className={style.Logo}>
-                    <Image
-                        priority
-                        src={archivumLogo}
-                        height={400}
-                        alt="Blinken OSA Archivum"
-                    />
-                </div>
-            </div>
-            </Container>
-        </div>
+        <Slider
+            {...sliderSettings}
+        >
+            {
+                data.map((d, idx) => {
+                    return <Credo key={`credo{idx}`} data={d['attributes']} active={idx === activeCredo} />
+                })
+            }
+        </Slider>
     )
 }
 

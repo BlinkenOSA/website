@@ -13,7 +13,7 @@ const CollectionsPanel = ({collectionsData}) => {
         arrows: false,
         infinite: true,
         autoplay: true,
-        autoplaySpeed: 6000,
+        autoplaySpeed: 5000,
         speed: 400,
         slidesToShow: 3,
         slidesToScroll: 1,

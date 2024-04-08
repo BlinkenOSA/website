@@ -1,0 +1,43 @@
+@import "@/styles/colors.scss";
+
+.Credo {
+  position: relative;
+  height: 400px;
+
+  &.mustard {
+    background-color: $mustard_1000;
+  }
+
+  &.orange {
+    background-color: $orange_1000;
+  }
+
+  &.aqua {
+    background-color: $aqua_1000;
+  }
+
+  &.sage {
+    background-color: $sage_1000;
+  }
+
+  .Card {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    .Text {
+      flex: 1;
+
+      h1 {
+        margin-bottom: 48px;
+      }
+    }
+
+    .Logo {
+      display: flex;
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+  }
+}

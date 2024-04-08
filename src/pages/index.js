@@ -36,7 +36,7 @@ export const getServerSideProps = (async (context) => {
 		fetchNewsFrontPage(locale),
 		fetchEntriesFrontPage(locale),
 		fetchCollectionHighlightsFrontPage(locale),
-		fetchCredo()
+		fetchCredo(locale),
 	]);
 	return {
 		props: {
@@ -91,7 +91,7 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 				<div style={{height: '40px'}}/>
 			</Container>
 			<Container fluid={true}>
-				<CredoPanel data={credoData}/>
+				<CredoPanel credoData={credoData}/>
 			</Container>
 			<Container>
 				<div style={{height: '40px'}}/>
