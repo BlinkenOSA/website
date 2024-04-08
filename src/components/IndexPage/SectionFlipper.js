@@ -23,6 +23,15 @@ const SectionFlipper = ({title, link, border = false, onNextClick, onPreviousCli
                 <div className={style.Header}>
                     {getTitle()}
                     <div className={style.Controls}>
+                        {
+                            link &&
+                            <Button
+                                type={'primary'}
+                                size={'medium'}
+                                color={'neutral'}
+                                link={link}
+                                isIcon={false}>View All</Button>
+                        }
                         <Button
                             type={'primary'}
                             size={'medium'}
