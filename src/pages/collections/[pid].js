@@ -1,7 +1,6 @@
 import {fetchStaticPage} from "@/utils/api/fetchStaticPage";
 import staticPageConfig from "@/config/staticPageConfig";
 import style from "./style.module.scss";
-import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {Col, Container, Row} from "react-bootstrap";
 import Content from "@/components/Content/Content";
 

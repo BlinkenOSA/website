@@ -7,7 +7,8 @@ const staticPageConfig = {
     'about-our-collections': {id: 7},
     'help-with-your-research': {id: 11},
     'research-room': {id: 12},
-    'digitization-on-demand': {id: 13}
+    'digitization-on-demand': {id: 13},
+    'donate-your-archive': {id: 14}
 }
 
 export default staticPageConfig;
