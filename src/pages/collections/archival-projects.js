@@ -22,6 +22,7 @@ const ArchivalProjectsPage = ({projectsData}) => {
                     <PartnerProjectCard
                         key={project["id"]}
                         data={project['attributes']}
+                        profile={'Collections'}
                     />
                 </Col>
             )

@@ -23,6 +23,7 @@ const PublicHistoryProjectsPage = ({projectsData}) => {
                     <PartnerProjectCard
                         key={project["id"]}
                         data={project['attributes']}
+                        profile={'Public'}
                     />
                 </Col>
             )
