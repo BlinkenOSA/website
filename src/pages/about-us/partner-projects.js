@@ -29,14 +29,10 @@ const PartnerProjectsPage = ({projectsData}) => {
         })
     }
 
-    const breadcrumbObject = [
-        { key: 'about-us', title: 'About Us'},
-    ]
-
     return (
         <div className={style.Page}>
             <Container>
-                <Breadcrumb breadcrumbObject={breadcrumbObject} />
+                <div style={{height: '48px'}} />
                 <Row>
                     <Col xs={12}>
                         <h1>Partner Projects</h1>

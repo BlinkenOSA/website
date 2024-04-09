@@ -47,7 +47,7 @@ const NewsPage = ({newsData}) => {
 	return (
 		<div className={style.Page}>
 			<Container>
-				<Breadcrumb breadcrumbObject={breadcrumbObject} />
+				<div style={{height: '48px'}}/>
 				<Row>
 					<Col xs={12}>
 						<h1>{data['Title']}</h1>
@@ -56,7 +56,6 @@ const NewsPage = ({newsData}) => {
 				<div style={{height: '48px'}}/>
 				<Row>
 					<Col xs={6}>
-						<EventTypeTag label={'News Type'} eventType={activityType} profile={profile} />
 						<div>
 							<span>{getCreationDate(originalCreationDate, createdAt)}</span>
 						</div>

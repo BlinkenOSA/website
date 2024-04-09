@@ -44,6 +44,7 @@ const CredoCard = ({data, active}) => {
             opacity: 1,
             filter: "blur(0px)",
             transition: {
+                ease: "easeInOut",
                 delay: 0.4,
             }
         },

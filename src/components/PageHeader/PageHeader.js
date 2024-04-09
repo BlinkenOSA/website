@@ -4,7 +4,7 @@ import {useRef} from "react";
 import {motion, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
 
 
-const PageHeader = ({title, profile, image, scrollScale=1}) => {
+const PageHeader = ({title, image, scrollScale=1}) => {
     const ref = useRef(null)
     const {scrollYProgress} = useScroll();
 
