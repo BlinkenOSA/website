@@ -4,6 +4,7 @@ import Image from "next/image";
 import {Col, Container, Row} from "react-bootstrap";
 import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
+import Typewriter from "@/components/Typewriter/Typewriter";
 
 const CatalogPanel = () => {
     const { t } = useTranslation('index')
@@ -30,15 +31,13 @@ const CatalogPanel = () => {
                             <SearchBox onPressEnter={handleEnter} />
                         </Col>
                         <Col xs={8}>
-                            <p>
-                                10,000 linear meters, 17,000 hours of audiovisual, and 15 TB of digital records, as well
-                                as 150,000 photographs, 6000+ documentary film titles and 19,000 library items on
-                                four main areas of interest: <br/><br/>
-                                Communism and Cold War, and their afterlives<br/>
-                                Human Rights and Social Justice<br/>
-                                Central European University<br/>
-                                Open Society Foundations Network worldwide.
-                            </p>
+                            <Typewriter text={'10,000 linear meters, 17,000 hours of audiovisual, and 15 TB of digital records, as well ' +
+                                'as 150,000 photographs, 6000+ documentary film titles and 19,000 library items on ' +
+                                'four main areas of interest: communism and Cold War, and their afterlives; ' +
+                                'human rights and social justice; ' +
+                                'Central European University; ' +
+                                'Open Society Foundations network.'}
+                            />
                         </Col>
                     </Row>
                 </Container>
