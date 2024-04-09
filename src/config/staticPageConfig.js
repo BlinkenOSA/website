@@ -8,7 +8,9 @@ const staticPageConfig = {
     'help-with-your-research': {id: 11},
     'research-room': {id: 12},
     'digitization-on-demand': {id: 13},
-    'donate-your-archive': {id: 14}
+    'donate-your-archive': {id: 14},
+    'about-the-visegrad-scholarship': {id: 5},
+    'visegrad-open-call': {id: 6}
 }
 
 export default staticPageConfig;

@@ -1,0 +1,25 @@
+@import "@/styles/variables.scss";
+@import "@/styles/colors.scss";
+
+.Page {
+  // Mobile
+  @media (max-width: $lg) {
+    margin-right: 0;
+
+    :global .container {
+      padding: 0 24px !important;
+    }
+  }
+
+  margin-top: $header-height-desktop;
+  margin-right: calc(4 * $menu-width - 4px);
+  min-height: calc(100vh - $header-height-desktop);
+
+  :global .container {
+    padding: 0 84px;
+  }
+
+  :global .row {
+    --bs-gutter-x: 96px;
+  }
+}

@@ -4,7 +4,7 @@ var customParseFormat = require('dayjs/plugin/customParseFormat')
 dayjs.extend(customParseFormat)
 
 
-const getDateString = (dateString, format, type = 'event') => {
+const getDateString = (dateString, format='YYYY-MM-DDTHH:MM:SS', type = 'event') => {
     if (dateString === null) {
         return ''
     }
@@ -16,6 +16,9 @@ const getDateString = (dateString, format, type = 'event') => {
             break
         case 'eventFull':
             template = 'MMMM D, YYYY - h:mm A'
+            break
+        case 'fellow':
+            template = 'MMMM/YYYY'
             break
         case 'news':
             template = 'DD/MM/YYYY'

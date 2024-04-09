@@ -57,10 +57,8 @@ export const menuConfig = [
     menuItems: [
       { key: 'research-and-publications', title: 'Our Research and Publications' },
       { key: 'visegrad-scholarship', title: 'Visegrad Scholarship', submenu: [
-          { key: 'about-the-visegrad-fund', title: 'About the V Fund', highlight: "Find out more about the history of the Visegrad Fund" },
-          { key: 'open-call', title: 'Open call', highlight: "We are waiting for your application"},
-          { key: 'visegrad-current-fellows', title: 'Current Fellows',  highlight: "You can meet them, when you are in the Archivum."},
-          { key: 'visegrad-past-fellows', title: 'Past fellows', highlight: "All the participants of the Visegrad Fellowship Program."}]
+          { key: 'about-the-visegrad-fund', title: 'About the V Fund', highlight: "Find out more about the history of the Visegrad Fund", url: '/academics/about-the-visegrad-scholarship' },
+          { key: 'open-call', title: 'Open call', highlight: "We are waiting for your application", url: '/academics/visegrad-open-call'}]
       },
       { key: 'fellows', title: 'Fellows', submenu: [
           { key: 'current-fellows', title: 'Current Fellows',  highlight: "You can meet them, when you are in the Archivum."},
