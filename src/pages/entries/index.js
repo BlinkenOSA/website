@@ -5,7 +5,6 @@ import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import React, {useEffect, useState} from "react";
 import clientFetcher from "@/utils/api/clientFetcher";
 import {fetchEntriesList} from "@/utils/api/fetchEntries";
-import PageHeader from "@/components/PageHeader/PageHeader";
 import {useRouter} from "next/router";
 import EntryCard from "@/components/Cards/EntryCard";
 import DropdownFilter from "@/components/Filters/DropdownFilter";

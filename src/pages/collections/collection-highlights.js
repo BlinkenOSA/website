@@ -1,6 +1,5 @@
 import {fetchCollectionHighlightsList} from "@/utils/api/fetchCollectionHighlights";
-import style from "@/pages/pages.module.scss";
-import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
+import style from "./style.module.scss";
 import {Col, Container, Row} from "react-bootstrap";
 import CollectionCard from "@/components/Cards/CollectionCard";
 import HorizontalFilters from "@/components/Filters/HorizontalFilters";

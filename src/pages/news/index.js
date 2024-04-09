@@ -112,10 +112,6 @@ const NewsPage = ({initialData}) => {
         }, undefined, { shallow: true })
     }, [profileFilter, selectedPage])
 
-    const breadcrumbObject = [
-        { key: 'collections', title: 'Collections'},
-    ]
-
     return (
         <div className={style.Page}>
             <Container>
