@@ -34,6 +34,9 @@ export const getServerSideProps = (async () => {
 const ProgramCalendarHeader = () => {
 	return (
 		<Row className={style.ProgramHeaderRow}>
+			<Col xs={3} className={style.Date}>
+				<span className={'subtitle-small'}>Date</span>
+			</Col>
 			<Col xs={1} className={style.Icon}>
 				<span className={'subtitle-small'}>Type</span>
 			</Col>
@@ -41,10 +44,7 @@ const ProgramCalendarHeader = () => {
 				<span className={'subtitle-small'}>Title</span>
 			</Col>
 			<Col xs={2}>
-				<span className={'subtitle-small'}>Hosting / Language</span>
-			</Col>
-			<Col xs={3} className={style.Date}>
-				<span className={'subtitle-small'}>Date</span>
+				<span className={'subtitle-small'}>Format / Language</span>
 			</Col>
 		</Row>
 	)
@@ -67,6 +67,9 @@ const ProgramDataRow = ({id, data, onTitleClick}) => {
 	return (
 		<>
 			<Row className={style.ProgramRow} onClick={() => onTitleClick(id)}>
+				<Col xs={3} className={style.Date}>
+					<div className={'subtitle-small'}>{date}</div>
+				</Col>
 				<Col xs={1} className={style.Icon}>
 					<ToolTipStuff id={id} title={data['EventType']}>
 						{icon}
@@ -78,9 +81,6 @@ const ProgramDataRow = ({id, data, onTitleClick}) => {
 				<Col xs={2}>
 					{hostingType} {language !== null ? `/ ${language}` : ''}
 				</Col>
-				<Col xs={3} className={style.Date}>
-					<div className={'subtitle-small'}>{date}</div>
-				</Col>
 			</Row>
 		</>
 	)
@@ -89,6 +89,7 @@ const ProgramDataRow = ({id, data, onTitleClick}) => {
 const ProgramDetail = ({id, data, isOpened}) => {
 	const image = getImageUrl(data['Image'])
 	const description = data['CardText']
+	const shortDescription = data['DescriptionShort']
 	const color = getColor(data['Profile'])
 	const registrationLink = data['RegistrationLink']
 
@@ -99,7 +100,7 @@ const ProgramDetail = ({id, data, isOpened}) => {
 					<MaskedImage src={image} type={'landscape'} />
 				</Col>
 				<Col xs={8}>
-					{description}
+					{shortDescription ? shortDescription : description}
 					<div className={style.ProgramDetailButtons}>
 						<Button
 							type={'secondary'}
@@ -116,7 +117,6 @@ const ProgramDetail = ({id, data, isOpened}) => {
 								Registration Link
 							</Button>
 						}
-
 					</div>
 				</Col>
 			</Row>
@@ -209,7 +209,7 @@ const ProgramCalendarPage = ({initialData}) => {
 							</div>
 							<div className={style.DropdownFilter}>
 								<DropdownFilter
-									label={'Hosting Type'}
+									label={'Format'}
 									values={hostingTypeFilterValues}
 									selectedValue={hostingTypeFilter}
 									onSelect={setHostingTypeFilter}
