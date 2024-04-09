@@ -3,6 +3,7 @@ import SearchBox from "@/components/Input/SearchBox";
 import Image from "next/image";
 import {Col, Container, Row} from "react-bootstrap";
 import useTranslation from "next-translate/useTranslation";
+import Link from "next/link";
 
 const CatalogPanel = () => {
     const { t } = useTranslation('index')
@@ -23,7 +24,9 @@ const CatalogPanel = () => {
                 <Container>
                     <Row>
                         <Col xs={4} className={style.Left}>
-                            <h1>{t('catalog')}</h1>
+                            <Link href={'https://catalog.osaarchivum.org/'} target={'_blank'}>
+                                <h1>{t('catalog')}</h1>
+                            </Link>
                             <SearchBox onPressEnter={handleEnter} />
                         </Col>
                         <Col xs={8}>

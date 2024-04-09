@@ -8,6 +8,7 @@ import {useContext} from "react";
 import {MenuDispatchContext} from "@/utils/context/MenuContext";
 import {useRouter} from "next/router";
 import useTranslation from "next-translate/useTranslation";
+import Button from "@/components/Button/Button";
 
 const SubmenuPage = ({menuID, status, selectedSubmenu}) => {
     const { t } = useTranslation('menu')
@@ -77,6 +78,12 @@ const SubmenuPage = ({menuID, status, selectedSubmenu}) => {
             </div>
         )
 
+    }
+
+    const handleClick = () => {
+        dispatch({
+            type: 'close'
+        })
     }
 
     return (
