@@ -42,10 +42,6 @@ const JobCards = ({selectedFilters}) => {
 const JobsPage = ({initialData}) => {
     const [jobTypeFilter, {clear, push, removeAt}] = useList([])
 
-    const breadcrumbObject = [
-        { key: 'about-us', title: 'About Us'},
-    ]
-
     const filterValues = [
         {value: 'Jobs', label: 'Job'},
         {value: 'Archivum Internships', label: 'Archivum Internship'},
@@ -66,7 +62,7 @@ const JobsPage = ({initialData}) => {
 
     return (
         <div className={style.Page}>
-            <PageHeader title={'Jobs'} image={''} />
+            <PageHeader title={'Join Us'} image={''} />
             <Container>
                 <Row>
                     <Col xs={4}>

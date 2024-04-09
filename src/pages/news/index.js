@@ -118,13 +118,14 @@ const NewsPage = ({initialData}) => {
 
     return (
         <div className={style.Page}>
-            <PageHeader
-                title={`News`}
-                image={undefined}
-                breadcrumbObject={breadcrumbObject}
-                scrollScale={5}
-            />
             <Container>
+                <div style={{height: '48px'}}/>
+                <Row>
+                    <Col xs={12}>
+                        <h1>News</h1>
+                    </Col>
+                </Row>
+                <div style={{height: '48px'}}/>
                 <Row>
                     <Col md={12} lg={6}>
                         <div className={style.DropdownFiltersWrapper}>
