@@ -181,7 +181,7 @@ const ProgramCalendarPage = ({initialData}) => {
 	return (
 		<Col className={style.Page}>
 			<Container>
-				<Breadcrumb breadcrumbObject={breadcrumbObject} />
+				<div style={{height: '48px'}} />
 				<Row>
 					<Col xs={12}>
 						<h1>Program Calendar</h1>

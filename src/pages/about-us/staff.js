@@ -61,10 +61,6 @@ const StaffPage = ({initialData}) => {
         {label: 'Verzio Filmfestival'}
     ]
 
-    const breadcrumbObject = [
-        { key: 'about-us', title: 'About Us'},
-    ]
-
     const handleFilterChange = (id) => {
         if (id === '') {
             clear()

@@ -46,10 +46,6 @@ const CollectionCards = ({selectedFilter}) => {
 const CollectionHighlightsPage = ({initialData}) => {
     const [selectedFilter, setSelectedFilter] = useState('All')
 
-    const breadcrumbObject = [
-        { key: 'collections', title: 'Collections'},
-    ]
-
     const filterValues = [
         {value: 'All', label: 'All'},
         {value: 'Digital', label: 'Digital Collections'},
@@ -59,14 +55,14 @@ const CollectionHighlightsPage = ({initialData}) => {
     return (
         <div className={style.Page}>
             <Container>
-                <Breadcrumb breadcrumbObject={breadcrumbObject} />
+                <div style={{height: '48px'}} />
                 <Row>
                     <Col xs={12}>
                         <h1>Collection Highlights</h1>
                     </Col>
                 </Row>
                 <div style={{height: '48px'}} />
-                <HorizontalFilters values={filterValues} selectedFilter={selectedFilter} onSelect={setSelectedFilter} />
+                <HorizontalFilters align={'left'} values={filterValues} selectedFilter={selectedFilter} onSelect={setSelectedFilter} />
                 <div style={{height: '48px'}} />
                 <Row>
                     <SWRConfig value={{ fallback: initialData }}>

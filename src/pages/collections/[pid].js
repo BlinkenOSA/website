@@ -32,18 +32,13 @@ export const getServerSideProps = (async (context) => {
     }
 })
 
-const breadcrumbObject = [
-    { key: 'collections', title: 'Collections'},
-    // { key: eventData['id'], title: data['Title']},
-]
-
 const StaticPage = ({pageData}) => {
     const data = pageData['data']['attributes'];
 
     return (
         <div className={style.Page}>
             <Container>
-                <Breadcrumb breadcrumbObject={breadcrumbObject} />
+                <div style={{height: '48px'}}/>
                 <Row>
                     <Col xs={12}>
                         <h1>{data['Title']}</h1>

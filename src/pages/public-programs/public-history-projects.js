@@ -37,7 +37,7 @@ const PublicHistoryProjectsPage = ({projectsData}) => {
     return (
         <div className={style.Page}>
             <Container>
-                <Breadcrumb breadcrumbObject={breadcrumbObject} />
+                <div style={{height: '48px'}} />
                 <Row>
                     <Col xs={12}>
                         <h1>Public History Projects</h1>

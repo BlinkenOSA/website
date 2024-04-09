@@ -36,7 +36,7 @@ const ArchivalProjectsPage = ({projectsData}) => {
     return (
         <div className={style.Page}>
             <Container>
-                <Breadcrumb breadcrumbObject={breadcrumbObject} />
+                <div style={{height: '48px'}} />
                 <Row>
                     <Col xs={12}>
                         <h1>Archival Projects</h1>
