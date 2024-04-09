@@ -66,8 +66,8 @@ export const menuConfig = [
       },
       { key: 'university-courses', title: 'University Courses' },
       { key: 'edupro', title: 'Education Program', submenu: [
-          {key: 'for-teachers', title: 'For Teachers'},
-          {key: 'for-students', title: 'For Students'}
+          {key: 'for-teachers', title: 'For Teachers', url: 'https://edupro.osaarchivum.org/tanaroknak/'},
+          {key: 'for-students', title: 'For Students', url: 'https://edupro.osaarchivum.org/diakok/'}
         ]},
       { key: 'academic-events', title: 'Academic Events'},
       { key: 'academic-news-and-blog', title: 'Academic News', url: '/news?profile=Academic'},
