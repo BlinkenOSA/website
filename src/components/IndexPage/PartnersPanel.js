@@ -23,7 +23,7 @@ const PartnersPanel = () => {
                                     type={'primary'}
                                     size={'medium'}
                                     color={'sage'}
-                                    link={'https://galeriacentralis.osaarchivum.org'}
+                                    link={'/external/galeria'}
                                 >{t('partners__button')}</Button>
                             </div>
                             <div className={style.Logo}>

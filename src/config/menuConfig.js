@@ -36,7 +36,7 @@ export const menuConfig = [
     url: '/collections',
     menuItems: [
       { key: 'about-our-collections', title: 'About our Collections', url: '/collections/about-our-collections'},
-      { key: 'catalog', title: 'Catalog'},
+      { key: 'catalog', title: 'Catalog', url: '/external/catalog'},
       { key: 'access-the-collections', title: 'Access the Collections', submenu: [
           { key: 'help-with-your-research', title: 'Help with your Research', url: '/collections/help-with-your-research'},
           { key: 'research-room', title: 'Research Room Access', url: '/collections/research-room'},
