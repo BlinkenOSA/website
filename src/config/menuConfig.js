@@ -43,7 +43,7 @@ export const menuConfig = [
           { key: 'digitization-on-demand', title: 'Digitization on Demand', url: '/collections/digitization-on-demand'}]
       },
       { key: 'collection-highlights', title: 'Collection Highlights', url: '/collections/collection-highlights' },
-      { key: 'archival-projects', title: 'Archival Projects' },
+      { key: 'archival-projects', title: 'Archival Projects', url: '/collections/archival-projects' },
       { key: 'donate-your-archive', title: 'Donate your Archive' },
       { key: 'archival-news-and-blog', title: 'Archival News', url: '/news?profile=Archivum'},
       { key: 'blog', title: 'Blog', url: '/entries'}

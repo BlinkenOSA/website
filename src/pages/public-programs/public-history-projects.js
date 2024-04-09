@@ -1,7 +1,6 @@
 import {Col, Container, Row} from "react-bootstrap";
 import style from "@/pages/pages.module.scss";
-import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
-import {fetchArchivalProjects, fetchPartnerProjects, fetchPublicHistoryProjects} from "@/utils/api/fetchProjects";
+import {fetchPublicHistoryProjects} from "@/utils/api/fetchProjects";
 import PartnerProjectCard from "@/components/Cards/PartnerProjectCard";
 
 export const getServerSideProps = (async () => {
@@ -29,10 +28,6 @@ const PublicHistoryProjectsPage = ({projectsData}) => {
             )
         })
     }
-
-    const breadcrumbObject = [
-        { key: 'public-programs', title: 'Public Programs'},
-    ]
 
     return (
         <div className={style.Page}>

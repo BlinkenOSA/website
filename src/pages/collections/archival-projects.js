@@ -1,6 +1,5 @@
 import {Col, Container, Row} from "react-bootstrap";
 import style from "@/pages/pages.module.scss";
-import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {fetchArchivalProjects, fetchPartnerProjects} from "@/utils/api/fetchProjects";
 import PartnerProjectCard from "@/components/Cards/PartnerProjectCard";
 
@@ -28,10 +27,6 @@ const ArchivalProjectsPage = ({projectsData}) => {
             )
         })
     }
-
-    const breadcrumbObject = [
-        { key: 'collections', title: 'Collections'},
-    ]
 
     return (
         <div className={style.Page}>
