@@ -21,7 +21,6 @@ export const menuConfig = [
       { key: 'join-us', title: 'Join Us', submenu: [
           { key: 'visegrad-scholarship', title: 'Visegrad Scholarships', highlight: 'Information about the Visegrad Scholarship Program.' },
           { key: 'jobs', title: 'Jobs', highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid.', url: '/about-us/jobs' },
-          { key: 'archivum-internships', title: 'Internships', highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid slightly less.' },
           { key: 'volunteering', title: 'Volunteering', highlight: "Work with us on arhcival processing, digitization projects, exhibitions. You won't get paid"}]
       },
       { key: 'annual-reports', title: 'Annual Reports', url: '/about-us/annual-reports' },
@@ -67,7 +66,6 @@ export const menuConfig = [
           { key: 'current-fellows', title: 'Current Fellows',  highlight: "You can meet them, when you are in the Archivum."},
           { key: 'past-fellows', title: 'Past fellows', highlight: "All the participants of the Visegrad Fellowship Program."}]
       },
-      { key: 'archivum-internships', title: 'Archivum Internships' },
       { key: 'university-courses', title: 'University Courses' },
       { key: 'edupro', title: 'Education Program', submenu: [
           {key: 'for-teachers', title: 'For Teachers'},
