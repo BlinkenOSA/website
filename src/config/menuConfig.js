@@ -90,7 +90,8 @@ export const menuConfig = [
           { key: 'past-exhibitions', title: '', url: 'https://galeriacentralis.osaarchivum.org/exhibitions?filter=past'},
           ]},
       { key: 'verzio', title: 'Verzio', url: '/external/verzio' },
-      { key: 'public-history-projects', title: 'Public History Projects', url: '/public-programs/public-history-projects' }
+      { key: 'public-history-projects', title: 'Public History Projects', url: '/public-programs/public-history-projects' },
+      { key: 'public-program-news', title: 'Public Program News', url: '/news?profile=Public'},
     ]
   }
 ]
