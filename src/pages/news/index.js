@@ -13,12 +13,12 @@ import NewsCard from "@/components/Cards/NewsCard";
 import {profileFilterValues} from "@/utils/filterValues/profileFilterValues";
 
 export const getServerSideProps = (async (context) => {
-    const { activityType, ...parameters } = context.query;
+    const parameters = context.query;
 
     const page = 'page' in parameters ? parameters['page'] : undefined
     const profile = 'profile' in parameters ? parameters['profile'] : undefined
 
-    const [url, params] = fetchNewsList(page, profile, activityType)
+    const [url, params] = fetchNewsList(page, profile)
     const [newsData] = await Promise.all([
         fetcher(url, params)
     ])
@@ -33,9 +33,9 @@ export const getServerSideProps = (async (context) => {
 })
 
 
-const NewsCards = ({page, profile, activityType, onPageSelect}) => {
+const NewsCards = ({page, profile, onPageSelect}) => {
     const { data } = useSWR(
-        fetchNewsList(page, profile, activityType),
+        fetchNewsList(page, profile),
         ([url, params]) => clientFetcher(url, params)
     )
 
