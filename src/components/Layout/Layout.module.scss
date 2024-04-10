@@ -5,6 +5,7 @@
 .Menu {
   position: fixed;
   top: calc($header-height-desktop + 1px);
+  z-index: 10;
 }
 
 .Header {
