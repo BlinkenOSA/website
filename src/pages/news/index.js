@@ -4,7 +4,6 @@ import fetcher from "@/utils/api/fetcher";
 import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import React, {useEffect, useState} from "react";
 import clientFetcher from "@/utils/api/clientFetcher";
-import PageHeader from "@/components/PageHeader/PageHeader";
 import {useRouter} from "next/router";
 import DropdownFilter from "@/components/Filters/DropdownFilter";
 import ContentPagination from "@/components/Pagination/ContentPagination";
