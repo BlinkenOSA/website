@@ -80,21 +80,19 @@ const EntryCards = ({page, profile, entryType, onPageSelect}) => {
 
 
 const EntriesPage = ({initialData}) => {
-    const [profileFilter, setProfileFilter] = useState('')
-    const [entryTypeFilter, setEntryTypeFilter] = useState('')
-    const [selectedPage, setSelectedPage] = useState('')
-
     const router = useRouter();
     const {page, profile, entryType} = router.query;
 
+    const [profileFilter, setProfileFilter] = useState(profile ? profile : '')
+    const [entryTypeFilter, setEntryTypeFilter] = useState(entryType ? entryType : '')
+    const [selectedPage, setSelectedPage] = useState('')
+
     useEffect(() => {
         setSelectedPage(profile ? 1 : '')
-        setProfileFilter(profile ? profile : '')
     }, [profile])
 
     useEffect(() => {
         setSelectedPage(entryType ? 1 : '')
-        setEntryTypeFilter(entryType ? entryType : '')
     }, [entryType])
 
     useEffect(() => {

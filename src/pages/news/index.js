@@ -79,15 +79,14 @@ const NewsCards = ({page, profile, onPageSelect}) => {
 
 
 const NewsPage = ({initialData}) => {
-    const [profileFilter, setProfileFilter] = useState('')
-    const [selectedPage, setSelectedPage] = useState('')
-
     const router = useRouter();
     const {page, profile} = router.query;
 
+    const [profileFilter, setProfileFilter] = useState(profile ? profile : '')
+    const [selectedPage, setSelectedPage] = useState('')
+
     useEffect(() => {
         setSelectedPage(profile ? 1 : '')
-        setProfileFilter(profile ? profile : '')
     }, [profile])
 
     useEffect(() => {

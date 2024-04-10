@@ -8,7 +8,7 @@ import getIconByType from "@/utils/content/getIconByType";
 import getDateString from "@/utils/content/getDateString";
 import getColor from "@/utils/content/getColor";
 import {Collapse} from 'react-collapse';
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import getImageUrl from "@/utils/content/getImageUrl";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import {useList} from "react-use";
@@ -16,9 +16,13 @@ import Button from "@/components/Button/Button";
 import fetcher from "@/utils/api/fetcher";
 import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import clientFetcher from "@/utils/api/clientFetcher";
+import {useRouter} from "next/router";
 
-export const getServerSideProps = (async () => {
-	const [url, params] = fetchPrograms()
+export const getServerSideProps = (async (context) => {
+	const parameters = context.query;
+	const programType = 'programType' in parameters ? parameters['programType'] : undefined
+
+	const [url, params] = fetchPrograms(programType)
 	const [programsData] = await Promise.all([
 		fetcher(url, params)
 	])
@@ -152,13 +156,26 @@ const ProgramRows = ({programTypeFilter, languageFilter, hostingTypeFilter}) => 
 }
 
 const ProgramCalendarPage = ({initialData}) => {
-	const [programTypeFilter, setProgramTypeFilter] = useState('All')
+	const router = useRouter();
+	const {programType} = router.query;
+
+	const [programTypeFilter, setProgramTypeFilter] = useState(programType ? programType : 'All')
 	const [languageFilter, setLanguageFilter] = useState('')
 	const [hostingTypeFilter, setHostingTypeFilter] = useState('')
 
-	const breadcrumbObject = [
-		{ key: 'public-programs', title: 'Public Programs'},
-	]
+
+	useEffect(() => {
+		const params = {}
+
+		if (programTypeFilter) {
+			params['programType'] = programTypeFilter
+		}
+
+		router.push({
+			path: '/program-calendar',
+			query: params,
+		}, undefined, { shallow: true })
+	}, [programTypeFilter])
 
 	const programTypeFilterValues = [
 		{value: 'All', label: 'All', color: 'neutral'},
