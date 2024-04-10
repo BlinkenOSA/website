@@ -32,10 +32,16 @@ const CollectionCard = ({data}) => {
       })
     }
 
+    const getSize = () => {
+        if (size > 0) {
+            return `${size} ${size > 1 ? 'items' : 'item'}`
+        }
+    }
+
     return (
         <div className={style.Wrapper}>
             <div className={style.Header}>
-                <div className={style.ItemNumber}>{size} {size > 1 ? 'items' : 'item'}</div>
+                <div className={style.ItemNumber}>{getSize()}</div>
                 <div className={style.Icons}>{getIcons()}</div>
             </div>
             <div className={style.Image}>

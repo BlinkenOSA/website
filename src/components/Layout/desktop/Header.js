@@ -5,6 +5,7 @@ import SearchBox from "@/components/Input/SearchBox";
 import {Col, Container, Row} from "react-bootstrap";
 import {MenuDispatchContext} from "@/utils/context/MenuContext";
 import {useContext} from "react";
+import Search from "@/components/Search/Search";
 
 const Header = () => {
 	const dispatch = useContext(MenuDispatchContext);
@@ -24,7 +25,7 @@ const Header = () => {
 					</Col>
 					<Col xs={5} />
 					<Col xs={3}>
-						<SearchBox />
+						<Search />
 					</Col>
 					<Col xs={1} className={style.LanguageSelector}>
 						<LanguageSelector />

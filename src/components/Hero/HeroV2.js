@@ -76,20 +76,22 @@ const HeroV2 = ({data}) => {
                                     <div className={style.SecondTitleRow}>{title_2}</div>
                                 }
                             </div>
-                            {
-                                subtitle_1 !== null &&
-                                <div className={`${style.Subtitle} hero-subtitle`}>
-                                    {subtitle_1}
-                                    {
-                                        subtitle_2 !== null &&
-                                        <><br/>{subtitle_2}</>
-                                    }
-                                </div>
-                            }
+                            <div className={style.BottomRow}>
+                                {
+                                    subtitle_1 !== null &&
+                                    <div className={`${style.Subtitle} hero-subtitle`}>
+                                        {subtitle_1}
+                                        {
+                                            subtitle_2 !== null &&
+                                            <><br/>{subtitle_2}</>
+                                        }
+                                    </div>
+                                }
+                                {
+                                    generateButton()
+                                }
+                            </div>
                         </div>
-                    </Col>
-                    <Col xs={6} style={{position: 'relative'}}>
-                        {generateButton()}
                     </Col>
                 </Row>
             </Container>

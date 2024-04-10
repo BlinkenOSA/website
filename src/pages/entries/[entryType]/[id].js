@@ -38,7 +38,6 @@ const EntryPage = ({entriesData}) => {
 	const entryType = data['EntryType']
 	const originalCreationDate = data['OriginalCreationDate']
 	const createdAt = data['createdAt']
-	const eventType = data['EventType']
 
 	const breadcrumbObject = [
 		{ key: 'news', title: 'Blogs, Podcasts, Videos'},

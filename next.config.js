@@ -16,7 +16,10 @@ module.exports = nextTranslate({
       }, {
         protocol: 'http',
         hostname: 'www.refugees1956.org'
-      },
+      }, {
+        protocol: 'http',
+        hostname: '127.0.0.1'
+      }
     ],
   },
   experimental: {

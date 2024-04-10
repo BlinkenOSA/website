@@ -1,26 +1,20 @@
 import {Col, Container, Row} from "react-bootstrap";
 import Hero from "@/components/Hero/HeroV2";
 import HeroControl from "@/components/Hero/HeroControl";
-import SectionDivider from "@/components/IndexPage/SectionDivider";
 import CatalogPanel from "@/components/IndexPage/CatalogPanel";
 import CredoPanel from "@/components/IndexPage/CredoPanel";
-import CollectionCard from "@/components/Cards/CollectionCard";
 import PartnersPanel from "@/components/IndexPage/PartnersPanel";
 import NewsletterPanel from "@/components/IndexPage/NewsletterPanel";
-import SectionFlipper from "@/components/IndexPage/SectionFlipper";
 import style from "@/pages/pages.module.scss";
 import {fetchHero} from "@/utils/api/fetchHero";
 import {fetchEventsFrontPage} from "@/utils/api/fetchEvents";
 import {fetchNewsFrontPage} from "@/utils/api/fetchNews";
 import {fetchCollectionHighlightsFrontPage} from "@/utils/api/fetchCollectionHighlights";
 import {fetchEntriesFrontPage} from "@/utils/api/fetchEntries";
-import EntryCard from "@/components/Cards/EntryCard";
 import {fetchCredo} from "@/utils/api/fetchCredo";
-import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {useRef} from "react";
 import useTranslation from "next-translate/useTranslation";
 import EventsPanel from "@/components/IndexPage/EventsPanel";
 import NewsPanel from "@/components/IndexPage/NewsPanel";
