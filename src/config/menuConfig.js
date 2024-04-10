@@ -19,7 +19,7 @@ export const menuConfig = [
       { key: 'partner-projects', title: 'Partner Projects', url: '/about-us/partner-projects'},
       { key: 'staff', title: 'Staff', url: '/about-us/staff'},
       { key: 'join-us', title: 'Join Us', submenu: [
-          { key: 'visegrad-scholarship', title: 'Visegrad Scholarships', highlight: 'Information about the Visegrad Scholarship Program.' },
+          { key: 'visegrad-scholarship', title: 'Visegrad Scholarships', highlight: 'Information about the Visegrad Scholarship Program.', url: '/about-us/about-the-visegrad-scholarship' },
           { key: 'jobs', title: 'Jobs', highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid.', url: '/about-us/jobs' },
           { key: 'volunteering', title: 'Volunteering', highlight: "Work with us on arhcival processing, digitization projects, exhibitions. You won't get paid"}]
       },
@@ -61,7 +61,7 @@ export const menuConfig = [
           { key: 'open-call', title: 'Open call', highlight: "We are waiting for your application", url: '/academics/visegrad-open-call'}]
       },
       { key: 'fellows', title: 'Fellows', submenu: [
-          { key: 'current-fellows', title: 'Current Fellows',  highlight: "You can meet them, when you are in the Archivum."},
+          { key: 'current-fellows', title: 'Current Fellows',  highlight: "You can meet them, when you are in the Archivum.", url: '/academics/current-fellows'},
           { key: 'past-fellows', title: 'Past fellows', highlight: "All the participants of the Visegrad Fellowship Program."}]
       },
       { key: 'university-courses', title: 'University Courses' },
