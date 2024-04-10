@@ -62,7 +62,7 @@ export const menuConfig = [
       },
       { key: 'fellows', title: 'Fellows', submenu: [
           { key: 'current-fellows', title: 'Current Fellows',  highlight: "You can meet them, when you are in the Archivum.", url: '/academics/current-fellows'},
-          { key: 'past-fellows', title: 'Past fellows', highlight: "All the participants of the Visegrad Fellowship Program."}]
+          { key: 'past-fellows', title: 'Past fellows', highlight: "All the participants of the Visegrad Fellowship Program.", url: '/academics/past-fellows'}]
       },
       { key: 'university-courses', title: 'University Courses' },
       { key: 'edupro', title: 'Education Program', submenu: [

@@ -13,13 +13,18 @@ export const fetchCurrentFellowsList = (OSAUnits) => {
     return ['fellows', params]
 }
 
-export const fetchPastFellowsList = (OSAUnits) => {
+export const fetchPastFellowsList = (page) => {
     const params = {
         'populate': 'Image',
         'sort[0]': 'LastName',
         'sort[1]': 'FirstName',
         'filters[EndDate][$lte]': dayjs().format('YYYY-MM-DD'),
-        'pagination[pageSize]': 100
+        'pagination[page]': 1,
+        'pagination[pageSize]': 12,
+    }
+
+    if (page) {
+        params['pagination[page]'] = page
     }
 
     return ['fellows', params]

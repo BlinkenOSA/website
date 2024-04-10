@@ -85,7 +85,7 @@ const EntriesPage = ({initialData}) => {
 
     const [profileFilter, setProfileFilter] = useState(profile ? profile : '')
     const [entryTypeFilter, setEntryTypeFilter] = useState(entryType ? entryType : '')
-    const [selectedPage, setSelectedPage] = useState('')
+    const [selectedPage, setSelectedPage] = useState(page ? page : '')
 
     useEffect(() => {
         setSelectedPage(profile ? 1 : '')
@@ -119,10 +119,6 @@ const EntriesPage = ({initialData}) => {
             query: params,
         }, undefined, { shallow: true })
     }, [profileFilter, entryTypeFilter, selectedPage])
-
-    const breadcrumbObject = [
-        { key: 'collections', title: 'Collections'},
-    ]
 
     return (
         <div className={style.Page}>

@@ -9,21 +9,21 @@ import FellowCard from "@/components/Cards/FellowCard";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchCurrentFellowsList()
-    const [staffData] = await Promise.all([
+    const [fellowData] = await Promise.all([
         fetcher(url, params)
     ])
     return {
         props: {
             initialData: {
-                [unstable_serialize([url, params])]: staffData
+                [unstable_serialize([url, params])]: fellowData
             }
         }
     }
 })
 
-const FellowCards = ({selectedFilters}) => {
+const FellowCards = () => {
     const { data } = useSWR(
-        fetchCurrentFellowsList(selectedFilters),
+        fetchCurrentFellowsList(),
         ([url, params]) => clientFetcher(url, params)
     )
 
@@ -40,8 +40,6 @@ const FellowCards = ({selectedFilters}) => {
 }
 
 const FellowsPage = ({initialData}) => {
-    const [unitFilter, {clear, push, removeAt}] = useList([])
-
     return (
         <div className={style.Page}>
             <Container>
@@ -56,7 +54,7 @@ const FellowsPage = ({initialData}) => {
                     <Col xs={12}>
                         <Row>
                             <SWRConfig value={{ fallback: initialData }}>
-                                <FellowCards selectedFilters={unitFilter} />
+                                <FellowCards />
                             </SWRConfig>
                         </Row>
                     </Col>

@@ -26,6 +26,10 @@
   .ProgramHeaderRow {
     align-items: center;
     height: 80px;
+    position: sticky;
+    top: 80px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid $neutral_1000;
 
     .Date {
       text-align: left;
@@ -37,6 +41,10 @@
     align-items: center;
     height: 80px;
     cursor: pointer;
+
+    &:first-child {
+      border-top: none;
+    }
 
     &:hover {
       background-color: $neutral_100;
