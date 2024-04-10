@@ -16,11 +16,14 @@ const NewsletterPanel = ({type='landing', color='neutral'}) => {
                     {t('newsletter__content_02')}
                 </p>
                 <div className={style.Form}>
-                    <div className={style.Email}>
-                        <Input id={'email'} placeholder={t('newsletter__email')} style={{width: 100}} />
-                    </div>
                     <div className={style.Button}>
-                        <Button size={'large'} type={'primary'} color={color}>
+                        <Button
+                            size={'large'}
+                            type={'primary'}
+                            color={color}
+                            link={'https://newsletter.osaarchivum.org/public-programs'}
+                            linkTarget={'_blank'}
+                        >
                             {t('newsletter__subscribe')}
                         </Button>
                     </div>
