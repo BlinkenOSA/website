@@ -34,6 +34,7 @@ const StaffPage = ({staffData}) => {
 
     const name = data['Name']
     const bio = data['Bio']
+    const position = data['Position']
     const unit = data['Unit']
     const email = data['Email']
     const image = getImageUrl(data['Image'])
@@ -58,9 +59,11 @@ const StaffPage = ({staffData}) => {
                 <div style={{height: '48px'}} />
                 <Row>
                     <Col xs={8}>
-                        <div className={'subtitle-large'}>{unit}</div>
-                        <div className={'subtitle-small'}>{email}</div>
-                        <div style={{height: '48px'}} />
+                        <div className={'subtitle-large'}>{position}</div>
+                        <p>
+                            {unit}<br/>
+                            {email}
+                        </p>
                         <BlocksRenderer content={bio} />
                     </Col>
                     <Col xs={4}>
