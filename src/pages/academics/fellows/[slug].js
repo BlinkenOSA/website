@@ -77,6 +77,7 @@ const FellowPage = ({fellowData}) => {
                         </div>
                     </Col>
                 </Row>
+                <div style={{height: '36px'}} />
             </Container>
         </div>
     )
