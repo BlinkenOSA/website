@@ -75,6 +75,28 @@ const Content = ({contentObject, profile='Archivum'}) => {
 						</Col>
 					</Row>
 				)
+			case 'Full':
+				return (
+					<Row>
+						<Col xs={12}>
+							<div className={style.ImageColumn}>
+								{renderImages()}
+							</div>
+						</Col>
+						<Col xs={12}>
+							<BlocksRenderer content={content['Content']} />
+						</Col>
+					</Row>
+				)
+			default:
+				return (
+					<Row>
+						<Col xs={12}>
+							<BlocksRenderer content={content['Content']} />
+						</Col>
+					</Row>
+				)
+
 		}
 	}
 
