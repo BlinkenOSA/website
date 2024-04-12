@@ -88,16 +88,13 @@ const EntriesPage = ({initialData}) => {
     const [selectedPage, setSelectedPage] = useState(page ? page : '')
 
     useEffect(() => {
-        setSelectedPage(profile ? 1 : '')
-    }, [profile])
+        setSelectedPage(1)
+    }, [profileFilter])
 
     useEffect(() => {
-        setSelectedPage(entryType ? 1 : '')
-    }, [entryType])
+        setSelectedPage(1)
+    }, [entryTypeFilter])
 
-    useEffect(() => {
-        setSelectedPage(page ? page : '')
-    }, [page])
 
     useEffect(() => {
         const params = {}

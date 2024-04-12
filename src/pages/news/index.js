@@ -83,15 +83,12 @@ const NewsPage = ({initialData}) => {
     const {page, profile} = router.query;
 
     const [profileFilter, setProfileFilter] = useState(profile ? profile : '')
-    const [selectedPage, setSelectedPage] = useState('')
+    const [selectedPage, setSelectedPage] = useState(page ? page : '')
 
     useEffect(() => {
-        setSelectedPage(profile ? 1 : '')
-    }, [profile])
+        setSelectedPage(1)
+    }, [profileFilter])
 
-    useEffect(() => {
-        setSelectedPage(page ? page : '')
-    }, [page])
 
     useEffect(() => {
         const params = {}
