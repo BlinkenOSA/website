@@ -35,21 +35,13 @@ export const getServerSideProps = (async (context) => {
 	}
 })
 
-const breadcrumbObject = [
-	{ key: 'about-us', title: 'About Us'},
-	// { key: eventData['id'], title: data['Title']},
-]
-
 const ExternalPage = ({pageData}) => {
 	const router = useRouter();
 	const {pid} = router.query;
 	const data = pageData['data']['attributes'];
-	const profile = externalPageConfig[pid]['profile']
 
-	const content = [{
-		"__component": "contents.content",
-		"Content": data['Content']
-	}]
+	const content = data['Content']
+	const profile = externalPageConfig[pid]['profile']
 
 	return (
 		<div className={style.Page}>
