@@ -4,8 +4,7 @@ import {toCapitalize} from "@/utils/toCapitalize";
 export const fetchNewsFrontPage = (locale) => {
     const params = {
         'sort[0]': 'rank:asc',
-        'sort[1]': 'OriginalCreationDate:desc',
-        'sort[2]': 'createdAt:desc',
+        'sort[1]': 'createdAt:desc',
         'populate[0]': 'Image',
         'pagination[start]': 0,
         'pagination[limit]': 9,
@@ -36,8 +35,7 @@ export const fetchNewsDetail = (id) => {
 
 export const fetchNewsList = (page, profile, activityType) => {
     const params = {
-        'sort[0]': 'OriginalCreationDate:desc',
-        'sort[1]': 'createdAt:desc',
+        'sort[0]': 'createdAt:desc',
         'populate[0]': 'Image',
         'pagination[page]': 1,
         'pagination[pageSize]': 12,
