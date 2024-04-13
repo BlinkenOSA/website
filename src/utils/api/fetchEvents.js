@@ -3,7 +3,7 @@ import fetcher from "@/utils/api/fetcher";
 export const fetchEventsFrontPage = (locale) => {
     const params = {
         'sort[0]': 'rank:asc',
-        'sort[1]': 'createdAt:desc',
+        'sort[1]': 'StartDate:desc',
         'populate[0]': 'Image',
         'pagination[start]': 0,
         'pagination[limit]': 3,
