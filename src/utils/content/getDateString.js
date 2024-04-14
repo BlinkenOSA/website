@@ -1,10 +1,16 @@
 import dayjs from "dayjs";
 
 var customParseFormat = require('dayjs/plugin/customParseFormat')
+var utc = require('dayjs/plugin/utc')
+var timezone = require('dayjs/plugin/timezone')
+
 dayjs.extend(customParseFormat)
+dayjs.extend(utc)
+dayjs.extend(timezone)
 
+const getDateString = (dateString, format, type = 'event') => {
+    let dateTime;
 
-const getDateString = (dateString, format='YYYY-MM-DDTHH:MM:SS', type = 'event') => {
     if (dateString === null) {
         return ''
     }
@@ -28,8 +34,14 @@ const getDateString = (dateString, format='YYYY-MM-DDTHH:MM:SS', type = 'event')
             break
     }
 
-    const dateTime = dayjs(dateString, format)
-    return dateTime.format(template)
+    if (format) {
+        dateTime = dayjs(dateString)
+    } else {
+        dateTime = dayjs(dateString, format)
+    }
+
+    const dayjsHungary = dateTime.tz('Europe/Berlin')
+    return dayjsHungary.format(template)
 }
 
 export default getDateString;

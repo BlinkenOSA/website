@@ -17,6 +17,9 @@ import fetcher from "@/utils/api/fetcher";
 import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import clientFetcher from "@/utils/api/clientFetcher";
 import {useRouter} from "next/router";
+import {IconGeneralDown, IconGeneralUp} from "@/components/Icon/GeneralIcon";
+import dayjs from "dayjs";
+import {TRUE} from "sass";
 
 export const getServerSideProps = (async (context) => {
 	const parameters = context.query;
@@ -37,20 +40,22 @@ export const getServerSideProps = (async (context) => {
 
 const ProgramCalendarHeader = () => {
 	return (
-		<Row className={style.ProgramHeaderRow}>
-			<Col xs={3} className={style.Date}>
-				<span className={'subtitle-small'}>Date</span>
-			</Col>
-			<Col xs={1} className={style.Icon}>
-				<span className={'subtitle-small'}>Type</span>
-			</Col>
-			<Col xs={6}>
-				<span className={'subtitle-small'}>Title</span>
-			</Col>
-			<Col xs={2}>
-				<span className={'subtitle-small'}>Format / Language</span>
-			</Col>
-		</Row>
+		<>
+			<Row className={style.ProgramHeaderRow}>
+				<Col xs={3} className={style.Date}>
+					<span className={'subtitle-small'}>Date</span>
+				</Col>
+				<Col xs={1} className={style.Icon}>
+					<span className={'subtitle-small'}>Type</span>
+				</Col>
+				<Col xs={6}>
+					<span className={'subtitle-small'}>Title</span>
+				</Col>
+				<Col xs={2}>
+					<span className={'subtitle-small'}>Format / Language</span>
+				</Col>
+			</Row>
+		</>
 	)
 }
 
@@ -60,17 +65,18 @@ const ToolTipStuff = ({ id, children, title }) => (
 	</OverlayTrigger>
 );
 
-const ProgramDataRow = ({id, data, onTitleClick}) => {
+const ProgramDataRow = ({id, index, data, onTitleClick}) => {
 	const color = getColor(data['Profile'])
 	const icon = getIconByType(data['EventType'], 'normal', color)
 	const title = data['Title']
 	const language = data['Language']
 	const hostingType = data['HostingType']
-	const date = getDateString(data['StartDate'], 'YYYY-MM-DDTHH:MM:SS', 'eventFull')
+	const date = getDateString(data['StartDate'], undefined, 'eventFull')
+
 
 	return (
 		<>
-			<Row className={style.ProgramRow} onClick={() => onTitleClick(id)}>
+			<Row className={index === 0 ? `${style.ProgramRow} ${style.First}` : style.ProgramRow} onClick={() => onTitleClick(id)}>
 				<Col xs={3} className={style.Date}>
 					<div className={'subtitle-small'}>{date}</div>
 				</Col>
@@ -145,10 +151,36 @@ const ProgramRows = ({programTypeFilter, languageFilter, hostingTypeFilter}) => 
 		([url, params]) => clientFetcher(url, params)
 	)
 
-	return data && data['data'].map(program => {
+	const detectPastProgram = (index) => {
+		const startDate = dayjs(data['data'][index]['attributes']['StartDate'])
+		const now = dayjs()
+
+		if (index === 0) {
+			if (startDate < now) {
+				return true
+			}
+		} else {
+			const previousStartDate = dayjs(data['data'][index-1]['attributes']['StartDate'])
+			if (startDate < now && previousStartDate >= now) {
+				return true
+			}
+		}
+	}
+
+	return data && data['data'].map((program, idx) => {
 		return (
 			<React.Fragment key={`program_${program['id']}`}>
-				<ProgramDataRow id={program['id']} data={program['attributes']} onTitleClick={onTitleClick} />
+				{
+					detectPastProgram(idx) &&
+					<Row className={style.TimeInfoRow}>
+						<Col xs={12}>
+							<div className={style.TimeInfoElements}>
+								<span className={'subtitle-small'}>Past Programs</span>
+							</div>
+						</Col>
+					</Row>
+				}
+				<ProgramDataRow id={program['id']} data={program['attributes']} index={idx} onTitleClick={onTitleClick} />
 				<ProgramDetail id={program['id']} data={program['attributes']} isOpened={openedPrograms.includes(program['id'])} />
 			</React.Fragment>
 		)

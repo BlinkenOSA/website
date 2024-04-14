@@ -14,8 +14,8 @@ export const fetchPrograms = (type='All', language, hostingType) => {
 		'fields[8]': 'RegistrationLink',
 		'populate[0]': 'Image',
 		'sort[0]': 'StartDate:desc',
-		//'filters[StartDate][$gt]': dayjs().format('YYYY-MM-DD')
-		'filters[StartDate][$gt]': '1999-01-01'
+		'pagination[start]': 0,
+		'pagination[limit]': 100,
 	}
 
 	if (type !== 'All') {

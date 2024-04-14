@@ -4,7 +4,7 @@ const getCreationDate = (originalCreationDate, createdAt) => {
     if (originalCreationDate !== null) {
         return getDateString(originalCreationDate, 'YYYY-MM-DD', 'news')
     } else {
-        return getDateString(createdAt, 'YYYY-MM-DDTHH:mm:ss', 'news')
+        return getDateString(createdAt, undefined, 'news')
     }
 }
 

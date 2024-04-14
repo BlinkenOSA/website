@@ -1,6 +1,5 @@
 import style from "./EntryCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
-import getDateString from "@/utils/content/getDateString";
 import getImageUrl from "@/utils/content/getImageUrl";
 import getIconByType from "@/utils/content/getIconByType";
 import truncateWithEllipses from "@/utils/truncateWithEllipsis";

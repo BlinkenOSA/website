@@ -30,9 +30,25 @@
     top: 80px;
     background-color: #FFFFFF;
     border-bottom: 1px solid $neutral_1000;
+    z-index: 10;
 
     .Date {
       text-align: left;
+    }
+  }
+
+  .TimeInfoRow {
+    align-items: center;
+    height: 40px;
+    position: sticky;
+    top: 160px;
+    border-top: 1px solid $neutral_1000;
+    background-color: $sage_1000;
+    z-index: 10;
+
+    .TimeInfoElements {
+      display: flex;
+      align-items: center;
     }
   }
 
@@ -42,7 +58,7 @@
     height: 80px;
     cursor: pointer;
 
-    &:first-child {
+    &.First {
       border-top: none;
     }
 

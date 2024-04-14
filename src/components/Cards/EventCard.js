@@ -9,7 +9,7 @@ import truncateWithEllipsis from "@/utils/truncateWithEllipsis";
 
 const EventCard = ({id, data}) => {
     // Populate fields
-    const date = getDateString(data['StartDate'], 'YYYY-MM-DDTHH:MM:SS')
+    const date = getDateString(data['StartDate'], undefined)
     const title = data['Title']
     const description = data['CardText']
     const image = getImageUrl(data['Image'])
