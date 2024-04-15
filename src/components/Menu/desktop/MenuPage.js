@@ -1,11 +1,12 @@
 import style from "./MenuPage.module.scss"
 import {AnimatePresence, motion} from "framer-motion"
 import {IconGeneralRight} from "@/components/Icon/GeneralIcon";
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import SubmenuPage from "@/components/Menu/desktop/SubmenuPage";
 import {MenuDispatchContext} from "@/utils/context/MenuContext";
 import {useRouter} from "next/router";
 import useTranslation from "next-translate/useTranslation";
+import {useUpdateEffect} from "react-use";
 
 const MenuPage = ({menuItems, menuID, number, status}) => {
     const { t } = useTranslation('menu')
@@ -14,6 +15,12 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
 
     const dispatch = useContext(MenuDispatchContext);
     const router = useRouter();
+
+    useUpdateEffect(() => {
+        if (status === 'closed') {
+            setSelectedMenuItem('')
+        }
+    }, [status])
 
     const submenuContainer = {
         closed: { opacity: 0 },
