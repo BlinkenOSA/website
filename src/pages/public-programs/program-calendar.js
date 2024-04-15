@@ -17,9 +17,8 @@ import fetcher from "@/utils/api/fetcher";
 import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import clientFetcher from "@/utils/api/clientFetcher";
 import {useRouter} from "next/router";
-import {IconGeneralDown, IconGeneralUp} from "@/components/Icon/GeneralIcon";
+import {IconGeneralDown} from "@/components/Icon/GeneralIcon";
 import dayjs from "dayjs";
-import {TRUE} from "sass";
 
 export const getServerSideProps = (async (context) => {
 	const parameters = context.query;
@@ -61,7 +60,7 @@ const ProgramCalendarHeader = () => {
 
 const ToolTipStuff = ({ id, children, title }) => (
 	<OverlayTrigger overlay={<Tooltip id={id}>{title}</Tooltip>}>
-		<a href="#">{children}</a>
+		<div>{children}</div>
 	</OverlayTrigger>
 );
 
