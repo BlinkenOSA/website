@@ -4,7 +4,7 @@ import MenuPage from "@/components/Menu/desktop/MenuPage";
 
 const MenuItem = ({menuID, title, icon, number, color, menuOpen, onClick, menuItems}) => {
     const menuVariants = {
-        open: { left: (56 * (number - 1) - number)},
+        open: { left: (56 * (number - 1) - number + 200)},
         closed: { left: `calc(100% - ${(5 - number) * 56 - (5 - number)}px)`}
     }
 
