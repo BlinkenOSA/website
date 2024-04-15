@@ -3,6 +3,10 @@
 .InputGroup {
   width: 100%;
 
+  &.Bordered {
+    border: 1px solid $neutral_1000;
+  }
+
   :global .form-control {
     height: 48px;
     border: unset;

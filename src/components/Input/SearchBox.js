@@ -5,7 +5,7 @@ import {IconGeneralSearch} from "@/components/Icon/GeneralIcon";
 import useTranslation from "next-translate/useTranslation";
 import {useState} from "react";
 
-const SearchBox = ({disabled, onPressEnter, isMobile=false}) => {
+const SearchBox = ({disabled, placeholder, bordered=false, onPressEnter, isMobile=false}) => {
 	const [value, setValue] = useState('')
 	const { t } = useTranslation('header')
 
@@ -16,7 +16,7 @@ const SearchBox = ({disabled, onPressEnter, isMobile=false}) => {
 	}
 
 	return (
-		<InputGroup className={style.InputGroup}>
+		<InputGroup className={bordered ? `${style.InputGroup} ${style.Bordered}` : style.InputGroup}>
 			<InputGroup.Text id={disabled ? 'search-icon-disabled' : 'search-icon'}>
 				<IconGeneralSearch size={'small'} />
 			</InputGroup.Text>
@@ -28,7 +28,7 @@ const SearchBox = ({disabled, onPressEnter, isMobile=false}) => {
 					disabled={disabled}
 					onKeyDown={handleKeyDown}
 					onChange={(e) => setValue(e.target.value) }
-					placeholder={t('search')}
+					placeholder={placeholder ? `${placeholder}...` : t('search')}
 				/>
 			}
 		</InputGroup>

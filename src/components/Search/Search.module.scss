@@ -1,4 +1,5 @@
 @import "@/styles/colors.scss";
+@import "@/styles/variables.scss";
 
 .Search {
   display: flex;
@@ -9,10 +10,8 @@
 
 .SearchScreen {
   position: fixed;
-  width: 100%;
+  width: calc(100% - calc(4 * $menu-width - 4px));
   height: 100%;
-  left: 0;
-  top: 0;
-  background: $white;
-  z-index: 100;
+  right: calc(4 * $menu-width - 4px);
+  top: $header-height-desktop + 1px;
 }
