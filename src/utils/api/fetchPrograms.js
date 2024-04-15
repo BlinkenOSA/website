@@ -12,6 +12,7 @@ export const fetchPrograms = (type='All', language, hostingType) => {
 		'fields[6]': 'Profile',
 		'fields[7]': 'CardText',
 		'fields[8]': 'RegistrationLink',
+		'fields[9]': 'DescriptionShort',
 		'populate[0]': 'Image',
 		'sort[0]': 'StartDate:desc',
 		'pagination[start]': 0,
