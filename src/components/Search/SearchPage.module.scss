@@ -7,11 +7,13 @@
   height: 100%;
 
   .SearchBox {
+    position: relative;
     display: flex;
     height: calc(70% - $header-height-desktop);
     align-items: center;
     width: 80%;
     margin: 0 auto;
+    z-index: 2;
   }
 
   .WebsiteSearch {
@@ -21,6 +23,11 @@
     height: 100%;
     z-index: 2;
     border-right: 1px solid $neutral_1000;
+
+    img {
+      object-fit: cover;
+      filter: grayscale(100%)
+    }
   }
 
   .CatalogSearch {

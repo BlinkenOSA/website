@@ -4,6 +4,7 @@ import SearchBox from "@/components/Input/SearchBox";
 import Image from "next/image";
 import Button from "@/components/Button/Button";
 import {IconGeneralClose} from "@/components/Icon/GeneralIcon";
+import SearchBackground from "@/components/Search/SearchBackground";
 
 const SearchPage = ({searchOpen, onClose}) => {
     const searchPageVariables = {
@@ -36,6 +37,12 @@ const SearchPage = ({searchOpen, onClose}) => {
                     className={style.SearchBox}>
                     <SearchBox bordered={true} placeholder={'Search our catalog'} />
                 </motion.div>
+                <Image
+                    priority={true}
+                    alt={'Catalog search background'}
+                    src={'/images/search-catalog.jpg'}
+                    fill={true}
+                />
             </motion.div>
             <motion.div
                 animate={searchOpen ? 'open' : 'closed'}
@@ -46,7 +53,7 @@ const SearchPage = ({searchOpen, onClose}) => {
                 className={style.CatalogSearch}>
                 <Image
                     priority={true}
-                    alt={'Catalog background'}
+                    alt={'Search background'}
                     src={'/images/search.jpg'}
                     fill={true}
                 />
