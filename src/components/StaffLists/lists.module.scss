@@ -1,0 +1,88 @@
+@import "@/styles/colors.scss";
+
+.Link {
+  position: relative;
+  text-decoration: none;
+  padding: 2px 4px;
+  margin: -2px -4px;
+
+  &::before {
+    background-color: $aqua_1000;
+    content: "";
+    inset: 0;
+    position: absolute;
+    transform: scaleY(0.1);
+    transform-origin: bottom;
+    transition: transform 0.2s ease-in-out;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+}
+
+.ListWrapper {
+  margin: 32px 0;
+
+  :global .row {
+    --bs-gutter-x: 24px !important;
+  }
+
+  p {
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+}
+
+.Courses {
+  a {
+    @extend .Link
+  }
+}
+
+.Appearance {
+  li {
+    margin-bottom: 16px;
+
+    a {
+      @extend .Link
+    }
+  }
+}
+
+.Publications {
+  p {
+    margin-bottom: 18px;
+  }
+
+  li {
+    margin-bottom: 16px;
+
+    a {
+      @extend .Link
+    }
+  }
+}
+
+.Entry {
+  :global .row {
+    --bs-gutter-x: 32px !important;
+  }
+
+  .EntryInfoWrapper {
+    display: flex;
+    flex-direction: column;
+
+    .Description {
+      flex: 1;
+      padding: 24px 0;
+    }
+
+    .Icon {
+      display: flex;
+      gap: 4px;
+    }
+  }
+}

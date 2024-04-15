@@ -68,5 +68,11 @@
     flex: 1;
     position: relative;
     overflow: hidden;
+
+    .BackButton {
+      position: absolute;
+      top: 20px;
+      z-index: 100;
+    }
   }
 }

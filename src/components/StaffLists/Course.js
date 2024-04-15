@@ -9,7 +9,7 @@ const Course = ({data}) => {
     const link = data['Link']
 
     return (
-        <div className={style.ListWrapper}>
+        <div className={`${style.ListWrapper} ${style.Courses}`}>
             <div className={'subtitle-large'}>{title}</div>
             <div style={{height: '8px'}}/>
             <p>

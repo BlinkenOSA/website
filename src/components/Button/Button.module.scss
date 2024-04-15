@@ -97,6 +97,7 @@
 
   :global .btn-secondary-neutral {
     border: 1px solid $neutral_1000;
+    background-color: $white;
 
     &:hover {
       color: $neutral_1000;

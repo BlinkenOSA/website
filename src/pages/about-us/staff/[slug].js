@@ -4,10 +4,10 @@ import {Col, Container, Row, Tab, Tabs} from "react-bootstrap";
 import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 import getImageUrl from "@/utils/content/getImageUrl";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
-import Publication from "@/components/Lists/Publication";
-import Appearence from "@/components/Lists/Appearence";
-import Course from "@/components/Lists/Course";
-import Entry from "@/components/Lists/Entry";
+import Publication from "@/components/StaffLists/Publication";
+import Appearance from "@/components/StaffLists/Appearance";
+import Course from "@/components/StaffLists/Course";
+import Entry from "@/components/StaffLists/Entry";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -87,7 +87,7 @@ const StaffPage = ({staffData}) => {
                                         <Tab eventKey="appearences" title="Appearences">
                                             {
                                                 appearences.map(
-                                                    (app, idx) => <Appearence key={`appearence_${idx}`} data={app['attributes']} />
+                                                    (app, idx) => <Appearance key={`appearence_${idx}`} data={app['attributes']} />
                                                 )
                                             }
                                         </Tab>
@@ -117,7 +117,7 @@ const StaffPage = ({staffData}) => {
                                         <Tab eventKey="blogs" title="Blogs">
                                             {
                                                 entries.map(
-                                                    (entry, idx) => <Entry key={`entry_${idx}`} data={entry['attributes']} />
+                                                    (entry, idx) => <Entry key={`entry_${idx}`} id={entry['id']} data={entry['attributes']} />
                                                 )
                                             }
                                         </Tab>

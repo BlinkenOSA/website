@@ -8,7 +8,7 @@ const Publication = ({data}) => {
     const link = data['Link']
 
     return (
-        <div className={style.ListWrapper}>
+        <div className={`${style.ListWrapper} ${style.Publications}`}>
             <BlocksRenderer content={description} />
             {
                 link && <Link href={link}>{link}</Link>

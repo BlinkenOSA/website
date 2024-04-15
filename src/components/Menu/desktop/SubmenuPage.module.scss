@@ -9,13 +9,6 @@
   width: 100%;
 }
 
-.BackButton {
-  position: absolute;
-  top: 20px;
-  left: 400px;
-  z-index: 100;
-}
-
 .SubmenuWrapper {
   width: calc(100% - (3 * $menu-width));
   padding: 56px 56px 56px 0;
