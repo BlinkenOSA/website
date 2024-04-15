@@ -11,6 +11,7 @@ import DropdownFilter from "@/components/Filters/DropdownFilter";
 import ContentPagination from "@/components/Pagination/ContentPagination";
 import {profileFilterValues} from "@/utils/filterValues/profileFilterValues";
 import {entryTypeFilterValues} from "@/utils/filterValues/entryTypeFilterValues";
+import {useUpdateEffect} from "react-use";
 
 export const getServerSideProps = (async (context) => {
     const { entryType, ...parameters } = context.query;
@@ -83,20 +84,26 @@ const EntriesPage = ({initialData}) => {
     const router = useRouter();
     const {page, profile, entryType} = router.query;
 
-    const [profileFilter, setProfileFilter] = useState(profile ? profile : '')
-    const [entryTypeFilter, setEntryTypeFilter] = useState(entryType ? entryType : '')
-    const [selectedPage, setSelectedPage] = useState(page ? page : '')
+    const [profileFilter, setProfileFilter] = useState(profile)
+    const [entryTypeFilter, setEntryTypeFilter] = useState(entryType)
+    const [selectedPage, setSelectedPage] = useState(page)
 
-    useEffect(() => {
+    useUpdateEffect(() => {
+        setProfileFilter(profile)
+        setEntryTypeFilter(entryType)
+        setSelectedPage(page)
+    }, [profile, entryType, page])
+
+    useUpdateEffect(() => {
         setSelectedPage(1)
     }, [profileFilter])
 
-    useEffect(() => {
+    useUpdateEffect(() => {
         setSelectedPage(1)
     }, [entryTypeFilter])
 
 
-    useEffect(() => {
+    useUpdateEffect(() => {
         const params = {}
 
         if (entryTypeFilter) {

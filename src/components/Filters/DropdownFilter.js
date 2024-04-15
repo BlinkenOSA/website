@@ -14,14 +14,14 @@ const DropdownFilter = ({label, values, selectedValue, onSelect}) => {
 	return (
 		<>
 			<Dropdown className={style.Dropdown}>
-				<Dropdown.Toggle className={style.DropdownButton}> {selectedValue === '' ? label : selectedValue} <IconGeneralDown size={'small'} /> </Dropdown.Toggle>
+				<Dropdown.Toggle className={style.DropdownButton}> {!selectedValue ? label : selectedValue} <IconGeneralDown size={'small'} /> </Dropdown.Toggle>
 
 				<Dropdown.Menu className={style.DropdownMenu}>
 					{renderValues()}
 				</Dropdown.Menu>
 			</Dropdown>
 			{
-				selectedValue !== '' && <span className={style.Reset} onClick={() => onSelect('')}>Reset Filter</span>
+				selectedValue && <span className={style.Reset} onClick={() => onSelect('')}>Reset Filter</span>
 			}
 		</>
 	)

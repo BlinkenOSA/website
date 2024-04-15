@@ -10,6 +10,7 @@ import ContentPagination from "@/components/Pagination/ContentPagination";
 import {fetchNewsList} from "@/utils/api/fetchNews";
 import NewsCard from "@/components/Cards/NewsCard";
 import {profileFilterValues} from "@/utils/filterValues/profileFilterValues";
+import {useUpdateEffect} from "react-use";
 
 export const getServerSideProps = (async (context) => {
     const parameters = context.query;
@@ -82,15 +83,19 @@ const NewsPage = ({initialData}) => {
     const router = useRouter();
     const {page, profile} = router.query;
 
-    const [profileFilter, setProfileFilter] = useState(profile ? profile : '')
-    const [selectedPage, setSelectedPage] = useState(page ? page : '')
+    const [profileFilter, setProfileFilter] = useState(profile)
+    const [selectedPage, setSelectedPage] = useState(page)
 
-    useEffect(() => {
+    useUpdateEffect(() => {
+        setProfileFilter(profile)
+        setSelectedPage(page)
+    }, [profile, page])
+
+    useUpdateEffect(() => {
         setSelectedPage(1)
     }, [profileFilter])
 
-
-    useEffect(() => {
+    useUpdateEffect(() => {
         const params = {}
 
         if (profileFilter) {
