@@ -7,6 +7,12 @@
     margin-bottom: 24px;
   }
 
+  p {
+    strong {
+      font-family: var(--font-suisseIntlSemiBold);
+    }
+  }
+
   a {
     position: relative;
     text-decoration: none;
