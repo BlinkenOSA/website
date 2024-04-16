@@ -68,7 +68,7 @@
 
   .ImageFull {
     max-width: 60%;
-    margin: 0 auto;
+    margin: 24px auto;
   }
 
   .ImageColumn {
@@ -79,7 +79,7 @@
 
     .ImageWrapper {
       flex: 1;
-      padding: 48px 0;
+      padding: 16px 0;
 
       .StickyImage {
         position: sticky;

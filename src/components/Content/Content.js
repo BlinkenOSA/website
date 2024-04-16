@@ -161,7 +161,7 @@ const Content = ({contentObject, profile='Archivum'}) => {
 					return (
 						<>
 							{ renderContent(co) }
-							<div style={{height: '48px'}} />
+							<div style={{height: '24px'}} />
 						</>
 					)
 				})
