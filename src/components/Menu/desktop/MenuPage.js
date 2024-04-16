@@ -8,6 +8,7 @@ import {useRouter} from "next/router";
 import useTranslation from "next-translate/useTranslation";
 import {useUpdateEffect} from "react-use";
 import Button from "@/components/Button/Button";
+import {SearchDispatchContext} from "@/utils/context/SearchContext";
 
 const MenuPage = ({menuItems, menuID, number, status}) => {
     const { t } = useTranslation('menu')
@@ -16,6 +17,8 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
 
     const dispatch = useContext(MenuDispatchContext);
     const router = useRouter();
+
+    const searchDispatch = useContext(SearchDispatchContext);
 
     useUpdateEffect(() => {
         if (status === 'closed') {
@@ -56,6 +59,9 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
     const handleMenuClick = (e, url) => {
         e.preventDefault();
         dispatch({
+            type: 'close'
+        })
+        searchDispatch ({
             type: 'close'
         })
         router.push(url);

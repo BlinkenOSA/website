@@ -8,13 +8,15 @@ import {useContext} from "react";
 import {MenuDispatchContext} from "@/utils/context/MenuContext";
 import {useRouter} from "next/router";
 import useTranslation from "next-translate/useTranslation";
-import Button from "@/components/Button/Button";
+import {SearchDispatchContext} from "@/utils/context/SearchContext";
 
 const SubmenuPage = ({menuID, status, selectedSubmenu}) => {
     const { t } = useTranslation('menu')
 
     const dispatch = useContext(MenuDispatchContext);
     const router = useRouter();
+
+    const searchDispatch = useContext(SearchDispatchContext);
 
     const getSubmenuBackground = () => {
         const backgroundStatus = selectedSubmenu ? 'closed' : status
@@ -40,6 +42,9 @@ const SubmenuPage = ({menuID, status, selectedSubmenu}) => {
         if (url) {
             e.preventDefault();
             dispatch({
+                type: 'close'
+            })
+            searchDispatch ({
                 type: 'close'
             })
             router.push(url);
