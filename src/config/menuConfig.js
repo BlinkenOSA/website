@@ -81,9 +81,9 @@ export const menuConfig = [
     menuItems: [
       { key: 'program-calendar', title: 'Program Calendar', url: '/public-programs/program-calendar' },
       { key: 'galeria-centralis', title: 'Galeria Centralis', submenu: [
-          { key: 'current-exhibitions', title: '', url: 'https://galeriacentralis.osaarchivum.org'},
-          { key: 'online-exhibitions', title: '', url: 'https://galeriacentralis.osaarchivum.org/exhibitions?filter=virtual'},
-          { key: 'past-exhibitions', title: '', url: 'https://galeriacentralis.osaarchivum.org/exhibitions?filter=past'},
+          { key: 'current-exhibitions', title: '', url: 'https://galeriacentralis.osaarchivum.org', highlight: "See what's running on the website Galeria Centralis."},
+          { key: 'online-exhibitions', title: '', url: 'https://galeriacentralis.osaarchivum.org/exhibitions?filter=virtual', highlight: "Our online exhibition space."},
+          { key: 'past-exhibitions', title: '', url: 'https://galeriacentralis.osaarchivum.org/exhibitions?filter=past', highlight: "Everything what was on the menu at Galeria Centralis."},
           ]},
       { key: 'verzio', title: 'Verzio', url: '/external/verzio' },
       { key: 'public-history-projects', title: 'Public History Projects', url: '/public-programs/public-history-projects' },
