@@ -3,6 +3,8 @@ import staticPageConfig from "@/config/staticPageConfig";
 import style from "./style.module.scss";
 import {Col, Container, Row} from "react-bootstrap";
 import Content from "@/components/Content/Content";
+import PageHeader from "@/components/PageHeader/PageHeader";
+import {useRouter} from "next/router";
 
 export const getServerSideProps = (async (context) => {
     const { pid } = context.query;
@@ -32,18 +34,14 @@ export const getServerSideProps = (async (context) => {
 })
 
 const StaticPage = ({pageData}) => {
+    const router = useRouter();
+    const {pid} = router.query;
     const data = pageData['data']['attributes'];
 
     return (
         <div className={style.Page}>
+            <PageHeader title={data['Title']} image={staticPageConfig[pid]['header']} />
             <Container>
-                <div style={{height: '48px'}}/>
-                <Row>
-                    <Col xs={12}>
-                        <h1>{data['Title']}</h1>
-                    </Col>
-                </Row>
-                <div style={{height: '48px'}}/>
                 <Content contentObject={data['Content']} profile={'Collections'} />
             </Container>
         </div>
