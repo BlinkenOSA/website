@@ -55,7 +55,7 @@ export const menuConfig = [
     color: 'aqua',
     url: 'academics',
     menuItems: [
-      { key: 'research-and-publications', title: 'Our Research and Publications' },
+      // { key: 'research-and-publications', title: 'Our Research and Publications' },
       { key: 'visegrad-scholarship', title: 'Visegrad Scholarship', submenu: [
           { key: 'about-the-visegrad-fund', title: 'About the V Fund', highlight: "Find out more about the history of the Visegrad Fund", url: '/academics/about-the-visegrad-scholarship' },
           { key: 'open-call', title: 'Open call', highlight: "We are waiting for your application", url: '/academics/visegrad-open-call'}]
@@ -64,7 +64,7 @@ export const menuConfig = [
           { key: 'current-fellows', title: 'Current Fellows',  highlight: "You can meet them, when you are in the Archivum.", url: '/academics/current-fellows'},
           { key: 'past-fellows', title: 'Past fellows', highlight: "All the participants of the Visegrad Fellowship Program.", url: '/academics/past-fellows'}]
       },
-      { key: 'university-courses', title: 'University Courses' },
+      // { key: 'university-courses', title: 'University Courses' },
       { key: 'edupro', title: 'Education Program', submenu: [
           {key: 'for-teachers', title: 'For Teachers', url: 'https://edupro.osaarchivum.org/tanaroknak/'},
           {key: 'for-students', title: 'For Students', url: 'https://edupro.osaarchivum.org/diakok/'}
