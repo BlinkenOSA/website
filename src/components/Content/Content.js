@@ -5,6 +5,7 @@ import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import getImageUrl from "@/utils/content/getImageUrl";
 import getImageType from "@/utils/content/getImageType";
 import getColor from "@/utils/content/getColor";
+import YouTube from 'react-youtube';
 
 const Content = ({contentObject, profile='Archivum'}) => {
 	const color = getColor(profile)
@@ -20,6 +21,8 @@ const Content = ({contentObject, profile='Archivum'}) => {
 			// Image
 			case 'media.image':
 				return renderFullImage(content)
+			case 'media.video':
+				return renderVideo(content)
 		}
 	}
 
@@ -28,6 +31,31 @@ const Content = ({contentObject, profile='Archivum'}) => {
 			<Row>
 				<Col xs={12}>
 					<BlocksRenderer content={content['Content']} />
+				</Col>
+			</Row>
+		)
+	}
+
+	const renderVideo = (content) => {
+		const youtube = content['YouTube']
+		const caption = content['Caption']
+
+		const renderContent = () => {
+			if (youtube !== null) {
+				const youtubeURL = youtube.replace('https://youtu.be/', '')
+				return (
+					<div className={style.YouTubePlayer}>
+						<YouTube videoId={youtubeURL} />
+						<div className={style.Caption}>{caption}</div>
+					</div>
+				)
+			}
+		}
+
+		return (
+			<Row>
+				<Col xs={12}>
+					{renderContent()}
 				</Col>
 			</Row>
 		)
