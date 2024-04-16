@@ -11,7 +11,7 @@ import {Collapse} from 'react-collapse';
 import React, {useEffect, useState} from "react";
 import getImageUrl from "@/utils/content/getImageUrl";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
-import {useList} from "react-use";
+import {useList, useUpdateEffect} from "react-use";
 import Button from "@/components/Button/Button";
 import fetcher from "@/utils/api/fetcher";
 import useSWR, {SWRConfig, unstable_serialize} from "swr";
@@ -195,7 +195,7 @@ const ProgramCalendarPage = ({initialData}) => {
 	const [hostingTypeFilter, setHostingTypeFilter] = useState('')
 
 
-	useEffect(() => {
+	useUpdateEffect(() => {
 		const params = {}
 
 		if (programTypeFilter) {
