@@ -1,10 +1,8 @@
 import {fetchStaticPage} from "@/utils/api/fetchStaticPage";
-import staticPageConfig from "@/config/staticPageConfig";
 import style from "./style.module.scss";
-import {Col, Container, Row} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import Content from "@/components/Content/Content";
 import PageHeader from "@/components/PageHeader/PageHeader";
-import {useRouter} from "next/router";
 import getImageUrl from "@/utils/content/getImageUrl";
 
 export const getServerSideProps = (async (context) => {
