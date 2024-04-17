@@ -1,0 +1,23 @@
+@import "@/styles/colors.scss";
+
+.DividerLine {
+  border-top: 2px solid;
+  margin: 8px auto;
+  width: 90%;
+
+  &.mustard {
+    border-color: $mustard_1000;
+  }
+
+  &.orange {
+    border-color: $orange_1000;
+  }
+
+  &.sage {
+    border-color: $sage_1000;
+  }
+
+  &.aqua {
+    border-color: $aqua_1000;
+  }
+}

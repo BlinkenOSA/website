@@ -1,0 +1,17 @@
+
+.ImageColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+
+  .ImageWrapper {
+    flex: 1;
+    padding: 16px 0;
+
+    .StickyImage {
+      position: sticky;
+      top: 128px;
+    }
+  }
+}

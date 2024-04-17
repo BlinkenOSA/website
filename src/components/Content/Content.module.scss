@@ -58,38 +58,4 @@
       background: $aqua_1000;
     }
   }
-
-  .Caption {
-    margin-top: 8px;
-    color: $neutral_800;
-    font-size: 12px;
-    line-height: 16px;
-  }
-
-  .ImageFull {
-    max-width: 60%;
-    margin: 24px auto;
-  }
-
-  .ImageColumn {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100%;
-
-    .ImageWrapper {
-      flex: 1;
-      padding: 16px 0;
-
-      .StickyImage {
-        position: sticky;
-        top: 128px;
-      }
-    }
-  }
-
-  .YouTubePlayer {
-    max-width: 60%;
-    margin: 0 auto;
-  }
 }

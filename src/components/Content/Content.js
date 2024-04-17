@@ -6,6 +6,13 @@ import getImageUrl from "@/utils/content/getImageUrl";
 import getImageType from "@/utils/content/getImageType";
 import getColor from "@/utils/content/getColor";
 import YouTube from 'react-youtube';
+import Video from "@/components/Content/elements/Video";
+import ImageWithCaption from "@/components/Content/elements/ImageWithCaption";
+import ImageFull from "@/components/Content/elements/ImageFull";
+import ContentWithImage from "@/components/Content/elements/ContentWithImage";
+import ContentFull from "@/components/Content/elements/ContentFull";
+import DividerLine from "@/components/Content/elements/DividerLine";
+import DividerIcon from "@/components/Content/elements/DividerIcon";
 
 const Content = ({contentObject, profile='Archivum'}) => {
 	const color = getColor(profile)
@@ -14,144 +21,23 @@ const Content = ({contentObject, profile='Archivum'}) => {
 		switch (content['__component']) {
 			// ContentWithImage
 			case 'contents.content-left':
-				return renderContentWithImage(content)
+				return <ContentWithImage content={content} />
 			// ContentFull
 			case 'contents.content':
-				return renderContentFull(content)
+				return <ContentFull content={content} />
+			// DividerLine
+			case 'components.divider-line':
+				return <DividerLine profile={profile} content={content} />
+			case 'components.divider-icon':
+				// DividerIcon
+				return <DividerIcon profile={profile} content={content} />
 			// Image
 			case 'media.image':
-				return renderFullImage(content)
+				return <ImageFull content={content} />
+			// Video
 			case 'media.video':
-				return renderVideo(content)
+				return <Video content={content} />
 		}
-	}
-
-	const renderContentFull = (content) => {
-		return (
-			<Row>
-				<Col xs={12}>
-					<BlocksRenderer content={content['Content']} />
-				</Col>
-			</Row>
-		)
-	}
-
-	const renderVideo = (content) => {
-		const youtube = content['YouTube']
-		const caption = content['Caption']
-
-		const renderContent = () => {
-			if (youtube !== null) {
-				const youtubeURL = youtube.replace('https://youtu.be/', '')
-				return (
-					<div className={style.YouTubePlayer}>
-						<YouTube videoId={youtubeURL} />
-						<div className={style.Caption}>{caption}</div>
-					</div>
-				)
-			}
-		}
-
-		return (
-			<Row>
-				<Col xs={12}>
-					{renderContent()}
-				</Col>
-			</Row>
-		)
-	}
-
-	const renderContentWithImage = (content) => {
-		const imagePlacement = content['ImagePlacement']
-
-		const renderImages = () => {
-			return content['Images'].map((imageData, idx) => {
-				return (
-					<div className={style.ImageWrapper}>
-						<div className={style.StickyImage}>
-							{ renderImage(imageData) }
-						</div>
-					</div>
-				)
-			})
-		}
-
-		switch (imagePlacement) {
-			case 'Right':
-				return (
-					<Row>
-						<Col xs={8}>
-							<BlocksRenderer content={content['Content']} />
-						</Col>
-						<Col xs={4}>
-							<div className={style.ImageColumn}>
-								{renderImages()}
-							</div>
-						</Col>
-					</Row>
-				)
-			case 'Left':
-				return (
-					<Row>
-						<Col xs={4}>
-							<div className={style.ImageColumn}>
-								{renderImages()}
-							</div>
-						</Col>
-						<Col xs={8}>
-							<BlocksRenderer content={content['Content']} />
-						</Col>
-					</Row>
-				)
-			case 'Full':
-				return (
-					<Row>
-						<Col xs={12}>
-							<div className={style.ImageColumn}>
-								{renderImages()}
-							</div>
-						</Col>
-						<Col xs={12}>
-							<BlocksRenderer content={content['Content']} />
-						</Col>
-					</Row>
-				)
-			default:
-				return (
-					<Row>
-						<Col xs={12}>
-							<BlocksRenderer content={content['Content']} />
-						</Col>
-					</Row>
-				)
-
-		}
-	}
-
-	const renderFullImage = (content) => {
-		return (
-			<Row>
-				<Col xs={12}>
-					<div className={style.ImageFull}>
-						{ renderImage(content) }
-					</div>
-				</Col>
-			</Row>
-		)
-	}
-
-	const renderImage = (imageContent) => {
-		const source = getImageUrl(imageContent['Image'])
-		const caption = imageContent['Caption']
-
-		return (
-			<div>
-				<MaskedImage src={source} type={getImageType(imageContent['Image'])} />
-				{
-					(caption && caption !== '') && <div className={style.Caption}>{caption}</div>
-				}
-			</div>
-		)
 	}
 
 	return (
