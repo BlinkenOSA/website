@@ -3,6 +3,7 @@ import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import Button from "@/components/Button/Button";
 import getImageUrl from "@/utils/content/getImageUrl";
 import {Col, Container, Row} from "react-bootstrap";
+import getColor from "@/utils/content/getColor";
 
 const HeroV2 = ({data}) => {
 
@@ -16,6 +17,8 @@ const HeroV2 = ({data}) => {
     const subtitle_2 = data['Subtitle2ndRow']
     const buttonText = data['ButtonText']
     const buttonLink = data['ButtonLink']
+    const profile = data['Profile']
+    const color = getColor(profile)
     const image = getImageUrl(data['Image'])
 
     const generateButton = () => {
@@ -98,7 +101,7 @@ const HeroV2 = ({data}) => {
             <div className={style.PosterWrapper}>
                 <MaskedImage src={image} type={'hero'}/>
             </div>
-            <div className={style.Background}/>
+            <div className={`${style.Background} ${style[color]}`}/>
         </div>
     )
 }

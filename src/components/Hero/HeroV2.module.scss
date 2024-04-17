@@ -95,9 +95,24 @@
     position: absolute;
     width: 56%;
     height: 100%;
-    background-color: rgba($aqua_1000, 0.8);
     margin-right: -150px;
     clip-path: polygon(0% 0, 100% 0, 100% 0%, 85% 100%, 0 100%, 0 5%);
     z-index: 2;
+
+    &.mustard {
+      background-color: rgba($mustard_1000, 0.8);
+    }
+
+    &.orange {
+      background-color: rgba($orange_1000, 0.8);
+    }
+
+    &.aqua {
+      background-color: rgba($aqua_1000, 0.8);
+    }
+
+    &.sage {
+      background-color: rgba($sage_1000, 0.8);
+    }
   }
 }

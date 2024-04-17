@@ -1,9 +1,7 @@
-import style from "./LabeledData.module.scss";
-
-const LabeledData = ({label, data}) => {
+const LabeledData = ({label, data, marginBottom=true}) => {
     return (
         data !== null &&
-        <div className={style.LabeledData}>
+        <div style={marginBottom ? {marginBottom: '8px'} : undefined}>
             <span className={'subtitle-small'}>{label}: </span>
             <span>{data}</span>
         </div>

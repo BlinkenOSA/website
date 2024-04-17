@@ -1,3 +1,5 @@
+import fetcher from "@/utils/api/fetcher";
+
 export const fetchJobs = (jobType) => {
     const params = {
         'sort[0]': 'createdAt:desc',
@@ -15,4 +17,13 @@ export const fetchJobs = (jobType) => {
     }
 
     return ['jobs', params]
+}
+
+export const fetchJobDetail = (slug) => {
+    const params = {
+        'populate[0]': 'Image',
+        'filters[Slug][$eq]': slug
+    }
+
+    return fetcher(`jobs`, params)
 }

@@ -9,7 +9,8 @@ const JobCard = ({id, data}) => {
     const duration = data['Duration']
     const location = data['Location']
     const contractType = data['ContractType']
-    const salary = ['Salary']
+    const salary = data['Salary']
+    const slug = data['Slug']
 
     return (
         <div className={style.Wrapper}>
@@ -21,7 +22,7 @@ const JobCard = ({id, data}) => {
             <LabeledData label={'Salary'} data={salary} />
             <LabeledData label={'Contract Type'} data={contractType} />
             <div style={{marginTop: '24px'}}>
-                <Button type={'primary'} color={'mustard'} size={'large'}>
+                <Button type={'primary'} color={'mustard'} size={'large'} link={`/about-us/jobs/${slug}`}>
                     Details and Application
                 </Button>
             </div>
