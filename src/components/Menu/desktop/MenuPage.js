@@ -148,17 +148,6 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
                 </motion.div>
             </div>
             <div className={style.SubmenuSecondLevel}>
-                <motion.div
-                    initial={'closed'}
-                    variants={closeButtonVariants}
-                    animate={status}
-                    className={style.BackButton}
-                    style={{right: `${(4 - number) * 56 + 32}px`}}
-                >
-                    <Button type={'secondary'} color={'neutral'} size={'medium'} onClick={handleClose}>
-                        <IconGeneralClose/>
-                    </Button>
-                </motion.div>
                 <SubmenuPage menuID={menuID} status={status} selectedSubmenu={getSelectedSubmenu()} />
             </div>
         </div>

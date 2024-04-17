@@ -10,6 +10,7 @@ import MobileMenu from "@/components/Menu/mobile/MobileMenu";
 
 import {MenuProvider} from "@/utils/context/MenuContext";
 import {SearchProvider} from "@/utils/context/SearchContext";
+import MenuOpenButton from "@/components/Layout/desktop/MenuOpenButton";
 
 const Layout = ({ children }) => {
     return (
@@ -18,6 +19,7 @@ const Layout = ({ children }) => {
                 <div className={style.Header}>
                     <Media greaterThanOrEqual="lg">
                         <DesktopHeader />
+                        <MenuOpenButton />
                     </Media>
                     <Media lessThan="lg">
                         <MobileHeader />
