@@ -1,13 +1,11 @@
 import {Col, Container, Row} from "react-bootstrap";
 import style from "@/pages/pages.module.scss";
-import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {fetchStaffList} from "@/utils/api/fetchStaff";
 import StaffCard from "@/components/Cards/StaffCard";
 import VerticalFilters from "@/components/Filters/VerticalFilters";
 import {useList} from "react-use";
 import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import fetcher from "@/utils/api/fetcher";
-import {fetchCollectionHighlightsList} from "@/utils/api/fetchCollectionHighlights";
 import clientFetcher from "@/utils/api/clientFetcher";
 
 export const getServerSideProps = (async () => {

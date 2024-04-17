@@ -8,37 +8,27 @@ import {useRouter} from "next/router";
 import getImageUrl from "@/utils/content/getImageUrl";
 
 export const getServerSideProps = (async (context) => {
-    const { pid } = context.query;
+    const { slug } = context.query;
 
-    if (pid in staticPageConfig) {
-        const identifier = staticPageConfig[pid]['id']
-        const [pageData] = await Promise.all([
-            fetchStaticPage(identifier)
-        ])
+    const [pageData] = await Promise.all([
+        fetchStaticPage(slug)
+    ])
 
-        if (pageData['data'] === null) {
-            return {
-                notFound: true,
-            }
-        }
-
-        return {
-            props: {
-                pageData
-            }
-        }
-    } else {
+    if (pageData['data'].length === 0) {
         return {
             notFound: true,
+        }
+    }
+
+    return {
+        props: {
+            pageData
         }
     }
 })
 
 const StaticPage = ({pageData}) => {
-    const router = useRouter();
-    const {pid} = router.query;
-
-    const data = pageData['data']['attributes'];
+    const data = pageData['data'][0]['attributes'];
     const image = getImageUrl(data['CardImage'])
 
     return (

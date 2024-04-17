@@ -9,9 +9,9 @@ export const menuConfig = [
     url: '/about',
     menuItems: [
       { key: 'the-archivum', title: 'The Archivum', submenu: [
-          { key: 'about-us-menu', title: 'About Us', url: '/about-us/archivum' },
+          { key: 'about-us-menu', title: 'About Us', url: '/about-us/about-the-archivum' },
           { key: 'vera-and-donald-blinken', title: 'Vera and Donald Blinken', url: '/about-us/vera-and-donald-blinken'},
-          { key: 'goldberger-house', title: 'Goldberger House', url: '/about-us/goldberger-house'},
+          { key: 'goldberger-house', title: 'Goldberger House', url: '/about-us/the-goldberger-house'},
           { key: 'what-archives-are', title: 'What are archives?', url: '/about-us/what-are-archives'},
         ]
       },
