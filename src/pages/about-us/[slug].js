@@ -29,7 +29,7 @@ export const getServerSideProps = (async (context) => {
 
 const StaticPage = ({pageData}) => {
     const data = pageData['data'][0]['attributes'];
-    const image = getImageUrl(data['CardImage'])
+    const image = getImageUrl(data['CardImage'], 'full')
 
     return (
         <div className={style.Page}>
