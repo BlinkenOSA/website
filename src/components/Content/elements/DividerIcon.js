@@ -4,7 +4,7 @@ import {Col, Row} from "react-bootstrap";
 import getIconByProfile from "@/utils/content/getIconByProfile";
 
 
-const DividerIcon = ({content, profile, numberOfIcons=3}) => {
+const DividerIcon = ({content, profile, numberOfIcons=1}) => {
     const placement = content['Placement']
     const color = getColor(profile)
     const icon = getIconByProfile(profile, 'small', color)
