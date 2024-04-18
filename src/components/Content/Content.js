@@ -13,6 +13,7 @@ import ContentWithImage from "@/components/Content/elements/ContentWithImage";
 import ContentFull from "@/components/Content/elements/ContentFull";
 import DividerLine from "@/components/Content/elements/DividerLine";
 import DividerIcon from "@/components/Content/elements/DividerIcon";
+import TextBox from "@/components/Content/elements/TextBox";
 
 const Content = ({contentObject, profile='Archivum'}) => {
 	const color = getColor(profile)
@@ -25,11 +26,13 @@ const Content = ({contentObject, profile='Archivum'}) => {
 			// ContentFull
 			case 'contents.content':
 				return <ContentFull content={content} />
+			case 'contents.text-box':
+				return <TextBox content={content} />
 			// DividerLine
 			case 'components.divider-line':
 				return <DividerLine profile={profile} content={content} />
+			// DividerIcon
 			case 'components.divider-icon':
-				// DividerIcon
 				return <DividerIcon profile={profile} content={content} />
 			// Image
 			case 'media.image':

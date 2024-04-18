@@ -1,0 +1,8 @@
+@import "@/styles/colors.scss";
+
+.TextBox {
+  width: 100%;
+  background-color: $neutral_100;
+  clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
+  padding: 24px;
+}
