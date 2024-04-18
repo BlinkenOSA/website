@@ -43,12 +43,13 @@
     position: sticky;
     top: 160px;
     border-top: 1px solid $neutral_1000;
-    background-color: $sage_1000;
+    background-color: $neutral_300;
     z-index: 10;
 
     .TimeInfoElements {
       display: flex;
       align-items: center;
+      justify-content: center;
     }
   }
 

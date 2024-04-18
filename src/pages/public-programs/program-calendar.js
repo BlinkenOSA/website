@@ -174,7 +174,7 @@ const ProgramRows = ({programTypeFilter, languageFilter, hostingTypeFilter}) => 
 					<Row className={style.TimeInfoRow}>
 						<Col xs={12}>
 							<div className={style.TimeInfoElements}>
-								<span className={'subtitle-small'}>Past Programs</span> <IconGeneralDown />
+								<span className={'subtitle-small'}>Past Programs</span>
 							</div>
 						</Col>
 					</Row>
