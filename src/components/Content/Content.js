@@ -14,6 +14,7 @@ import ContentFull from "@/components/Content/elements/ContentFull";
 import DividerLine from "@/components/Content/elements/DividerLine";
 import DividerIcon from "@/components/Content/elements/DividerIcon";
 import TextBox from "@/components/Content/elements/TextBox";
+import Quote from "@/components/Content/elements/Quote";
 
 const Content = ({contentObject, profile='Archivum'}) => {
 	const color = getColor(profile)
@@ -26,8 +27,11 @@ const Content = ({contentObject, profile='Archivum'}) => {
 			// ContentFull
 			case 'contents.content':
 				return <ContentFull content={content} />
+			// TextBox
 			case 'contents.text-box':
 				return <TextBox content={content} />
+			case 'contents.quote':
+				return <Quote profile={profile} content={content} />
 			// DividerLine
 			case 'components.divider-line':
 				return <DividerLine profile={profile} content={content} />

@@ -17,6 +17,22 @@
     display: none;
   }
 
+  blockquote {
+    position: relative;
+    margin: 48px 0;
+    font-size: 18px;
+    padding-left: 50px;
+
+    &:before {
+      position: absolute;
+      height: 100%;
+      width: 10px;
+      top: 0;
+      left: 0;
+      content: "";
+    }
+  }
+
   a {
     position: relative;
     text-decoration: none;
@@ -40,25 +56,25 @@
   }
 
   &.mustard {
-    a::before {
+    blockquote::before, a::before {
       background: $mustard_1000;
     }
   }
 
   &.orange {
-    a::before {
+    blockquote::before, a::before {
       background: $orange_1000;
     }
   }
 
   &.sage {
-    a::before {
+    blockquote::before, a::before {
       background: $sage_1000;
     }
   }
 
   &.aqua {
-    a::before {
+    blockquote::before, a::before {
       background: $aqua_1000;
     }
   }
