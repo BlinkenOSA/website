@@ -1,7 +1,8 @@
 .Authors {
   display: flex;
-  flex-direction: column;
+  gap: 24px;
   align-items: flex-end;
+  justify-content: flex-end;
 
   .AuthorBadge {
     display: flex;
