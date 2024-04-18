@@ -94,7 +94,7 @@ const StaffPage = ({staffData}) => {
                                     }
                                     {
                                         courses.length > 0 &&
-                                        <Tab eventKey="courses" title="Courses">
+                                        <Tab eventKey="courses" title="Courses taught">
                                             {
                                                 courses.map(
                                                     (course, idx) => <Course key={`course_${idx}`} data={course['attributes']} />
