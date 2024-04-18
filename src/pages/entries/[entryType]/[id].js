@@ -7,6 +7,7 @@ import Authors from "@/components/Authors/Authors";
 import getCreationDate from "@/utils/content/getCreationDate";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import {toCapitalize} from "@/utils/toCapitalize";
+import LabeledData from "@/components/LabeledData/LabeledData";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -60,8 +61,11 @@ const EntryPage = ({entriesData}) => {
 				<div style={{height: '48px'}}/>
 				<Row>
 					<Col xs={6}>
-						<div>
-							<span>{getCreationDate(originalCreationDate, createdAt)}</span>
+						<div className={style.CreationDate}>
+							<LabeledData
+								marginBottom={0}
+								data={getCreationDate(originalCreationDate, createdAt)}
+								label={'Published'}/>
 						</div>
 					</Col>
 					<Col xs={6}>
