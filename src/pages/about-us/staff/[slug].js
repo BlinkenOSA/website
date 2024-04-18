@@ -84,7 +84,7 @@ const StaffPage = ({staffData}) => {
                                 <Tabs className="mb-3">
                                     {
                                         appearences.length > 0 &&
-                                        <Tab eventKey="appearences" title="Appearences">
+                                        <Tab eventKey="appearences" title="Media outreach">
                                             {
                                                 appearences.map(
                                                     (app, idx) => <Appearance key={`appearence_${idx}`} data={app['attributes']} />
