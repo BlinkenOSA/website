@@ -1,5 +1,5 @@
 import {fetchCollectionHighlightsList} from "@/utils/api/fetchCollectionHighlights";
-import style from "./style.module.scss";
+import style from "../style.module.scss";
 import {Col, Container, Row} from "react-bootstrap";
 import CollectionCard from "@/components/Cards/CollectionCard";
 import HorizontalFilters from "@/components/Filters/HorizontalFilters";
@@ -68,6 +68,7 @@ const CollectionHighlightsPage = ({initialData}) => {
                         <CollectionCards selectedFilter={selectedFilter} />
                     </SWRConfig>
                 </Row>
+                <div style={{height: '48px'}} />
             </Container>
         </div>
     )

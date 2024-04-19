@@ -11,6 +11,7 @@ const CollectionCard = ({data}) => {
     const description = data['CardText']
     const types = data['MaterialTypes']
     const contentTypes = data['ContentTypes'].join(', ')
+    const slug = data['Slug']
 
     const chooseIcon = (type, key) => {
       switch(type) {
@@ -45,12 +46,20 @@ const CollectionCard = ({data}) => {
                 <div className={style.Icons}>{getIcons()}</div>
             </div>
             <div className={style.Image}>
-                <MaskedImage src={image} type={'landscape'} />
+                <a href={`/collections/collection-highlights/${slug}`}>
+                    <MaskedImage src={image} type={'landscape'} />
+                </a>
             </div>
-            <h3 className={style.Title}>{truncateWithEllipses(title, 50)}</h3>
-            <div className={style.Description}>
-                {truncateWithEllipses(description, 190)}
-            </div>
+            <a href={`/collections/collection-highlights/${slug}`}>
+                <h3 className={style.Title}>
+                    {truncateWithEllipses(title, 50)}
+                </h3>
+            </a>
+            <a href={`/collections/collection-highlights/${slug}`}>
+                <div className={style.Description}>
+                    {truncateWithEllipses(description, 190)}
+                </div>
+            </a>
             <div className={style.CollectionType}>
                 {contentTypes}
             </div>
