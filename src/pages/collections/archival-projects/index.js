@@ -1,7 +1,7 @@
 import {Col, Container, Row} from "react-bootstrap";
 import style from "@/pages/pages.module.scss";
 import {fetchArchivalProjects, fetchPartnerProjects} from "@/utils/api/fetchProjects";
-import PartnerProjectCard from "@/components/Cards/PartnerProjectCard";
+import ProjectCard from "@/components/Cards/ProjectCard";
 
 export const getServerSideProps = (async () => {
     const [projectsData] = await Promise.all([
@@ -19,7 +19,7 @@ const ArchivalProjectsPage = ({projectsData}) => {
         return projectsData["data"].map(project => {
             return (
                 <Col xs={6}>
-                    <PartnerProjectCard
+                    <ProjectCard
                         key={project["id"]}
                         data={project['attributes']}
                         profile={'Collections'}

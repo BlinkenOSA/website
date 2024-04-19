@@ -2,7 +2,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import style from "@/pages/pages.module.scss";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {fetchPartnerProjects} from "@/utils/api/fetchProjects";
-import PartnerProjectCard from "@/components/Cards/PartnerProjectCard";
+import ProjectCard from "@/components/Cards/ProjectCard";
 
 export const getServerSideProps = (async () => {
     const [projectsData] = await Promise.all([
@@ -20,9 +20,10 @@ const PartnerProjectsPage = ({projectsData}) => {
         return projectsData["data"].map(project => {
             return (
                 <Col xs={6}>
-                    <PartnerProjectCard
+                    <ProjectCard
                         key={project["id"]}
                         data={project['attributes']}
+                        profile={'Archivum'}
                     />
                 </Col>
             )
