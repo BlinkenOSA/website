@@ -50,16 +50,16 @@ const CollectionCard = ({data}) => {
                     <MaskedImage src={image} type={'landscape'} />
                 </a>
             </div>
-            <a href={`/collections/collection-highlights/${slug}`}>
-                <h3 className={style.Title}>
+            <h3 className={style.Title}>
+                <a href={`/collections/collection-highlights/${slug}`}>
                     {truncateWithEllipses(title, 50)}
-                </h3>
-            </a>
-            <a href={`/collections/collection-highlights/${slug}`}>
-                <div className={style.Description}>
+                </a>
+            </h3>
+            <div className={style.Description}>
+                <a href={`/collections/collection-highlights/${slug}`}>
                     {truncateWithEllipses(description, 190)}
-                </div>
-            </a>
+                </a>
+            </div>
             <div className={style.CollectionType}>
                 {contentTypes}
             </div>
