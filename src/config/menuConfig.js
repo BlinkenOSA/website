@@ -44,7 +44,7 @@ export const menuConfig = [
       },
       { key: 'collection-highlights', title: 'Collection Highlights', url: '/collections/collection-highlights' },
       { key: 'archival-projects', title: 'Archival Projects', url: '/collections/archival-projects' },
-      { key: 'donate-your-archive', title: 'Donate your Archive', url: '/collections/donate-your-archive' },
+      { key: 'donate-your-archive', title: 'Donate your Archive', url: '/collections/donate-your-materials' },
       { key: 'collections-news-and-blog', title: 'Archival News', url: '/news?profile=Collections'},
       { key: 'blog', title: 'Blog', url: '/entries'}
     ]
