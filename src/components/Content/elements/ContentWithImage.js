@@ -6,12 +6,12 @@ import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 const ContentWithImage = ({content}) => {
     const imagePlacement = content['ImagePlacement']
 
-    const renderImages = () => {
+    const renderImages = (size) => {
         return content['Images'].map((imageData, idx) => {
             return (
                 <div className={style.ImageWrapper}>
                     <div className={style.StickyImage}>
-                        <ImageWithCaption imageContent={imageData} />
+                        <ImageWithCaption imageContent={imageData} size={size} />
                     </div>
                 </div>
             )
@@ -27,7 +27,7 @@ const ContentWithImage = ({content}) => {
                     </Col>
                     <Col xs={4}>
                         <div className={style.ImageColumn}>
-                            {renderImages()}
+                            {renderImages('small')}
                         </div>
                     </Col>
                 </Row>
@@ -37,7 +37,7 @@ const ContentWithImage = ({content}) => {
                 <Row>
                     <Col xs={4}>
                         <div className={style.ImageColumn}>
-                            {renderImages()}
+                            {renderImages('small')}
                         </div>
                     </Col>
                     <Col xs={8}>
@@ -50,7 +50,7 @@ const ContentWithImage = ({content}) => {
                 <Row>
                     <Col xs={12}>
                         <div className={style.ImageColumn}>
-                            {renderImages()}
+                            {renderImages('large')}
                         </div>
                     </Col>
                     <Col xs={12}>

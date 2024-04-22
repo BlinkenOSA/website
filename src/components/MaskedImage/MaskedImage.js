@@ -5,8 +5,12 @@ import Image from 'next/image';
  *
  * @param type One of 'landscape', 'portrait', 'hero'
  */
-const MaskedImage = ({src, type='landscape', alt="Image", mask=true}) => {
+const MaskedImage = ({src, aspectRatio, type='landscape', alt="Image", mask=true}) => {
     const getStyle = () => {
+        if (aspectRatio) {
+            return style.MaskedImageBase
+        }
+
         switch (type) {
             case 'landscape':
                 return style.Landscape
@@ -22,7 +26,9 @@ const MaskedImage = ({src, type='landscape', alt="Image", mask=true}) => {
     }
 
     return (
-        <div className={mask ? getStyle() : `${getStyle()} ${style.NoMask}`}>
+        <div className={mask ? getStyle() : `${getStyle()} ${style.NoMask}`}
+             style={{aspectRatio: aspectRatio ? aspectRatio : undefined}}
+        >
             <Image
                 alt={alt}
                 src={src}

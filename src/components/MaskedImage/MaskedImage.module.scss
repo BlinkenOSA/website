@@ -19,6 +19,10 @@
   }
 }
 
+.ImageWithDimensions {
+  @extend .MaskedImageBase;
+}
+
 .Landscape {
   @extend .MaskedImageBase;
   aspect-ratio: 4 / 3;

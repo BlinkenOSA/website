@@ -7,7 +7,7 @@ const ImageFull = ({content}) => {
         <Row>
             <Col xs={12}>
                 <div className={style.ImageFull}>
-                    <ImageWithCaption imageContent={content} />
+                    <ImageWithCaption imageContent={content} size={'large'} />
                 </div>
             </Col>
         </Row>
