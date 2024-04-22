@@ -9,7 +9,7 @@ const Authors = ({author, authorStaff}) => {
             {
                 author !== null &&
                 <div className={style.AuthorBadge}>
-                    <div style={{width: '50px'}} />
+                    <div style={{width: '48px'}} />
                     <div className={`subtitle-small`}>{author}</div>
                 </div>
             }
