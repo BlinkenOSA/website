@@ -1,4 +1,3 @@
-import getImageUrl from "@/utils/content/getImageUrl";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import getImageType from "@/utils/content/getImageType";
 import style from "./ImageWithCaption.module.scss";
