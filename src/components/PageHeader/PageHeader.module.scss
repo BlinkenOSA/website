@@ -32,9 +32,18 @@
       display: inline-block;
       clip-path: polygon(10% 0, 100% 0, 100% 95%, 90% 100%, 0 100%, 0 5%);
 
-
       h1 {
         color: $neutral_100;
+      }
+    }
+
+    .Breadcrumb {
+      display: flex;
+      align-items: center;
+      color: $neutral_100;
+
+      img {
+        filter: brightness(0) invert(1);
       }
     }
   }

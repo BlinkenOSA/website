@@ -31,7 +31,12 @@ const StaticPage = ({pageData}) => {
 
     return (
         <div className={style.Page}>
-            <PageHeader title={data['Title']} image={image} scrollScale={0.5}/>
+            <PageHeader
+                title={data['Title']}
+                breadCrumb={'About Us'}
+                menu={'about-us'}
+                image={image}
+                scrollScale={0.5}/>
             <Container>
                 <Content contentObject={data['Content']} profile={'Collections'} />
             </Container>

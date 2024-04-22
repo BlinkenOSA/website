@@ -27,7 +27,11 @@ const AnnualReportsPage = ({reportData}) => {
 
     return (
         <div className={style.Page}>
-            <PageHeader title={'Annual Reports'} image={'/images/header-annual-reports.jpg'} />
+            <PageHeader
+                title={'Annual Reports'}
+                breadCrumb={'About Us'}
+                menu={'about-us'}
+                image={'/images/header-annual-reports.jpg'} />
             <Container>
                 <Row>
                     <Col xs={12}>

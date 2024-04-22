@@ -1,25 +1,63 @@
 import {Col, Container, Row} from "react-bootstrap";
 import style from "./PageHeader.module.scss";
-import {useRef} from "react";
+import {useContext, useRef} from "react";
 import {motion, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
+import {IconGeneralRight} from "@/components/Icon/GeneralIcon";
+import {MenuDispatchContext} from "@/utils/context/MenuContext";
 
 
-const PageHeader = ({title, image, scrollScale=1}) => {
+const PageHeader = ({title, breadCrumb, menu, image, scrollScale=1}) => {
     const ref = useRef(null)
     const {scrollYProgress} = useScroll();
 
+    const dispatch = useContext(MenuDispatchContext);
+
     const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -1500*scrollScale]);
     const textY = useTransform(scrollYProgress, [0, 1], [0, -100*scrollScale]);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        let menuItem;
+
+        switch (menu) {
+            case 'about-us':
+                menuItem = 1;
+                break;
+            case 'collections':
+                menuItem = 2;
+                break;
+            case 'academics':
+                menuItem = 3;
+                break;
+            case 'public-programs':
+                menuItem = 4;
+                break;
+        }
+
+        dispatch({
+            type: 'open',
+            value: menuItem
+        });
+    }
 
     return (
         <div ref={ref} className={style.Parallax}>
             <Container className={style.Container}>
                 <Row>
                     <Col xs={12}>
+
+                    </Col>
+                    <Col xs={12}>
                         <motion.div
                             style={{y: textY}}
                             className={style.TitleBox}
                         >
+                            {
+                                breadCrumb &&
+                                <a href={'#'} onClick={handleClick}>
+                                    <div className={style.Breadcrumb}>{breadCrumb} <IconGeneralRight /></div>
+                                </a>
+                            }
                             <h1>{title}</h1>
                         </motion.div>
                     </Col>

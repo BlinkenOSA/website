@@ -62,7 +62,11 @@ const JobsPage = ({initialData}) => {
 
     return (
         <div className={style.Page}>
-            <PageHeader title={'Join Us'} image={''} />
+            <PageHeader
+                title={'Join Us'}
+                breadCrumb={'About Us'}
+                menu={'about-us'}
+                image={''} />
             <Container>
                 <Row>
                     <Col xs={4}>
