@@ -49,24 +49,28 @@ const CollectionCard = ({data}) => {
 
     return (
         <div className={style.Wrapper}>
-            <a href={`/collections/collection-highlights/${slug}`}>
             <div className={style.Header}>
                 <div className={style.ItemNumber}>{getSize()}</div>
                 <div className={style.Icons}>{getIcons()}</div>
             </div>
             <div className={style.Image}>
+                <a href={`/collections/collection-highlights/${slug}`}>
                     <MaskedImage src={image} type={'landscape'} />
+                </a>
             </div>
             <h3 className={style.Title}>
+                <a href={`/collections/collection-highlights/${slug}`}>
                     {truncateWithEllipses(title, 50)}
+                </a>
             </h3>
             <div className={style.Description}>
+                <a href={`/collections/collection-highlights/${slug}`}>
                     {truncateWithEllipses(description, 190)}
+                </a>
             </div>
             <div className={style.CollectionType}>
                 {contentTypes}
             </div>
-            </a>
         </div>
     )
 }
