@@ -9,7 +9,6 @@ import getDateString from "@/utils/content/getDateString";
 import getColor from "@/utils/content/getColor";
 import {Collapse} from 'react-collapse';
 import React, {useEffect, useState} from "react";
-import getImageUrl from "@/utils/content/getImageUrl";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import {useList, useUpdateEffect} from "react-use";
 import Button from "@/components/Button/Button";
@@ -17,8 +16,8 @@ import fetcher from "@/utils/api/fetcher";
 import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import clientFetcher from "@/utils/api/clientFetcher";
 import {useRouter} from "next/router";
-import {IconGeneralDown} from "@/components/Icon/GeneralIcon";
 import dayjs from "dayjs";
+import getImageData from "@/utils/content/getImageData";
 
 export const getServerSideProps = (async (context) => {
 	const parameters = context.query;
@@ -96,7 +95,7 @@ const ProgramDataRow = ({id, index, data, onTitleClick}) => {
 }
 
 const ProgramDetail = ({id, data, isOpened}) => {
-	const image = getImageUrl(data['Image'])
+	const imageData = getImageData(data['Image'], "medium")
 	const description = data['CardText']
 	const shortDescription = data['DescriptionShort']
 	const color = getColor(data['Profile'])
@@ -106,7 +105,7 @@ const ProgramDetail = ({id, data, isOpened}) => {
 		<Collapse isOpened={isOpened}>
 			<Row style={{padding: '24px 0'}}>
 				<Col xs={4}>
-					<MaskedImage src={image} type={'landscape'} />
+					<MaskedImage src={imageData['url']} type={'landscape'} />
 				</Col>
 				<Col xs={8}>
 					{shortDescription ? shortDescription : description}
