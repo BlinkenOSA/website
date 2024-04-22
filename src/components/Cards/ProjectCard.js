@@ -39,11 +39,14 @@ const ProjectCard = ({data, profile}) => {
                 {truncateWithEllipses(description, 350)}
             </div>
             <div className={style.Footer}>
-                <Button
-                    type={'primary'}
-                    size={'large'}
-                    color={color}
-                    link={link}>{buttonText ? buttonText : 'Visit Project'}</Button>
+                {
+                    link &&
+                    <Button
+                        type={'primary'}
+                        size={'large'}
+                        color={color}
+                        link={link}>{buttonText ? buttonText : 'Visit Project'}</Button>
+                }
                 <Button
                     type={'secondary'}
                     size={'large'}
