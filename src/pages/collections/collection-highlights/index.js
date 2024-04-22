@@ -64,6 +64,31 @@ const CollectionHighlightsPage = ({initialData}) => {
                 <HorizontalFilters align={'left'} values={filterValues} selectedFilter={selectedFilter} onSelect={setSelectedFilter} />
                 <div style={{height: '48px'}} />
                 <Row>
+                    <Col xs={12}>
+                        <div className={style.Description}>
+                            {
+                                selectedFilter === 'Curated' &&
+                                <p>
+                                    Our curated collections bring together primary and secondary sources -- both digital
+                                    and analog -- from the holdings of the Archivum and its cooperating partners,
+                                    concerning a particular historical event or phenomenon. They include curatorial
+                                    reflections and background studies by Archivum staff, highlight specific resources,
+                                    and offer scholars alternative tools, content-related search and filtering options to
+                                    explore these sources. They are not necessarily available online.
+                                </p>
+                            }
+                            {
+                                selectedFilter === 'Digital' &&
+                                <p>
+                                    Digital collections are selected collections that have been digitized and are,
+                                    therefore, available for online browsing.
+                                </p>
+                            }
+                        </div>
+                    </Col>
+                </Row>
+                {selectedFilter !== 'All' && <div style={{height: '48px'}} />}
+                <Row>
                     <SWRConfig value={{ fallback: initialData }}>
                         <CollectionCards selectedFilter={selectedFilter} />
                     </SWRConfig>
