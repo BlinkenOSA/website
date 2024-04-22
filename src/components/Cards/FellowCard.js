@@ -1,6 +1,6 @@
 import style from "./FellowCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
-import getImageUrl from "@/utils/content/getImageUrl";
+import getImageData from "@/utils/content/getImageData";
 
 const StaffCard = ({id, data}) => {
     // Populate fields
@@ -8,13 +8,13 @@ const StaffCard = ({id, data}) => {
     const researchTopic = data['ResearchTopic']
     const affiliation = data['Affiliation']
     const slug = data['Slug']
-    const image = getImageUrl(data['Image'])
+    const imageData = getImageData(data['Image'], 'medium')
 
     return (
         <div className={style.Wrapper}>
             <a href={`/academics/fellows/${slug}`}>
                 <div className={style.Image}>
-                    <MaskedImage src={image} type={'portrait'} />
+                    <MaskedImage src={imageData['url']} type={'portrait'} />
                 </div>
                 <div className={`${style.Name} subtitle-large`}>
                     {name}

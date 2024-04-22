@@ -1,14 +1,14 @@
 import style from "./CollectionCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import {IconAudio, IconDocument, IconFilm, IconMovingImage, IconPhoto} from "@/components/Icon/Icon";
-import getImageUrl from "@/utils/content/getImageUrl";
 import truncateWithEllipses from "@/utils/truncateWithEllipsis";
 import {OverlayTrigger, Tooltip} from "react-bootstrap";
 import React from "react";
+import getImageData from "@/utils/content/getImageData";
 
 const CollectionCard = ({data}) => {
     const title = data['Title']
-    const image = getImageUrl(data['Image'])
+    const imageData = getImageData(data['Image'], 'medium')
     const size = data['Size']
     const description = data['CardText']
     const types = data['MaterialTypes']
@@ -55,7 +55,7 @@ const CollectionCard = ({data}) => {
             </div>
             <div className={style.Image}>
                 <a href={`/collections/collection-highlights/${slug}`}>
-                    <MaskedImage src={image} type={'landscape'} />
+                    <MaskedImage src={imageData['url']} type={'landscape'} />
                 </a>
             </div>
             <h3 className={style.Title}>

@@ -4,12 +4,13 @@ import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import Button from "@/components/Button/Button";
 import getColor from "@/utils/content/getColor";
 import truncateWithEllipses from "@/utils/truncateWithEllipsis";
+import getImageData from "@/utils/content/getImageData";
 
 const ProjectCard = ({data, profile}) => {
     // Populate fields
     const title = data['Title']
     const description = data['CardText']
-    const image = getImageUrl(data['Image'])
+    const imageData = getImageData(data['Image'], 'medium')
     const link = data['Link']
     const buttonText = data['ButtonText']
     const slug = data['Slug']
@@ -31,7 +32,7 @@ const ProjectCard = ({data, profile}) => {
         <div className={style.Wrapper}>
             <a href={`/${getURL()}/${slug}`}>
                 <div className={style.Image}>
-                    <MaskedImage src={image} type={'hdtv'} />
+                    <MaskedImage src={imageData['url']} type={'hdtv'} />
                 </div>
             </a>
             <div className={`${style.Title} subtitle-large`}>{title}</div>

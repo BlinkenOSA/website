@@ -1,10 +1,10 @@
 import style from "./EntryCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
-import getImageUrl from "@/utils/content/getImageUrl";
 import getIconByType from "@/utils/content/getIconByType";
 import truncateWithEllipses from "@/utils/truncateWithEllipsis";
 import getColor from "@/utils/content/getColor";
 import getCreationDate from "@/utils/content/getCreationDate";
+import getImageData from "@/utils/content/getImageData";
 
 const EntryCard = ({ id, data}) => {
     // Populate fields
@@ -12,7 +12,7 @@ const EntryCard = ({ id, data}) => {
     const date = data['createdAt']
     const title = data['Title']
     const description = data['CardText']
-    const image = getImageUrl(data['Image'])
+    const imageData = getImageData(data['Image'], 'medium')
     const icon = getIconByType(data['EntryType'], 'normal')
     const color= getColor(data['Profile'])
 
@@ -22,7 +22,7 @@ const EntryCard = ({ id, data}) => {
       <div className={style.Wrapper}>
           <a href={`/entries/${url}/${id}`}>
               <div className={style.Image}>
-                  <MaskedImage src={image} type={'landscape'} />
+                  <MaskedImage src={imageData['url']} type={'landscape'} />
                   <div className={`${style.Icon} ${style[color]}`}>
                       {icon}
                   </div>

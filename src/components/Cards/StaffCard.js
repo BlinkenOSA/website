@@ -1,11 +1,11 @@
 import style from "./StaffCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
-import getImageUrl from "@/utils/content/getImageUrl";
+import getImageData from "@/utils/content/getImageData";
 
 const StaffCard = ({id, data}) => {
     // Populate fields
     const name = data['Name']
-    const image = getImageUrl(data['Image'])
+    const imageData = getImageData(data['Image'], 'medium')
     const position = data['Position']
     const slug = data['Slug']
     const OSAUnit = data['Unit']
@@ -14,7 +14,7 @@ const StaffCard = ({id, data}) => {
         <div className={style.Wrapper}>
             <a href={`/about-us/staff/${slug}`}>
                 <div className={style.Image}>
-                    <MaskedImage src={image} type={'portrait'} />
+                    <MaskedImage src={imageData['url']} type={'portrait'} />
                 </div>
                 <div className={`${style.Name} subtitle-large`}>
                     {name}

@@ -1,18 +1,18 @@
 import style from "./EventCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import Tag from "@/components/Tag/Tag";
-import getImageUrl from "@/utils/content/getImageUrl";
 import getDateString from "@/utils/content/getDateString";
 import getColor from "@/utils/content/getColor";
 import getIconByType from "@/utils/content/getIconByType";
 import truncateWithEllipsis from "@/utils/truncateWithEllipsis";
+import getImageData from "@/utils/content/getImageData";
 
 const EventCard = ({id, data}) => {
     // Populate fields
     const date = getDateString(data['StartDate'], undefined)
     const title = data['Title']
     const description = data['CardText']
-    const image = getImageUrl(data['Image'])
+    const imageData = getImageData(data['Image'], 'medium')
     const icon = getIconByType(data['EventType'], 'small')
     const color= getColor(data['Profile'])
 
@@ -20,7 +20,7 @@ const EventCard = ({id, data}) => {
         <div className={style.Wrapper}>
             <a href={`/events/${id}`}>
                 <div className={style.Image}>
-                    <MaskedImage src={image} type={'landscape'} />
+                    <MaskedImage src={imageData['url']} type={'landscape'} />
                     <div className={style.Tag}>
                         <Tag text={date} icon={icon} color={color}/>
                     </div>
