@@ -8,8 +8,10 @@
   list-style: none;
   height: calc(100vh - $header-height-desktop);
   width: $menu-content-width;
+  overflow: hidden;
 
   .MenuHeader {
+    position: relative;
     display: flex;
     writing-mode: vertical-lr;
     transform: scale(-1, -1);
@@ -21,6 +23,17 @@
     border-right: 1px solid #000;
     border-left: 1px solid #000;
     transition: background-color ease 0.2s;
+
+    .OpenClose {
+      opacity: 0.2;
+      color: $white;
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      height: calc(100% - 24px);
+      font-size: 200px;
+      font-family: var(--font-suisseIntlSemiBold);
+    }
 
     &.mustard {
       background-color: $mustard_1000;
@@ -56,11 +69,13 @@
 
     .MenuTitle {
       flex: 1;
+      z-index: 10;
     }
 
     .MenuIcon {
-      margin-bottom: 4px;
+      margin: 4px auto;
       transform: rotate(180deg);
+      z-index: 10;
 
       img {
         width: 48px;
