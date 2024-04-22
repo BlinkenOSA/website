@@ -1,13 +1,7 @@
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import style from './Content.module.scss';
-import {Col, Row} from "react-bootstrap";
-import MaskedImage from "@/components/MaskedImage/MaskedImage";
-import getImageUrl from "@/utils/content/getImageUrl";
-import getImageType from "@/utils/content/getImageType";
 import getColor from "@/utils/content/getColor";
-import YouTube from 'react-youtube';
 import Video from "@/components/Content/elements/Video";
-import ImageWithCaption from "@/components/Content/elements/ImageWithCaption";
 import ImageFull from "@/components/Content/elements/ImageFull";
 import ContentWithImage from "@/components/Content/elements/ContentWithImage";
 import ContentFull from "@/components/Content/elements/ContentFull";

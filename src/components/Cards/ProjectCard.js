@@ -1,5 +1,4 @@
 import style from "./ProjectCard.module.scss";
-import getImageUrl from "@/utils/content/getImageUrl";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import Button from "@/components/Button/Button";
 import getColor from "@/utils/content/getColor";

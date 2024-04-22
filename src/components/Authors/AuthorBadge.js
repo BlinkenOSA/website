@@ -1,6 +1,5 @@
 import style from "./AuthorBadge.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
-import getImageUrl from "@/utils/content/getImageUrl";
 import getImageData from "@/utils/content/getImageData";
 
 const AuthorBadge = ({authorStaff}) => {
