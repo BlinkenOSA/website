@@ -115,6 +115,7 @@ const ProgramDetail = ({id, data, isOpened}) => {
 							type={'secondary'}
 							size={'medium'}
 							color={color}
+							linkTarget={'_self'}
 							link={`/events/${id}`}>More Info</Button>
 						{
 							registrationLink &&
