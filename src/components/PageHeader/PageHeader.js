@@ -54,9 +54,12 @@ const PageHeader = ({title, breadCrumb, menu, image, scrollScale=1}) => {
                         >
                             {
                                 breadCrumb &&
-                                <a href={'#'} onClick={handleClick}>
-                                    <div className={style.Breadcrumb}>{breadCrumb} <IconGeneralRight /></div>
-                                </a>
+                                <>
+                                    <a href={'#'} onClick={handleClick}>
+                                        <div className={style.Breadcrumb}>{breadCrumb} <IconGeneralRight /></div>
+                                    </a>
+                                    <div style={{height: '16px'}}/>
+                                </>
                             }
                             <h1>{title}</h1>
                         </motion.div>
