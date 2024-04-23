@@ -55,7 +55,7 @@ const CollectionCard = ({data}) => {
             </div>
             <div className={style.Image}>
                 <a href={`/collections/collection-highlights/${slug}`}>
-                    {imageData && <MaskedImage src={imageData['url']} type={'landscape'} />}
+                    <MaskedImage src={imageData['url']} type={'landscape'} />
                 </a>
             </div>
             <h3 className={style.Title}>

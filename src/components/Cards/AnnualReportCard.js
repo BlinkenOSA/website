@@ -22,14 +22,11 @@ const AnnualReportCard = ({data}) => {
             </div>
             <Row>
                 <Col xs={5}>
-                    {
-                        imageData &&
-                        <MaskedImage
-                            type={'landscape'}
-                            src={imageData['url']}
-                            aspectRatio={imageData['width']/imageData['height']}
-                        />
-                    }
+                    <MaskedImage
+                        type={'landscape'}
+                        src={imageData['url']}
+                        aspectRatio={imageData['width']/imageData['height']}
+                    />
                 </Col>
                 <Col xs={7}>
                     {description}

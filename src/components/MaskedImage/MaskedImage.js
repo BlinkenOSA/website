@@ -29,12 +29,15 @@ const MaskedImage = ({src, aspectRatio, type='landscape', alt="Image", mask=true
         <div className={mask ? getStyle() : `${getStyle()} ${style.NoMask}`}
              style={{aspectRatio: aspectRatio ? aspectRatio : undefined}}
         >
-            <Image
-                alt={alt}
-                src={src}
-                priority={true}
-                fill={true}
-            />
+            {
+                src &&
+                <Image
+                    alt={alt}
+                    src={src}
+                    priority={true}
+                    fill={true}
+                />
+            }
         </div>
     )
 }

@@ -1,6 +1,6 @@
 const getImageData = (imageData, size='large') => {
     if (imageData['data'] === null) {
-        return undefined
+        return {'url': ''}
     }
 
     let data={};

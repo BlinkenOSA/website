@@ -22,7 +22,7 @@ const EntryCard = ({ id, data}) => {
       <div className={style.Wrapper}>
           <a href={`/entries/${url}/${id}`}>
               <div className={style.Image}>
-                  {imageData && <MaskedImage src={imageData['url']} type={'landscape'} />}
+                  <MaskedImage src={imageData['url']} type={'landscape'} />
                   <div className={`${style.Icon} ${style[color]}`}>
                       {icon}
                   </div>
