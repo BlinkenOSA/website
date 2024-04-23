@@ -31,7 +31,7 @@ const ProjectCard = ({data, profile}) => {
         <div className={style.Wrapper}>
             <a href={`/${getURL()}/${slug}`}>
                 <div className={style.Image}>
-                    <MaskedImage src={imageData['url']} type={'hdtv'} />
+                    {imageData && <MaskedImage src={imageData['url']} type={'hdtv'} />}
                 </div>
             </a>
             <div className={`${style.Title} subtitle-large`}>{title}</div>

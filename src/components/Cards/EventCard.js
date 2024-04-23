@@ -20,7 +20,7 @@ const EventCard = ({id, data}) => {
         <div className={style.Wrapper}>
             <a href={`/events/${id}`}>
                 <div className={style.Image}>
-                    <MaskedImage src={imageData['url']} type={'landscape'} />
+                    {imageData && <MaskedImage src={imageData['url']} type={'landscape'} />}
                     <div className={style.Tag}>
                         <Tag text={date} icon={icon} color={color}/>
                     </div>

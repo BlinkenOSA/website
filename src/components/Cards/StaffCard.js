@@ -14,7 +14,7 @@ const StaffCard = ({id, data}) => {
         <div className={style.Wrapper}>
             <a href={`/about-us/staff/${slug}`}>
                 <div className={style.Image}>
-                    <MaskedImage src={imageData['url']} type={'portrait'} />
+                    {imageData && <MaskedImage src={imageData['url']} type={'portrait'} />}
                 </div>
                 <div className={`${style.Name} subtitle-large`}>
                     {name}
