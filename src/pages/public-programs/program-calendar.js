@@ -105,7 +105,7 @@ const ProgramDetail = ({id, data, isOpened}) => {
 		<Collapse isOpened={isOpened}>
 			<Row style={{padding: '24px 0'}}>
 				<Col xs={4}>
-					<MaskedImage src={imageData['url']} type={'landscape'} />
+					{imageData && <MaskedImage src={imageData['url']} type={'landscape'} />}
 				</Col>
 				<Col xs={8}>
 					{shortDescription ? shortDescription : description}
