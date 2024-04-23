@@ -1,10 +1,12 @@
-import style from "./EntryCard.module.scss";
+import style from "./NewsCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import getIconByType from "@/utils/content/getIconByType";
 import truncateWithEllipses from "@/utils/truncateWithEllipsis";
 import getColor from "@/utils/content/getColor";
 import getCreationDate from "@/utils/content/getCreationDate";
 import getImageData from "@/utils/content/getImageData";
+
+import {motion} from 'framer-motion';
 
 const NewsCard = ({ id, data}) => {
     // Populate fields
@@ -16,14 +18,23 @@ const NewsCard = ({ id, data}) => {
     const icon = getIconByType(data['ActivityType'], 'normal')
     const color= getColor(data['Profile'])
 
+    const imageAnim = {
+        hover: { scale: 0.85 }
+    }
+
     return (
-      <div className={style.Wrapper}>
+      <motion.div whileHover={"hover"} className={style.Wrapper}>
           <a href={`/news/${id}`}>
-              <div className={style.Image}>
-                  <MaskedImage src={imageData['url']} type={'landscape'} />
+              <div
+                  className={style.Image}
+              >
+                  <motion.div variants={imageAnim} style={{position: 'relative', zIndex: 2}} >
+                    <MaskedImage src={imageData['url']} type={'landscape'} />
+                  </motion.div>
                   <div className={`${style.Icon} ${style[color]}`}>
                       {icon}
                   </div>
+                  <div className={`${style.UnderLayer} ${style[color]}`} />
               </div>
           </a>
           <div className={style.Header}>
@@ -36,7 +47,7 @@ const NewsCard = ({ id, data}) => {
           <div className={style.Description}>
               {truncateWithEllipses(description, title.length > 60 ? 100 : 150)}
           </div>
-      </div>
+      </motion.div>
     )
 }
 
