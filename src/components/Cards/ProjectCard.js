@@ -29,7 +29,7 @@ const ProjectCard = ({data, profile}) => {
 
     return (
         <div className={style.Wrapper}>
-            <a href={`/${getURL()}/${slug}`}>
+            <a href={`${getURL()}/${slug}`}>
                 <div className={style.Image}>
                     <MaskedImage src={imageData['url']} type={'hdtv'} />
                 </div>
@@ -52,7 +52,7 @@ const ProjectCard = ({data, profile}) => {
                     size={'large'}
                     color={color}
                     linkTarget={'_self'}
-                    link={`/${getURL()}/${slug}`}>Learn More</Button>
+                    link={`${getURL()}/${slug}`}>Learn More</Button>
             </div>
         </div>
     )

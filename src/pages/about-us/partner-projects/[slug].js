@@ -3,6 +3,7 @@ import {Col, Container, Row, Tab, Tabs} from "react-bootstrap";
 import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 import {fetchPartnerProjectsDetail} from "@/utils/api/fetchProjects";
 import Button from "@/components/Button/Button";
+import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -32,16 +33,15 @@ const ProjectPage = ({projectData}) => {
     const buttonText = data['ButtonText']
     const content = data['ContentOld']
 
+    const breadCrumbObject = [
+        {menu: 'about-us', title: 'About Us'},
+        {menu: 'about-us/partner-projects', link: '/about-us/partner-projects', title: 'Partner Projects'}
+    ]
+
     return (
         <div className={style.Page}>
             <Container>
-                <div style={{height: '48px'}} />
-                <Row>
-                    <Col xs={12}>
-                        <h1>{title}</h1>
-                    </Col>
-                </Row>
-                <div style={{height: '48px'}} />
+                <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
                 <Row>
                     <Col xs={12}>
                         <BlocksRenderer content={content} />
