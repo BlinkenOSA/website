@@ -23,6 +23,11 @@
           border-bottom: solid 1px transparent;
           transition: border 0.5s ease, color 0.5s ease;
 
+          &.Current {
+            color: $neutral_1000;
+            border-bottom: solid 1px $neutral_1000;
+          }
+
           &.Active {
             border-bottom: solid 1px $neutral_1000;
           }
@@ -49,6 +54,11 @@
             &:hover {
               color: $neutral_1000;
               border-bottom: solid 1px $neutral_1000;
+            }
+
+            &.Current {
+              color: $neutral_200;
+              border-bottom: solid 1px transparent;
             }
           }
         }

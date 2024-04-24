@@ -1,7 +1,6 @@
 import style from "./Header.module.scss";
 import Logo from "@/components/Logo/Logo";
 import LanguageSelector from "@/components/Selectors/LanguageSelector";
-import SearchBox from "@/components/Input/SearchBox";
 import {Col, Container, Row} from "react-bootstrap";
 import {MenuDispatchContext} from "@/utils/context/MenuContext";
 import {useContext} from "react";

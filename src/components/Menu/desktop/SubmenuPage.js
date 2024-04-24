@@ -9,6 +9,8 @@ import {MenuDispatchContext} from "@/utils/context/MenuContext";
 import {useRouter} from "next/router";
 import useTranslation from "next-translate/useTranslation";
 import {SearchDispatchContext} from "@/utils/context/SearchContext";
+import detectSelectedMenuItem from "@/utils/detectSelectedMenuItem";
+import detectCurrentMenuTitle from "@/utils/detectCurrentMenuTitle";
 
 const SubmenuPage = ({menuID, status, selectedSubmenu}) => {
     const { t } = useTranslation('menu')
@@ -65,9 +67,9 @@ const SubmenuPage = ({menuID, status, selectedSubmenu}) => {
                             animate={submenuStatus}
                             transition={{delay: 0.6 + (0.05 * (idx + 1))}}
                             exit={{ opacity: 0, y: '-30%', transition: {delay: 0.05 * (idx + 1)}}}
-                            className={style.SubmenuItem}
+                            className={`${style.SubmenuItem} ${detectCurrentMenuTitle(sm, router.asPath) ? style.Current : ''}`}
                         >
-                            <div className={style.Title}>{t(sm['key'])}</div>
+                            <div className={`${style.Title}`}>{t(sm['key'])}</div>
                             <div className={style.Description}>{t(`${sm['key']}__text`)}</div>
                         </motion.div>
                     </a>
@@ -83,12 +85,6 @@ const SubmenuPage = ({menuID, status, selectedSubmenu}) => {
             </div>
         )
 
-    }
-
-    const handleClick = () => {
-        dispatch({
-            type: 'close'
-        })
     }
 
     return (
