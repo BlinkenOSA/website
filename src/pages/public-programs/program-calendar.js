@@ -18,6 +18,7 @@ import clientFetcher from "@/utils/api/clientFetcher";
 import {useRouter} from "next/router";
 import dayjs from "dayjs";
 import getImageData from "@/utils/content/getImageData";
+import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 
 export const getServerSideProps = (async (context) => {
 	const parameters = context.query;
@@ -229,13 +230,7 @@ const ProgramCalendarPage = ({initialData}) => {
 	return (
 		<Col className={style.Page}>
 			<Container>
-				<div style={{height: '48px'}} />
-				<Row>
-					<Col xs={12}>
-						<h1>Program Calendar</h1>
-					</Col>
-				</Row>
-				<div style={{height: '48px'}} />
+				<SimplePageHeader title={'Program Calendar'} menu={'public-programs'} breadCrumb={'Public Programs'} />
 				<Row>
 					<Col md={12} lg={6}>
 						<HorizontalFilters
