@@ -2,6 +2,7 @@ import style from "@/pages/about-us/style.module.scss";
 import {Col, Container, Row, Tab, Tabs} from "react-bootstrap";
 import {fetchCollectionHighlightsDetail} from "@/utils/api/fetchCollectionHighlights";
 import {BlocksRenderer} from "@strapi/blocks-react-renderer";
+import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -31,16 +32,15 @@ const CollectionDetailPage = ({collectionData}) => {
     const contentTypes = data['ContentTypes']
     const materialTypes = data['MaterialTypes']
 
+    const breadCrumbObject = [
+        {menu: 'collections', title: 'Collections'},
+        {menu: 'collections/collection-highlights', link: '/collections/collection-highlights', title: 'Collection Highlights'}
+    ]
+
     return (
         <div className={style.Page}>
             <Container>
-                <div style={{height: '48px'}} />
-                <Row>
-                    <Col xs={12}>
-                        <h1>{title}</h1>
-                    </Col>
-                </Row>
-                <div style={{height: '48px'}} />
+                <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
                 <Row>
                     <Col xs={12}>
                         <BlocksRenderer content={content} />

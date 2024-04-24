@@ -9,6 +9,7 @@ import FellowCard from "@/components/Cards/FellowCard";
 import {useRouter} from "next/router";
 import React, {useEffect, useState} from "react";
 import ContentPagination from "@/components/Pagination/ContentPagination";
+import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 
 export const getServerSideProps = (async (context) => {
     const parameters = context.query;
@@ -93,13 +94,7 @@ const FellowsPage = ({initialData}) => {
     return (
         <div className={style.Page}>
             <Container>
-                <div style={{height: '48px'}} />
-                <Row>
-                    <Col xs={12}>
-                        <h1>Past Fellows</h1>
-                    </Col>
-                </Row>
-                <div style={{height: '48px'}} />
+                <SimplePageHeader title={'Past Fellows'} menu={'academics'} breadCrumb={'Academics'} />
                 <Row>
                     <Col xs={12}>
                         <Row>

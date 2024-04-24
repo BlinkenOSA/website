@@ -2,6 +2,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import style from "@/pages/pages.module.scss";
 import {fetchArchivalProjects, fetchPartnerProjects} from "@/utils/api/fetchProjects";
 import ProjectCard from "@/components/Cards/ProjectCard";
+import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 
 export const getServerSideProps = (async () => {
     const [projectsData] = await Promise.all([
@@ -32,13 +33,7 @@ const ArchivalProjectsPage = ({projectsData}) => {
     return (
         <div className={style.Page}>
             <Container>
-                <div style={{height: '48px'}} />
-                <Row>
-                    <Col xs={12}>
-                        <h1>Archival Projects</h1>
-                    </Col>
-                </Row>
-                <div style={{height: '48px'}} />
+                <SimplePageHeader title={'Archival Projects'} menu={'collections'} breadCrumb={'Collections'} />
                 <Row>
                     {renderProjects()}
                 </Row>

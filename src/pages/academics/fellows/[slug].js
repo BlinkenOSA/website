@@ -6,6 +6,9 @@ import getImageUrl from "@/utils/content/getImageUrl";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import {fetchFellowDetails} from "@/utils/api/fetchFellows";
 import getDateString from "@/utils/content/getDateString";
+import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
+import dayjs from "dayjs";
+import {toCapitalize} from "@/utils/toCapitalize";
 
 
 export const getServerSideProps = (async (context) => {
@@ -40,16 +43,28 @@ const FellowPage = ({fellowData}) => {
     const endDate = getDateString(data['EndDate'], 'YYYY-MM-DD', 'fellow')
     const image = getImageUrl(data['Image'])
 
+    const detectPastFellows = () => {
+        const now = dayjs()
+        let fellow = 'current'
+
+        if (data['EndDate']) {
+            if (dayjs(data['EndDate']) < now) {
+                fellow = 'past'
+            }
+        }
+
+        return fellow
+    }
+
+    const breadCrumbObject = [
+        {menu: 'academics', title: 'Academics'},
+        {menu: `academics/${detectPastFellows()}-fellows`, link: `/academics/${detectPastFellows()}-fellows`, title: `${toCapitalize(detectPastFellows())} Fellows`}
+    ]
+
     return (
         <div className={style.Page}>
             <Container>
-                <div style={{height: '48px'}} />
-                <Row>
-                    <Col xs={12}>
-                        <h1>{name}</h1>
-                    </Col>
-                </Row>
-                <div style={{height: '48px'}} />
+                <SimplePageHeader title={name} breadCrumbObject={breadCrumbObject} />
                 <Row>
                     <Col xs={8}>
                         <div className={'subtitle-small'}>{affiliation}</div>

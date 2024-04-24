@@ -7,6 +7,7 @@ import fetcher from "@/utils/api/fetcher";
 import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import {useState} from "react";
 import clientFetcher from "@/utils/api/clientFetcher";
+import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchCollectionHighlightsList()
@@ -54,13 +55,7 @@ const CollectionHighlightsPage = ({initialData}) => {
     return (
         <div className={style.Page}>
             <Container>
-                <div style={{height: '48px'}} />
-                <Row>
-                    <Col xs={12}>
-                        <h1>Collection Highlights</h1>
-                    </Col>
-                </Row>
-                <div style={{height: '48px'}} />
+                <SimplePageHeader title={'Collection Highlights'} menu={'collections'} breadCrumb={'Collections'} />
                 <HorizontalFilters align={'left'} values={filterValues} selectedFilter={selectedFilter} onSelect={setSelectedFilter} />
                 <div style={{height: '48px'}} />
                 <Row>

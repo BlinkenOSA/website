@@ -6,6 +6,7 @@ import fetcher from "@/utils/api/fetcher";
 import clientFetcher from "@/utils/api/clientFetcher";
 import {fetchCurrentFellowsList} from "@/utils/api/fetchFellows";
 import FellowCard from "@/components/Cards/FellowCard";
+import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchCurrentFellowsList()
@@ -43,13 +44,7 @@ const FellowsPage = ({initialData}) => {
     return (
         <div className={style.Page}>
             <Container>
-                <div style={{height: '48px'}} />
-                <Row>
-                    <Col xs={12}>
-                        <h1>Current Fellows</h1>
-                    </Col>
-                </Row>
-                <div style={{height: '48px'}} />
+                <SimplePageHeader title={'Current Fellows'} menu={'academics'} breadCrumb={'Academics'} />
                 <Row>
                     <Col xs={12}>
                         <Row>
