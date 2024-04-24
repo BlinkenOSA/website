@@ -8,6 +8,7 @@ import Publication from "@/components/StaffLists/Publication";
 import Appearance from "@/components/StaffLists/Appearance";
 import Course from "@/components/StaffLists/Course";
 import Entry from "@/components/StaffLists/Entry";
+import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -47,16 +48,15 @@ const StaffPage = ({staffData}) => {
         return appearences.length > 0 || courses.length > 0 || entries.length > 0 || publications.length > 0
     }
 
+    const breadCrumbObject = [
+        {menu: 'about-us', title: 'About Us'},
+        {menu: 'about-us/staff', link: '/about-us/staff', title: 'Staff'}
+    ]
+
     return (
         <div className={style.Page}>
             <Container>
-                <div style={{height: '48px'}} />
-                <Row>
-                    <Col xs={12}>
-                        <h1>{name}</h1>
-                    </Col>
-                </Row>
-                <div style={{height: '48px'}} />
+                <SimplePageHeader title={name} breadCrumbObject={breadCrumbObject} />
                 <Row>
                     <Col xs={8}>
                         <div className={'subtitle-large'}>{position}</div>
@@ -64,7 +64,7 @@ const StaffPage = ({staffData}) => {
                             {unit}<br/>
                             {email}
                         </p>
-                        <BlocksRenderer content={bio} />
+                        {bio && <BlocksRenderer content={bio} />}
                     </Col>
                     <Col xs={4}>
                         <div className={style.ImageWrapper}>

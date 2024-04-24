@@ -3,6 +3,7 @@ import style from "@/pages/pages.module.scss";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {fetchPartnerProjects} from "@/utils/api/fetchProjects";
 import ProjectCard from "@/components/Cards/ProjectCard";
+import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 
 export const getServerSideProps = (async () => {
     const [projectsData] = await Promise.all([
@@ -33,13 +34,7 @@ const PartnerProjectsPage = ({projectsData}) => {
     return (
         <div className={style.Page}>
             <Container>
-                <div style={{height: '48px'}} />
-                <Row>
-                    <Col xs={12}>
-                        <h1>Partner Projects</h1>
-                    </Col>
-                </Row>
-                <div style={{height: '48px'}} />
+                <SimplePageHeader title={'Partner Projects'} menu={'about-us'} breadCrumb={'About Us'} />
                 <Row>
                     {renderProjects()}
                 </Row>

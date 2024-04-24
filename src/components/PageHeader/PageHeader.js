@@ -45,9 +45,6 @@ const PageHeader = ({title, breadCrumb, menu, image, scrollScale=1}) => {
             <Container className={style.Container}>
                 <Row>
                     <Col xs={12}>
-
-                    </Col>
-                    <Col xs={12}>
                         <motion.div
                             style={{y: textY}}
                             className={style.TitleBox}

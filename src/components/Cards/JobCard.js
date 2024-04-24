@@ -22,7 +22,12 @@ const JobCard = ({id, data}) => {
             <LabeledData label={'Salary'} data={salary} />
             <LabeledData label={'Contract Type'} data={contractType} />
             <div style={{marginTop: '24px'}}>
-                <Button type={'primary'} color={'mustard'} size={'large'} link={`/about-us/jobs/${slug}`}>
+                <Button
+                    type={'primary'}
+                    color={'mustard'}
+                    size={'large'}
+                    linkTarget={'_self'}
+                    link={`/about-us/jobs/${slug}`}>
                     Details and Application
                 </Button>
             </div>

@@ -1,0 +1,26 @@
+@import "@/styles/colors.scss";
+@import "@/styles/variables.scss";
+
+
+.Container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  padding: 0 !important;
+
+  .TitleBox {
+    display: inline-block;
+  }
+
+  .Breadcrumbs {
+    display: flex;
+  }
+
+  .Breadcrumb {
+    display: flex;
+    align-items: center;
+    color: $neutral_1000;
+  }
+}

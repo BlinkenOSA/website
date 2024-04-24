@@ -7,6 +7,7 @@ import {useList} from "react-use";
 import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import fetcher from "@/utils/api/fetcher";
 import clientFetcher from "@/utils/api/clientFetcher";
+import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 
 export const getServerSideProps = (async () => {
 	const [url, params] = fetchStaffList()
@@ -74,13 +75,7 @@ const StaffPage = ({initialData}) => {
 	return (
 		<div className={style.Page}>
 			<Container>
-				<div style={{height: '48px'}} />
-				<Row>
-					<Col xs={12}>
-						<h1>Staff</h1>
-					</Col>
-				</Row>
-				<div style={{height: '48px'}} />
+				<SimplePageHeader title={'Our Staff'} menu={'about-us'} breadCrumb={'About Us'} />
 				<Row>
 					<Col xs={4}>
 						<VerticalFilters

@@ -6,6 +6,7 @@ import getImageUrl from "@/utils/content/getImageUrl";
 import {fetchJobDetail} from "@/utils/api/fetchJobs";
 import LabeledData from "@/components/LabeledData/LabeledData";
 import Content from "@/components/Content/Content";
+import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -41,17 +42,15 @@ const JobPage = ({jobData}) => {
     const jobType = data['JobType']
     const image = getImageUrl(data['Image'])
 
+    const breadCrumbObject = [
+        {menu: 'about-us', title: 'About Us'},
+        {menu: 'about-us/jobs', link: '/about-us/jobs', title: 'Jobs'}
+    ]
 
     return (
         <div className={style.Page}>
             <Container>
-                <div style={{height: '48px'}} />
-                <Row>
-                    <Col xs={12}>
-                        <h1>{title}</h1>
-                    </Col>
-                </Row>
-                <div style={{height: '48px'}} />
+                <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
                 <Row>
                     <Col xs={12}>
                         <LabeledData label={'Starting Date'} data={startingDate} marginBottom={false} />
