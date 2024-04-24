@@ -8,7 +8,7 @@ const SectionFlipper = ({title, link, border = false, onNextClick, onPreviousCli
     const getTitle = () => {
         if (link) {
             return (
-                <Link href={link}>
+                <Link href={link} target={'_self'}>
                     <h1>{title}</h1>
                 </Link>
             )
@@ -30,6 +30,7 @@ const SectionFlipper = ({title, link, border = false, onNextClick, onPreviousCli
                                 size={'medium'}
                                 color={'neutral'}
                                 link={link}
+                                linkTarget={'_self'}
                                 isIcon={false}>View All</Button>
                         }
                         <Button
