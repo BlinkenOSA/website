@@ -12,11 +12,11 @@ export const menuConfig = [
           { key: 'about-us-menu', title: 'About Us', url: '/about-us/about-the-archivum' },
           { key: 'vera-and-donald-blinken', title: 'Vera and Donald Blinken', url: '/about-us/vera-and-donald-blinken'},
           { key: 'goldberger-house', title: 'Goldberger House', url: '/about-us/the-goldberger-house'},
+          { key: 'we-are-ceu', title: 'We are CEU', url: '/external/we-are-ceu' },
           { key: 'what-archives-are', title: 'What are archives?', url: '/about-us/what-are-archives'},
         ]
       },
-      { key: 'we-are-ceu', title: 'We are CEU', url: '/external/we-are-ceu' },
-      { key: 'partner-projects', title: 'Partner Projects', url: '/about-us/partner-projects'},
+      { key: 'visit-us', title: 'Visit Us', url: '/about-us/visit-us' },
       { key: 'staff', title: 'Staff', url: '/about-us/staff'},
       { key: 'join-us', title: 'Join Us', submenu: [
           { key: 'visegrad-scholarship', title: 'Visegrad Scholarships', highlight: 'Information about the Visegrad Scholarship Program.', url: '/about-us/about-the-visegrad-scholarship' },
@@ -24,7 +24,7 @@ export const menuConfig = [
           { key: 'volunteering', title: 'Volunteering', highlight: "Work with us on arhcival processing, digitization projects, exhibitions. You won't get paid"}]
       },
       { key: 'annual-reports', title: 'Annual Reports', url: '/about-us/annual-reports' },
-      { key: 'visit-us', title: 'Visit Us', url: '/about-us/visit-us' },
+      { key: 'partner-projects', title: 'Partner Projects', url: '/about-us/partner-projects'},
       { key: 'blog', title: 'Blog', url: '/entries' },
       { key: 'news', title: 'News', url: '/news'}
     ]
