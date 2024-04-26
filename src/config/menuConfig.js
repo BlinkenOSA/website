@@ -59,7 +59,7 @@ export const menuConfig = [
     color: 'aqua',
     url: 'academics',
     menuItems: [
-      { key: 'research-and-publications', title: 'Our Research and Publications' },
+      { key: 'research-and-publications', title: 'Our Research and Publications', url: '/academics/our-research' },
       { key: 'visegrad-scholarship', title: 'Visegrad Scholarship', submenu: [
           { key: 'about-the-visegrad-fund', title: 'About the V Fund', highlight: "Find out more about the history of the Visegrad Fund", url: '/academics/about-the-visegrad-scholarship' },
           { key: 'open-call', title: 'Open call', highlight: "We are waiting for your application", url: '/academics/visegrad-open-call'}]
