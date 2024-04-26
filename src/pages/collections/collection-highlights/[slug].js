@@ -4,6 +4,7 @@ import {fetchCollectionHighlightsDetail} from "@/utils/api/fetchCollectionHighli
 import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Button from "@/components/Button/Button";
+import Content from "@/components/Content/Content";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -45,7 +46,7 @@ const CollectionDetailPage = ({collectionData}) => {
                 <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
                 <Row>
                     <Col xs={12}>
-                        <BlocksRenderer content={content} />
+                        <Content contentObject={content} profile={'Collections'} />
                     </Col>
                 </Row>
                 <div style={{height: '48px'}} />
