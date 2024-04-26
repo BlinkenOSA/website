@@ -10,6 +10,7 @@ import fetcher from "@/utils/api/fetcher";
 import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import clientFetcher from "@/utils/api/clientFetcher";
 import PageHeader from "@/components/PageHeader/PageHeader";
+import {useState} from "react";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchJobs()
@@ -40,7 +41,7 @@ const JobCards = ({selectedFilters}) => {
 }
 
 const JobsPage = ({initialData}) => {
-    const [jobTypeFilter, {clear, push, removeAt}] = useList([])
+    const [jobTypeFilter, setJobTypeFilter] = useState('')
 
     const filterValues = [
         {value: 'Jobs', label: 'Job'},
@@ -49,14 +50,10 @@ const JobsPage = ({initialData}) => {
     ]
 
     const handleFilterChange = (id) => {
-        if (id === '') {
-            clear()
+        if (jobTypeFilter === id) {
+            setJobTypeFilter('')
         } else {
-            if (jobTypeFilter.includes(id)) {
-                removeAt(jobTypeFilter.indexOf(id))
-            } else {
-                push(id)
-            }
+            setJobTypeFilter(id)
         }
     }
 

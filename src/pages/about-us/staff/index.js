@@ -8,6 +8,7 @@ import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import fetcher from "@/utils/api/fetcher";
 import clientFetcher from "@/utils/api/clientFetcher";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
+import {useState} from "react";
 
 export const getServerSideProps = (async () => {
 	const [url, params] = fetchStaffList()
@@ -31,7 +32,7 @@ const StaffCards = ({selectedFilters}) => {
 
 	return data && data["data"].map(staff => {
 		return (
-			<Col xs={4}>
+			<Col xs={6} lg={4}>
 				<StaffCard
 					key={staff["id"]}
 					data={staff['attributes']}
@@ -42,7 +43,7 @@ const StaffCards = ({selectedFilters}) => {
 }
 
 const StaffPage = ({initialData}) => {
-	const [unitFilter, {clear, push, removeAt}] = useList([])
+	const [unitFilter, setUnitFilter] = useState('')
 
 	const filterValues = [
 		{label: 'Administration'},
@@ -61,14 +62,10 @@ const StaffPage = ({initialData}) => {
 	]
 
 	const handleFilterChange = (id) => {
-		if (id === '') {
-			clear()
+		if (unitFilter === id) {
+			setUnitFilter('')
 		} else {
-			if (unitFilter.includes(id)) {
-				removeAt(unitFilter.indexOf(id))
-			} else {
-				push(id)
-			}
+			setUnitFilter(id)
 		}
 	}
 

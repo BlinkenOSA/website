@@ -11,7 +11,7 @@ const VerticalFilters = ({title, values, selectedFilters, onChange}) => {
                         id={value['label']}
                         size={'small'}
                         text={value['label']}
-                        checked={selectedFilters.includes(value['label'])}
+                        checked={selectedFilters === value['label']}
                         onClick={() => onChange(value['label'])}/>
                 </div>
             )
@@ -25,13 +25,6 @@ const VerticalFilters = ({title, values, selectedFilters, onChange}) => {
             </div>
             <div className={style.Filters}>
                 {renderFilters()}
-            </div>
-            <div className={style.ClearButton}>
-                <Button
-                    type={'secondary'}
-                    color={'neutral'}
-                    size={'medium'}
-                    onClick={() => onChange('')}>Clear Selection</Button>
             </div>
         </div>
     )

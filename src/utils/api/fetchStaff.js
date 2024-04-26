@@ -1,6 +1,6 @@
 import fetcher from "@/utils/api/fetcher";
 
-export const fetchStaffList = (OSAUnits) => {
+export const fetchStaffList = (OSAUnit) => {
     const params = {
         'populate': 'Image',
         'sort[0]': 'LastName',
@@ -8,14 +8,8 @@ export const fetchStaffList = (OSAUnits) => {
         'pagination[pageSize]': 100
     }
 
-    if (OSAUnits) {
-        if (OSAUnits.length === 1) {
-            params[`filters[Unit][$eq]`] = OSAUnits[0]
-        } else {
-            OSAUnits.map((unit, idx) => {
-                params[`filters[$or][${idx}][Unit][$eq]`] = unit
-            })
-        }
+    if (OSAUnit) {
+        params[`filters[Unit][$eq]`] = OSAUnit
     }
 
     return ['staff-records', params]
