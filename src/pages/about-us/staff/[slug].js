@@ -69,9 +69,6 @@ const StaffPage = ({staffData}) => {
                     <Col xs={4}>
                         <div className={style.ImageWrapper}>
                             <MaskedImage src={image} type={'portrait'} />
-                            <div className={style.Caption}>
-                                {name}
-                            </div>
                         </div>
                     </Col>
                 </Row>
