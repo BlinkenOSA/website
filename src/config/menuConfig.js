@@ -42,7 +42,12 @@ export const menuConfig = [
           { key: 'research-room', title: 'Research Room Access', url: '/collections/research-room'},
           { key: 'digitization-on-demand', title: 'Digitization on Demand', url: '/collections/digitization-on-demand'}]
       },
-      { key: 'collection-highlights', title: 'Collection Highlights', url: '/collections/collection-highlights' },
+      { key: 'selected-collections', title: 'Selected Collections', submenu: [
+          { key: 'curated-collections', title: 'Curated Collections', url: '/collections/curated-collections'},
+          { key: 'online-collections', title: 'Online Collections', url: '/collections/online-collections'},
+          { key: 'av-collections', title: 'Audio-Visual Collections', url: '/collections/av-collections'},
+          { key: 'library-collections', title: 'Library Collections', url: '/collections/library-collections'}]
+      },
       { key: 'archival-projects', title: 'Archival Projects', url: '/collections/archival-projects' },
       { key: 'donate-your-archive', title: 'Donate your Archive', url: '/collections/donate-your-materials' },
       { key: 'collections-news-and-blog', title: 'Archival News', url: '/news?profile=Collections'},
