@@ -10,7 +10,7 @@ export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
 
     const [collectionData] = await Promise.all([
-        fetchCollectionHighlightsDetail(slug)
+        fetchCollectionHighlightsDetail(slug, 'AV')
     ])
 
     if (collectionData['data'].length === 0) {
@@ -37,7 +37,7 @@ const CollectionDetailPage = ({collectionData}) => {
 
     const breadCrumbObject = [
         {menu: 'collections', title: 'Collections'},
-        {menu: 'collections/collection-highlights', link: '/collections/collection-highlights', title: 'Collection Highlights'}
+        {menu: 'collections/av-collections', link: '/collections/av-collections', title: 'AV Collections'}
     ]
 
     return (

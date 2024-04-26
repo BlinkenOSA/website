@@ -24,13 +24,13 @@ const CollectionCard = ({data}) => {
     const chooseIcon = (type, key) => {
       switch(type) {
         case 'Audio':
-            return <ToolTipStuff title={'Audio'}><IconAudio key={key} size={'small'} color={'orange'} /></ToolTipStuff>
+            return <ToolTipStuff key={key} title={'Audio'}><IconAudio size={'small'} color={'orange'} /></ToolTipStuff>
         case 'Moving Image':
-            return <ToolTipStuff title={'Moving Image'}><IconMovingImage key={key} size={'small'} color={'orange'} /></ToolTipStuff>
+            return <ToolTipStuff key={key} title={'Moving Image'}><IconMovingImage size={'small'} color={'orange'} /></ToolTipStuff>
         case 'Textual':
-            return <ToolTipStuff title={'Textual'}><IconDocument key={key} size={'small'} color={'orange'} /></ToolTipStuff>
+            return <ToolTipStuff key={key} title={'Textual'}><IconDocument size={'small'} color={'orange'} /></ToolTipStuff>
         case 'Still Image':
-            return <ToolTipStuff title={'Still Image'}><IconPhoto key={key} size={'small'} color={'orange'} /></ToolTipStuff>
+            return <ToolTipStuff key={key} title={'Still Image'}><IconPhoto size={'small'} color={'orange'} /></ToolTipStuff>
       }
     }
 
@@ -47,6 +47,18 @@ const CollectionCard = ({data}) => {
         }
     }
 
+    const getURL = () => {
+        switch (data['ContentTypes'][0]) {
+            case 'Curated':
+                return 'curated-collections'
+            case 'Digital':
+            case 'Online':
+                return 'online-collections'
+            case 'AV':
+                return 'av-collections'
+        }
+    }
+
     return (
         <div className={style.Wrapper}>
             <div className={style.Header}>
@@ -54,17 +66,17 @@ const CollectionCard = ({data}) => {
                 <div className={style.Icons}>{getIcons()}</div>
             </div>
             <div className={style.Image}>
-                <a href={`/collections/collection-highlights/${slug}`}>
+                <a href={`/collections/${getURL()}/${slug}`}>
                     <MaskedImage src={imageData['url']} type={'landscape'} />
                 </a>
             </div>
             <h3 className={style.Title}>
-                <a href={`/collections/collection-highlights/${slug}`}>
+                <a href={`/collections/${getURL()}/${slug}`}>
                     {truncateWithEllipses(title, 50)}
                 </a>
             </h3>
             <div className={style.Description}>
-                <a href={`/collections/collection-highlights/${slug}`}>
+                <a href={`/collections/${getURL()}/${slug}`}>
                     {truncateWithEllipses(description, 190)}
                 </a>
             </div>

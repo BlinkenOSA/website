@@ -48,13 +48,14 @@ export const fetchCollectionHighlightsList = (max, contentType) => {
     return ['collections', params]
 }
 
-export const fetchCollectionHighlightsDetail = (slug) => {
+export const fetchCollectionHighlightsDetail = (slug, contentType) => {
     const params = {
         'populate[0]': 'Image',
         'populate[1]': 'Content',
         'populate[2]': 'Content.Image',
         'populate[3]': 'Content.Images.Image',
-        'filters[Slug][$eq]': slug
+        'filters[Slug][$eq]': slug,
+        'filters[ContentTypes][$contains]': contentType
     }
 
     return fetcher(`collections`, params)
