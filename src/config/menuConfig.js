@@ -49,7 +49,7 @@ export const menuConfig = [
       },
       { key: 'archival-projects', title: 'Archival Projects', url: '/collections/archival-projects' },
       { key: 'donate-your-archive', title: 'Donate your Archive', url: '/collections/donate-your-materials' },
-      { key: 'collections-news-and-blog', title: 'Archival News', url: '/news?profile=Collections'},
+      // { key: 'collections-news-and-blog', title: 'Archival News', url: '/news?profile=Collections'},
       { key: 'blog', title: 'Blog', url: '/entries'}
     ]
   }, {
@@ -59,7 +59,7 @@ export const menuConfig = [
     color: 'aqua',
     url: 'academics',
     menuItems: [
-      // { key: 'research-and-publications', title: 'Our Research and Publications' },
+      { key: 'research-and-publications', title: 'Our Research and Publications' },
       { key: 'visegrad-scholarship', title: 'Visegrad Scholarship', submenu: [
           { key: 'about-the-visegrad-fund', title: 'About the V Fund', highlight: "Find out more about the history of the Visegrad Fund", url: '/academics/about-the-visegrad-scholarship' },
           { key: 'open-call', title: 'Open call', highlight: "We are waiting for your application", url: '/academics/visegrad-open-call'}]
@@ -74,7 +74,7 @@ export const menuConfig = [
           {key: 'for-students', title: 'For Students', url: 'https://edupro.osaarchivum.org/diakok/'}
         ]},
       { key: 'academic-events', title: 'Academic Events', url: '/public-programs/program-calendar?programType=Academic'},
-      { key: 'academic-news-and-blog', title: 'Academic News', url: '/news?profile=Academic'},
+      // { key: 'academic-news-and-blog', title: 'Academic News', url: '/news?profile=Academic'},
     ]
   }, {
     key: 'public-programs',
@@ -87,7 +87,7 @@ export const menuConfig = [
       { key: 'galeria-centralis', title: 'Galeria Centralis', url: '/external/galeria-centralis'},
       { key: 'verzio', title: 'Verzio', url: '/external/verzio' },
       { key: 'public-history-projects', title: 'Public History Projects', url: '/public-programs/public-history-projects' },
-      { key: 'public-program-news', title: 'Public Program News', url: '/news?profile=Public'},
+      // { key: 'public-program-news', title: 'Public Program News', url: '/news?profile=Public'},
     ]
   }
 ]

@@ -4,7 +4,8 @@ import getImageData from "@/utils/content/getImageData";
 
 const StaffCard = ({id, data}) => {
     // Populate fields
-    const name = data['Name']
+    const firstName = data['FirstName']
+    const lastName = data['LastName']
     const imageData = getImageData(data['Image'], 'medium')
     const position = data['Position']
     const slug = data['Slug']
@@ -17,7 +18,7 @@ const StaffCard = ({id, data}) => {
                     <MaskedImage src={imageData['url']} type={'portrait'} />
                 </div>
                 <div className={`${style.Name} subtitle-large`}>
-                    {name}
+                    {firstName} {lastName}
                 </div>
                 <div className={`${style.Position} subtitle-small`}>
                     {position}

@@ -33,7 +33,8 @@ export const getServerSideProps = (async (context) => {
 const StaffPage = ({staffData}) => {
     const data = staffData['data'][0]['attributes'];
 
-    const name = data['Name']
+    const firstName = data['FirstName']
+    const lastName = data['LastName']
     const bio = data['Bio']
     const position = data['Position']
     const unit = data['Unit']
@@ -56,7 +57,7 @@ const StaffPage = ({staffData}) => {
     return (
         <div className={style.Page}>
             <Container>
-                <SimplePageHeader title={name} breadCrumbObject={breadCrumbObject} />
+                <SimplePageHeader title={`${firstName} ${lastName}`} breadCrumbObject={breadCrumbObject} />
                 <Row>
                     <Col xs={8}>
                         <div className={'subtitle-large'}>{position}</div>
