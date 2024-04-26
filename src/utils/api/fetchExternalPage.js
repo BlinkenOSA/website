@@ -6,6 +6,7 @@ export const fetchExternalPage = (id, locale) => {
         'populate[1]': 'Content',
         'populate[2]': 'Content.Image',
         'populate[3]': 'Content.Images.Image',
+        'populate[4]': 'CardImage'
     }
 
     return fetcher(`external-page-jumps/${id}`, params)

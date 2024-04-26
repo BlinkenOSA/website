@@ -7,6 +7,7 @@ import PageHeader from "@/components/PageHeader/PageHeader";
 import {useRouter} from "next/router";
 import Button from "@/components/Button/Button";
 import getColor from "@/utils/content/getColor";
+import getImageUrl from "@/utils/content/getImageUrl";
 
 export const getServerSideProps = (async (context) => {
 	const { pid } = context.query;
@@ -41,11 +42,12 @@ const ExternalPage = ({pageData}) => {
 	const data = pageData['data']['attributes'];
 
 	const content = data['Content']
+	const image = getImageUrl(data['CardImage'], 'full')
 	const profile = externalPageConfig[pid]['profile']
 
 	return (
 		<div className={style.Page}>
-			<PageHeader title={data['Title']} image={externalPageConfig[pid]['header']} scrollScale={0.2} />
+			<PageHeader title={data['Title']} image={image} scrollScale={0.2} />
 			<Container>
 				<Content contentObject={content} profile={profile} />
 				<div className={style.BottomLine}>
