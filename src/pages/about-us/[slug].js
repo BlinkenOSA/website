@@ -38,7 +38,7 @@ const StaticPage = ({pageData}) => {
                 image={image}
                 scrollScale={0.5}/>
             <Container>
-                <Content contentObject={data['Content']} profile={'Collections'} />
+                <Content contentObject={data['Content']} profile={'Archivum'} />
             </Container>
         </div>
     )

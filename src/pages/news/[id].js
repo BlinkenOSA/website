@@ -4,6 +4,8 @@ import Content from "@/components/Content/Content";
 import {fetchNewsDetail} from "@/utils/api/fetchNews";
 import Authors from "@/components/Authors/Authors";
 import getCreationDate from "@/utils/content/getCreationDate";
+import PageHeader from "@/components/PageHeader/PageHeader";
+import getImageUrl from "@/utils/content/getImageUrl";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -34,6 +36,7 @@ const NewsPage = ({newsData}) => {
 	const authorStaff = data['AuthorStaff']
 	const originalCreationDate = data['OriginalCreationDate']
 	const createdAt = data['createdAt']
+	const image = getImageUrl(data['Image'])
 
 	const breadcrumbObject = [
 		{ key: 'news', title: 'News'},
@@ -42,14 +45,15 @@ const NewsPage = ({newsData}) => {
 
 	return (
 		<div className={style.Page}>
+			<PageHeader
+				title={data['Title']}
+				color={data['Profile']}
+				image={image}
+				breadcrumbObject={breadcrumbObject}
+				scrollScale={0.5}
+				isBlur={true}
+			/>
 			<Container>
-				<div style={{height: '48px'}}/>
-				<Row>
-					<Col xs={12}>
-						<h1>{data['Title']}</h1>
-					</Col>
-				</Row>
-				<div style={{height: '48px'}}/>
 				<Row>
 					<Col xs={6}>
 						<div>

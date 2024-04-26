@@ -8,6 +8,8 @@ import getCreationDate from "@/utils/content/getCreationDate";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import {toCapitalize} from "@/utils/toCapitalize";
 import LabeledData from "@/components/LabeledData/LabeledData";
+import getImageData from "@/utils/content/getImageData";
+import getImageUrl from "@/utils/content/getImageUrl";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -39,6 +41,7 @@ const EntryPage = ({entriesData}) => {
 	const entryType = data['EntryType']
 	const originalCreationDate = data['OriginalCreationDate']
 	const createdAt = data['createdAt']
+	const image = getImageUrl(data['Image'])
 
 	const breadcrumbObject = [
 		{ key: 'news', title: 'Blogs, Podcasts, Videos'},
@@ -48,17 +51,14 @@ const EntryPage = ({entriesData}) => {
 	return (
 		<div className={style.Page}>
 			<PageHeader
-				title={`${toCapitalize(entryType)}s`}
-				image={undefined}
+				title={data['Title']}
+				color={data['Profile']}
+				image={image}
 				breadcrumbObject={breadcrumbObject}
+				scrollScale={0.5}
+				isBlur={true}
 			/>
 			<Container>
-				<Row>
-					<Col xs={12}>
-						<h1>{title}</h1>
-					</Col>
-				</Row>
-				<div style={{height: '48px'}}/>
 				<Row>
 					<Col xs={6}>
 						<div className={style.CreationDate}>

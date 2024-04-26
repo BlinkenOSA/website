@@ -54,6 +54,8 @@ const EventPage = ({eventData}) => {
 					color={data['Profile']}
 					image={image}
 					breadcrumbObject={breadcrumbObject}
+					scrollScale={0.5}
+					isBlur={true}
 				/>
 				<Container>
 					<Row>

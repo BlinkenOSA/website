@@ -6,7 +6,7 @@ import {IconGeneralRight} from "@/components/Icon/GeneralIcon";
 import {MenuDispatchContext} from "@/utils/context/MenuContext";
 
 
-const PageHeader = ({title, breadCrumb, menu, image, scrollScale=1}) => {
+const PageHeader = ({title, breadCrumb, menu, image, scrollScale=1, isBlur=false}) => {
     const ref = useRef(null)
     const {scrollYProgress} = useScroll();
 
@@ -64,7 +64,11 @@ const PageHeader = ({title, breadCrumb, menu, image, scrollScale=1}) => {
                 </Row>
             </Container>
             <motion.div
-                style={{backgroundImage: `url(${image})`, y: backgroundY}}
+                style={{
+                    backgroundImage: `url(${image})`,
+                    y: backgroundY,
+                    filter: isBlur ? 'blur(5px)' : 'blur(0)'
+                }}
                 className={style.BackgroundImage} />
         </div>
     )
