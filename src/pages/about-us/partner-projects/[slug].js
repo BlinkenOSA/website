@@ -4,6 +4,7 @@ import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 import {fetchPartnerProjectsDetail} from "@/utils/api/fetchProjects";
 import Button from "@/components/Button/Button";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
+import Content from "@/components/Content/Content";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -31,7 +32,8 @@ const ProjectPage = ({projectData}) => {
     const title = data['Title']
     const link = data['Link']
     const buttonText = data['ButtonText']
-    const content = data['ContentOld']
+    const contentOld = data['ContentOld']
+    const content = data['Content']
 
     const breadCrumbObject = [
         {menu: 'about-us', title: 'About Us'},
@@ -44,9 +46,17 @@ const ProjectPage = ({projectData}) => {
                 <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
                 <Row>
                     <Col xs={12}>
-                        <BlocksRenderer content={content} />
+                        <Content contentObject={content} />
                     </Col>
                 </Row>
+                {
+                    contentOld &&
+                    <Row>
+                        <Col xs={12}>
+                            <BlocksRenderer content={contentOld}/>
+                        </Col>
+                    </Row>
+                }
                 <div style={{height: '48px'}} />
                 <div>
                     <Button
