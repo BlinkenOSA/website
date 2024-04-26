@@ -3,6 +3,7 @@ import {Col, Container, Row, Tab, Tabs} from "react-bootstrap";
 import {fetchCollectionHighlightsDetail} from "@/utils/api/fetchCollectionHighlights";
 import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
+import Button from "@/components/Button/Button";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -31,6 +32,7 @@ const CollectionDetailPage = ({collectionData}) => {
     const content = data['Content']
     const contentTypes = data['ContentTypes']
     const materialTypes = data['MaterialTypes']
+    const link = data['Link']
 
     const breadCrumbObject = [
         {menu: 'collections', title: 'Collections'},
@@ -47,6 +49,14 @@ const CollectionDetailPage = ({collectionData}) => {
                     </Col>
                 </Row>
                 <div style={{height: '48px'}} />
+                {
+                    link &&
+                    <Button
+                        type={'primary'}
+                        size={'large'}
+                        color={'orange'}
+                        link={link}>{'Visit Collection'}</Button>
+                }
             </Container>
         </div>
     )

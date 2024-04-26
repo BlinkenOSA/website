@@ -140,14 +140,6 @@ const EntriesPage = ({initialData}) => {
                             <div>Filter By</div>
                             <div className={style.DropdownFilter}>
                                 <DropdownFilter
-                                    label={'Profile'}
-                                    values={profileFilterValues}
-                                    selectedValue={profileFilter}
-                                    onSelect={setProfileFilter}
-                                />
-                            </div>
-                            <div className={style.DropdownFilter}>
-                                <DropdownFilter
                                     label={'Entry Type'}
                                     values={entryTypeFilterValues}
                                     selectedValue={entryTypeFilter}
