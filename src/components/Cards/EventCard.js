@@ -27,7 +27,7 @@ const EventCard = ({id, data}) => {
                 </div>
             </a>
             <a href={`/events/${id}`}>
-                <h3 className={`${style.Title} subtitle-large`}>{title}</h3>
+                <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipsis(title, 70)}</h3>
             </a>
             <div className={style.Description}>
                 {truncateWithEllipsis(description, 180)}
