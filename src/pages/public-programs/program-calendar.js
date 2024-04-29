@@ -19,6 +19,8 @@ import {useRouter} from "next/router";
 import dayjs from "dayjs";
 import getImageData from "@/utils/content/getImageData";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
+import {Media} from "@/utils/media";
+import Spacer from "@/components/Spacer/Spacer";
 
 export const getServerSideProps = (async (context) => {
 	const parameters = context.query;
@@ -39,22 +41,20 @@ export const getServerSideProps = (async (context) => {
 
 const ProgramCalendarHeader = () => {
 	return (
-		<>
-			<Row className={style.ProgramHeaderRow}>
-				<Col xs={3} className={style.Date}>
-					<span className={'subtitle-small'}>Date</span>
-				</Col>
-				<Col xs={1} className={style.Icon}>
-					<span className={'subtitle-small'}>Type</span>
-				</Col>
-				<Col xs={6}>
-					<span className={'subtitle-small'}>Title</span>
-				</Col>
-				<Col xs={2}>
-					<span className={'subtitle-small'}>Format / Language</span>
-				</Col>
-			</Row>
-		</>
+		<Row className={style.ProgramHeaderRow}>
+			<Col xs={3} className={style.Date}>
+				<span className={'subtitle-small'}>Date</span>
+			</Col>
+			<Col xs={1} className={style.Icon}>
+				<span className={'subtitle-small'}>Type</span>
+			</Col>
+			<Col xs={6}>
+				<span className={'subtitle-small'}>Title</span>
+			</Col>
+			<Col xs={2}>
+				<span className={'subtitle-small'}>Format / Language</span>
+			</Col>
+		</Row>
 	)
 }
 
@@ -72,22 +72,21 @@ const ProgramDataRow = ({id, index, data, onTitleClick}) => {
 	const hostingType = data['HostingType']
 	const date = getDateString(data['StartDate'], undefined, 'eventFull')
 
-
 	return (
 		<>
 			<Row className={index === 0 ? `${style.ProgramRow} ${style.First}` : style.ProgramRow} onClick={() => onTitleClick(id)}>
-				<Col xs={3} className={style.Date}>
+				<Col xs={{ span: 10, order: 1 }} sm={3} className={style.Date}>
 					<div className={'subtitle-small'}>{date}</div>
 				</Col>
-				<Col xs={1} className={style.Icon}>
+				<Col xs={{ span: 2, order: 2 }} sm={1} className={style.Icon}>
 					<ToolTipStuff id={id} title={data['EventType']}>
 						{icon}
 					</ToolTipStuff>
 				</Col>
-				<Col xs={6}>
+				<Col xs={{ span: 12, order: 3 }} sm={6}>
 					<div className={`${style.Title} subtitle-small`}>{title}</div>
 				</Col>
-				<Col xs={2}>
+				<Col xs={{ span: 12, order: 4 }} sm={2}>
 					{hostingType} {language !== null ? `/ ${language}` : ''}
 				</Col>
 			</Row>
@@ -105,10 +104,13 @@ const ProgramDetail = ({id, data, isOpened}) => {
 	return (
 		<Collapse isOpened={isOpened}>
 			<Row style={{padding: '24px 0'}}>
-				<Col xs={4}>
+				<Col xs={12} sm={4}>
 					{imageData && <MaskedImage src={imageData['url']} type={'landscape'} />}
 				</Col>
-				<Col xs={8}>
+				<Media lessThan="sm">
+					<Spacer />
+				</Media>
+				<Col xs={12} sm={8}>
 					{shortDescription ? shortDescription : description}
 					<div className={style.ProgramDetailButtons}>
 						<Button
@@ -180,6 +182,7 @@ const ProgramRows = ({programTypeFilter, languageFilter, hostingTypeFilter}) => 
 						</Col>
 					</Row>
 				}
+
 				<ProgramDataRow id={program['id']} data={program['attributes']} index={idx} onTitleClick={onTitleClick} />
 				<ProgramDetail id={program['id']} data={program['attributes']} isOpened={openedPrograms.includes(program['id'])} />
 			</React.Fragment>
@@ -233,35 +236,49 @@ const ProgramCalendarPage = ({initialData}) => {
 				<SimplePageHeader title={'Program Calendar'} menu={'public-programs'} breadCrumb={'Public Programs'} />
 				<Row>
 					<Col xs={12} sm={12} md={6}>
-						<HorizontalFilters
-							values={programTypeFilterValues}
-							selectedFilter={programTypeFilter}
-							align={'left'}
-							onSelect={setProgramTypeFilter}/>
+						<Media greaterThanOrEqual="sm">
+							<HorizontalFilters
+								values={programTypeFilterValues}
+								selectedFilter={programTypeFilter}
+								align={'left'}
+								onSelect={setProgramTypeFilter}/>
+						</Media>
+						<Media lessThan="sm">
+							<div className={style.DropdownFilter}>
+								<DropdownFilter
+									label={'Program Type'}
+									values={programTypeFilterValues}
+									selectedValue={programTypeFilter}
+									onSelect={setProgramTypeFilter}
+								/>
+							</div>
+						</Media>
 					</Col>
 					<Col xs={12} sm={12} md={6}>
-						<div className={style.DropdownFiltersWrapper}>
-							<div>Filter By</div>
-							<div className={style.DropdownFilter}>
-								<DropdownFilter
-									label={'Langauge'}
-									values={languageFilterValues}
-									selectedValue={languageFilter}
-									onSelect={setLanguageFilter}
-								/>
+						<Media greaterThanOrEqual="sm">
+							<div className={style.DropdownFiltersWrapper}>
+								<div>Filter By</div>
+								<div className={style.DropdownFilter}>
+									<DropdownFilter
+										label={'Langauge'}
+										values={languageFilterValues}
+										selectedValue={languageFilter}
+										onSelect={setLanguageFilter}
+									/>
+								</div>
+								<div className={style.DropdownFilter}>
+									<DropdownFilter
+										label={'Format'}
+										values={hostingTypeFilterValues}
+										selectedValue={hostingTypeFilter}
+										onSelect={setHostingTypeFilter}
+									/>
+								</div>
 							</div>
-							<div className={style.DropdownFilter}>
-								<DropdownFilter
-									label={'Format'}
-									values={hostingTypeFilterValues}
-									selectedValue={hostingTypeFilter}
-									onSelect={setHostingTypeFilter}
-								/>
-							</div>
-						</div>
+						</Media>
 					</Col>
 				</Row>
-				<div style={{height: '48px'}}/>
+				<Spacer />
 				<SWRConfig value={{ fallback: initialData }}>
 					<ProgramCalendarHeader/>
 					<ProgramRows
