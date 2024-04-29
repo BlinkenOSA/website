@@ -50,18 +50,18 @@ const StaffPage = ({initialData}) => {
 
 	const filterValues = [
 		{label: 'Administration', value: 'Administration'},
-		{label: 'Archival Programs'},
-		{label: 'Audiovisual Unit'},
-		{label: 'Chief Archivist'},
-		{label: 'Director'},
-		{label: 'Event & Exhibition'},
-		{label: 'IT Office'},
-		{label: 'Library'},
-		{label: 'Public Awareness Unit'},
-		{label: 'Records Management'},
-		{label: 'Reference Services'},
-		{label: 'Research'},
-		{label: 'Verzio Filmfestival'}
+		{label: 'Archival Programs', value: 'Archival Programs'},
+		{label: 'Audiovisual Unit', value: 'Audiovisual Unit'},
+		{label: 'Chief Archivist', value: 'Chief Archivist'},
+		{label: 'Director', value: 'Director'},
+		{label: 'Event & Exhibition', value: 'Event & Exhibition'},
+		{label: 'IT Office', value: 'IT Office'},
+		{label: 'Library', value: 'Library'},
+		{label: 'Public Awareness Unit', value: 'Public Awareness Unit'},
+		{label: 'Records Management', value: 'Records Management'},
+		{label: 'Reference Services', value: 'Reference Services'},
+		{label: 'Research', value: 'Research'},
+		{label: 'Verzio Filmfestival', value: 'Verzio Filmfestival'}
 	]
 
 	const handleFilterChange = (id) => {
