@@ -8,7 +8,10 @@ import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import fetcher from "@/utils/api/fetcher";
 import clientFetcher from "@/utils/api/clientFetcher";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
-import {useState} from "react";
+import React, {useState} from "react";
+import {Media} from "@/utils/media";
+import DropdownFilter from "@/components/Filters/DropdownFilter";
+import Spacer from "@/components/Spacer/Spacer";
 
 export const getServerSideProps = (async () => {
 	const [url, params] = fetchStaffList()
@@ -32,7 +35,7 @@ const StaffCards = ({selectedFilters}) => {
 
 	return data && data["data"].map(staff => {
 		return (
-			<Col xs={6} lg={4}>
+			<Col xs={12} sm={6} md={4}>
 				<StaffCard
 					key={staff["id"]}
 					data={staff['attributes']}
@@ -46,7 +49,7 @@ const StaffPage = ({initialData}) => {
 	const [unitFilter, setUnitFilter] = useState('')
 
 	const filterValues = [
-		{label: 'Administration'},
+		{label: 'Administration', value: 'Administration'},
 		{label: 'Archival Programs'},
 		{label: 'Audiovisual Unit'},
 		{label: 'Chief Archivist'},
@@ -74,15 +77,28 @@ const StaffPage = ({initialData}) => {
 			<Container>
 				<SimplePageHeader title={'Our Staff'} menu={'about-us'} breadCrumb={'About Us'} />
 				<Row>
-					<Col xs={4}>
-						<VerticalFilters
-							title={'Filter by Department'}
-							values={filterValues}
-							selectedFilters={unitFilter}
-							onChange={handleFilterChange}
-						/>
+					<Col xs={12} sm={4} md={4}>
+						<Media greaterThanOrEqual="sm">
+							<VerticalFilters
+								title={'Filter by Department'}
+								values={filterValues}
+								selectedFilters={unitFilter}
+								onChange={handleFilterChange}
+							/>
+						</Media>
+						<Media lessThan="sm">
+							<DropdownFilter
+								label={'Department'}
+								values={filterValues}
+								selectedValue={unitFilter}
+								onSelect={handleFilterChange}
+							/>
+						</Media>
 					</Col>
-					<Col xs={8}>
+					<Media lessThan="sm">
+						<Spacer />
+					</Media>
+					<Col xs={12} sm={8} md={8}>
 						<Row>
 							<SWRConfig value={{ fallback: initialData }}>
 								<StaffCards selectedFilters={unitFilter} />
