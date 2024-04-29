@@ -17,6 +17,18 @@
 
   .TitleBox {
     display: inline-block;
+
+    h1 {
+      // Table
+      @media (max-width: $md) {
+        font-size: 40px;
+      }
+
+      // Mobile
+      @media (max-width: $sm) {
+        font-size: 32px;
+      }
+    }
   }
 
   .Breadcrumbs {
