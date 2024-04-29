@@ -79,6 +79,8 @@
     // Mobile
     @media (max-width: $sm) {
       top: 81px;
+      margin: 0 -24px;
+      border-bottom: 1px solid $neutral_1000;
     }
 
     .TimeInfoElements {
