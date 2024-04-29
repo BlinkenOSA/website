@@ -37,7 +37,7 @@ const FellowCards = ({page, onPageSelect}) => {
     const renderCards = () => {
         return data && data["data"].map(staff => {
             return (
-                <Col xs={3}>
+                <Col xs={12} sm={6} md={3}>
                     <FellowCard
                         key={staff["id"]}
                         data={staff['attributes']}
