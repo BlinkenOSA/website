@@ -24,6 +24,8 @@ export const fetchCollectionHighlightsList = (max, contentType) => {
     const params = {
         'sort[0]': 'Title:asc',
         'populate[0]': 'Image',
+        'populate[1]': 'localizations',
+        'populate[2]': 'localizations.Image',
         'pagination[start]': 0,
         'pagination[limit]': 100,
         'fields[0]': 'Title',

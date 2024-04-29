@@ -4,11 +4,12 @@ import SectionFlipper from "@/components/IndexPage/SectionFlipper";
 import Slider from "react-slick";
 import {useRef} from "react";
 import useTranslation from "next-translate/useTranslation";
+import getLocalizedContent from "@/utils/content/getLocalizedContent";
 
 const EntriesPanel = ({entriesData}) => {
     let sliderRef = useRef(null);
 
-    const { t } = useTranslation('index')
+    const { t, lang } = useTranslation('index')
 
     const sliderSettings = {
         dots: false,
@@ -26,7 +27,7 @@ const EntriesPanel = ({entriesData}) => {
                     <EntryCard
                         id={`${entry["id"]}`}
                         key={`${entry["id"]}`}
-                        data={entry['attributes']}
+                        data={getLocalizedContent(entry['attributes'], lang)}
                         type={entry['EntryType']}
                     />
                 </div>

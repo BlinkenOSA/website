@@ -1,10 +1,12 @@
 import fetcher from "@/utils/api/fetcher";
 
-export const fetchEventsFrontPage = (locale) => {
+export const fetchEventsFrontPage = () => {
     const params = {
         'sort[0]': 'rank:asc',
         'sort[1]': 'StartDate:desc',
         'populate[0]': 'Image',
+        'populate[1]': 'localizations',
+        'populate[2]': 'localizations.Image',
         'pagination[start]': 0,
         'pagination[limit]': 3,
         'fields[0]': 'Title',

@@ -6,6 +6,8 @@ export const fetchNewsFrontPage = (locale) => {
         'sort[0]': 'rank:asc',
         'sort[1]': 'createdAt:desc',
         'populate[0]': 'Image',
+        'populate[1]': 'localizations',
+        'populate[2]': 'localizations.Image',
         'pagination[start]': 0,
         'pagination[limit]': 9,
         'fields[0]': 'Title',

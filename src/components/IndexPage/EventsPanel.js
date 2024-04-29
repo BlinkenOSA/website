@@ -2,9 +2,10 @@ import {Col, Row} from "react-bootstrap";
 import EventCard from "@/components/Cards/EventCard";
 import SectionDivider from "@/components/IndexPage/SectionDivider";
 import useTranslation from "next-translate/useTranslation";
+import getLocalizedContent from "@/utils/content/getLocalizedContent";
 
-const EventsPanel = ({eventsData, }) => {
-    const { t } = useTranslation('index')
+const EventsPanel = ({eventsData}) => {
+    const { t, lang } = useTranslation('index')
 
     const renderEventCard = () => {
         return eventsData["data"].map((event, idx) => {
@@ -13,7 +14,7 @@ const EventsPanel = ({eventsData, }) => {
                     <EventCard
                         id={event['id']}
                         key={`event_${event["id"]}`}
-                        data={event['attributes']}
+                        data={getLocalizedContent(event['attributes'], lang)}
                     />
                 </Col>
             )

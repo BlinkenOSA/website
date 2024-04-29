@@ -4,9 +4,10 @@ import NewsCard from "@/components/Cards/NewsCard";
 import SectionFlipper from "@/components/IndexPage/SectionFlipper";
 import {useRef} from "react";
 import useTranslation from "next-translate/useTranslation";
+import getLocalizedContent from "@/utils/content/getLocalizedContent";
 
 const NewsPanel = ({newsData}) => {
-    const { t } = useTranslation('index')
+    const { t, lang } = useTranslation('index')
 
     const sliderSettings = {
         dots: false,
@@ -26,7 +27,7 @@ const NewsPanel = ({newsData}) => {
                     <NewsCard
                         id={`${entry["id"]}`}
                         key={`${entry["id"]}`}
-                        data={entry['attributes']}
+                        data={getLocalizedContent(entry['attributes'], lang)}
                     />
                 </div>
             )

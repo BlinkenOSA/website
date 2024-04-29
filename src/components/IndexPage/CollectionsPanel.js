@@ -4,9 +4,10 @@ import SectionDivider from "@/components/IndexPage/SectionDivider";
 import style from "@/pages/pages.module.scss";
 import useTranslation from "next-translate/useTranslation";
 import Slider from "react-slick";
+import getLocalizedContent from "@/utils/content/getLocalizedContent";
 
 const CollectionsPanel = ({collectionsData}) => {
-    const { t } = useTranslation('index')
+    const { t, lang } = useTranslation('index')
 
     const sliderSettings = {
         dots: false,
@@ -24,7 +25,7 @@ const CollectionsPanel = ({collectionsData}) => {
             return (
                 <div key={`collection_${idx}`} className={style.SliderCard}>
                     <CollectionCard
-                        data={collection['attributes']}
+                        data={getLocalizedContent(collection['attributes'], lang)}
                     />
                 </div>
             )

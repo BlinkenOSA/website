@@ -45,7 +45,7 @@ export const getServerSideProps = (async (context) => {
 })
 
 const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData, credoData}) => {
-	const { t } = useTranslation('index')
+	const { t, lang } = useTranslation('index')
 
 	const renderHeroes = () => {
 		const renderHero = () => {
