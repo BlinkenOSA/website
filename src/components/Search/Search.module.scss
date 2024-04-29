@@ -14,4 +14,10 @@
   height: 100%;
   right: calc(4 * $menu-width - 4px);
   top: $header-height-desktop + 1px;
+
+  // Mobile
+  @media (max-width: $md) {
+    width: 100%;
+    right: 0;
+  }
 }

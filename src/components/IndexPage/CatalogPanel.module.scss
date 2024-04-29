@@ -5,6 +5,11 @@
   position: relative;
   height: 400px;
 
+  // Mobile
+  @media (max-width: $sm) {
+    height: 600px;
+  }
+
   img {
     object-fit: cover;
   }
@@ -24,7 +29,7 @@
 
     h1 {
       color: #FFFFFF;
-      margin-bottom: 40px;
+      margin-bottom: 16px;
     }
 
     p {

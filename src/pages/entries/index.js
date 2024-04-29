@@ -43,7 +43,7 @@ const EntryCards = ({page, profile, entryType, onPageSelect}) => {
     const renderCards = () => {
         return data && data["data"].map(entry => {
             return (
-                <Col xs={4}>
+                <Col xs={12} sm={6} md={4}>
                     <EntryCard
                         key={entry["id"]}
                         id={entry["id"]}

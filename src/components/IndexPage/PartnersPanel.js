@@ -11,8 +11,8 @@ const PartnersPanel = () => {
 
     return (
         <>
-            <Row>
-                <Col xs={12} md={6}>
+            <Row className={style.PartnersRow}>
+                <Col xs={12} sm={6} md={6}>
                     <div className={`${style.Panel} ${style.Left}`}>
                         <div className={style.Text}>
                             <h2>{t('partners__galeria')}</h2>
@@ -37,7 +37,7 @@ const PartnersPanel = () => {
                         </div>
                     </div>
                 </Col>
-                <Col xs={12} md={6}>
+                <Col xs={12} sm={6} md={6}>
                     <div className={`${style.Panel} ${style.Right}`}>
                         <div className={style.Text}>
                             <h2>{t('partners__verzio')}</h2>

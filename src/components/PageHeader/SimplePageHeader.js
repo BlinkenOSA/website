@@ -4,6 +4,7 @@ import {useContext} from "react";
 import {IconGeneralRight} from "@/components/Icon/GeneralIcon";
 import {MenuDispatchContext} from "@/utils/context/MenuContext";
 import {useRouter} from "next/router";
+import Spacer from "@/components/Spacer/Spacer";
 
 
 const SimplePageHeader = ({title, breadCrumb, menu, breadCrumbObject}) => {
@@ -68,7 +69,7 @@ const SimplePageHeader = ({title, breadCrumb, menu, breadCrumbObject}) => {
 
     return (
         <>
-            <div style={{height: '48px'}} />
+            <Spacer />
                 <Container className={style.Container}>
                     <Row>
                         <Col xs={12}>
@@ -80,7 +81,7 @@ const SimplePageHeader = ({title, breadCrumb, menu, breadCrumbObject}) => {
                         </Col>
                     </Row>
                 </Container>
-            <div style={{height: '48px'}} />
+            <Spacer />
         </>
 )
 }

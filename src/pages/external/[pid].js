@@ -41,6 +41,8 @@ const ExternalPage = ({pageData}) => {
 	const {pid} = router.query;
 	const data = pageData['data']['attributes'];
 
+	console.log(data)
+
 	const content = data['Content']
 	const image = getImageUrl(data['CardImage'], 'full')
 	const profile = externalPageConfig[pid]['profile']

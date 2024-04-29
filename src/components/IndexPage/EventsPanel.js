@@ -3,6 +3,9 @@ import EventCard from "@/components/Cards/EventCard";
 import SectionDivider from "@/components/IndexPage/SectionDivider";
 import useTranslation from "next-translate/useTranslation";
 import getLocalizedContent from "@/utils/content/getLocalizedContent";
+import style from "./EventsPanel.module.scss";
+import Button from "@/components/Button/Button";
+import {Media} from "@/utils/media";
 
 const EventsPanel = ({eventsData}) => {
     const { t, lang } = useTranslation('index')
@@ -10,7 +13,7 @@ const EventsPanel = ({eventsData}) => {
     const renderEventCard = () => {
         return eventsData["data"].map((event, idx) => {
             return (
-                <Col key={`event_${idx}`} sm={6} md={6} lg={4}>
+                <Col key={`event_${idx}`} xs={12} sm={6} md={4}>
                     <EventCard
                         id={event['id']}
                         key={`event_${event["id"]}`}
@@ -27,9 +30,21 @@ const EventsPanel = ({eventsData}) => {
                             buttonText={t('events__button')}
                             buttonLink={'/public-programs/program-calendar'}
                             subTitle={t('events__free-text')}/>
-            <Row>
+            <Row className={style.Row}>
                 {renderEventCard()}
             </Row>
+            <Media lessThan="sm">
+                <div style={{textAlign: "center"}}>
+                    <Button
+                        type={'primary'}
+                        size={'large'}
+                        color={'neutral'}
+                        linkTarget={'_self'}
+                        link={'/public-programs/program-calendar'}>
+                        {t('events__button')}
+                    </Button>
+                </div>
+            </Media>
         </>
     )
 }

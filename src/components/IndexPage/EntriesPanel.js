@@ -5,8 +5,11 @@ import Slider from "react-slick";
 import {useRef} from "react";
 import useTranslation from "next-translate/useTranslation";
 import getLocalizedContent from "@/utils/content/getLocalizedContent";
+import {Media} from "@/utils/media";
+import SectionSlider from "@/components/IndexPage/SectionSlider";
+import Spacer from "@/components/Spacer/Spacer";
 
-const EntriesPanel = ({entriesData}) => {
+const EntriesPanel = ({entriesData, slidesToShow=3}) => {
     let sliderRef = useRef(null);
 
     const { t, lang } = useTranslation('index')
@@ -16,7 +19,7 @@ const EntriesPanel = ({entriesData}) => {
         arrows: false,
         infinite: true,
         speed: 400,
-        slidesToShow: 3,
+        slidesToShow: slidesToShow,
         slidesToScroll: 1,
     };
 
@@ -57,6 +60,14 @@ const EntriesPanel = ({entriesData}) => {
                 {...sliderSettings}>
                 {renderEntryCard()}
             </Slider>
+            <Media lessThan="md">
+                <SectionSlider
+                    link={'/entries'}
+                    onPreviousClick={onPreviousClick}
+                    onNextClick={onNextClick}
+                />
+                <Spacer />
+            </Media>
         </>
     )
 }

@@ -1,4 +1,5 @@
 @import "@/styles/colors.scss";
+@import "@/styles/variables.scss";
 
 .Wrapper {
   display: flex;
@@ -6,6 +7,12 @@
   height: 600px;
   border: 1px solid $neutral_1000;
   padding: 24px 16px;
+
+  // Mobile
+  @media (max-width: $sm) {
+    height: unset;
+    margin-bottom: 24px;
+  }
 
   .Header {
     display: flex;

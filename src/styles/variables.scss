@@ -6,8 +6,9 @@ $menu-width: 56px;
 $menu-content-width: 100vw;
 $submenu-height: 50px;
 
+// Mobile
 $xs: 0;
-$sm: 576px;
-$md: 768px;
-$lg: 1000px;
-$xl: 1200px;
+// Tablet
+$sm: 700px;
+// Desktop
+$md: 1200px;

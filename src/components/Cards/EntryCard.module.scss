@@ -1,9 +1,16 @@
 @import "@/styles/colors.scss";
+@import "@/styles/variables.scss";
 
 .Wrapper {
   display: flex;
   flex-direction: column;
   max-height: 500px;
+
+  // Mobile
+  @media (max-width: $sm) {
+    height: unset;
+    margin-bottom: 24px;
+  }
 
   .Header {
     display: flex;

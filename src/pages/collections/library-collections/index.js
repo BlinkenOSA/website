@@ -57,13 +57,13 @@ const CollectionHighlightsPage = ({initialData}) => {
                         </div>
                     </Col>
                 </Row>
-                <div style={{height: '48px'}} />
+                <Spacer />
                 <Row>
                     <SWRConfig value={{ fallback: initialData }}>
                         <CollectionCards />
                     </SWRConfig>
                 </Row>
-                <div style={{height: '48px'}} />
+                <Spacer />
             </Container>
         </div>
     )

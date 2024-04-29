@@ -1,6 +1,8 @@
 import style from "./SectionDivider.module.scss";
 import Button from "@/components/Button/Button";
 import {Row} from "react-bootstrap";
+import {Media} from "@/utils/media";
+import Spacer from "@/components/Spacer/Spacer";
 
 const SectionDivider = ({title, buttonText, buttonLink, subTitle, border = false}) => {
     return (
@@ -8,14 +10,16 @@ const SectionDivider = ({title, buttonText, buttonLink, subTitle, border = false
             <div className={style.Wrapper}>
                 <div className={style.Header}>
                     <h1>{title}</h1>
-                    <Button
-                        type={'primary'}
-                        size={'large'}
-                        color={'neutral'}
-                        linkTarget={'_self'}
-                        link={buttonLink ? buttonLink : undefined}>
-                        {buttonText}
-                    </Button>
+                    <Media greaterThanOrEqual="sm">
+                        <Button
+                            type={'primary'}
+                            size={'large'}
+                            color={'neutral'}
+                            linkTarget={'_self'}
+                            link={buttonLink ? buttonLink : undefined}>
+                            {buttonText}
+                        </Button>
+                    </Media>
                 </div>
                 { border && <div className={style.Border} /> }
                 {
@@ -25,6 +29,7 @@ const SectionDivider = ({title, buttonText, buttonLink, subTitle, border = false
                     </div>
                 }
             </div>
+            <Spacer size={'medium'} />
         </Row>
     )
 }

@@ -1,0 +1,88 @@
+@import "@/styles/variables.scss";
+@import "@/styles/colors.scss";
+
+.MenuPageWrapper {
+  position: relative;
+  display: flex;
+  background-color: #FFF;
+  overflow: scroll;
+
+  .SubmenuWrapper {
+    flex: 1;
+    // border-right: 1px solid $neutral_1000;
+    background-color: #FFFFFF;
+    z-index: 2;
+
+    .Submenu {
+      padding: 24px;
+      
+      .MenuItem {
+        .Title {
+          display: inline-block;
+          cursor: pointer;
+          border-bottom: solid 1px transparent;
+          transition: border 0.5s ease, color 0.5s ease;
+
+          &.Current {
+            color: $neutral_1000;
+            border-bottom: solid 1px $neutral_1000;
+          }
+
+          &.Active {
+            border-bottom: solid 1px $neutral_1000;
+          }
+
+          &:hover {
+            border-bottom: solid 1px $neutral_1000;
+          }
+        }
+
+        img {
+          transition: filter 0.5s ease;
+        }
+
+        &.NotActive {
+          color: $neutral_200;
+
+          img {
+            filter: invert(85%) sepia(2%) saturate(33%) hue-rotate(344deg) brightness(100%) contrast(92%);
+          }
+
+          .Title {
+            border-bottom: solid 1px transparent;
+
+            &:hover {
+              color: $neutral_1000;
+              border-bottom: solid 1px $neutral_1000;
+            }
+
+            &.Current {
+              color: $neutral_200;
+              border-bottom: solid 1px transparent;
+            }
+          }
+        }
+
+        .Icon {
+          cursor: pointer;
+          display: flex;
+          width: 60px;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  .SubmenuSecondLevel {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+
+    .BackButton {
+      position: absolute;
+      top: 20px;
+      z-index: 100;
+    }
+  }
+}

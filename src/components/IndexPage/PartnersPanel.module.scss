@@ -1,4 +1,12 @@
 @import "@/styles/colors.scss";
+@import "@/styles/variables.scss";
+
+.PartnersRow {
+  // Mobile
+  @media (max-width: $sm) {
+    --bs-gutter-y: 24px;
+  }
+}
 
 .Panel {
   display: flex;
@@ -27,8 +35,10 @@
     display: flex;
     align-items: center;
 
-    .Button {
-
+    // Mobile
+    @media (max-width: $md) {
+      gap: 24px;
+      flex-direction: column;
     }
 
     .Logo {

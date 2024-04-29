@@ -7,6 +7,8 @@ import Link from "next/link";
 import Typewriter from "@/components/Typewriter/Typewriter";
 import {useInView} from "framer-motion";
 import {useEffect, useMemo, useRef, useState} from "react";
+import {Media} from "@/utils/media";
+import Spacer from "@/components/Spacer/Spacer";
 
 const CatalogPanel = () => {
     const { t } = useTranslation('index')
@@ -34,13 +36,16 @@ const CatalogPanel = () => {
             <div className={style.Overlay}>
                 <Container>
                     <Row>
-                        <Col xs={4} className={style.Left}>
+                        <Col xs={12} sm={6} md={4} className={style.Left}>
                             <Link href={'https://catalog.osaarchivum.org/'} target={'_blank'}>
                                 <h1>{t('catalog')}</h1>
                             </Link>
                             <SearchBox onPressEnter={handleEnter} />
                         </Col>
-                        <Col xs={8}>
+                        <Media lessThan="sm">
+                            <Spacer />
+                        </Media>
+                        <Col xs={12} sm={6} md={8}>
                             {
                                 startAnimation &&
                                 <Typewriter text={'10,000 linear meters, 17,000 hours of audiovisual, and 15 TB of digital records, as well ' +

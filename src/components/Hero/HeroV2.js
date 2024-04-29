@@ -59,9 +59,9 @@ const HeroV2 = ({data}) => {
 
     return (
         <div className={`${style.HeroWrapper}`}>
-            <Container style={{position: 'relative'}}>
+            <Container>
                 <Row>
-                    <Col xs={6}>
+                    <Col xs={12} sm={8} md={6} style={{position: 'relative'}}>
                         <div className={style.TextWrapper}>
                             <div className={`${style.TopRow} hero-top-row`}>
                                 <div className={style.Date}>

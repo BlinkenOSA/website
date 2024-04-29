@@ -1,4 +1,12 @@
+@import "@/styles/variables.scss";
+
 .ImageFull {
   max-width: 60%;
   margin: 24px auto;
+
+  // Mobile
+  @media (max-width: $md) {
+    max-width: 100%;
+  }
+
 }

@@ -6,6 +6,7 @@ import {MediaContextProvider, mediaStyles} from "@/utils/media";
 
 import ThemeProvider from 'react-bootstrap/ThemeProvider'
 import Layout from "@/components/Layout/Layout";
+import {useEffect} from "react";
 
 const suisseIntlRegular = localFont({src: '../../public/fonts/SuisseIntl-Regular-WebXL.woff2', variable: "--font-suisseIntlRegular"})
 const suisseIntlBook = localFont({src: '../../public/fonts/SuisseIntl-Book-WebXL.woff2', variable: "--font-suisseIntlBook"})
@@ -27,7 +28,7 @@ export default function App({ Component, pageProps }) {
         style={{height: '100%'}}>
         <MediaContextProvider disableDynamicMediaQueries>
           <ThemeProvider
-            breakpoints={['xs', 'sm', 'md', 'lg', 'xl']}
+            breakpoints={['xs', 'sm', 'md']}
           >
               <Layout>
                 <Component {...pageProps} />

@@ -19,6 +19,7 @@ const Typewriter = ({ text, delay=0, ...rest }) => {
             initial="hidden"
             animate="visible"
             {...rest}
+            style={{margin: 0}}
         >
             {text.split("").map((char, i) => (
                 <motion.span key={`${char}-${i}`} variants={letterVariants}>

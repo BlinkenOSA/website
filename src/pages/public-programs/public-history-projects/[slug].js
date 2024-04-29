@@ -57,7 +57,7 @@ const ProjectPage = ({projectData}) => {
                         </Col>
                     </Row>
                 }
-                <div style={{height: '48px'}} />
+                <Spacer />
                 <div>
                     <Button
                         type={'primary'}
@@ -65,7 +65,7 @@ const ProjectPage = ({projectData}) => {
                         color={'sage'}
                         link={link}>{buttonText ? buttonText : 'Visit Project'}</Button>
                 </div>
-                <div style={{height: '48px'}} />
+                <Spacer />
             </Container>
         </div>
     )

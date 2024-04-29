@@ -31,7 +31,7 @@ const Search = () => {
                 {
                     searchOpen &&
                     <div className={style.SearchScreen}>
-                            <SearchPage searchOpen={searchOpen} onClose={handleClick} />
+                        <SearchPage searchOpen={searchOpen} onClose={handleClick} />
                     </div>
                 }
             </AnimatePresence>

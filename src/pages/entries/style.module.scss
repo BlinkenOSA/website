@@ -3,8 +3,12 @@
 
 .Page {
   // Mobile
-  @media (max-width: $lg) {
+  @media (max-width: $md) {
     margin-right: 0;
+
+    :global .row {
+      --bs-gutter-x: 24px !important;
+    }
 
     :global .container {
       padding: 0 24px !important;

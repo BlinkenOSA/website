@@ -5,8 +5,11 @@ import SectionFlipper from "@/components/IndexPage/SectionFlipper";
 import {useRef} from "react";
 import useTranslation from "next-translate/useTranslation";
 import getLocalizedContent from "@/utils/content/getLocalizedContent";
+import SectionSlider from "@/components/IndexPage/SectionSlider";
+import {Media} from "@/utils/media";
+import Spacer from "@/components/Spacer/Spacer";
 
-const NewsPanel = ({newsData}) => {
+const NewsPanel = ({newsData, slidesToShow=3}) => {
     const { t, lang } = useTranslation('index')
 
     const sliderSettings = {
@@ -14,7 +17,7 @@ const NewsPanel = ({newsData}) => {
         arrows: false,
         infinite: true,
         speed: 400,
-        slidesToShow: 3,
+        slidesToShow: slidesToShow,
         slidesToScroll: 1,
     };
 
@@ -56,6 +59,14 @@ const NewsPanel = ({newsData}) => {
                 {...sliderSettings}>
                 {renderNewsCard()}
             </Slider>
+            <Media lessThan="md">
+                <SectionSlider
+                    link={'/news'}
+                    onPreviousClick={onPreviousClick}
+                    onNextClick={onNextClick}
+                />
+                <Spacer />
+            </Media>
         </>
     )
 }

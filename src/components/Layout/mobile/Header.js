@@ -4,6 +4,7 @@ import LanguageSelector from "@/components/Selectors/LanguageSelector";
 import {MenuContext, MenuDispatchContext} from "@/utils/context/MenuContext";
 import {useContext} from "react";
 import MobileMenuButton from "@/components/Layout/mobile/MobileMenuButton";
+import Search from "@/components/Search/Search";
 
 const Header = () => {
 	const menuOpen = useContext(MenuContext);
@@ -25,6 +26,9 @@ const Header = () => {
 		<div className={style.HeaderWrapper}>
 			<div className={style.Logo} >
 				<Logo height={30} link={'/'} mode={'dark'}/>
+			</div>
+			<div className={style.Search}>
+				<Search />
 			</div>
 			<div className={style.LanguageSelector} >
 				<LanguageSelector />

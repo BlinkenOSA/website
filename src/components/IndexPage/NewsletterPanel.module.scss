@@ -1,5 +1,13 @@
+@import "@/styles/variables.scss";
+
 .Wrapper {
   display: flex;
+
+  // Mobile
+  @media (max-width: $sm) {
+    flex-direction: column;
+    gap: 24px;
+  }
 
   .Left {
     align-self: center;
@@ -32,5 +40,10 @@
   .Right {
     flex: 1;
     padding-left: 96px;
+
+    // Mobile
+    @media (max-width: $sm) {
+      padding-left: 0;
+    }
   }
 }

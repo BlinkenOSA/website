@@ -61,13 +61,13 @@ const JobPage = ({jobData}) => {
                         <LabeledData label={'Application Deadline'} data={deadline} marginBottom={false} />
                     </Col>
                 </Row>
-                <div style={{height: '48px'}} />
+                <Spacer />
                 <Row>
                     <Col xs={12}>
                         <BlocksRenderer content={content} />
                     </Col>
                 </Row>
-                <div style={{height: '48px'}} />
+                <Spacer />
             </Container>
         </div>
     )

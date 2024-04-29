@@ -1,8 +1,9 @@
 import style from "./MobileMenuItem.module.scss";
 import {AnimatePresence, motion} from "framer-motion";
 import {Collapse} from 'react-collapse';
+import MenuPage from "@/components/Menu/mobile/MenuPage";
 
-const MobileMenuItem = ({title, icon, color, number, menuOpen, onClick, menuVisible}) => {
+const MobileMenuItem = ({title, icon, color, number, menuOpen, menuItems, onClick, menuVisible}) => {
     return (
         <AnimatePresence>
             {
@@ -17,7 +18,11 @@ const MobileMenuItem = ({title, icon, color, number, menuOpen, onClick, menuVisi
                     </div>
                     <Collapse isOpened={menuOpen.includes(number)}>
                         <div className={style.MenuPage}>
-
+                            <MenuPage
+                                menuID={menuOpen[1]}
+                                menuItems={menuItems}
+                                number={number}
+                                status={menuOpen.includes(number) ? 'open': 'closed'} />
                         </div>
                     </Collapse>
                 </motion.div>

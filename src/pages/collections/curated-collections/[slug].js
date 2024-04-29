@@ -49,7 +49,7 @@ const CollectionDetailPage = ({collectionData}) => {
                         <Content contentObject={content} profile={'Collections'} />
                     </Col>
                 </Row>
-                <div style={{height: '48px'}} />
+                <Spacer />
                 {
                     link &&
                     <Button

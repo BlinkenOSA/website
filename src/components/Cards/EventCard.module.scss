@@ -1,10 +1,17 @@
 @import "@/styles/colors.scss";
+@import "@/styles/variables.scss";
 
 .Wrapper {
   display: flex;
   flex-direction: column;
   height: 440px;
   cursor: pointer;
+
+  // Mobile
+  @media (max-width: $sm) {
+    height: unset;
+    margin-bottom: 24px;
+  }
 
   .Tag {
     display: flex;

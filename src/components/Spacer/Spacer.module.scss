@@ -1,0 +1,28 @@
+@import "@/styles/variables.scss";
+
+.small {
+  height: 24px;
+
+  // Mobile
+  @media (max-width: $sm) {
+    height: 24px;
+  }
+}
+
+.medium {
+  height: 32px;
+
+  // Mobile
+  @media (max-width: $sm) {
+    height: 24px;
+  }
+}
+
+.large {
+  height: 48px;
+
+  // Mobile
+  @media (max-width: $sm) {
+    height: 24px;
+  }
+}

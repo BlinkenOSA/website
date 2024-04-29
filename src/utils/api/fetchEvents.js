@@ -8,7 +8,7 @@ export const fetchEventsFrontPage = () => {
         'populate[1]': 'localizations',
         'populate[2]': 'localizations.Image',
         'pagination[start]': 0,
-        'pagination[limit]': 3,
+        'pagination[limit]': 4,
         'fields[0]': 'Title',
         'fields[1]': 'CardText',
         'fields[2]': 'StartDate',

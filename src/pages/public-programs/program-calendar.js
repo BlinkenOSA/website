@@ -232,14 +232,14 @@ const ProgramCalendarPage = ({initialData}) => {
 			<Container>
 				<SimplePageHeader title={'Program Calendar'} menu={'public-programs'} breadCrumb={'Public Programs'} />
 				<Row>
-					<Col md={12} lg={6}>
+					<Col xs={12} sm={12} md={6}>
 						<HorizontalFilters
 							values={programTypeFilterValues}
 							selectedFilter={programTypeFilter}
 							align={'left'}
 							onSelect={setProgramTypeFilter}/>
 					</Col>
-					<Col md={12} lg={6}>
+					<Col xs={12} sm={12} md={6}>
 						<div className={style.DropdownFiltersWrapper}>
 							<div>Filter By</div>
 							<div className={style.DropdownFilter}>

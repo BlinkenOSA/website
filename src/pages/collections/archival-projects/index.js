@@ -19,7 +19,7 @@ const ArchivalProjectsPage = ({projectsData}) => {
     const renderProjects = () => {
         return projectsData["data"].map(project => {
             return (
-                <Col xs={6}>
+                <Col xs={12} sm={6} md={6}>
                     <ProjectCard
                         key={project["id"]}
                         data={project['attributes']}

@@ -22,10 +22,10 @@ const ContentWithImage = ({content}) => {
         case 'Right':
             return (
                 <Row>
-                    <Col xs={8}>
+                    <Col xs={12} sm={6} md={8}>
                         <BlocksRenderer content={content['Content']} />
                     </Col>
-                    <Col xs={4}>
+                    <Col xs={12} sm={6} md={4}>
                         <div className={style.ImageColumn}>
                             {renderImages('small')}
                         </div>
@@ -35,12 +35,12 @@ const ContentWithImage = ({content}) => {
         case 'Left':
             return (
                 <Row>
-                    <Col xs={4}>
+                    <Col xs={12} sm={6} md={4}>
                         <div className={style.ImageColumn}>
                             {renderImages('small')}
                         </div>
                     </Col>
-                    <Col xs={8}>
+                    <Col xs={12} sm={6} md={8}>
                         <BlocksRenderer content={content['Content']} />
                     </Col>
                 </Row>

@@ -1,8 +1,9 @@
 import style from "./SectionDivider.module.scss";
-import Button from "@/components/Button/Button";
-import {IconGeneralLeft, IconGeneralRight} from "@/components/Icon/GeneralIcon";
 import {Row} from "react-bootstrap";
 import Link from "next/link";
+import Spacer from "@/components/Spacer/Spacer";
+import {Media} from "@/utils/media";
+import SectionSlider from "@/components/IndexPage/SectionSlider";
 
 const SectionFlipper = ({title, link, border = false, onNextClick, onPreviousClick}) => {
     const getTitle = () => {
@@ -22,33 +23,17 @@ const SectionFlipper = ({title, link, border = false, onNextClick, onPreviousCli
             <div className={style.Wrapper}>
                 <div className={style.Header}>
                     {getTitle()}
-                    <div className={style.Controls}>
-                        {
-                            link &&
-                            <Button
-                                type={'primary'}
-                                size={'medium'}
-                                color={'neutral'}
-                                link={link}
-                                linkTarget={'_self'}
-                                isIcon={false}>View All</Button>
-                        }
-                        <Button
-                            type={'primary'}
-                            size={'medium'}
-                            color={'neutral'}
-                            onClick={onPreviousClick}
-                            isIcon={true}><IconGeneralLeft/></Button>
-                        <Button
-                            type={'primary'}
-                            size={'medium'}
-                            color={'neutral'}
-                            onClick={onNextClick}
-                            isIcon={true}><IconGeneralRight/></Button>
-                    </div>
+                    <Media greaterThanOrEqual="md">
+                        <SectionSlider
+                            link={link}
+                            onPreviousClick={onPreviousClick}
+                            onNextClick={onNextClick}
+                        />
+                    </Media>
                 </div>
                 { border && <div className={style.Border} /> }
             </div>
+            <Spacer size={'medium'} />
         </Row>
     )
 }

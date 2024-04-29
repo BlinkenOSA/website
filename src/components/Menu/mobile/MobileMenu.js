@@ -22,7 +22,7 @@ const Menu = () => {
 
     return (
         <>
-            <nav className={style.BarNavigation}>
+            <nav className={menuOpen[0] === 'openMobileMenu' ? `${style.BarNavigation} ${style.Open}` : style.BarNavigation}>
                 {
                     menuConfig.map((cfg, index) => {
                         return (
@@ -33,6 +33,7 @@ const Menu = () => {
                                 color={cfg['color']}
                                 number={index+1}
                                 menuOpen={menuOpen}
+                                menuItems={cfg['menuItems']}
                                 onClick={handleMenuClick}
                                 menuVisible={menuOpen.includes('openMobileMenu')}
                             />

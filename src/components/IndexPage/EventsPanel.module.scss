@@ -1,0 +1,9 @@
+@import "@/styles/variables.scss";
+
+.Row {
+  // Mobile
+  @media (min-width: $md) {
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+}

@@ -5,6 +5,7 @@ import {fetchPartnerProjectsDetail} from "@/utils/api/fetchProjects";
 import Button from "@/components/Button/Button";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Content from "@/components/Content/Content";
+import Spacer from "@/components/Spacer/Spacer";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -57,7 +58,7 @@ const ProjectPage = ({projectData}) => {
                         </Col>
                     </Row>
                 }
-                <div style={{height: '48px'}} />
+                <Spacer />
                 <div>
                     <Button
                         type={'primary'}
@@ -65,7 +66,7 @@ const ProjectPage = ({projectData}) => {
                         color={'mustard'}
                         link={link}>{buttonText ? buttonText : 'Visit Project'}</Button>
                 </div>
-                <div style={{height: '48px'}} />
+                <Spacer />
             </Container>
         </div>
     )

@@ -20,6 +20,8 @@ import EventsPanel from "@/components/IndexPage/EventsPanel";
 import NewsPanel from "@/components/IndexPage/NewsPanel";
 import EntriesPanel from "@/components/IndexPage/EntriesPanel";
 import CollectionsPanel from "@/components/IndexPage/CollectionsPanel";
+import Spacer from "@/components/Spacer/Spacer";
+import {Media} from "@/utils/media";
 
 export const getServerSideProps = (async (context) => {
 	const {locale} = context
@@ -70,31 +72,54 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 		<div className={style.Page}>
 			{renderHeroes()}
 			<Container>
-				<div style={{height: '48px'}}/>
+				<Spacer size={'medium'} />
 				<EventsPanel eventsData={eventsData} />
-				<div style={{height: '24px'}}/>
+				<Spacer size={'medium'} />
 			</Container>
 			<Container fluid={true}>
 				<CatalogPanel/>
 			</Container>
 			<Container>
-				<div style={{height: '48px'}}/>
-				<NewsPanel newsData={newsData} />
-				<div style={{height: '40px'}}/>
-				<EntriesPanel entriesData={entriesData} />
-				<div style={{height: '40px'}}/>
+				<Spacer size={'medium'} />
+				<Media at="xs">
+					<NewsPanel newsData={newsData} slidesToShow={1} />
+				</Media>
+				<Media at="sm">
+					<NewsPanel newsData={newsData} slidesToShow={2} />
+				</Media>
+				<Media at="md">
+					<NewsPanel newsData={newsData} slidesToShow={3} />
+				</Media>
+				<Spacer size={'medium'} />
+				<Media at="xs">
+					<EntriesPanel entriesData={entriesData} slidesToShow={1} />
+				</Media>
+				<Media at="sm">
+					<EntriesPanel entriesData={entriesData} slidesToShow={2} />
+				</Media>
+				<Media at="md">
+					<EntriesPanel entriesData={entriesData} slidesToShow={3} />
+				</Media>
+				<Spacer size={'medium'} />
 			</Container>
 			<Container fluid={true}>
 				<CredoPanel credoData={credoData}/>
 			</Container>
 			<Container>
-				<div style={{height: '40px'}}/>
-				<CollectionsPanel collectionsData={collectionsData} />
-				<div style={{height: '40px'}}/>
+				<Spacer />
+				<Media at="xs">
+					<CollectionsPanel collectionsData={collectionsData} slidesToShow={1} />
+				</Media>
+				<Media at="sm">
+					<CollectionsPanel collectionsData={collectionsData} slidesToShow={2} />
+				</Media>
+				<Media at="md">
+					<CollectionsPanel collectionsData={collectionsData} slidesToShow={3} />
+				</Media>
+				<Spacer />
 				<PartnersPanel/>
-				<div style={{height: '40px'}}/>
+				<Spacer />
 				<NewsletterPanel/>
-				<div style={{height: '40px'}}/>
 			</Container>
 		</div>
 	)

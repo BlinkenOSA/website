@@ -1,3 +1,6 @@
+@import "@/styles/variables.scss";
+@import "@/styles/colors.scss";
+
 .MenuButton {
   position: fixed;
   top: 20px;
@@ -7,6 +10,17 @@
 
 .BarNavigation {
   position: fixed;
-  top: 80px;
+  top: calc($header-height-desktop + 1px);
   width: 100%;
+  z-index: 9999;
+  display: none;
+
+  &.Open {
+    display: unset;
+    height: 100%;
+    background-color: rgba($white, 0.9);
+    z-index: 9999;
+    overflow: hidden;
+  }
+
 }

@@ -1,12 +1,15 @@
-import {Col, Row} from "react-bootstrap";
 import CollectionCard from "@/components/Cards/CollectionCard";
 import SectionDivider from "@/components/IndexPage/SectionDivider";
 import style from "@/pages/pages.module.scss";
 import useTranslation from "next-translate/useTranslation";
 import Slider from "react-slick";
 import getLocalizedContent from "@/utils/content/getLocalizedContent";
+import {Media} from "@/utils/media";
+import SectionSlider from "@/components/IndexPage/SectionSlider";
+import Spacer from "@/components/Spacer/Spacer";
+import Button from "@/components/Button/Button";
 
-const CollectionsPanel = ({collectionsData}) => {
+const CollectionsPanel = ({collectionsData, slidesToShow=3}) => {
     const { t, lang } = useTranslation('index')
 
     const sliderSettings = {
@@ -16,7 +19,7 @@ const CollectionsPanel = ({collectionsData}) => {
         autoplay: true,
         autoplaySpeed: 5000,
         speed: 400,
-        slidesToShow: 3,
+        slidesToShow: slidesToShow,
         slidesToScroll: 1,
     };
 
@@ -43,6 +46,18 @@ const CollectionsPanel = ({collectionsData}) => {
                 {...sliderSettings}>
                 {renderCollectionCard()}
             </Slider>
+            <Media lessThan="sm">
+                <div style={{textAlign: "center"}}>
+                    <Button
+                        type={'primary'}
+                        size={'large'}
+                        color={'neutral'}
+                        linkTarget={'_self'}
+                        link={'/collections/collection-highlights'}>
+                        {t('events__button')}
+                    </Button>
+                </div>
+            </Media>
         </>
     )
 }

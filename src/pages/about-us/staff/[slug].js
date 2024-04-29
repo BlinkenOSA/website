@@ -123,7 +123,7 @@ const StaffPage = ({staffData}) => {
                                 </Tabs>
                             </Col>
                         </Row>
-                        <div style={{height: '48px'}} />
+                        <Spacer />
                     </>
                 }
             </Container>

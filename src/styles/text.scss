@@ -95,7 +95,7 @@ h4 {
 .hero-title {
   @extend .text-semibold-base;
   font-size: 48px;
-  line-height: 36px;
+  line-height: 48px;
 }
 
 .hero-subtitle {
@@ -108,6 +108,18 @@ h4 {
   @extend .text-regular-base;
   font-size: 36px;
   line-height: 60px;
+
+  // Tablet
+  @media (max-width: $md) {
+    font-size: 32px;
+    line-height: 48px
+  }
+
+  // Mobile
+  @media (max-width: $sm) {
+    font-size: 24px;
+    line-height: 32px;
+  }
 }
 
 .breadcrumb {

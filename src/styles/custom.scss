@@ -1,9 +1,11 @@
 /* import bootstrap to set changes */
 $grid-breakpoints: (
+        // Mobile
         xs: 0,
-        sm: 768px,
-        md: 1000px,
-        lg: 1200px,
+        // Tablet
+        sm: 700px,
+        // Desktop
+        md: 1200px,
 ) !default;
 
 @import "colors";
@@ -23,5 +25,6 @@ $nav-tabs-link-hover-border-color: $neutral_1000;
 @import '~bootstrap/scss/bootstrap';
 
 @import "globals";
+@import "variables";
 @import "fonts";
 @import "text";

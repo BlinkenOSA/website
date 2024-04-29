@@ -1,8 +1,11 @@
-import style from "@/components/Layout/desktop/Footer.module.scss";
+import style from "@/components/Layout/mobile/Footer.module.scss";
 import Logo from "@/components/Logo/Logo";
 import {Col, Container, Row} from "react-bootstrap";
 import {SocialIconFB, SocialIconInsta, SocialIconX, SocialIconYT} from "@/components/Icon/SocialIcon";
 import useTranslation from "next-translate/useTranslation";
+import Spacer from "@/components/Spacer/Spacer";
+import React from "react";
+import {Media} from "@/utils/media";
 
 const Footer = () => {
 	const { t } = useTranslation('footer')
@@ -10,14 +13,15 @@ const Footer = () => {
 	return (
 		<div className={style.FooterContainer}>
 			<div className={style.FooterWrapper}>
-				<Container>
+				<Container fluid={true}>
 					<Row>
-						<Col sm={12} md={3}>
+						<Col xs={12}>
 							<div className={style.Logo}>
 								<Logo mode={'light'} height={30} />
 							</div>
 						</Col>
-						<Col sm={6} md={6} style={{paddingRight: '20px'}}>
+						<Spacer />
+						<Col xs={12} sm={6}>
 							<div className={style.InfoWrapperLeft}>
 								<div className={style.Label}>{t('contact')}</div>
 								<div className={style.Info}>
@@ -37,7 +41,10 @@ const Footer = () => {
 								</div>
 							</div>
 						</Col>
-						<Col sm={6} md={3}>
+						<Media at="xs">
+							<Spacer />
+						</Media>
+						<Col xs={12} sm={6}>
 							<div className={style.InfoWrapperRight}>
 								<div className={style.Label}>{t('about')}</div><br/>
 								<div className={style.Links}>
