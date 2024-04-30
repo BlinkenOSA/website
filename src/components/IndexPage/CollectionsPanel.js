@@ -5,8 +5,6 @@ import useTranslation from "next-translate/useTranslation";
 import Slider from "react-slick";
 import getLocalizedContent from "@/utils/content/getLocalizedContent";
 import {Media} from "@/utils/media";
-import SectionSlider from "@/components/IndexPage/SectionSlider";
-import Spacer from "@/components/Spacer/Spacer";
 import Button from "@/components/Button/Button";
 
 const CollectionsPanel = ({collectionsData, slidesToShow=3}) => {

@@ -15,6 +15,11 @@
     justify-content: space-between;
     padding: 0 58px;
 
+    // Mobile
+    @media (max-width: $sm) {
+      padding: 0 24px;
+    }
+
     &.mustard {
       background-color: $mustard_1000;
 
