@@ -5,6 +5,7 @@ import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Button from "@/components/Button/Button";
 import Content from "@/components/Content/Content";
+import Spacer from "@/components/Spacer/Spacer";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;

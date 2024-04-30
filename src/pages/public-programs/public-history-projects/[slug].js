@@ -5,6 +5,7 @@ import {fetchArchivalProjectsDetail, fetchPublicHistoryProjectsDetail} from "@/u
 import Button from "@/components/Button/Button";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Content from "@/components/Content/Content";
+import Spacer from "@/components/Spacer/Spacer";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;

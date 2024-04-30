@@ -7,6 +7,7 @@ import {fetchJobDetail} from "@/utils/api/fetchJobs";
 import LabeledData from "@/components/LabeledData/LabeledData";
 import Content from "@/components/Content/Content";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
+import Spacer from "@/components/Spacer/Spacer";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
