@@ -9,6 +9,7 @@ import Appearance from "@/components/StaffLists/Appearance";
 import Course from "@/components/StaffLists/Course";
 import Entry from "@/components/StaffLists/Entry";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
+import Spacer from "@/components/Spacer/Spacer";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
