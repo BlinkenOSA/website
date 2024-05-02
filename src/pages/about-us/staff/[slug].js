@@ -10,6 +10,10 @@ import Course from "@/components/StaffLists/Course";
 import Entry from "@/components/StaffLists/Entry";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Spacer from "@/components/Spacer/Spacer";
+import {useMedia} from "react-use";
+import {Media} from "@/utils/media";
+
+import * as PropTypes from "prop-types";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -31,7 +35,13 @@ export const getServerSideProps = (async (context) => {
     }
 })
 
+Media.propTypes = {
+    lessThan: PropTypes.string,
+    children: PropTypes.node
+};
 const StaffPage = ({staffData}) => {
+    const isMobile = useMedia('(max-width: 700px)');
+
     const data = staffData['data'][0]['attributes'];
 
     const firstName = data['FirstName']
@@ -60,7 +70,7 @@ const StaffPage = ({staffData}) => {
             <Container>
                 <SimplePageHeader title={`${firstName} ${lastName}`} breadCrumbObject={breadCrumbObject} />
                 <Row>
-                    <Col xs={8}>
+                    <Col xs={{order: 2, span: 12}} sm={{order: 1, span: 8}} md={{order: 1, span: 8}}>
                         <div className={'subtitle-large'}>{position}</div>
                         <p>
                             {unit}<br/>
@@ -68,7 +78,7 @@ const StaffPage = ({staffData}) => {
                         </p>
                         {bio && <BlocksRenderer content={bio} />}
                     </Col>
-                    <Col xs={4}>
+                    <Col xs={{order: 1, span: 12}} sm={{order: 2, span: 4}} md={{order: 2, span: 4}}>
                         <div className={style.ImageWrapper}>
                             <MaskedImage src={image} type={'portrait'} />
                         </div>
@@ -83,7 +93,7 @@ const StaffPage = ({staffData}) => {
                                 <Tabs className="mb-3">
                                     {
                                         appearences.length > 0 &&
-                                        <Tab eventKey="appearences" title="Media outreach">
+                                        <Tab eventKey="appearences" title={isMobile ? "Media" : "Media outreach"}>
                                             {
                                                 appearences.map(
                                                     (app, idx) => <Appearance key={`appearence_${idx}`} data={app['attributes']} />
@@ -93,7 +103,7 @@ const StaffPage = ({staffData}) => {
                                     }
                                     {
                                         courses.length > 0 &&
-                                        <Tab eventKey="courses" title="Courses taught">
+                                        <Tab eventKey="courses" title={isMobile ? 'Courses' : 'Courses taught'}>
                                             {
                                                 courses.map(
                                                     (course, idx) => <Course key={`course_${idx}`} data={course['attributes']} />

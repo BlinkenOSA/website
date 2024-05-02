@@ -36,6 +36,10 @@
     position: sticky;
     top: 128px;
 
+    @media (max-width: $sm) {
+      margin-bottom: 24px;
+    }
+
     .Caption {
       margin-top: 8px;
       color: $neutral_800;
