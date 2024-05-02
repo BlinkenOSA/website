@@ -25,7 +25,7 @@ const Header = () => {
 	return (
 		<div className={style.HeaderWrapper}>
 			<div className={style.Logo} >
-				<Logo height={30} link={'/'} mode={'dark'}/>
+				<Logo height={25} link={'/'} mode={'dark'}/>
 			</div>
 			<div className={style.Search}>
 				<Search />
