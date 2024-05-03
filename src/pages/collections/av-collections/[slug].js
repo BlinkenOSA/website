@@ -60,6 +60,7 @@ const CollectionDetailPage = ({collectionData}) => {
                         link={link}>{'Visit Collection'}</Button>
                 }
             </Container>
+            <Spacer />
         </div>
     )
 }

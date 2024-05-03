@@ -59,6 +59,7 @@ const CollectionDetailPage = ({collectionData}) => {
                         color={'orange'}
                         link={link}>{'Visit Collection'}</Button>
                 }
+                <Spacer />
             </Container>
         </div>
     )
