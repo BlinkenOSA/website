@@ -5,12 +5,22 @@ import {MenuContext, MenuDispatchContext} from "@/utils/context/MenuContext";
 import {useContext} from "react";
 import MobileMenuButton from "@/components/Layout/mobile/MobileMenuButton";
 import Search from "@/components/Search/Search";
+import {SearchContext, SearchDispatchContext} from "@/utils/context/SearchContext";
 
 const Header = () => {
 	const menuOpen = useContext(MenuContext);
 	const dispatch = useContext(MenuDispatchContext);
 
+	const searchOpen = useContext(SearchContext);
+	const searchDispatch = useContext(SearchDispatchContext);
+
 	const handleMenuClick = () => {
+		if (searchOpen) {
+			searchDispatch({
+				type: 'close'
+			})
+		}
+
 		if (menuOpen.length > 0) {
 			dispatch({
 				type: 'close-mobile-menu'

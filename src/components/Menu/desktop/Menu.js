@@ -6,6 +6,7 @@ import {menuConfig} from "@/config/menuConfig";
 import {useContext} from 'react';
 import {MenuContext, MenuDispatchContext} from "@/utils/context/MenuContext";
 import useTranslation from "next-translate/useTranslation";
+import {SearchContext, SearchDispatchContext} from "@/utils/context/SearchContext";
 
 const DesktopMenu = () => {
     const { t } = useTranslation('menu')
@@ -13,7 +14,16 @@ const DesktopMenu = () => {
     const menuOpen = useContext(MenuContext);
     const dispatch = useContext(MenuDispatchContext);
 
+    const searchOpen = useContext(SearchContext);
+    const searchDispatch = useContext(SearchDispatchContext);
+
   const handleMenuClick = (menuItem) => {
+      if (searchOpen) {
+          searchDispatch({
+              type: 'close',
+          });
+      }
+
       dispatch({
         type: 'open',
         value: menuItem
