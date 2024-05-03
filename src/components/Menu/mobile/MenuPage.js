@@ -6,7 +6,6 @@ import SubmenuPage from "@/components/Menu/mobile/SubmenuPage";
 import {MenuDispatchContext} from "@/utils/context/MenuContext";
 import {useRouter} from "next/router";
 import useTranslation from "next-translate/useTranslation";
-import {useUpdateEffect} from "react-use";
 import {SearchDispatchContext} from "@/utils/context/SearchContext";
 import detectSelectedMenuItem from "@/utils/detectSelectedMenuItem";
 import detectCurrentMenuTitle from "@/utils/detectCurrentMenuTitle";

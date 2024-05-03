@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
                         <MobileHeader />
                     </Media>
                 </div>
-                <div className={`suisseIntlRegular`}>
+                <div className={`suisseIntlRegular`} style={{zIndex: 1}}>
                     {children}
                     <Media greaterThanOrEqual="md">
                         <div className={style.Menu}>
@@ -34,7 +34,9 @@ const Layout = ({ children }) => {
                         </div>
                     </Media>
                     <Media lessThan="md">
-                        <MobileMenu />
+                        <div style={{zIndex: 1000}}>
+                            <MobileMenu />
+                        </div>
                     </Media>
                 </div>
                 <Media greaterThanOrEqual="md">

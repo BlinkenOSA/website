@@ -5,11 +5,14 @@ import {IconGeneralRight} from "@/components/Icon/GeneralIcon";
 import {MenuDispatchContext} from "@/utils/context/MenuContext";
 import {useRouter} from "next/router";
 import Spacer from "@/components/Spacer/Spacer";
+import {useMedia} from "react-use";
 
 
 const SimplePageHeader = ({title, breadCrumb, menu, breadCrumbObject}) => {
     const router = useRouter();
     const dispatch = useContext(MenuDispatchContext);
+
+    const isCompact = useMedia('(max-width: 1200px)');
 
     const handleClick = (e, m, link) => {
         e.preventDefault();
@@ -33,10 +36,17 @@ const SimplePageHeader = ({title, breadCrumb, menu, breadCrumbObject}) => {
                     break;
             }
 
-            dispatch({
-                type: 'open',
-                value: menuItem
-            });
+            if (isCompact) {
+                dispatch({
+                    type: 'open-mobile-menu-item',
+                    value: menuItem
+                });
+            } else {
+                dispatch({
+                    type: 'open',
+                    value: menuItem
+                });
+            }
         }
     }
 

@@ -23,6 +23,8 @@ const menuReducer = (menuOpen, action) => {
             } else {
                 return Array.from(Array(action.value + 1).keys())
             }
+        case 'close':
+            return []
         case 'open-mobile-menu':
             return ['openMobileMenu'];
         case 'open-mobile-menu-item':
@@ -31,7 +33,7 @@ const menuReducer = (menuOpen, action) => {
             } else {
                 return ['openMobileMenu', action.value]
             }
-        case 'close':
+        case 'close-mobile-menu':
             return []
         default: {
             throw Error('Unknown action: ' + action.type);

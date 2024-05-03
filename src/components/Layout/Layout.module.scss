@@ -8,6 +8,10 @@
   z-index: 1000;
 }
 
+.NoScroll {
+  overflow: hidden;
+}
+
 .Header {
   position: fixed;
   top: 0;

@@ -2,7 +2,7 @@
   "locales": ["en", "hu"],
   "defaultLocale": "en",
   "pages": {
-    "*": ["menu", "header", "footer"],
+    "*": ["menu", "server", "header", "footer"],
     "/": ["index"]
   }
 }

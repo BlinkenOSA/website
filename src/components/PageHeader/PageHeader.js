@@ -4,6 +4,7 @@ import {useContext, useRef} from "react";
 import {motion, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
 import {IconGeneralRight} from "@/components/Icon/GeneralIcon";
 import {MenuDispatchContext} from "@/utils/context/MenuContext";
+import {useMedia} from "react-use";
 
 
 const PageHeader = ({title, breadCrumb, menu, image, scrollScale=1, isBlur=false}) => {
@@ -14,6 +15,8 @@ const PageHeader = ({title, breadCrumb, menu, image, scrollScale=1, isBlur=false
 
     const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -1500*scrollScale]);
     const textY = useTransform(scrollYProgress, [0, 1], [0, -100*scrollScale]);
+
+    const isCompact = useMedia('(max-width: 1200px)');
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -34,10 +37,17 @@ const PageHeader = ({title, breadCrumb, menu, image, scrollScale=1, isBlur=false
                 break;
         }
 
-        dispatch({
-            type: 'open',
-            value: menuItem
-        });
+        if (isCompact) {
+            dispatch({
+                type: 'open-mobile-menu-item',
+                value: menuItem
+            });
+        } else {
+            dispatch({
+                type: 'open',
+                value: menuItem
+            });
+        }
     }
 
     return (

@@ -22,10 +22,10 @@ const ContentWithImage = ({content}) => {
         case 'Right':
             return (
                 <Row>
-                    <Col xs={12} sm={6} md={8}>
+                    <Col xs={{order: 2, span: 12}} sm={{order: 1, span: 6}} md={{order: 1, span: 8}}>
                         <BlocksRenderer content={content['Content']} />
                     </Col>
-                    <Col xs={12} sm={6} md={4}>
+                    <Col xs={{order: 1, span: 12}} sm={{order: 2, span: 6}} md={{order: 2, span: 4}}>
                         <div className={style.ImageColumn}>
                             {renderImages('small')}
                         </div>

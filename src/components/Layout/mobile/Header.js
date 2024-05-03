@@ -13,7 +13,7 @@ const Header = () => {
 	const handleMenuClick = () => {
 		if (menuOpen.length > 0) {
 			dispatch({
-				type: 'close'
+				type: 'close-mobile-menu'
 			})
 		} else {
 			dispatch({
