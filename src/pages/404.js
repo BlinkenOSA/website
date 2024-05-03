@@ -3,10 +3,12 @@ import style from "./404.module.scss";
 import useTranslation from "next-translate/useTranslation";
 import Spacer from "@/components/Spacer/Spacer";
 import Button from "@/components/Button/Button";
+import {useRouter} from "next/router";
 
 
 const Custom404Page = () => {
 	const { t, lang } = useTranslation('server')
+	const router = useRouter()
 
 	return (
 		<div className={pageStyle.Page} style={{position: 'relative'}}>
@@ -19,7 +21,7 @@ const Custom404Page = () => {
 					{t('notfound__text')}
 				</h3>
 				<Spacer />
-				<Button type={'primary'} color={'neutral'} size={'large'}>
+				<Button type={'primary'} color={'neutral'} size={'large'} onClick={() => router.back()}>
 					{t('notfound__button')}
 				</Button>
 			</div>
