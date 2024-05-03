@@ -4,6 +4,7 @@ import Button from "@/components/Button/Button";
 import getColor from "@/utils/content/getColor";
 import truncateWithEllipses from "@/utils/truncateWithEllipsis";
 import getImageData from "@/utils/content/getImageData";
+import {useMedia} from "react-use";
 
 const ProjectCard = ({data, profile}) => {
     // Populate fields
@@ -16,6 +17,8 @@ const ProjectCard = ({data, profile}) => {
 
     const color = getColor(profile)
 
+    const isMobile = useMedia('(max-width: 1200px)');
+
     const getURL = () => {
         switch (profile) {
             case 'Archivum':
@@ -24,6 +27,18 @@ const ProjectCard = ({data, profile}) => {
                 return '/collections/archival-projects'
             case 'Public':
                 return '/public-programs/public-history-projects'
+        }
+    }
+
+    const getButtonText = () => {
+        if (buttonText) {
+            if (isMobile) {
+                return truncateWithEllipses(buttonText, 10)
+            } else {
+                return buttonText
+            }
+        } else {
+            return 'Visit Project'
         }
     }
 
@@ -45,7 +60,7 @@ const ProjectCard = ({data, profile}) => {
                         type={'primary'}
                         size={'large'}
                         color={color}
-                        link={link}>{buttonText ? buttonText : 'Visit Project'}</Button>
+                        link={link}>{getButtonText()}</Button>
                 }
                 <Button
                     type={'secondary'}

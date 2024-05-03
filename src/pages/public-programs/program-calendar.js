@@ -198,8 +198,6 @@ const ProgramCalendarPage = ({initialData}) => {
 	const [languageFilter, setLanguageFilter] = useState('')
 	const [hostingTypeFilter, setHostingTypeFilter] = useState('')
 
-	const isMobile = useMedia('(max-width: 700px)');
-
 	useUpdateEffect(() => {
 		const params = {}
 
