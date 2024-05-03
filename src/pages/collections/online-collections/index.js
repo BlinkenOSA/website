@@ -31,7 +31,7 @@ const CollectionCards = ({selectedFilter}) => {
 
     return data && data["data"].map(collection => {
         return (
-            <Col xs={4}>
+            <Col xs={12} sm={6} md={4}>
                 <CollectionCard
                     key={collection["id"]}
                     data={collection['attributes']}

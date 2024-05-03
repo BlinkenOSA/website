@@ -208,7 +208,7 @@ const ProgramCalendarPage = ({initialData}) => {
 		router.push({
 			path: '/program-calendar',
 			query: params,
-		}, undefined, { shallow: true })
+		}, undefined, { shallow: true, scroll: false })
 	}, [programTypeFilter])
 
 	const programTypeFilterValues = [

@@ -88,7 +88,7 @@ const FellowsPage = ({initialData}) => {
         router.push({
             path: '/academics/past-fellows',
             query: params,
-        }, undefined, { shallow: true })
+        }, undefined, { shallow: true, scroll: false })
     }, [selectedPage])
 
     return (

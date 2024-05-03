@@ -121,7 +121,7 @@ const EntriesPage = ({initialData}) => {
         router.push({
             path: '/entries',
             query: params,
-        }, undefined, { shallow: true })
+        }, undefined, { shallow: true, scroll: false })
     }, [profileFilter, entryTypeFilter, selectedPage])
 
     return (
