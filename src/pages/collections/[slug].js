@@ -36,7 +36,8 @@ const StaticPage = ({pageData}) => {
                 breadCrumb={'Collections'}
                 menu={'collections'}
                 image={image}
-                scrollScale={0.5}/>
+                scrollScale={0.5}
+            />
             <Container>
                 <Content contentObject={data['Content']} profile={'Collections'} />
             </Container>
