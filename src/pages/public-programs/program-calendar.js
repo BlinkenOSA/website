@@ -10,7 +10,7 @@ import getColor from "@/utils/content/getColor";
 import {Collapse} from 'react-collapse';
 import React, {useEffect, useState} from "react";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
-import {useList, useUpdateEffect} from "react-use";
+import {useList, useMedia, useUpdateEffect} from "react-use";
 import Button from "@/components/Button/Button";
 import fetcher from "@/utils/api/fetcher";
 import useSWR, {SWRConfig, unstable_serialize} from "swr";
@@ -194,10 +194,11 @@ const ProgramCalendarPage = ({initialData}) => {
 	const router = useRouter();
 	const {programType} = router.query;
 
-	const [programTypeFilter, setProgramTypeFilter] = useState(programType ? programType : 'All')
+	const [programTypeFilter, setProgramTypeFilter] = useState(programType ? programType : '')
 	const [languageFilter, setLanguageFilter] = useState('')
 	const [hostingTypeFilter, setHostingTypeFilter] = useState('')
 
+	const isMobile = useMedia('(max-width: 700px)');
 
 	useUpdateEffect(() => {
 		const params = {}
@@ -213,7 +214,7 @@ const ProgramCalendarPage = ({initialData}) => {
 	}, [programTypeFilter])
 
 	const programTypeFilterValues = [
-		{value: 'All', label: 'All', color: 'neutral'},
+		{value: '', label: 'All', color: 'neutral'},
 		{value: 'Academic', label: 'Academic Programs', color: 'aqua'},
 		{value: 'Public', label: 'Public Programs', color: 'sage'}
 	]
@@ -236,7 +237,7 @@ const ProgramCalendarPage = ({initialData}) => {
 				<SimplePageHeader title={'Program Calendar'} menu={'public-programs'} breadCrumb={'Public Programs'} />
 				<Row>
 					<Col xs={12} sm={12} md={6}>
-						<Media greaterThanOrEqual="sm">
+						<Media greaterThan="sm">
 							<HorizontalFilters
 								values={programTypeFilterValues}
 								selectedFilter={programTypeFilter}
@@ -258,6 +259,16 @@ const ProgramCalendarPage = ({initialData}) => {
 						<Media greaterThanOrEqual="sm">
 							<div className={style.DropdownFiltersWrapper}>
 								<div>Filter By</div>
+								<Media at="sm">
+									<div className={style.DropdownFilter}>
+										<DropdownFilter
+											label={'Program Type'}
+											values={programTypeFilterValues}
+											selectedValue={programTypeFilter}
+											onSelect={setProgramTypeFilter}
+										/>
+									</div>
+								</Media>
 								<div className={style.DropdownFilter}>
 									<DropdownFilter
 										label={'Langauge'}

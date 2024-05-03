@@ -6,7 +6,7 @@ const DropdownFilter = ({label, values, selectedValue, onSelect}) => {
 	const renderValues = () => {
 		return (
 			values.map(value => {
-				return <Dropdown.Item className={style.DropdownItem} key={value['value']} onClick={() => onSelect(value['value'])}>{value['label']}</Dropdown.Item>
+				return value['value'] !== '' && <Dropdown.Item className={style.DropdownItem} key={value['value']} onClick={() => onSelect(value['value'])}>{value['label']}</Dropdown.Item>
 			})
 		)
 	}

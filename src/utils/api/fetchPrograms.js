@@ -19,7 +19,7 @@ export const fetchPrograms = (type='All', language, hostingType) => {
 		'pagination[limit]': 100,
 	}
 
-	if (type !== 'All') {
+	if (type !== '') {
 		params['filters[Profile][$eq]'] = type
 	}
 
