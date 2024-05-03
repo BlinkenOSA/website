@@ -1,4 +1,6 @@
 {
   "notfound__text": "A kesett oldal (még) nem található",
-  "notfound__button": "Vissza"
+  "notfound__button": "Vissza",
+  "error__text": "Hoppá! Valami hiba történt. Kollégáink már dolgoznak az elhárításán.",
+  "error__button": "Vissza"
 }

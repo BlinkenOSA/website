@@ -6,7 +6,7 @@ import Button from "@/components/Button/Button";
 import {useRouter} from "next/router";
 
 
-const Custom404Page = () => {
+const Custom505Page = () => {
 	const { t, lang } = useTranslation('server')
 	const router = useRouter()
 
@@ -14,7 +14,7 @@ const Custom404Page = () => {
 		<div className={pageStyle.Page} style={{position: 'relative'}}>
 			<div className={style.Wrapper}>
 				<p className={style.MaskedText}>
-					404
+					500
 				</p>
 				<Spacer />
 				<h3>
@@ -29,4 +29,4 @@ const Custom404Page = () => {
 	)
 }
 
-export default Custom404Page;
+export default Custom505Page;
