@@ -49,6 +49,7 @@
         ul {
           padding: 0;
           list-style: none;
+          margin-bottom: 0;
         }
       }
     }
@@ -56,17 +57,17 @@
     .SocialIcons {
       display: flex;
       gap: 16px;
-      padding-left: 50px;
-
-      @media (max-width: $sm) {
-        padding-left: unset;
-      }
+      padding-left: unset;
 
       a {
         width: 16px;
         height: 16px;
         display: flex;
       }
+    }
+
+    .CEULogo {
+      width: 170px;
     }
   }
 }

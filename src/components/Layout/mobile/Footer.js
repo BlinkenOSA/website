@@ -7,6 +7,7 @@ import Spacer from "@/components/Spacer/Spacer";
 import React from "react";
 import {Media} from "@/utils/media";
 import Link from "next/link";
+import CEUIcon from "@/components/Icon/CEUIcon";
 
 const Footer = () => {
 	const { t } = useTranslation('footer')
@@ -61,6 +62,12 @@ const Footer = () => {
 								<Link href={'https://www.instagram.com/blinkenosaarchivum/'} target={'_blank'}><SocialIconInsta /></Link>
 								<Link href={'https://www.youtube.com/channel/UCToZ4NBHMP_DjBPh6XYF0og'} target={'_blank'}><SocialIconYT /></Link>
 								<Link href={'https://twitter.com/blinkenosa'} target={'_blank'}><SocialIconX /></Link>
+							</div>
+							<br/>
+							<div className={style.CEULogo}>
+								<Link href={'https://www.ceu.edu'} target={'_blank'}>
+									<CEUIcon />
+								</Link>
 							</div>
 						</Col>
 					</Row>
