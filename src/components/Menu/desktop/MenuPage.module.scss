@@ -17,6 +17,12 @@
       padding: $menu-width 0 $menu-width $menu-width;
       
       .MenuItem {
+        &.Active {
+          .Title {
+            border-bottom: solid 1px $neutral_1000;
+          }
+        }
+
         .Title {
           display: inline-block;
           cursor: pointer;
