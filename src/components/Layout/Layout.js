@@ -12,6 +12,7 @@ import MobileMenu from "@/components/Menu/mobile/MobileMenu";
 import {MenuProvider} from "@/utils/context/MenuContext";
 import {SearchProvider} from "@/utils/context/SearchContext";
 import MenuOpenButton from "@/components/Layout/desktop/MenuOpenButton";
+import Loader from "@/components/Loader/Loader";
 
 const Layout = ({ children }) => {
     return (
