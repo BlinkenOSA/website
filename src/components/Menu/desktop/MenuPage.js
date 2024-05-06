@@ -65,7 +65,6 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
                 type: 'close'
             })
         });
-
     }
 
     const getMenuList = () => {

@@ -3,19 +3,37 @@
 import style from "./Menu.module.scss";
 import MenuItem from "@/components/Menu/desktop/MenuItem";
 import {menuConfig} from "@/config/menuConfig";
-import {useContext} from 'react';
+import {useContext, useEffect} from 'react';
 import {MenuContext, MenuDispatchContext} from "@/utils/context/MenuContext";
 import useTranslation from "next-translate/useTranslation";
 import {SearchContext, SearchDispatchContext} from "@/utils/context/SearchContext";
+import {useRouter} from "next/router";
 
 const DesktopMenu = () => {
     const { t } = useTranslation('menu')
+
+    const router = useRouter();
 
     const menuOpen = useContext(MenuContext);
     const dispatch = useContext(MenuDispatchContext);
 
     const searchOpen = useContext(SearchContext);
     const searchDispatch = useContext(SearchDispatchContext);
+
+    useEffect(() => {
+        router.beforePopState(({ as }) => {
+            if (as !== router.asPath) {
+                dispatch({
+                    type: 'close',
+                });
+            }
+            return true;
+        });
+
+        return () => {
+            router.beforePopState(() => true);
+        };
+    }, [router]);
 
   const handleMenuClick = (menuItem) => {
       if (searchOpen) {

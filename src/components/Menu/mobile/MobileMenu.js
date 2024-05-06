@@ -1,18 +1,36 @@
 "use client"
 
 import style from "./MobileMenu.module.scss";
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import MobileMenuItem from "@/components/Menu/mobile/MobileMenuItem";
 import useTranslation from "next-translate/useTranslation";
 import {MenuContext, MenuDispatchContext} from "@/utils/context/MenuContext";
 import {menuConfig} from "@/config/menuConfig";
 import {motion} from "framer-motion"
+import {useRouter} from "next/router";
 
 const Menu = () => {
     const { t } = useTranslation('menu')
 
+    const router = useRouter();
+
     const menuOpen = useContext(MenuContext);
     const dispatch = useContext(MenuDispatchContext);
+
+    useEffect(() => {
+        router.beforePopState(({ as }) => {
+            if (as !== router.asPath) {
+                dispatch({
+                    type: 'close',
+                });
+            }
+            return true;
+        });
+
+        return () => {
+            router.beforePopState(() => true);
+        };
+    }, [router]);
 
     const handleMenuClick = (menuItem) => {
         dispatch({
