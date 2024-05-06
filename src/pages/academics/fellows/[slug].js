@@ -66,7 +66,7 @@ const FellowPage = ({fellowData}) => {
             <Container>
                 <SimplePageHeader title={name} breadCrumbObject={breadCrumbObject} />
                 <Row>
-                    <Col xs={8}>
+                    <Col xs={{order: 2, span: 12}} sm={{order: 1, span: 8}} md={{order: 1, span: 8}}>
                         <div className={'subtitle-small'}>{affiliation}</div>
                         <div>
                             <span className={'subtitle-small'}>Research topic: </span>
@@ -83,7 +83,7 @@ const FellowPage = ({fellowData}) => {
                         <div style={{height: '36px'}} />
                         <BlocksRenderer content={bio} />
                     </Col>
-                    <Col xs={4}>
+                    <Col xs={{order: 1, span: 12}} sm={{order: 2, span: 4}} md={{order: 2, span: 4}}>
                         <div className={style.ImageWrapper}>
                             <MaskedImage src={image} type={'portrait'} />
                             <div className={style.Caption}>
