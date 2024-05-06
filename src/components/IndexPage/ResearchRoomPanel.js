@@ -43,7 +43,10 @@ const ResearchRoomPanel = () => {
                                     <span className={`${style.Label}`}>Opening hours: </span>
                                     <span className={style.Value}>Mon-Fri 10:00 - 17:45</span>
                                 </p>
-                                <Button type={'primary'} size={'medium'} color={'mustard'} link={''}>More info and booking!</Button>
+                                <div className={style.Buttons}>
+                                    <Button type={'primary'} size={'medium'} color={'mustard'} link={''}>Registration</Button>
+                                    <Button type={'secondary'} size={'medium'} color={'neutral'} link={''}>More info and booking!</Button>
+                                </div>
                             </div>
                         </Col>
                     </Row>

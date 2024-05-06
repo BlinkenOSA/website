@@ -37,6 +37,16 @@
       .Label {
         padding-right: 8px;
         color: #FFFFFF;
+
+        // Mobile
+        @media (max-width: $sm) {
+          display: block;
+        }
+      }
+
+      .Buttons {
+        display: flex;
+        gap: 16px;
       }
     }
   }
