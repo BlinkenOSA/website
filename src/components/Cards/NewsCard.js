@@ -7,6 +7,7 @@ import getCreationDate from "@/utils/content/getCreationDate";
 import getImageData from "@/utils/content/getImageData";
 
 import {motion} from 'framer-motion';
+import Link from "next/link";
 
 const NewsCard = ({ id, data}) => {
     // Populate fields
@@ -24,7 +25,7 @@ const NewsCard = ({ id, data}) => {
 
     return (
       <motion.div whileHover={"hover"} className={style.Wrapper}>
-          <a href={`/news/${id}`}>
+          <Link href={`/news/${id}`}>
               <div
                   className={style.Image}
               >
@@ -36,14 +37,14 @@ const NewsCard = ({ id, data}) => {
                   </div>
                   <div className={`${style.UnderLayer} ${style[color]}`} />
               </div>
-          </a>
+          </Link>
           <div className={style.Header}>
               <div className={`${style.EventType} subtitle-small`}>{data['ActivityType']}</div>
               <div className={style.Date}>{getCreationDate(originalDate, date)}</div>
           </div>
-          <a href={`/news/${id}`}>
+          <Link href={`/news/${id}`}>
             <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 60)}</h3>
-          </a>
+          </Link>
           <div className={style.Description}>
               {truncateWithEllipses(description, title.length > 60 ? 100 : 150)}
           </div>

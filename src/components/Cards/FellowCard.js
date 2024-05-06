@@ -1,6 +1,7 @@
 import style from "./FellowCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import getImageData from "@/utils/content/getImageData";
+import Link from "next/link";
 
 const StaffCard = ({id, data}) => {
     // Populate fields
@@ -12,7 +13,7 @@ const StaffCard = ({id, data}) => {
 
     return (
         <div className={style.Wrapper}>
-            <a href={`/academics/fellows/${slug}`}>
+            <Link href={`/academics/fellows/${slug}`}>
                 <div className={style.Image}>
                     <MaskedImage src={imageData['url']} type={'portrait'} />
                 </div>
@@ -25,7 +26,7 @@ const StaffCard = ({id, data}) => {
                 <div className={style.Unit}>
                     {researchTopic}
                 </div>
-            </a>
+            </Link>
         </div>
     )
 }

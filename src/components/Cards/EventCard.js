@@ -6,6 +6,7 @@ import getColor from "@/utils/content/getColor";
 import getIconByType from "@/utils/content/getIconByType";
 import truncateWithEllipsis from "@/utils/truncateWithEllipsis";
 import getImageData from "@/utils/content/getImageData";
+import Link from "next/link";
 
 const EventCard = ({id, data}) => {
     // Populate fields
@@ -18,17 +19,17 @@ const EventCard = ({id, data}) => {
 
     return (
         <div className={style.Wrapper}>
-            <a href={`/events/${id}`}>
+            <Link href={`/events/${id}`}>
                 <div className={style.Image}>
                     <MaskedImage src={imageData['url']} type={'landscape'} />
                     <div className={style.Tag}>
                         <Tag text={date} icon={icon} color={color}/>
                     </div>
                 </div>
-            </a>
-            <a href={`/events/${id}`}>
+            </Link>
+            <Link href={`/events/${id}`}>
                 <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipsis(title, 70)}</h3>
-            </a>
+            </Link>
             <div className={style.Description}>
                 {truncateWithEllipsis(description, 180)}
             </div>

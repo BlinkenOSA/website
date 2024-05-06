@@ -5,6 +5,7 @@ import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import getImageData from "@/utils/content/getImageData";
 import {Media} from "@/utils/media";
 import Spacer from "@/components/Spacer/Spacer";
+import Link from "next/link";
 
 const AnnualReportCard = ({data}) => {
     const description = data['Description']
@@ -17,9 +18,9 @@ const AnnualReportCard = ({data}) => {
             <div className={style.HeaderRow}>
                 <div className={style.Year}>{year}</div>
                 <div className={style.Button}>
-                    <a href={link} target={'_blank'}>
+                    <Link href={link} target={'_blank'}>
                         <Button type={'primary'} color={'mustard'}>Visit full report</Button>
-                    </a>
+                    </Link>
                 </div>
             </div>
             <Row>

@@ -5,6 +5,7 @@ import getColor from "@/utils/content/getColor";
 import truncateWithEllipses from "@/utils/truncateWithEllipsis";
 import getImageData from "@/utils/content/getImageData";
 import {useMedia} from "react-use";
+import Link from "next/link";
 
 const ProjectCard = ({data, profile}) => {
     // Populate fields
@@ -44,11 +45,11 @@ const ProjectCard = ({data, profile}) => {
 
     return (
         <div className={style.Wrapper}>
-            <a href={`${getURL()}/${slug}`}>
+            <Link href={`${getURL()}/${slug}`}>
                 <div className={style.Image}>
                     <MaskedImage src={imageData['url']} type={'hdtv'} />
                 </div>
-            </a>
+            </Link>
             <div className={`${style.Title} subtitle-large`}>{title}</div>
             <div className={style.Description}>
                 {truncateWithEllipses(description, 350)}

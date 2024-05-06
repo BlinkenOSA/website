@@ -5,6 +5,7 @@ import truncateWithEllipses from "@/utils/truncateWithEllipsis";
 import {OverlayTrigger, Tooltip} from "react-bootstrap";
 import React from "react";
 import getImageData from "@/utils/content/getImageData";
+import Link from "next/link";
 
 const CollectionCard = ({data}) => {
     const title = data['Title']
@@ -66,19 +67,19 @@ const CollectionCard = ({data}) => {
                 <div className={style.Icons}>{getIcons()}</div>
             </div>
             <div className={style.Image}>
-                <a href={`/collections/${getURL()}/${slug}`}>
+                <Link href={`/collections/${getURL()}/${slug}`}>
                     <MaskedImage src={imageData['url']} type={'landscape'} />
-                </a>
+                </Link>
             </div>
             <h3 className={style.Title}>
-                <a href={`/collections/${getURL()}/${slug}`}>
+                <Link href={`/collections/${getURL()}/${slug}`}>
                     {truncateWithEllipses(title, 50)}
-                </a>
+                </Link>
             </h3>
             <div className={style.Description}>
-                <a href={`/collections/${getURL()}/${slug}`}>
+                <Link href={`/collections/${getURL()}/${slug}`}>
                     {truncateWithEllipses(description, 190)}
-                </a>
+                </Link>
             </div>
             <div className={style.CollectionType}>
                 {contentTypes}
