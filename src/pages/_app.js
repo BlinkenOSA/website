@@ -3,10 +3,10 @@ import '@/styles/custom.scss';
 import localFont from 'next/font/local'
 import Head from 'next/head';
 import {MediaContextProvider, mediaStyles} from "@/utils/media";
-import NextNProgress from 'nextjs-progressbar';
 
 import ThemeProvider from 'react-bootstrap/ThemeProvider'
 import Layout from "@/components/Layout/Layout";
+import PageProgressBar from "@/components/PageProgressBar/PageProgressBar";
 
 const suisseIntlRegular = localFont({src: '../../public/fonts/SuisseIntl-Regular-WebXL.woff2', variable: "--font-suisseIntlRegular"})
 const suisseIntlBook = localFont({src: '../../public/fonts/SuisseIntl-Book-WebXL.woff2', variable: "--font-suisseIntlBook"})
@@ -14,7 +14,6 @@ const suisseIntlMedium = localFont({src: '../../public/fonts/SuisseIntl-Medium-W
 const suisseIntlSemiBold = localFont({src: '../../public/fonts/SuisseIntl-SemiBold-WebXL.woff2', variable: "--font-suisseIntlSemiBold"})
 
 export default function App({ Component, pageProps }) {
-
   return (
     <>
       <Head>
@@ -32,7 +31,7 @@ export default function App({ Component, pageProps }) {
             breakpoints={['xs', 'sm', 'md']}
           >
               <Layout>
-                  <NextNProgress color={'#777777'} height={5} showOnShallow={true} />
+                  <PageProgressBar />
                   <Component {...pageProps} />
               </Layout>
           </ThemeProvider>
