@@ -7,6 +7,7 @@ import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import clientFetcher from "@/utils/api/clientFetcher";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Spacer from "@/components/Spacer/Spacer";
+import Link from "next/link";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchCollectionHighlightsList(100, 'AV')
@@ -61,7 +62,7 @@ const CollectionHighlightsPage = ({initialData}) => {
                                     we hoped to supplement the Catalog and assist you in locating and exploring our
                                     unique collections.<br/><br/>
                                     Some of the collections are online, while others are digitized and available in a
-                                    private research cloud following <a href={'https://catalog.osaarchivum.org/registration'} target={'_blank'}>registration</a>.
+                                    private research cloud following <Link href={'https://catalog.osaarchivum.org/registration'} target={'_blank'}>registration</Link>.
                                 </p>
                             }
                         </div>

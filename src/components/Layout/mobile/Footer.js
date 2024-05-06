@@ -6,6 +6,7 @@ import useTranslation from "next-translate/useTranslation";
 import Spacer from "@/components/Spacer/Spacer";
 import React from "react";
 import {Media} from "@/utils/media";
+import Link from "next/link";
 
 const Footer = () => {
 	const { t } = useTranslation('footer')
@@ -49,17 +50,17 @@ const Footer = () => {
 								<div className={style.Label}>{t('about')}</div><br/>
 								<div className={style.Links}>
 									<ul>
-										<li><a href={'/about-us/privacy-policy'}>{t('privacy-policy')}</a></li>
+										<li><Link href={'/about-us/privacy-policy'}>{t('privacy-policy')}</Link></li>
 										<li>{t('sitemap')}</li>
 									</ul>
 								</div>
 							</div>
 							<br/>
 							<div className={style.SocialIcons}>
-								<a href={'https://www.facebook.com/OSAarchivum'} target={'_blank'}><SocialIconFB /></a>
-								<a href={'https://www.instagram.com/blinkenosaarchivum/'} target={'_blank'}><SocialIconInsta /></a>
-								<a href={'https://www.youtube.com/channel/UCToZ4NBHMP_DjBPh6XYF0og'} target={'_blank'}><SocialIconYT /></a>
-								<a href={'https://twitter.com/blinkenosa'} target={'_blank'}><SocialIconX /></a>
+								<Link href={'https://www.facebook.com/OSAarchivum'} target={'_blank'}><SocialIconFB /></Link>
+								<Link href={'https://www.instagram.com/blinkenosaarchivum/'} target={'_blank'}><SocialIconInsta /></Link>
+								<Link href={'https://www.youtube.com/channel/UCToZ4NBHMP_DjBPh6XYF0og'} target={'_blank'}><SocialIconYT /></Link>
+								<Link href={'https://twitter.com/blinkenosa'} target={'_blank'}><SocialIconX /></Link>
 							</div>
 						</Col>
 					</Row>

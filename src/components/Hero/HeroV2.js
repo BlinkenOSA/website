@@ -4,6 +4,7 @@ import Button from "@/components/Button/Button";
 import getImageUrl from "@/utils/content/getImageUrl";
 import {Col, Container, Row} from "react-bootstrap";
 import getColor from "@/utils/content/getColor";
+import Link from "next/link";
 
 const HeroV2 = ({data}) => {
 
@@ -25,13 +26,13 @@ const HeroV2 = ({data}) => {
         if (buttonText !== null) {
             if (buttonLink) {
                 return (
-                    <a href={buttonLink}>
+                    <Link href={buttonLink}>
                         <div className={style.ButtonWrapper}>
                             <div className={style.Button}>
                                 <Button size={'large'} type={'hero-primary'} color={'neutral'}>{buttonText}</Button>
                             </div>
                         </div>
-                    </a>
+                    </Link>
                 )
             } else {
                 return (
