@@ -9,7 +9,7 @@ const HeroControl = ({children}) => {
 
     const renderItems = () => {
         return children.map((child, idx) => {
-            return <Carousel.Item key={idx} interval={5000}>{child}</Carousel.Item>
+            return <Carousel.Item key={idx} interval={7000}>{child}</Carousel.Item>
         })
     }
 
