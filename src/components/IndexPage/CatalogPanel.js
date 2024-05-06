@@ -30,7 +30,7 @@ const CatalogPanel = () => {
             <Image
                 priority={true}
                 alt={'Catalog background'}
-                src={'https://fortepan.download/file/fortepan-eu/1600/fortepan_190463.jpg'}
+                src={'/images/panel-catalog.jpg'}
                 fill={true}
             />
             <div className={style.Overlay}>

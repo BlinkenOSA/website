@@ -22,17 +22,22 @@
     height: 100%;
     z-index: 2;
 
-    h1 {
-      color: #FFFFFF;
-      margin-bottom: 16px;
-    }
-
-    p {
-      padding: 24px;
-      margin-left: 24px;
+    .Text {
+      padding: 24px 24px 36px 48px;
+      margin-left: -48px;
       color: #FFFFFF;
       background-color: rgba($neutral_1000, 0.9);
       clip-path: polygon(10% 0, 100% 0, 100% 95%, 90% 100%, 0 100%, 0 5%);
+
+      h1 {
+        color: #FFFFFF;
+        margin-bottom: 16px;
+      }
+
+      .Label {
+        padding-right: 8px;
+        color: #FFFFFF;
+      }
     }
   }
 }

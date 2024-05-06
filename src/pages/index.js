@@ -22,6 +22,7 @@ import EntriesPanel from "@/components/IndexPage/EntriesPanel";
 import CollectionsPanel from "@/components/IndexPage/CollectionsPanel";
 import Spacer from "@/components/Spacer/Spacer";
 import {Media} from "@/utils/media";
+import ResearchRoomPanel from "@/components/IndexPage/ResearchRoomPanel";
 
 export const getServerSideProps = (async (context) => {
 	const {locale} = context
@@ -90,7 +91,12 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 				<Media at="md">
 					<NewsPanel newsData={newsData} slidesToShow={3} />
 				</Media>
+			</Container>
+			<Container fluid={true}>
+				<ResearchRoomPanel />
 				<Spacer size={'medium'} />
+			</Container>
+			<Container>
 				<Media at="xs">
 					<EntriesPanel entriesData={entriesData} slidesToShow={1} />
 				</Media>
