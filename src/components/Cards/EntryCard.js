@@ -6,6 +6,7 @@ import getColor from "@/utils/content/getColor";
 import getCreationDate from "@/utils/content/getCreationDate";
 import getImageData from "@/utils/content/getImageData";
 import Link from "next/link";
+import {motion} from 'framer-motion';
 
 const EntryCard = ({ id, data}) => {
     // Populate fields
@@ -19,14 +20,21 @@ const EntryCard = ({ id, data}) => {
 
     const url = data['EntryType'].toLowerCase();
 
+    const imageAnim = {
+        hover: { scale: 0.85 }
+    }
+
     return (
-      <div className={style.Wrapper}>
+      <motion.div whileHover={'hover'} className={style.Wrapper}>
           <Link href={`/entries/${url}/${id}`}>
               <div className={style.Image}>
-                  <MaskedImage src={imageData['url']} type={'landscape'} />
+                  <motion.div variants={imageAnim} style={{position: 'relative', zIndex: 2}}>
+                    <MaskedImage src={imageData['url']} type={'landscape'} />
+                  </motion.div>
                   <div className={`${style.Icon} ${style[color]}`}>
                       {icon}
                   </div>
+                  <div className={`${style.UnderLayer} ${style[color]}`} />
               </div>
           </Link>
           <div className={style.Header}>
@@ -39,7 +47,7 @@ const EntryCard = ({ id, data}) => {
           <div className={style.Description}>
               {truncateWithEllipses(description, title.length > 60 ? 100 : 150)}
           </div>
-      </div>
+      </motion.div>
     )
 }
 

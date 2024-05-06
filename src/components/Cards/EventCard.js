@@ -7,6 +7,7 @@ import getIconByType from "@/utils/content/getIconByType";
 import truncateWithEllipsis from "@/utils/truncateWithEllipsis";
 import getImageData from "@/utils/content/getImageData";
 import Link from "next/link";
+import {motion} from "framer-motion";
 
 const EventCard = ({id, data}) => {
     // Populate fields
@@ -17,14 +18,21 @@ const EventCard = ({id, data}) => {
     const icon = getIconByType(data['EventType'], 'small')
     const color= getColor(data['Profile'])
 
+    const imageAnim = {
+        hover: { scale: 0.85 }
+    }
+
     return (
-        <div className={style.Wrapper}>
+        <motion.div whileHover={"hover"} className={style.Wrapper}>
             <Link href={`/events/${id}`}>
                 <div className={style.Image}>
-                    <MaskedImage src={imageData['url']} type={'landscape'} />
+                    <motion.div variants={imageAnim} style={{position: 'relative', zIndex: 2}} >
+                        <MaskedImage src={imageData['url']} type={'landscape'} />
+                    </motion.div>
                     <div className={style.Tag}>
                         <Tag text={date} icon={icon} color={color}/>
                     </div>
+                    <div className={`${style.UnderLayer} ${style[color]}`} />
                 </div>
             </Link>
             <Link href={`/events/${id}`}>
@@ -33,7 +41,7 @@ const EventCard = ({id, data}) => {
             <div className={style.Description}>
                 {truncateWithEllipsis(description, 180)}
             </div>
-        </div>
+        </motion.div>
     )
 }
 

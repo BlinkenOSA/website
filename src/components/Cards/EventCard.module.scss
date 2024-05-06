@@ -19,6 +19,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
+    z-index: 2;
   }
 
   .Title {
@@ -28,6 +29,49 @@
   .Image {
     margin-bottom: 16px;
     position: relative;
+
+    .UnderLayer {
+      clip-path: polygon(22% 0, 100% 0, 100% 95%, 78% 100%, 0 100%, 0 5%);
+      position: absolute;
+      background-color: #8AB3B8;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+
+      &.mustard {
+        background-color: $mustard_1000;
+
+        img {
+          filter: brightness(0%);
+        }
+      }
+
+      &.orange {
+        background-color: $orange_1000;
+
+        img {
+          filter: brightness(0%);
+        }
+      }
+
+      &.aqua {
+        background-color: $aqua_1000;
+
+        img {
+          filter: brightness(0%);
+        }
+      }
+
+      &.sage {
+        background-color: $sage_1000;
+
+        img {
+          filter: brightness(0%);
+        }
+      }
+    }
 
     img {
       transition: filter 0.5s;
