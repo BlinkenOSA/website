@@ -23,6 +23,7 @@ import CollectionsPanel from "@/components/IndexPage/CollectionsPanel";
 import Spacer from "@/components/Spacer/Spacer";
 import {Media} from "@/utils/media";
 import ResearchRoomPanel from "@/components/IndexPage/ResearchRoomPanel";
+import getLocalizedContent from "@/utils/content/getLocalizedContent";
 
 export const getServerSideProps = (async (context) => {
 	const {locale} = context
@@ -55,7 +56,7 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 			return heroData["data"].map(hero => {
 				return <Hero
 					key={`hero_${hero["id"]}`}
-					data={hero['attributes']}
+					data={getLocalizedContent(hero['attributes'], lang)}
 				/>
 			})
 		}
