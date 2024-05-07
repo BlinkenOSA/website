@@ -23,6 +23,7 @@ module.exports = nextTranslate({
     ],
   },
   experimental: {
+    scrollRestoration: true,
     largePageDataBytes: 128 * 5000,
   },
 })
