@@ -47,7 +47,7 @@ const ProjectPage = ({projectData}) => {
                 <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
                 <Row>
                     <Col xs={12}>
-                        <Content contentObject={content} />
+                        <Content contentObject={content} profile={'Public'} />
                     </Col>
                 </Row>
                 {
