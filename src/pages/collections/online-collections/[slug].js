@@ -1,7 +1,6 @@
 import style from "@/pages/about-us/style.module.scss";
 import {Col, Container, Row, Tab, Tabs} from "react-bootstrap";
 import {fetchCollectionHighlightsDetail} from "@/utils/api/fetchCollectionHighlights";
-import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Button from "@/components/Button/Button";
 import Content from "@/components/Content/Content";

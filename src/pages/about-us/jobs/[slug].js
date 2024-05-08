@@ -1,13 +1,11 @@
-import {fetchStaffDetails} from "@/utils/api/fetchStaff";
 import style from "@/pages/about-us/style.module.scss";
 import {Col, Container, Row, Tab, Tabs} from "react-bootstrap";
-import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 import getImageUrl from "@/utils/content/getImageUrl";
 import {fetchJobDetail} from "@/utils/api/fetchJobs";
 import LabeledData from "@/components/LabeledData/LabeledData";
-import Content from "@/components/Content/Content";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Spacer from "@/components/Spacer/Spacer";
+import BlockContent from "@/components/Content/BlockContent";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -65,7 +63,7 @@ const JobPage = ({jobData}) => {
                 <Spacer />
                 <Row>
                     <Col xs={12}>
-                        <BlocksRenderer content={content} />
+                        <BlockContent content={content} profile={'Archives'} />
                     </Col>
                 </Row>
                 <Spacer />

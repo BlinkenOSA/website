@@ -1,7 +1,5 @@
-import {fetchStaffDetails} from "@/utils/api/fetchStaff";
 import style from "@/pages/academics/style.module.scss";
 import {Col, Container, Row, Tab, Tabs} from "react-bootstrap";
-import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 import getImageUrl from "@/utils/content/getImageUrl";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import {fetchFellowDetails} from "@/utils/api/fetchFellows";
@@ -9,6 +7,7 @@ import getDateString from "@/utils/content/getDateString";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import dayjs from "dayjs";
 import {toCapitalize} from "@/utils/toCapitalize";
+import BlockContent from "@/components/Content/BlockContent";
 
 
 export const getServerSideProps = (async (context) => {
@@ -80,8 +79,7 @@ const FellowPage = ({fellowData}) => {
                             <span className={'subtitle-small'}>Duration: </span>
                             {startDate} - {endDate}
                         </div>
-                        <div style={{height: '36px'}} />
-                        <BlocksRenderer content={bio} />
+                        <BlockContent content={bio} profile={'Academics'} />
                     </Col>
                     <Col xs={{order: 1, span: 12}} sm={{order: 2, span: 4}} md={{order: 2, span: 4}}>
                         <div className={style.ImageWrapper}>

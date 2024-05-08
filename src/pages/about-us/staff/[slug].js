@@ -1,7 +1,6 @@
 import {fetchStaffDetails} from "@/utils/api/fetchStaff";
 import style from "@/pages/about-us/style.module.scss";
 import {Col, Container, Row, Tab, Tabs} from "react-bootstrap";
-import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 import getImageUrl from "@/utils/content/getImageUrl";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import Publication from "@/components/StaffLists/Publication";

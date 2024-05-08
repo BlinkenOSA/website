@@ -1,5 +1,4 @@
 import style from "./lists.module.scss"
-import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 import Link from "next/link";
 
 const Course = ({data}) => {

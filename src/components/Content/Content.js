@@ -1,4 +1,3 @@
-import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import style from './Content.module.scss';
 import getColor from "@/utils/content/getColor";
 import Video from "@/components/Content/elements/Video";

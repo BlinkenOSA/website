@@ -1,11 +1,11 @@
 import style from "@/pages/about-us/style.module.scss";
 import {Col, Container, Row, Tab, Tabs} from "react-bootstrap";
-import {BlocksRenderer} from "@strapi/blocks-react-renderer";
-import {fetchArchivalProjectsDetail, fetchPublicHistoryProjectsDetail} from "@/utils/api/fetchProjects";
+import {fetchPublicHistoryProjectsDetail} from "@/utils/api/fetchProjects";
 import Button from "@/components/Button/Button";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Content from "@/components/Content/Content";
 import Spacer from "@/components/Spacer/Spacer";
+import BlockContent from "@/components/Content/BlockContent";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -54,7 +54,7 @@ const ProjectPage = ({projectData}) => {
                     contentOld &&
                     <Row>
                         <Col xs={12}>
-                            <BlocksRenderer content={contentOld}/>
+                            <BlockContent content={contentOld} profile={'Public'}/>
                         </Col>
                     </Row>
                 }
