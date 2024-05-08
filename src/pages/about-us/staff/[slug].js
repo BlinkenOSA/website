@@ -14,6 +14,7 @@ import {useMedia} from "react-use";
 import {Media} from "@/utils/media";
 
 import * as PropTypes from "prop-types";
+import BlockContent from "@/components/Content/BlockContent";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -76,7 +77,7 @@ const StaffPage = ({staffData}) => {
                             {unit}<br/>
                             {email}
                         </p>
-                        {bio && <BlocksRenderer content={bio} />}
+                        {bio && <BlockContent content={bio} profile={'Archives'} />}
                     </Col>
                     <Col xs={{order: 1, span: 12}} sm={{order: 2, span: 4}} md={{order: 2, span: 4}}>
                         <div className={style.ImageWrapper}>
