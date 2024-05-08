@@ -89,7 +89,7 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 				<Media at="sm">
 					<NewsPanel newsData={newsData} slidesToShow={2} />
 				</Media>
-				<Media at="md">
+				<Media greaterThanOrEqual="md">
 					<NewsPanel newsData={newsData} slidesToShow={3} />
 				</Media>
 			</Container>
@@ -104,7 +104,7 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 				<Media at="sm">
 					<EntriesPanel entriesData={entriesData} slidesToShow={2} />
 				</Media>
-				<Media at="md">
+				<Media greaterThanOrEqual="md">
 					<EntriesPanel entriesData={entriesData} slidesToShow={3} />
 				</Media>
 				<Spacer size={'medium'} />
@@ -120,7 +120,7 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 				<Media at="sm">
 					<CollectionsPanel collectionsData={collectionsData} slidesToShow={2} />
 				</Media>
-				<Media at="md">
+				<Media greaterThanOrEqual="md">
 					<CollectionsPanel collectionsData={collectionsData} slidesToShow={3} />
 				</Media>
 				<Spacer />
