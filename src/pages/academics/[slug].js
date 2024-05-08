@@ -38,7 +38,7 @@ const StaticPage = ({pageData}) => {
                 menu={'academics'}
                 scrollScale={0.5} />
             <Container>
-                <Content contentObject={data['Content']} profile={'Collections'} />
+                <Content contentObject={data['Content']} profile={'Academics'} />
             </Container>
         </div>
     )
