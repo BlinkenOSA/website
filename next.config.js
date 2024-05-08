@@ -22,6 +22,10 @@ module.exports = nextTranslate({
       }
     ],
   },
+  compiler: {
+    styledComponents: true,
+    displayName: false
+  },
   experimental: {
     scrollRestoration: true,
     largePageDataBytes: 128 * 5000,
