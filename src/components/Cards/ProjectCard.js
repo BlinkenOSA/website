@@ -6,8 +6,11 @@ import truncateWithEllipses from "@/utils/truncateWithEllipsis";
 import getImageData from "@/utils/content/getImageData";
 import {useMedia} from "react-use";
 import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
 
 const ProjectCard = ({data, profile}) => {
+    const { t, lang } = useTranslation('cards')
+
     // Populate fields
     const title = data['Title']
     const description = data['CardText']
@@ -39,7 +42,7 @@ const ProjectCard = ({data, profile}) => {
                 return buttonText
             }
         } else {
-            return 'Visit Project'
+            return t('project__button')
         }
     }
 
@@ -68,7 +71,7 @@ const ProjectCard = ({data, profile}) => {
                     size={'large'}
                     color={color}
                     linkTarget={'_self'}
-                    link={`${getURL()}/${slug}`}>Learn More</Button>
+                    link={`${getURL()}/${slug}`}>{t('project__more_button')}</Button>
             </div>
         </div>
     )
