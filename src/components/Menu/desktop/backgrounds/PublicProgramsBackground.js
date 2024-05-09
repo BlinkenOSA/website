@@ -33,6 +33,7 @@ const PublicProgramsBackground = ({backgroundStatus}) => {
                                 initial={"closed"}
                                 variants={topVariants}
                                 animate={backgroundStatus}
+                                exit={{ opacity: 0, y: "-50%", transition: {delay: 0.1, duration: 0.2 }}}
                                 transition={{ ease: "easeInOut", duration: 0.5, delay: 0.5 }}
                                 style={{zIndex: 1}}
                             >
@@ -50,6 +51,7 @@ const PublicProgramsBackground = ({backgroundStatus}) => {
                                 initial={"closed"}
                                 variants={bottomVariants}
                                 animate={backgroundStatus}
+                                exit={{ opacity: 0, y: "50%", transition: {delay: 0.2, duration: 0.2 }}}
                                 transition={{ ease: "easeInOut", duration: 0.5, delay: 0.7 }}
                                 style={{zIndex: 1}}
                             >
@@ -68,6 +70,7 @@ const PublicProgramsBackground = ({backgroundStatus}) => {
                             initial={"closed"}
                             variants={rightVariants}
                             animate={backgroundStatus}
+                            exit={{ opacity: 0, x: "50%", transition: {delay: 0, duration: 0.2 }}}
                             transition={{ ease: "easeInOut", duration: 0.5, delay: 0.9 }}
                             style={{zIndex: 1}}
                         >
