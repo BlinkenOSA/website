@@ -18,7 +18,7 @@ export const menuConfig = [
       },
       { key: 'staff', title: 'Staff', url: '/about-us/staff'},
       { key: 'annual-reports', title: 'Annual Reports', url: '/about-us/annual-reports' },
-      { key: 'news', title: 'News', url: '/news'}
+      { key: 'news', title: 'News', url: '/news'},
       { key: 'partner-projects', title: 'Partner Projects', url: '/about-us/partner-projects'},
       { key: 'join-us', title: 'Join Us', submenu: [
           { key: 'visegrad-scholarship', title: 'Visegrad Scholarships', highlight: 'Information about the Visegrad Scholarship Program.', url: '/about-us/about-the-visegrad-scholarship' },
