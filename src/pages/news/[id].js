@@ -38,14 +38,18 @@ const NewsPage = ({newsData}) => {
 	const createdAt = data['createdAt']
 	const image = getImageUrl(data['Image'])
 
+	const breadcrumbObject = [
+		{menu: 'about-us', title: 'About Us'},
+		{menu: 'news', link: '/news', title: 'News'}
+	]
+
 	return (
 		<div className={style.Page}>
 			<PageHeader
 				title={data['Title']}
 				color={data['Profile']}
 				image={image}
-				breadCrumb={'About Us'}
-				menu={'about-us'}
+				breadCrumbObject={breadcrumbObject}
 				scrollScale={0.5}
 				isBlur={true}
 			/>

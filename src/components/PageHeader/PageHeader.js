@@ -1,16 +1,18 @@
 import {Col, Container, Row} from "react-bootstrap";
 import style from "./PageHeader.module.scss";
 import {useContext, useRef} from "react";
-import {motion, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
+import {motion, useScroll, useTransform} from "framer-motion";
 import {IconGeneralRight} from "@/components/Icon/GeneralIcon";
 import {MenuDispatchContext} from "@/utils/context/MenuContext";
 import {useMedia} from "react-use";
+import {useRouter} from "next/router";
 
 
-const PageHeader = ({title, breadCrumb, menu, image, scrollScale=1, isBlur=false}) => {
+const PageHeader = ({title, breadcrumbObject, breadCrumb, menu, image, scrollScale=1, isBlur=false}) => {
     const ref = useRef(null)
     const {scrollYProgress} = useScroll();
 
+    const router = useRouter();
     const dispatch = useContext(MenuDispatchContext);
 
     const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -1500*scrollScale]);
@@ -18,35 +20,66 @@ const PageHeader = ({title, breadCrumb, menu, image, scrollScale=1, isBlur=false
 
     const isCompact = useMedia('(max-width: 1200px)');
 
-    const handleClick = (e) => {
+    const handleClick = (e, m, link) => {
         e.preventDefault();
         let menuItem;
 
-        switch (menu) {
-            case 'about-us':
-                menuItem = 1;
-                break;
-            case 'collections':
-                menuItem = 2;
-                break;
-            case 'academics':
-                menuItem = 3;
-                break;
-            case 'public-programs':
-                menuItem = 4;
-                break;
+        if (link) {
+            router.push(link)
+        } else {
+            switch (m) {
+                case 'about-us':
+                    menuItem = 1;
+                    break;
+                case 'collections':
+                    menuItem = 2;
+                    break;
+                case 'academics':
+                    menuItem = 3;
+                    break;
+                case 'public-programs':
+                    menuItem = 4;
+                    break;
+            }
+
+            if (isCompact) {
+                dispatch({
+                    type: 'open-mobile-menu-item',
+                    value: menuItem
+                });
+            } else {
+                dispatch({
+                    type: 'open',
+                    value: menuItem
+                });
+            }
+        }
+    }
+
+    const renderBreadCrumbs = () => {
+        const renderBreadCrumb = (key, title, menuString, link) => {
+            return (
+                <a key={key} href={'#'} onClick={(e) => handleClick(e, menuString, link)}>
+                    <div className={style.Breadcrumb}>{title} <IconGeneralRight /></div>
+                </a>
+            )
         }
 
-        if (isCompact) {
-            dispatch({
-                type: 'open-mobile-menu-item',
-                value: menuItem
-            });
+        if (breadcrumbObject) {
+            return (
+                <div className={style.Breadcrumbs}>
+                    {
+                        breadcrumbObject.map((obj, idx) => {
+                            return renderBreadCrumb(idx, obj['title'], obj['menu'], obj['link'])
+                        })
+                    }
+                </div>
+            )
+
         } else {
-            dispatch({
-                type: 'open',
-                value: menuItem
-            });
+            return (
+                breadCrumb && renderBreadCrumb('bc', breadCrumb, menu)
+            )
         }
     }
 
@@ -59,15 +92,8 @@ const PageHeader = ({title, breadCrumb, menu, image, scrollScale=1, isBlur=false
                             style={{y: textY}}
                             className={style.TitleBox}
                         >
-                            {
-                                breadCrumb &&
-                                <>
-                                    <a href={'#'} onClick={handleClick}>
-                                        <div className={style.Breadcrumb}>{breadCrumb} <IconGeneralRight /></div>
-                                    </a>
-                                    <div style={{height: '16px'}}/>
-                                </>
-                            }
+                            { renderBreadCrumbs() }
+                            <div style={{height: '16px'}}/>
                             <h1>{title}</h1>
                         </motion.div>
                     </Col>
