@@ -16,17 +16,17 @@ export const menuConfig = [
           { key: 'what-archives-are', title: 'What are archives?', url: '/about-us/what-are-archives'},
         ]
       },
-      { key: 'visit-us', title: 'Visit Us', url: '/about-us/visit-us' },
       { key: 'staff', title: 'Staff', url: '/about-us/staff'},
+      { key: 'annual-reports', title: 'Annual Reports', url: '/about-us/annual-reports' },
+      { key: 'news', title: 'News', url: '/news'}
+      { key: 'partner-projects', title: 'Partner Projects', url: '/about-us/partner-projects'},
       { key: 'join-us', title: 'Join Us', submenu: [
           { key: 'visegrad-scholarship', title: 'Visegrad Scholarships', highlight: 'Information about the Visegrad Scholarship Program.', url: '/about-us/about-the-visegrad-scholarship' },
           { key: 'jobs', title: 'Jobs', highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid.', url: '/about-us/jobs' },
           { key: 'volunteering', title: 'Volunteering', highlight: "Work with us on arhcival processing, digitization projects, exhibitions. You won't get paid"}]
       },
-      { key: 'annual-reports', title: 'Annual Reports', url: '/about-us/annual-reports' },
-      { key: 'partner-projects', title: 'Partner Projects', url: '/about-us/partner-projects'},
+      { key: 'visit-us', title: 'Visit Us', url: '/about-us/visit-us' },
       { key: 'blog', title: 'Blog', url: '/entries' },
-      { key: 'news', title: 'News', url: '/news'}
     ]
   }, {
     key: 'collections',
