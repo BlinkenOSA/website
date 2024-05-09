@@ -43,11 +43,14 @@ const ExternalPage = ({pageData}) => {
 
 	const content = data['Content']
 	const image = getImageUrl(data['CardImage'], 'full')
+
 	const profile = externalPageConfig[pid]['profile']
+	const breadCrumb = externalPageConfig[pid]['breadCrumb']
+	const menu = externalPageConfig[pid]['menu']
 
 	return (
 		<div className={style.Page}>
-			<PageHeader title={data['Title']} image={image} scrollScale={0.2} />
+			<PageHeader title={data['Title']} image={image} scrollScale={0.2} breadCrumb={breadCrumb} menu={menu} />
 			<Container>
 				<Content contentObject={content} profile={profile} />
 				<div className={style.BottomLine}>
