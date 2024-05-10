@@ -20,6 +20,7 @@ export const fetchPartnerProjectsDetail = (slug) => {
         'populate[3]': 'Content',
         'populate[4]': 'Content.Image',
         'populate[5]': 'Content.Images.Image',
+        'populate[6]': 'Content.Image.Image',
         'filters[Slug][$eq]': slug
     }
 
@@ -46,6 +47,7 @@ export const fetchArchivalProjectsDetail = (slug) => {
         'populate[3]': 'Content',
         'populate[4]': 'Content.Image',
         'populate[5]': 'Content.Images.Image',
+        'populate[6]': 'Content.Image.Image',
         'filters[Slug][$eq]': slug
     }
 
@@ -73,6 +75,7 @@ export const fetchPublicHistoryProjectsDetail = (slug) => {
         'populate[3]': 'Content',
         'populate[4]': 'Content.Image',
         'populate[5]': 'Content.Images.Image',
+        'populate[6]': 'Content.Image.Image',
         'filters[Slug][$eq]': slug
     }
 

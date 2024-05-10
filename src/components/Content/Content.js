@@ -8,6 +8,7 @@ import DividerLine from "@/components/Content/elements/DividerLine";
 import DividerIcon from "@/components/Content/elements/DividerIcon";
 import TextBox from "@/components/Content/elements/TextBox";
 import Quote from "@/components/Content/elements/Quote";
+import ImageGallery from "@/components/Content/elements/ImageGallery";
 
 const Content = ({contentObject, profile='Archivum'}) => {
 	const color = getColor(profile)
@@ -31,6 +32,9 @@ const Content = ({contentObject, profile='Archivum'}) => {
 			// DividerIcon
 			case 'components.divider-icon':
 				return <DividerIcon profile={profile} content={content} />
+			// ImageGallery
+			case 'contents.image-gallery':
+				return <ImageGallery content={content} />
 			// Image
 			case 'media.image':
 				return <ImageFull content={content} />
