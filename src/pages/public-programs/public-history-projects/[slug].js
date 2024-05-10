@@ -33,7 +33,6 @@ const ProjectPage = ({projectData}) => {
     const title = data['Title']
     const link = data['Link']
     const buttonText = data['ButtonText']
-    const contentOld = data['ContentOld']
     const content = data['Content']
 
     const breadCrumbObject = [
@@ -50,14 +49,6 @@ const ProjectPage = ({projectData}) => {
                         <Content contentObject={content} profile={'Public'} />
                     </Col>
                 </Row>
-                {
-                    contentOld &&
-                    <Row>
-                        <Col xs={12}>
-                            <BlockContent content={contentOld} profile={'Public'}/>
-                        </Col>
-                    </Row>
-                }
                 <Spacer />
                 <div>
                     <Button
