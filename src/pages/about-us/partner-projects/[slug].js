@@ -6,6 +6,8 @@ import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Content from "@/components/Content/Content";
 import Spacer from "@/components/Spacer/Spacer";
 import BlockContent from "@/components/Content/BlockContent";
+import PageHeader from "@/components/PageHeader/PageHeader";
+import getImageUrl from "@/utils/content/getImageUrl";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -34,6 +36,7 @@ const ProjectPage = ({projectData}) => {
     const link = data['Link']
     const buttonText = data['ButtonText']
     const content = data['Content']
+    const image = getImageUrl(data['Image'])
 
     const breadCrumbObject = [
         {menu: 'about-us', title: 'About Us'},
@@ -42,8 +45,8 @@ const ProjectPage = ({projectData}) => {
 
     return (
         <div className={style.Page}>
+            <PageHeader title={title} breadcrumbObject={breadCrumbObject} image={image} scrollScale={0.2} isBlur={true} />
             <Container>
-                <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
                 <Row>
                     <Col xs={12}>
                         <Content contentObject={content} />
