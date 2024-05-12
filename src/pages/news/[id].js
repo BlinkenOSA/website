@@ -39,8 +39,8 @@ const NewsPage = ({newsData}) => {
 	const image = getImageUrl(data['Image'])
 
 	const breadcrumbObject = [
-		{ key: 'news', title: 'News'},
-		// { key: eventData['id'], title: data['Title']},
+		{menu: 'about-us', title: 'About Us'},
+		{menu: 'news', link: '/news', title: 'News'}
 	]
 
 	return (
@@ -49,7 +49,7 @@ const NewsPage = ({newsData}) => {
 				title={data['Title']}
 				color={data['Profile']}
 				image={image}
-				breadcrumbObject={breadcrumbObject}
+				breadCrumbObject={breadcrumbObject}
 				scrollScale={0.5}
 				isBlur={true}
 			/>

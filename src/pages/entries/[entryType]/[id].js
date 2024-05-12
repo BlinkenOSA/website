@@ -44,8 +44,8 @@ const EntryPage = ({entriesData}) => {
 	const image = getImageUrl(data['Image'])
 
 	const breadcrumbObject = [
-		{ key: 'news', title: 'Blogs, Podcasts, Videos'},
-		// { key: eventData['id'], title: data['Title']},
+		{ menu: 'about-us', title: 'About Us'},
+		{ menu: 'blog', link: '/entries', title: 'Blogs, Podcasts, Videos'},
 	]
 
 	return (

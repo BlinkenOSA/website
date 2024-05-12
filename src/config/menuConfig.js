@@ -16,17 +16,17 @@ export const menuConfig = [
           { key: 'what-archives-are', title: 'What are archives?', url: '/about-us/what-are-archives'},
         ]
       },
-      { key: 'visit-us', title: 'Visit Us', url: '/about-us/visit-us' },
       { key: 'staff', title: 'Staff', url: '/about-us/staff'},
+      { key: 'annual-reports', title: 'Annual Reports', url: '/about-us/annual-reports' },
+      { key: 'news', title: 'News', url: '/news'},
+      { key: 'partner-projects', title: 'Partner Projects', url: '/about-us/partner-projects'},
       { key: 'join-us', title: 'Join Us', submenu: [
           { key: 'visegrad-scholarship', title: 'Visegrad Scholarships', highlight: 'Information about the Visegrad Scholarship Program.', url: '/about-us/about-the-visegrad-scholarship' },
           { key: 'jobs', title: 'Jobs', highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid.', url: '/about-us/jobs' },
           { key: 'volunteering', title: 'Volunteering', highlight: "Work with us on arhcival processing, digitization projects, exhibitions. You won't get paid"}]
       },
-      { key: 'annual-reports', title: 'Annual Reports', url: '/about-us/annual-reports' },
-      { key: 'partner-projects', title: 'Partner Projects', url: '/about-us/partner-projects'},
+      { key: 'visit-us', title: 'Visit Us', url: '/about-us/visit-us' },
       { key: 'blog', title: 'Blog', url: '/entries' },
-      { key: 'news', title: 'News', url: '/news'}
     ]
   }, {
     key: 'collections',
@@ -50,7 +50,7 @@ export const menuConfig = [
       { key: 'archival-projects', title: 'Archival Projects', url: '/collections/archival-projects' },
       { key: 'donate-your-archive', title: 'Donate your Archive', url: '/collections/donate-your-materials' },
       // { key: 'collections-news-and-blog', title: 'Archival News', url: '/news?profile=Collections'},
-      { key: 'blog', title: 'Blog', url: '/entries'}
+      // { key: 'blog', title: 'Blog', url: '/entries'}
     ]
   }, {
     key: 'academics',
@@ -60,10 +60,7 @@ export const menuConfig = [
     url: 'academics',
     menuItems: [
       { key: 'research-and-publications', title: 'Our Research and Publications', url: '/academics/our-research' },
-      { key: 'visegrad-scholarship', title: 'Visegrad Scholarship', submenu: [
-          { key: 'about-the-visegrad-fund', title: 'About the V Fund', highlight: "Find out more about the history of the Visegrad Fund", url: '/academics/about-the-visegrad-scholarship' },
-          { key: 'open-call', title: 'Open call', highlight: "We are waiting for your application", url: '/academics/visegrad-open-call'}]
-      },
+      { key: 'visegrad-scholarship', title: 'Visegrad Scholarship', url: '/academics/visegrad-scholarship-at-the-archivum'},
       { key: 'fellows', title: 'Fellows', submenu: [
           { key: 'current-fellows', title: 'Current Fellows',  highlight: "You can meet them, when you are in the Archivum.", url: '/academics/current-fellows'},
           { key: 'past-fellows', title: 'Past fellows', highlight: "All the participants of the Visegrad Fellowship Program.", url: '/academics/past-fellows'}]

@@ -1,0 +1,34 @@
+@import "@/styles/colors.scss";
+
+.Lightbox {
+  :global .yarl__container {
+    background-color: $white;
+  }
+
+  :global .yarl__slide_description_container {
+    border-top: 1px solid $neutral_1000;
+    background-color: $white;
+
+    :global .yarl__slide_description {
+      font-family: var(--font-suisseIntlRegular);
+      color: $neutral_1000;
+    }
+  }
+
+  :global .yarl__counter {
+    font-family: var(--font-suisseIntlRegular);
+    color: $neutral_1000;
+    box-shadow: unset;
+    filter: unset;
+  }
+
+  :global .yarl__toolbar {
+    button {
+      filter: unset;
+    }
+  }
+
+  :global .yarl__button {
+    filter: unset;
+  }
+}

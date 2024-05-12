@@ -6,8 +6,11 @@ import getImageData from "@/utils/content/getImageData";
 import {Media} from "@/utils/media";
 import Spacer from "@/components/Spacer/Spacer";
 import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
 
 const AnnualReportCard = ({data}) => {
+    const { t, lang } = useTranslation('cards')
+
     const description = data['Description']
     const link = data['Link']
     const year = data['Year']
@@ -19,7 +22,7 @@ const AnnualReportCard = ({data}) => {
                 <div className={style.Year}>{year}</div>
                 <div className={style.Button}>
                     <Link href={link} target={'_blank'}>
-                        <Button type={'primary'} color={'mustard'}>Visit full report</Button>
+                        <Button type={'primary'} color={'mustard'}>{t('annual_report__button')}</Button>
                     </Link>
                 </div>
             </div>

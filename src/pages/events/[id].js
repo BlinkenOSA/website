@@ -42,8 +42,8 @@ const EventPage = ({eventData}) => {
 	const registrationLink = data['RegistrationLink']
 
 	const breadcrumbObject = [
-		{ key: 'events', title: 'Events'},
-		// { key: eventData['id'], title: data['Title']},
+		{ menu: 'public-programs', title: 'Public Programs'},
+		{ menu: 'program-calendar', link: '/public-programs/program-calendar' , title: 'Program Calendar'},
 	]
 
 	return (
