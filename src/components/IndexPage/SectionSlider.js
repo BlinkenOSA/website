@@ -2,8 +2,11 @@ import style from "./SectionSlider.module.scss";
 import Button from "@/components/Button/Button";
 import {IconGeneralLeft, IconGeneralRight} from "@/components/Icon/GeneralIcon";
 import {Media} from "@/utils/media";
+import useTranslation from "next-translate/useTranslation";
 
 const SectionSlider = ({link, onPreviousClick, onNextClick}) => {
+    const { t, lang } = useTranslation('index')
+
     return (
         <div className={style.Controls}>
             {
@@ -14,7 +17,7 @@ const SectionSlider = ({link, onPreviousClick, onNextClick}) => {
                     color={'neutral'}
                     link={link}
                     linkTarget={'_self'}
-                    isIcon={false}>View All</Button>
+                    isIcon={false}>{t('view_all__button_text')}</Button>
             }
             <Button
                 type={'primary'}

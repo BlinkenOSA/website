@@ -6,6 +6,8 @@ import Slider from "react-slick";
 import getLocalizedContent from "@/utils/content/getLocalizedContent";
 import {Media} from "@/utils/media";
 import Button from "@/components/Button/Button";
+import SectionFlipper from "@/components/IndexPage/SectionFlipper";
+import {useRef} from "react";
 
 const CollectionsPanel = ({collectionsData, slidesToShow=3}) => {
     const { t, lang } = useTranslation('index')
@@ -14,12 +16,12 @@ const CollectionsPanel = ({collectionsData, slidesToShow=3}) => {
         dots: false,
         arrows: false,
         infinite: true,
-        autoplay: true,
-        autoplaySpeed: 5000,
         speed: 400,
         slidesToShow: slidesToShow,
         slidesToScroll: 1,
     };
+
+    let sliderRef = useRef(null);
 
     const renderCollectionCard = () => {
         return collectionsData["data"].map((collection, idx) => {
@@ -33,14 +35,25 @@ const CollectionsPanel = ({collectionsData, slidesToShow=3}) => {
         })
     }
 
+    const onNextClick = () => {
+        sliderRef.slickNext();
+    };
+
+    const onPreviousClick = () => {
+        sliderRef.slickPrev();
+    };
+
     return (
         <>
-            <SectionDivider
+            <SectionFlipper
                 title={t('collection-highlights')}
-                buttonText={t('collection-highlights__button')}
-                buttonLink={'/collections/collection-highlights'}
-            />
+                border={false}
+                onNextClick={onNextClick}
+                onPreviousClick={onPreviousClick}/>
             <Slider
+                ref={slider => {
+                    sliderRef = slider;
+                }}
                 {...sliderSettings}>
                 {renderCollectionCard()}
             </Slider>
