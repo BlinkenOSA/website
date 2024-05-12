@@ -80,17 +80,17 @@ const SimplePageHeader = ({title, breadCrumb, menu, breadCrumbObject}) => {
     return (
         <>
             <Spacer />
-                <Container className={style.Container}>
-                    <Row>
-                        <Col xs={12}>
-                            <div className={style.TitleBox}>
-                                { renderBreadCrumbs() }
-                                <div style={{height: '16px'}}/>
-                                <h1>{title}</h1>
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
+            <Container className={style.Container}>
+                <Row>
+                    <Col xs={12}>
+                        <div className={style.TitleBox}>
+                            { renderBreadCrumbs() }
+                            <div style={{height: '16px'}}/>
+                            <h1>{title}</h1>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
             <Spacer />
         </>
 )
