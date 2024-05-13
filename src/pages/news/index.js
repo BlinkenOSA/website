@@ -10,7 +10,10 @@ import ContentPagination from "@/components/Pagination/ContentPagination";
 import {fetchNewsList} from "@/utils/api/fetchNews";
 import NewsCard from "@/components/Cards/NewsCard";
 import {profileFilterValues} from "@/utils/filterValues/profileFilterValues";
-import {useUpdateEffect} from "react-use";
+import {useMedia, useUpdateEffect} from "react-use";
+import {fetchEntriesList} from "@/utils/api/fetchEntries";
+import {entryTypeFilterValues} from "@/utils/filterValues/entryTypeFilterValues";
+import Spacer from "@/components/Spacer/Spacer";
 
 export const getServerSideProps = (async (context) => {
     const parameters = context.query;
@@ -33,12 +36,7 @@ export const getServerSideProps = (async (context) => {
 })
 
 
-const NewsCards = ({page, profile, onPageSelect}) => {
-    const { data } = useSWR(
-        fetchNewsList(page, profile),
-        ([url, params]) => clientFetcher(url, params)
-    )
-
+const NewsCards = ({data}) => {
     const renderCards = () => {
         return data && data["data"].map(entry => {
             return (
@@ -53,43 +51,31 @@ const NewsCards = ({page, profile, onPageSelect}) => {
         })
     }
 
-    const handleClick = (page) => {
-        onPageSelect(page)
-    }
-
     return (
-        <>
-            <Row>
-                {renderCards()}
-            </Row>
-            <Row>
-                <Col xs={12}>
-                    {
-                        data &&
-                        <ContentPagination
-                            onClick={handleClick}
-                            page={data["meta"]["pagination"]["page"]}
-                            pageCount={data["meta"]["pagination"]["pageCount"]}
-                        />
-                    }
-                </Col>
-            </Row>
-        </>
+        <Row>
+            {renderCards()}
+        </Row>
     )
 }
 
-
-const NewsPage = ({initialData}) => {
+const NewsContent = ({initialData}) => {
     const router = useRouter();
-    const {page, profile} = router.query;
+    const {page, profile, entryType} = router.query;
 
     const [profileFilter, setProfileFilter] = useState(profile)
     const [selectedPage, setSelectedPage] = useState(page)
 
+    const isMobile = useMedia('(max-width: 700px)');
+
+    const { data } = useSWR(
+        fetchNewsList(page, profile),
+        ([url, params]) => clientFetcher(url, params)
+    )
+
     useUpdateEffect(() => {
         setProfileFilter(profile)
         setSelectedPage(page)
-    }, [profile, page])
+    }, [profile, entryType, page])
 
     useUpdateEffect(() => {
         setSelectedPage(1)
@@ -107,47 +93,78 @@ const NewsPage = ({initialData}) => {
         }
 
         router.push({
-            path: '/entries',
+            path: '/news',
             query: params,
         }, undefined, { shallow: true, scroll: false })
     }, [profileFilter, selectedPage])
 
+    const handleClick = (page) => {
+        setSelectedPage(page)
+    }
+
+    return (
+        <SWRConfig value={{ fallback: initialData }}>
+            <Row>
+                <Col xs={12} sm={6} md={4}>
+                    <div className={style.DropdownFiltersWrapper}>
+                        <div>Filter By</div>
+                        <div className={style.DropdownFilter}>
+                            <DropdownFilter
+                                label={'Profile'}
+                                values={profileFilterValues}
+                                selectedValue={profileFilter}
+                                onSelect={setProfileFilter}
+                            />
+                        </div>
+                    </div>
+                </Col>
+                {
+                    !isMobile &&
+                    <Col xs={12} sm={6} md={8}>
+                        {
+                            data &&
+                            <ContentPagination
+                                onClick={handleClick}
+                                page={data["meta"]["pagination"]["page"]}
+                                pageCount={data["meta"]["pagination"]["pageCount"]}
+                            />
+                        }
+                    </Col>
+                }
+            </Row>
+            <Spacer />
+            <NewsCards data={data}/>
+            <Spacer />
+            <Row>
+                <Col xs={12}>
+                    {
+                        data &&
+                        <ContentPagination
+                            onClick={handleClick}
+                            page={data["meta"]["pagination"]["page"]}
+                            pageCount={data["meta"]["pagination"]["pageCount"]}
+                        />
+                    }
+                </Col>
+            </Row>
+        </SWRConfig>
+    )
+}
+
+
+const NewsPage = ({initialData}) => {
     return (
         <div className={style.Page}>
             <Container>
-                <div style={{height: '48px'}}/>
+                <Spacer />
                 <Row>
                     <Col xs={12}>
                         <h1>News</h1>
                     </Col>
                 </Row>
-                <div style={{height: '48px'}}/>
-                <Row>
-                    <Col md={12} lg={6}>
-                        <div className={style.DropdownFiltersWrapper}>
-                            <div>Filter By</div>
-                            <div className={style.DropdownFilter}>
-                                <DropdownFilter
-                                    label={'Profile'}
-                                    values={profileFilterValues}
-                                    selectedValue={profileFilter}
-                                    onSelect={setProfileFilter}
-                                />
-                            </div>
-                        </div>
-                    </Col>
-                </Row>
-                <div style={{height: '48px'}}/>
-                <SWRConfig value={{ fallback: initialData }}>
-                    <NewsCards
-                        page={selectedPage}
-                        profile={profileFilter}
-                        onPageSelect={setSelectedPage}
-                    />
-                </SWRConfig>
-                <Row>
-                    <div style={{height: '48px'}}/>
-                </Row>
+                <Spacer />
+                <NewsContent initialData={initialData} />
+                <Spacer />
             </Container>
         </div>
     )

@@ -11,7 +11,8 @@ import DropdownFilter from "@/components/Filters/DropdownFilter";
 import ContentPagination from "@/components/Pagination/ContentPagination";
 import {profileFilterValues} from "@/utils/filterValues/profileFilterValues";
 import {entryTypeFilterValues} from "@/utils/filterValues/entryTypeFilterValues";
-import {useUpdateEffect} from "react-use";
+import {useMedia, useUpdateEffect} from "react-use";
+import Spacer from "@/components/Spacer/Spacer";
 
 export const getServerSideProps = (async (context) => {
     const { entryType, ...parameters } = context.query;
@@ -34,12 +35,7 @@ export const getServerSideProps = (async (context) => {
 })
 
 
-const EntryCards = ({page, profile, entryType, onPageSelect}) => {
-    const { data } = useSWR(
-        fetchEntriesList(page, profile, entryType),
-        ([url, params]) => clientFetcher(url, params)
-    )
-
+const EntryCards = ({data}) => {
     const renderCards = () => {
         return data && data["data"].map(entry => {
             return (
@@ -54,39 +50,27 @@ const EntryCards = ({page, profile, entryType, onPageSelect}) => {
         })
     }
 
-    const handleClick = (page) => {
-        onPageSelect(page)
-    }
-
     return (
-        <>
-            <Row>
-                {renderCards()}
-            </Row>
-            <Row>
-                <Col xs={12}>
-                    {
-                        data &&
-                        <ContentPagination
-                            onClick={handleClick}
-                            page={data["meta"]["pagination"]["page"]}
-                            pageCount={data["meta"]["pagination"]["pageCount"]}
-                        />
-                    }
-                </Col>
-            </Row>
-        </>
+        <Row>
+            {renderCards()}
+        </Row>
     )
 }
 
-
-const EntriesPage = ({initialData}) => {
+const EntriesContent = ({initialData}) => {
     const router = useRouter();
     const {page, profile, entryType} = router.query;
 
     const [profileFilter, setProfileFilter] = useState(profile)
     const [entryTypeFilter, setEntryTypeFilter] = useState(entryType)
     const [selectedPage, setSelectedPage] = useState(page)
+
+    const isMobile = useMedia('(max-width: 700px)');
+
+    const { data } = useSWR(
+        fetchEntriesList(selectedPage, profileFilter, entryTypeFilter),
+        ([url, params]) => clientFetcher(url, params)
+    )
 
     useUpdateEffect(() => {
         setProfileFilter(profile)
@@ -124,43 +108,73 @@ const EntriesPage = ({initialData}) => {
         }, undefined, { shallow: true, scroll: false })
     }, [profileFilter, entryTypeFilter, selectedPage])
 
+    const handleClick = (page) => {
+        setSelectedPage(page)
+    }
+
+    return (
+        <SWRConfig value={{ fallback: initialData }}>
+            <Row>
+                <Col xs={12} sm={6} md={4}>
+                    <div className={style.DropdownFiltersWrapper}>
+                        <div>Filter By</div>
+                        <div className={style.DropdownFilter}>
+                            <DropdownFilter
+                                label={'Entry Type'}
+                                values={entryTypeFilterValues}
+                                selectedValue={entryTypeFilter}
+                                onSelect={setEntryTypeFilter}
+                            />
+                        </div>
+                    </div>
+                </Col>
+                {
+                    !isMobile &&
+                    <Col xs={12} sm={6} md={8}>
+                        {
+                            data &&
+                            <ContentPagination
+                                onClick={handleClick}
+                                page={data["meta"]["pagination"]["page"]}
+                                pageCount={data["meta"]["pagination"]["pageCount"]}
+                            />
+                        }
+                    </Col>
+                }
+            </Row>
+            <Spacer />
+            <EntryCards data={data}/>
+            <Spacer />
+            <Row>
+                <Col xs={12}>
+                    {
+                        data &&
+                        <ContentPagination
+                            onClick={handleClick}
+                            page={data["meta"]["pagination"]["page"]}
+                            pageCount={data["meta"]["pagination"]["pageCount"]}
+                        />
+                    }
+                </Col>
+            </Row>
+        </SWRConfig>
+    )
+}
+
+
+const EntriesPage = ({initialData}) => {
     return (
         <div className={style.Page}>
             <Container>
-                <div style={{height: '48px'}}/>
+                <Spacer />
                 <Row>
                     <Col xs={12}>
                         <h1>Blog - Podcast - Video</h1>
                     </Col>
                 </Row>
-                <div style={{height: '48px'}}/>
-                <Row>
-                    <Col md={12} lg={6}>
-                        <div className={style.DropdownFiltersWrapper}>
-                            <div>Filter By</div>
-                            <div className={style.DropdownFilter}>
-                                <DropdownFilter
-                                    label={'Entry Type'}
-                                    values={entryTypeFilterValues}
-                                    selectedValue={entryTypeFilter}
-                                    onSelect={setEntryTypeFilter}
-                                />
-                            </div>
-                        </div>
-                    </Col>
-                </Row>
-                <div style={{height: '48px'}}/>
-                <SWRConfig value={{ fallback: initialData }}>
-                    <EntryCards
-                        page={selectedPage}
-                        profile={profileFilter}
-                        entryType={entryTypeFilter}
-                        onPageSelect={setSelectedPage}
-                    />
-                </SWRConfig>
-                <Row>
-                    <div style={{height: '48px'}}/>
-                </Row>
+                <Spacer />
+                <EntriesContent initialData={initialData}/>
+                <Spacer />
             </Container>
         </div>
     )
