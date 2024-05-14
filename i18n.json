@@ -3,6 +3,7 @@
   "defaultLocale": "en",
   "pages": {
     "*": ["menu", "cards" ,"server", "header", "footer"],
-    "/": ["index"]
+    "/": ["index"],
+    "/search": ["index"]
   }
 }
