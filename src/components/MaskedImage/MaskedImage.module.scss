@@ -11,6 +11,13 @@
     filter: grayscale(100%);
     object-fit: cover;
   }
+
+  .Placeholder {
+    background-color: $neutral_100;
+    height: 100%;
+    width: 100%;
+    clip-path: polygon(22% 0, 100% 0, 100% 95%, 78% 100%, 0 100%, 0 5%);
+  }
 }
 
 .NoMask {

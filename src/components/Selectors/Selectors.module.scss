@@ -23,6 +23,7 @@
     }
 
     &:checked {
+      background-image: var(--bs-form-check-bg-image);
       background-color: $neutral_1000;
       border: unset;
     }

@@ -6,7 +6,7 @@ const ContentPagination = ({page, pageCount, onClick}) => {
     const renderButtons = (from, to) => {
         return arrayRange(from, to, 1).map((p, idx) => {
             const isActive = page === p
-            return <Pagination.Item onClick={isActive ? undefined : () => onClick(p)} active={isActive}>{p}</Pagination.Item>
+            return <Pagination.Item key={idx} onClick={isActive ? undefined : () => onClick(p)} active={isActive}>{p}</Pagination.Item>
         })
     }
 

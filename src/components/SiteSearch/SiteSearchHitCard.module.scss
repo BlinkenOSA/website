@@ -1,0 +1,55 @@
+@import "@/styles/colors.scss";
+@import "@/styles/variables.scss";
+
+.CardWrapper {
+  margin-bottom: 48px;
+
+  :global .row {
+    --bs-gutter-x: 32px !important;
+  }
+
+  .Image {
+    position: relative;
+
+    .Icon {
+      position: absolute;
+      color: $white;
+      top: 0;
+      right: 0;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      background-color: $neutral_1000;
+    }
+  }
+
+  .CardInfoWrapper {
+    display: flex;
+    flex-direction: column;
+
+    .Description {
+      flex: 1;
+      padding: 24px 0;
+    }
+
+    .Icon {
+      display: flex;
+      gap: 4px;
+    }
+
+    .Type {
+      display: flex;
+      gap: 8px;
+    }
+
+    .ActivityType {
+      border-left: 1px solid $neutral_1000;
+      padding-left: 4px;
+      display: flex;
+      gap: 4px;
+    }
+  }
+}

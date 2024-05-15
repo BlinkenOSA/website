@@ -4,7 +4,6 @@
 .SiteSearchWrapper {
   width: 100%;
   background-color: $white;
-  min-height: 100px;
   display: flex;
   align-items: center;
 
@@ -42,7 +41,7 @@
     appearance: unset;
     margin-left: -1px;
     border: 1px solid $neutral_1000;
-    background-color: $neutral_200;
+    background-color: $neutral_100;
 
     &:hover {
       background-color: $neutral_1000;

@@ -7,6 +7,7 @@ import EventTypeTag from "@/components/Tag/EventTypeTag";
 import Button from "@/components/Button/Button";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import getImageUrl from "@/utils/content/getImageUrl";
+import Spacer from "@/components/Spacer/Spacer";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -109,7 +110,9 @@ const EventPage = ({eventData}) => {
 							}
 						</Col>
 					</Row>
+					<Spacer />
 					<Content contentObject={data['Content']} profile={profile} />
+					<Spacer />
 				</Container>
 			</div>
 		</>
