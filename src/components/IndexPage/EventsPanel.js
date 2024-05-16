@@ -6,6 +6,7 @@ import getLocalizedContent from "@/utils/content/getLocalizedContent";
 import style from "./EventsPanel.module.scss";
 import Button from "@/components/Button/Button";
 import {Media} from "@/utils/media";
+import Spacer from "@/components/Spacer/Spacer";
 
 const EventsPanel = ({eventsData}) => {
     const { t, lang } = useTranslation('index')
@@ -44,6 +45,7 @@ const EventsPanel = ({eventsData}) => {
                         {t('events__button')}
                     </Button>
                 </div>
+                <Spacer />
             </Media>
         </>
     )

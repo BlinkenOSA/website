@@ -76,7 +76,6 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 			<Container>
 				<Spacer size={'medium'} />
 				<EventsPanel eventsData={eventsData} />
-				<Spacer size={'medium'} />
 			</Container>
 			<Container fluid={true}>
 				<CatalogPanel/>
@@ -95,9 +94,9 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 			</Container>
 			<Container fluid={true}>
 				<ResearchRoomPanel />
-				<Spacer size={'medium'} />
 			</Container>
 			<Container>
+				<Spacer size={'medium'} />
 				<Media at="xs">
 					<EntriesPanel entriesData={entriesData} slidesToShow={1} />
 				</Media>
@@ -107,13 +106,13 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 				<Media greaterThanOrEqual="md">
 					<EntriesPanel entriesData={entriesData} slidesToShow={3} />
 				</Media>
-				<Spacer size={'medium'} />
+				<Spacer size={'small'} />
 			</Container>
 			<Container fluid={true}>
 				<CredoPanel credoData={credoData}/>
 			</Container>
 			<Container>
-				<Spacer />
+				<Spacer size={'medium'} />
 				<Media at="xs">
 					<CollectionsPanel collectionsData={collectionsData} slidesToShow={1} />
 				</Media>

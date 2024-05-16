@@ -6,11 +6,11 @@
   flex-direction: column;
   height: 440px;
   cursor: pointer;
+  margin-bottom: 24px;
 
   // Mobile
   @media (max-width: $sm) {
     height: unset;
-    margin-bottom: 24px;
   }
 
   .Tag {
@@ -81,6 +81,5 @@
   .Description {
     flex: 1;
     overflow: hidden;
-    // margin-bottom: 16px
   }
 }

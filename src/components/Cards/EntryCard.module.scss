@@ -5,11 +5,11 @@
   display: flex;
   flex-direction: column;
   max-height: 500px;
+  margin-bottom: 24px;
 
   // Mobile
   @media (max-width: $sm) {
     height: unset;
-    margin-bottom: 24px;
   }
 
   .Header {
@@ -137,6 +137,5 @@
     flex: 1;
     overflow: hidden;
     color: $neutral-500;
-    margin-bottom: 16px
   }
 }
