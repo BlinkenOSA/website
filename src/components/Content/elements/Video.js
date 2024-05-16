@@ -6,8 +6,6 @@ const Video = ({content}) => {
     const youtube = content['YouTube']
     const caption = content['Caption']
 
-    console.log(youtube)
-
     const renderContent = () => {
         if (youtube) {
             let youtubeURL = youtube.replace('https://youtu.be/', '')
