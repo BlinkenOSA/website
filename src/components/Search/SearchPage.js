@@ -7,7 +7,7 @@ import {IconGeneralClose} from "@/components/Icon/GeneralIcon";
 import {useRouter} from "next/router";
 
 const SearchPage = ({searchOpen, onClose}) => {
-    const router = useRouter()
+    const router = useRouter();
 
     const searchPageVariables = {
         open: { x: 0 },
@@ -29,11 +29,8 @@ const SearchPage = ({searchOpen, onClose}) => {
     }
 
     const handleWebsiteSearch = (value) => {
-        onClose()
-        router.push({
-            path: '/search',
-            query: {"website[query]": value},
-        }, undefined, { shallow: false, scroll: false })
+        onClose();
+        router.push(`/search?website[query]=${value}`)
     }
 
     return (
