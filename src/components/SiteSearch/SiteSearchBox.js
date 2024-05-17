@@ -6,10 +6,12 @@ import {IconGeneralClose, IconGeneralSearch} from "@/components/Icon/GeneralIcon
 const SiteSearchBox = () => {
 	const {t, lng} = useTranslation('index')
 
+	const placeholderText = t('website__search')
+
 	return (
 		<div className={style.SiteSearchWrapper}>
 			<SearchBox
-				placeholder={t('website__search')}
+				placeholder={placeholderText}
 				searchAsYouType={false}
 				classNames={{
 					root: style.SearchBox,

@@ -1,6 +1,7 @@
 import style from "@/pages/pages.module.scss";
+import { renderToString } from 'react-dom/server';
 import searchStyle from "./search.module.scss";
-import {InstantSearch, Pagination, Hits, RefinementList, Configure} from 'react-instantsearch';
+import {InstantSearch, InstantSearchSSRProvider, Hits, RefinementList, Configure, getServerState} from 'react-instantsearch';
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
 import {Container, Col, Row} from "react-bootstrap";
 import SiteSearchBox from "@/components/SiteSearch/SiteSearchBox";
@@ -8,18 +9,32 @@ import React from "react";
 import SiteSearchPagination from "@/components/SiteSearch/SiteSearchPagination";
 import Spacer from "@/components/Spacer/Spacer";
 import SiteSearchHitCard from "@/components/SiteSearch/SiteSearchHitCard";
+import singletonRouter from 'next/router';
+import { createInstantSearchRouterNext } from 'react-instantsearch-router-nextjs';
 import PageHeader from "@/components/PageHeader/PageHeader";
-import {useRouter} from "next/router";
 
 const server = process.env.NEXT_PUBLIC_MEILISEARCH_URL
 const key = process.env.NEXT_PUBLIC_MEILISEARCH_API_KEY
 
 const { searchClient } = instantMeiliSearch(server, key);
 
-const SearchPage = () => {
-	const router = useRouter();
-	const {query, page, type} = router.query;
+export async function getServerSideProps({ req }) {
+	const protocol = req.headers.referer?.split('://')[0] || 'https';
+	const serverUrl = `${protocol}://${req.headers.host}${req.url}`;
+	const serverState = await getServerState(
+		<SearchPage serverUrl={serverUrl} />,
+		{ renderToString }
+	);
 
+	return {
+		props: {
+			serverState,
+			serverUrl,
+		},
+	};
+}
+
+const SearchPage = ({ serverState, serverUrl }) => {
 	const transformTypeFilter = (items) => {
 		const dictionary = {
 			annualReport: 'Annual Report',
@@ -44,41 +59,54 @@ const SearchPage = () => {
 		});
 	};
 
+	const createURL = ({qsModule, location, routeState}) => {
+
+	}
+
 	return (
 		<div className={style.Page}>
 			<PageHeader title={'Search'} image={'/images/search.jpg'} isBlur={true} />
 			<Container>
-				<InstantSearch
-					indexName="website"
-					searchClient={searchClient}
-				>
-					<div className={searchStyle.Wrapper}>
-						<Row>
-							<Col md={3}>
-								<div className={searchStyle.FiltersWrapper}>
-									<div className="subtitle-large">Filter by Type</div>
-									<RefinementList attribute="type" operator="and" transformItems={transformTypeFilter} />
-								</div>
-							</Col>
-							<Col md={9}>
-								<Configure query={query} page={page > 0 ? page-1 : undefined} />
-								<SiteSearchBox />
-								<Spacer size={'medium'}/>
-								<SiteSearchPagination
-									showFirst={false}
-									showLast={false}
-								/>
-								<Spacer size={'small'}/>
-								<Hits hitComponent={SiteSearchHitCard} />
-								<Spacer size={'medium'}/>
-								<SiteSearchPagination
-									showFirst={false}
-									showLast={false}
-								/>
-							</Col>
-						</Row>
-					</div>
-				</InstantSearch>
+				<InstantSearchSSRProvider {...serverState}>
+					<InstantSearch
+						indexName="website"
+						searchClient={searchClient}
+						routing={{
+							router: createInstantSearchRouterNext({ singletonRouter, serverUrl,
+								routerOptions: {
+									cleanUrlOnDispose: false,
+								},
+							}),
+						}}
+						future={{
+							preserveSharedStateOnUnmount: true,
+						}}
+					>
+						<div className={searchStyle.Wrapper}>
+							<Row>
+								<Col md={3}>
+									<div className={searchStyle.FiltersWrapper}>
+										<div className="subtitle-large">Filter by Type</div>
+										<RefinementList attribute="type" operator="and" />
+									</div>
+								</Col>
+								<Col md={9}>
+									<SiteSearchBox />
+									<Spacer size={'small'}/>
+									<SiteSearchPagination
+										showFirst={false}
+										showLast={false}
+									/>
+									<Hits hitComponent={SiteSearchHitCard} />
+									<SiteSearchPagination
+										showFirst={false}
+										showLast={false}
+									/>
+								</Col>
+							</Row>
+						</div>
+					</InstantSearch>
+				</InstantSearchSSRProvider>
 			</Container>
 		</div>
 	)

@@ -4,9 +4,11 @@ import SearchBox from "@/components/Input/SearchBox";
 import Image from "next/image";
 import Button from "@/components/Button/Button";
 import {IconGeneralClose} from "@/components/Icon/GeneralIcon";
-import SearchBackground from "@/components/Search/SearchBackground";
+import {useRouter} from "next/router";
 
 const SearchPage = ({searchOpen, onClose}) => {
+    const router = useRouter()
+
     const searchPageVariables = {
         open: { x: 0 },
         closed: { x: '-100%' }
@@ -22,6 +24,18 @@ const SearchPage = ({searchOpen, onClose}) => {
         closed: { y: '-10%', opacity: 0 }
     }
 
+    const handleCatalogSearch = (value) => {
+        window.open(`https://catalog.osaarchivum.org/?query=${value}`)
+    }
+
+    const handleWebsiteSearch = (value) => {
+        onClose()
+        router.push({
+            path: '/search',
+            query: {"website[query]": value},
+        }, undefined, { shallow: false, scroll: false })
+    }
+
     return (
         <motion.div className={style.SearchPageWrapper}>
             <motion.div
@@ -35,7 +49,7 @@ const SearchPage = ({searchOpen, onClose}) => {
                     transition={{delay: 0.3}}
                     variants={searchBoxVariables}
                     className={style.SearchBox}>
-                    <SearchBox bordered={true} placeholder={'Search our catalog'} />
+                    <SearchBox bordered={true} placeholder={'Search our catalog'} onPressEnter={handleCatalogSearch}/>
                 </motion.div>
                 <Image
                     priority={true}
@@ -61,7 +75,7 @@ const SearchPage = ({searchOpen, onClose}) => {
                     transition={{delay: 0.5}}
                     variants={searchBoxVariables}
                     className={style.SearchBox}>
-                    <SearchBox bordered={true} placeholder={'Search our website'} />
+                    <SearchBox bordered={true} placeholder={'Search our website'} onPressEnter={handleWebsiteSearch} />
                 </motion.div>
                 <motion.div
                     transition={{delay: 0.7}}

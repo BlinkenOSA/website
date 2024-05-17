@@ -83,8 +83,6 @@ const SiteSearchHitCard = ({hit}) => {
     const createdAt = hit.createdAt
     const activityType = getActivityType()
 
-    console.log(hit)
-
     return (
         <div className={style.CardWrapper}>
             <Link href={getLink()}>

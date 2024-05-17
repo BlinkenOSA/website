@@ -4,6 +4,7 @@ import {InputGroup} from "react-bootstrap";
 import {IconGeneralSearch} from "@/components/Icon/GeneralIcon";
 import useTranslation from "next-translate/useTranslation";
 import {useState} from "react";
+import Button from "@/components/Button/Button";
 
 const SearchBox = ({disabled, placeholder, bordered=false, onPressEnter, isMobile=false}) => {
 	const [value, setValue] = useState('')
@@ -17,20 +18,17 @@ const SearchBox = ({disabled, placeholder, bordered=false, onPressEnter, isMobil
 
 	return (
 		<InputGroup className={bordered ? `${style.InputGroup} ${style.Bordered}` : style.InputGroup}>
-			<InputGroup.Text id={disabled ? 'search-icon-disabled' : 'search-icon'}>
+			<Form.Control
+				type={"search"}
+				id={"search-box"}
+				disabled={disabled}
+				onKeyDown={handleKeyDown}
+				onChange={(e) => setValue(e.target.value) }
+				placeholder={placeholder ? `${placeholder}...` : t('search')}
+			/>
+			<Button isIcon={true} color={'neutral'} onClick={() => onPressEnter(value)}>
 				<IconGeneralSearch size={'small'} />
-			</InputGroup.Text>
-			{
-				!isMobile &&
-				<Form.Control
-					type={"search"}
-					id={"search-box"}
-					disabled={disabled}
-					onKeyDown={handleKeyDown}
-					onChange={(e) => setValue(e.target.value) }
-					placeholder={placeholder ? `${placeholder}...` : t('search')}
-				/>
-			}
+			</Button>
 		</InputGroup>
 	)
 }
