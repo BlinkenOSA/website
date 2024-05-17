@@ -23,6 +23,11 @@
     min-width: 48px;
     text-align: center;
 
+    // Mobile
+    @media (max-width: $sm) {
+      min-width: 36px;
+    }
+
     &.disabled {
       .page-link {
         color: $neutral_400;
@@ -47,6 +52,12 @@
       height: 48px;
       line-height: 36px;
       transition: unset;
+
+      // Mobile
+      @media (max-width: $sm) {
+        height: 36px;
+        line-height: 28px;
+      }
 
       &:focus {
         box-shadow: unset;

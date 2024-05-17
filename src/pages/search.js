@@ -12,6 +12,7 @@ import SiteSearchHitCard from "@/components/SiteSearch/SiteSearchHitCard";
 import singletonRouter from 'next/router';
 import { createInstantSearchRouterNext } from 'react-instantsearch-router-nextjs';
 import PageHeader from "@/components/PageHeader/PageHeader";
+import {Media} from "@/utils/media";
 
 const server = process.env.NEXT_PUBLIC_MEILISEARCH_URL
 const key = process.env.NEXT_PUBLIC_MEILISEARCH_API_KEY
@@ -85,10 +86,12 @@ const SearchPage = ({ serverState, serverUrl }) => {
 						<div className={searchStyle.Wrapper}>
 							<Row>
 								<Col xs={12} sm={3} md={3}>
-									<div className={searchStyle.FiltersWrapper}>
-										<div className="subtitle-large">Filter by Type</div>
-										<RefinementList attribute="type" operator="and" />
-									</div>
+									<Media greaterThanOrEqual={'sm'}>
+										<div className={searchStyle.FiltersWrapper}>
+											<div className="subtitle-large">Filter by Type</div>
+											<RefinementList attribute="type" operator="and" />
+										</div>
+									</Media>
 								</Col>
 								<Col xs={12} sm={9} md={9}>
 									<SiteSearchBox />

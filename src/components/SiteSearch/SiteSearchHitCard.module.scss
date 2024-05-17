@@ -11,6 +11,11 @@
   .Image {
     position: relative;
 
+    // Mobile
+    @media (max-width: $sm) {
+      margin-bottom: 16px;
+    }
+
     .Icon {
       position: absolute;
       color: $white;
