@@ -7,7 +7,7 @@
 
   // Mobile
   @media (max-width: $sm) {
-    height: 600px;
+    height: 650px;
   }
 
   img {
@@ -25,9 +25,16 @@
     .Text {
       padding: 24px 24px 36px 48px;
       margin-left: -48px;
+      margin-right: 0;
       color: #FFFFFF;
       background-color: rgba($neutral_1000, 0.9);
       clip-path: polygon(10% 0, 100% 0, 100% 95%, 90% 100%, 0 100%, 0 5%);
+
+      // Mobile
+      @media (max-width: $sm) {
+        margin-left: 0;
+        padding: 24px;
+      }
 
       h1 {
         color: #FFFFFF;
@@ -47,6 +54,11 @@
       .Buttons {
         display: flex;
         gap: 16px;
+
+        // Mobile
+        @media (max-width: $sm) {
+          flex-direction: column;
+        }
       }
     }
   }
