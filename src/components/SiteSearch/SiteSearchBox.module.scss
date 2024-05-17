@@ -25,6 +25,11 @@
       &:focus-within {
         outline: unset;
       }
+
+      // Mobile
+      @media (max-width: $md) {
+        width: 100%;
+      }
     }
 
     :global input[type = 'search']::-webkit-search-cancel-button {

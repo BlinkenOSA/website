@@ -87,7 +87,7 @@ const SiteSearchHitCard = ({hit}) => {
         <div className={style.CardWrapper}>
             <Link href={getLink()}>
                 <Row>
-                    <Col xs={4}>
+                    <Col xs={12} sm={4} md={4}>
                         <div className={style.Image}>
                             <MaskedImage src={image} type={"landscape"} />
                             <div className={`${style.Icon}`}>
@@ -95,7 +95,7 @@ const SiteSearchHitCard = ({hit}) => {
                             </div>
                         </div>
                     </Col>
-                    <Col xs={8}>
+                    <Col xs={12} sm={8} md={8}>
                         <div className={style.CardInfoWrapper}>
                             <div className={'subtitle-large'}>{title}</div>
                             <div className={style.Description}>{cardText}</div>

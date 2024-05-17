@@ -84,13 +84,13 @@ const SearchPage = ({ serverState, serverUrl }) => {
 					>
 						<div className={searchStyle.Wrapper}>
 							<Row>
-								<Col md={3}>
+								<Col xs={12} sm={3} md={3}>
 									<div className={searchStyle.FiltersWrapper}>
 										<div className="subtitle-large">Filter by Type</div>
 										<RefinementList attribute="type" operator="and" />
 									</div>
 								</Col>
-								<Col md={9}>
+								<Col xs={12} sm={9} md={9}>
 									<SiteSearchBox />
 									<Spacer size={'small'}/>
 									<SiteSearchPagination
@@ -102,6 +102,7 @@ const SearchPage = ({ serverState, serverUrl }) => {
 										showFirst={false}
 										showLast={false}
 									/>
+									<Spacer />
 								</Col>
 							</Row>
 						</div>

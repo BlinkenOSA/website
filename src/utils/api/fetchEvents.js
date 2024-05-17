@@ -1,4 +1,5 @@
 import fetcher from "@/utils/api/fetcher";
+import dayjs from "dayjs";
 
 export const fetchEventsFrontPage = () => {
     const params = {
@@ -13,7 +14,8 @@ export const fetchEventsFrontPage = () => {
         'fields[1]': 'CardText',
         'fields[2]': 'StartDate',
         'fields[3]': 'EventType',
-        'fields[4]': 'Profile'
+        'fields[4]': 'Profile',
+        'filters[StartDate][$gte]': dayjs().format('YYYY-MM-DD')
     }
 
     return fetcher('events', params)

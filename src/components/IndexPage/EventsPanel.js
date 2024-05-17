@@ -25,30 +25,34 @@ const EventsPanel = ({eventsData}) => {
         })
     }
 
-    return (
-        <>
-            <SectionDivider title={t('events')}
-                            buttonText={t('events__button')}
-                            buttonLink={'/public-programs/program-calendar'}
-                            subTitle={t('events__free-text')}/>
-            <Row className={style.Row}>
-                {renderEventCard()}
-            </Row>
-            <Media lessThan="sm">
-                <div style={{textAlign: "center"}}>
-                    <Button
-                        type={'primary'}
-                        size={'large'}
-                        color={'neutral'}
-                        linkTarget={'_self'}
-                        link={'/public-programs/program-calendar'}>
-                        {t('events__button')}
-                    </Button>
-                </div>
-                <Spacer />
-            </Media>
-        </>
-    )
+    if (eventsData) {
+        return (
+            <>
+                <SectionDivider title={t('events')}
+                                buttonText={t('events__button')}
+                                buttonLink={'/public-programs/program-calendar'}
+                                subTitle={t('events__free-text')}/>
+                <Row className={style.Row}>
+                    {renderEventCard()}
+                </Row>
+                <Media lessThan="sm">
+                    <div style={{textAlign: "center"}}>
+                        <Button
+                            type={'primary'}
+                            size={'large'}
+                            color={'neutral'}
+                            linkTarget={'_self'}
+                            link={'/public-programs/program-calendar'}>
+                            {t('events__button')}
+                        </Button>
+                    </div>
+                    <Spacer />
+                </Media>
+            </>
+        )
+    } else {
+        return ''
+    }
 }
 
 export default EventsPanel;

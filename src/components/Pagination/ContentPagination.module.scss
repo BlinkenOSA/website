@@ -6,6 +6,11 @@
   border-radius: 0;
   justify-content: right;
 
+  // Mobile
+  @media (max-width: $sm) {
+    justify-content: center;
+  }
+
   .Ellipsis {
     :global .page-link {
       &:hover {
