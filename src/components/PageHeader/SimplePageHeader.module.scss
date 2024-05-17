@@ -26,18 +26,28 @@
 
       // Mobile
       @media (max-width: $sm) {
-        font-size: 32px;
+        font-size: 24px;
       }
     }
   }
 
   .Breadcrumbs {
     display: flex;
+
+    // Mobile
+    @media (max-width: $sm) {
+      flex-direction: column;
+    }
   }
 
   .Breadcrumb {
     display: flex;
     align-items: center;
     color: $neutral_1000;
+
+    // Mobile
+    @media (max-width: $sm) {
+      height: 24px;
+    }
   }
 }

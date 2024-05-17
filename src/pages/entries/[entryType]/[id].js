@@ -10,6 +10,7 @@ import {toCapitalize} from "@/utils/toCapitalize";
 import LabeledData from "@/components/LabeledData/LabeledData";
 import getImageData from "@/utils/content/getImageData";
 import getImageUrl from "@/utils/content/getImageUrl";
+import Spacer from "@/components/Spacer/Spacer";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -72,6 +73,7 @@ const EntryPage = ({entriesData}) => {
 						<Authors author={author} authorStaff={authorStaff} />
 					</Col>
 				</Row>
+				<Spacer size={'medium'} />
 				<Content contentObject={data['Content']} profile={profile} />
 			</Container>
 		</div>

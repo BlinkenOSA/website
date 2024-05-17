@@ -6,6 +6,7 @@ import Authors from "@/components/Authors/Authors";
 import getCreationDate from "@/utils/content/getCreationDate";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import getImageUrl from "@/utils/content/getImageUrl";
+import Spacer from "@/components/Spacer/Spacer";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -64,6 +65,7 @@ const NewsPage = ({newsData}) => {
 						<Authors author={author} authorStaff={authorStaff} />
 					</Col>
 				</Row>
+				<Spacer size={'medium'} />
 				<Content contentObject={data['Content']} profile={profile}/>
 			</Container>
 		</div>

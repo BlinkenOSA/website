@@ -1,8 +1,15 @@
+@import "@/styles/variables.scss";
+
 .Authors {
   display: flex;
   gap: 24px;
   align-items: flex-end;
   justify-content: flex-end;
+
+  // Mobile
+  @media (max-width: $md) {
+    flex-direction: column;
+  }
 
   .AuthorBadge {
     display: flex;
