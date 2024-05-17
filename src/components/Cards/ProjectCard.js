@@ -21,7 +21,7 @@ const ProjectCard = ({data, profile}) => {
 
     const color = getColor(profile)
 
-    const isMobile = useMedia('(max-width: 1200px)');
+    const isMobile = useMedia('(max-width: 1200px)', true);
 
     const getURL = () => {
         switch (profile) {
@@ -53,7 +53,7 @@ const ProjectCard = ({data, profile}) => {
                     <MaskedImage src={imageData['url']} type={'hdtv'} />
                 </div>
             </Link>
-            <div className={`${style.Title} subtitle-large`}>{title}</div>
+            <div className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 150)}</div>
             <div className={style.Description}>
                 {truncateWithEllipses(description, 350)}
             </div>

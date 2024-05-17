@@ -12,13 +12,13 @@ const PageHeader = ({title, breadcrumbObject, breadCrumb, menu, image, scrollSca
     const ref = useRef(null)
     const {scrollYProgress} = useScroll();
 
-    const router = useRouter();
+    const router = breadcrumbObject && useRouter();
     const dispatch = useContext(MenuDispatchContext);
 
     const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -1500*scrollScale]);
     const textY = useTransform(scrollYProgress, [0, 1], [0, -100*scrollScale]);
 
-    const isCompact = useMedia('(max-width: 1200px)');
+    const isCompact = useMedia('(max-width: 1200px)', true);
 
     const handleClick = (e, m, link) => {
         e.preventDefault();

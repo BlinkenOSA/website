@@ -32,10 +32,10 @@ const ResearchRoomPanel = () => {
                             <div className={style.Text}>
                                 <h1>{t('research_room')}</h1>
                                 <p>
-                                    OSA is an open-access facility committed to making research materials available to
-                                    researchers and the wider public free of charge. Our Research Room is freely
-                                    accessible to the public and offers a friendly environment for quiet study.
-                                </p>
+                                    The Archivum is an open-access facility committed to making research materials available
+									free of charge. Our Research Room is freely accessible to the public and offers a
+                                    friendly environment for quiet study.
+								</p>
                                 <p>
                                     <span className={`${style.Label}`}>Where to find us: </span>
                                     <span className={style.Value}>Arany Janos u. 32., Budapest, Hungary</span>
@@ -44,8 +44,8 @@ const ResearchRoomPanel = () => {
                                     <span className={style.Value}>Mon-Fri 10:00 - 17:45</span>
                                 </p>
                                 <div className={style.Buttons}>
-                                    <Button type={'primary'} size={'medium'} color={'mustard'} link={''}>Registration</Button>
-                                    <Button type={'secondary'} size={'medium'} color={'neutral'} link={''}>More info and booking!</Button>
+                                    <Button type={'primary'} size={'medium'} color={'mustard'} link={'https://catalog.osaarchivum.org/registration'}>Registration</Button>
+                                    <Button type={'secondary'} size={'medium'} color={'neutral'} link={'/collections/research-room'} linkTarget={'_self'}>More info and booking!</Button>
                                 </div>
                             </div>
                         </Col>

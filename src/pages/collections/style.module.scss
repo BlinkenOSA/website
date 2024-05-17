@@ -27,4 +27,43 @@
     --bs-gutter-x: 24px;
     --bs-gutter-y: 24px;
   }
+
+  .Description {
+    a {
+      position: relative;
+      text-decoration: none;
+      padding: 2px 4px;
+      margin: -2px -4px;
+      white-space: pre;
+
+      &::before {
+        content: "";
+        inset: 0;
+        position: absolute;
+        transform: scaleY(0.1);
+        transform-origin: bottom;
+        transition: transform 0.2s ease-in-out;
+        z-index: -1;
+        background: $orange_1000;
+      }
+
+      &:hover::before {
+        transform: scaleY(1);
+        transform-origin: bottom;
+      }
+
+      // Mobile
+      @media (max-width: $sm) {
+        text-decoration: underline;
+        text-decoration-thickness: 4px;
+        text-underline-offset: 4px;
+        white-space: normal;
+        text-decoration-color: $orange_1000;
+
+        &::before {
+          content: unset;
+        }
+      }
+    }
+  }
 }

@@ -40,7 +40,7 @@ Media.propTypes = {
     children: PropTypes.node
 };
 const StaffPage = ({staffData}) => {
-    const isMobile = useMedia('(max-width: 700px)');
+    const isMobile = useMedia('(max-width: 700px)', true);
 
     const data = staffData['data'][0]['attributes'];
 

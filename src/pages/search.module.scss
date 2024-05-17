@@ -9,6 +9,10 @@
     }
   }
 
+  :global ul, :global ol {
+    margin-bottom: 0;
+  }
+
   // Facets
   :global .ais-RefinementList {
     ul {

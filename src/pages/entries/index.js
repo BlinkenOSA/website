@@ -65,7 +65,7 @@ const EntriesContent = ({initialData}) => {
     const [entryTypeFilter, setEntryTypeFilter] = useState(entryType)
     const [selectedPage, setSelectedPage] = useState(page)
 
-    const isMobile = useMedia('(max-width: 700px)');
+    const isMobile = useMedia('(max-width: 700px)', true);
 
     const { data } = useSWR(
         fetchEntriesList(selectedPage, profileFilter, entryTypeFilter),

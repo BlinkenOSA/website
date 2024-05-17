@@ -12,7 +12,7 @@ const SimplePageHeader = ({title, breadCrumb, menu, breadCrumbObject}) => {
     const router = useRouter();
     const dispatch = useContext(MenuDispatchContext);
 
-    const isCompact = useMedia('(max-width: 1200px)');
+    const isCompact = useMedia('(max-width: 1200px)', true);
 
     const handleClick = (e, m, link) => {
         e.preventDefault();

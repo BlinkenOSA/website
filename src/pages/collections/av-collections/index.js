@@ -53,7 +53,7 @@ const CollectionHighlightsPage = ({initialData}) => {
                         <div className={style.Description}>
                             {
                                 <p>
-                                    Archivum owns over 10.000 hours of video and sound, plus a growing number of photo
+                                    The Archivum owns over 10.000 hours of video and sound, plus a growing number of photo
                                     collections, which come from various sources in 5 continents. Our donors include
                                     individual authors and artists, media groups, human rights organizations, civil society members,
                                     UN courtrooms and research communities as well.<br/><br/>
@@ -61,7 +61,7 @@ const CollectionHighlightsPage = ({initialData}) => {
                                     collections, accompanied by individual curatorial introductions. By creating it,
                                     we hoped to supplement the Catalog and assist you in locating and exploring our
                                     unique collections.<br/><br/>
-                                    Some of the collections are online, while others are digitized and available in a
+                                    Some of the collections are <Link href={'/collections/online-collections'}>online</Link>, while others are digitized and available in a
                                     private research cloud following <Link href={'https://catalog.osaarchivum.org/registration'} target={'_blank'}>registration</Link>.
                                 </p>
                             }

@@ -65,7 +65,7 @@ const NewsContent = ({initialData}) => {
     const [profileFilter, setProfileFilter] = useState(profile)
     const [selectedPage, setSelectedPage] = useState(page)
 
-    const isMobile = useMedia('(max-width: 700px)');
+    const isMobile = useMedia('(max-width: 700px)', true);
 
     const { data } = useSWR(
         fetchNewsList(page, profile),
