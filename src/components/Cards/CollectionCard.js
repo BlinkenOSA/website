@@ -13,7 +13,6 @@ const CollectionCard = ({data}) => {
     const size = data['Size']
     const description = data['CardText']
     const types = data['MaterialTypes']
-    const contentTypes = data['ContentTypes'].join(', ')
     const slug = data['Slug']
 
     const ToolTipStuff = ({ id, children, title }) => (
@@ -60,6 +59,22 @@ const CollectionCard = ({data}) => {
         }
     }
 
+    const getCollectionTypes = () => {
+        const getType = (type) => {
+            switch (type) {
+                case 'Curated':
+                    return 'Curated'
+                case 'Digital':
+                case 'Online':
+                    return 'Online'
+                case 'AV':
+                    return 'Audiovisual'
+            }
+        }
+
+        return data['ContentTypes'].map(t => getType(t)).join(', ')
+    }
+
     return (
         <div className={style.Wrapper}>
             <div className={style.Header}>
@@ -82,7 +97,7 @@ const CollectionCard = ({data}) => {
                 </Link>
             </div>
             <div className={style.CollectionType}>
-                {contentTypes}
+                {getCollectionTypes()}
             </div>
         </div>
     )
