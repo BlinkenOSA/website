@@ -126,6 +126,7 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 				<PartnersPanel/>
 				<Spacer />
 				<NewsletterPanel/>
+				<Spacer />
 			</Container>
 		</div>
 	)
