@@ -23,7 +23,8 @@ const PartnersPanel = () => {
                                     type={'primary'}
                                     size={'medium'}
                                     color={'sage'}
-                                    link={'/external/galeria'}
+                                    link={'/external/galeria-centralis'}
+                                    linkTarget={'_self'}
                                 >{t('partners__button')}</Button>
                             </div>
                             <div className={style.Logo}>
