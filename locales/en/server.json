@@ -1,5 +1,5 @@
 {
-  "notfound__text": "The page you are looking for doesn't exist (yet)",
+  "notfound__text": "The page you are looking for doesn't exist (yet).",
   "notfound__button": "Go back",
   "error__text": "Whoops! We encountered some error. Our colleagues are working to fix it.",
   "error__button": "Go back"
