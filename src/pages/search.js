@@ -5,7 +5,7 @@ import {InstantSearch, InstantSearchSSRProvider, Hits, RefinementList, Configure
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
 import {Container, Col, Row} from "react-bootstrap";
 import SiteSearchBox from "@/components/SiteSearch/SiteSearchBox";
-import React from "react";
+import React, {useState} from "react";
 import SiteSearchPagination from "@/components/SiteSearch/SiteSearchPagination";
 import Spacer from "@/components/Spacer/Spacer";
 import SiteSearchHitCard from "@/components/SiteSearch/SiteSearchHitCard";
@@ -13,6 +13,8 @@ import singletonRouter from 'next/router';
 import { createInstantSearchRouterNext } from 'react-instantsearch-router-nextjs';
 import PageHeader from "@/components/PageHeader/PageHeader";
 import {Media} from "@/utils/media";
+import Button from "@/components/Button/Button";
+import {Collapse} from 'react-collapse';
 
 const server = process.env.NEXT_PUBLIC_MEILISEARCH_URL
 const key = process.env.NEXT_PUBLIC_MEILISEARCH_API_KEY
@@ -36,6 +38,8 @@ export async function getServerSideProps({ req }) {
 }
 
 const SearchPage = ({ serverState, serverUrl }) => {
+	const [filterShown, setFilterShown] = useState(false)
+
 	const transformTypeFilter = (items) => {
 		const dictionary = {
 			annualReport: 'Annual Report',
@@ -91,6 +95,19 @@ const SearchPage = ({ serverState, serverUrl }) => {
 											<div className="subtitle-large">Filter by Type</div>
 											<RefinementList attribute="type" operator="and" />
 										</div>
+									</Media>
+									<Media lessThan={'sm'}>
+										<Button type={'primary'} color={'neutral'} size={'medium'} onClick={() => setFilterShown(!filterShown)}>
+											{filterShown ? `Close Filter` : `Open Filter`}
+										</Button>
+										<Spacer/>
+										<Collapse isOpened={filterShown}>
+											<div className={searchStyle.FiltersWrapper}>
+												<div className="subtitle-large">Filter by Type</div>
+												<RefinementList attribute="type" operator="and" />
+												<Spacer/>
+											</div>
+										</Collapse>
 									</Media>
 								</Col>
 								<Col xs={12} sm={9} md={9}>
