@@ -41,7 +41,7 @@ const SearchPage = ({searchOpen, onClose}) => {
                 initial={'closed'}
                 exit={{x: '-100%', transition: {ease: 'linear', delay: 0.2}}}
                 transition={{ease: "linear", duration: 0.2}}
-                className={style.WebsiteSearch}>
+                className={style.CatalogSearch}>
                 <motion.div
                     transition={{delay: 0.3}}
                     variants={searchBoxVariables}
@@ -61,8 +61,9 @@ const SearchPage = ({searchOpen, onClose}) => {
                 initial={'closed'}
                 exit={{x: '-200%', transition: {ease: 'linear', delay: 0}}}
                 transition={{ease: "linear", duration: 0.4}}
-                className={style.CatalogSearch}>
+                className={style.WebsiteSearch}>
                 <Image
+                    className={style.WebsiteSearchBackground}
                     priority={true}
                     alt={'Search background'}
                     src={'/images/search.jpg'}
