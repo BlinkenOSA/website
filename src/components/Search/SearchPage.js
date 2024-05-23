@@ -5,9 +5,11 @@ import Image from "next/image";
 import Button from "@/components/Button/Button";
 import {IconGeneralClose} from "@/components/Icon/GeneralIcon";
 import {useRouter} from "next/router";
+import useTranslation from "next-translate/useTranslation";
 
 const SearchPage = ({searchOpen, onClose}) => {
     const router = useRouter();
+    const { t, lang } = useTranslation('index')
 
     const searchPageVariables = {
         open: { x: 0 },
@@ -42,12 +44,20 @@ const SearchPage = ({searchOpen, onClose}) => {
                 exit={{x: '-100%', transition: {ease: 'linear', delay: 0.2}}}
                 transition={{ease: "linear", duration: 0.2}}
                 className={style.CatalogSearch}>
-                <motion.div
-                    transition={{delay: 0.3}}
-                    variants={searchBoxVariables}
-                    className={style.SearchBox}>
-                    <SearchBox bordered={true} placeholder={'Search our catalog'} onPressEnter={handleCatalogSearch}/>
-                </motion.div>
+                <div className={style.Wrapper}>
+                    <motion.div
+                        transition={{delay: 0.3}}
+                        variants={searchBoxVariables}
+                        className={style.TitleBox}>
+                        <h1>{t('catalog__search')}</h1>
+                    </motion.div>
+                    <motion.div
+                        transition={{delay: 0.4}}
+                        variants={searchBoxVariables}
+                        className={style.SearchBox}>
+                        <SearchBox bordered={true} placeholder={t('search')} onPressEnter={handleCatalogSearch}/>
+                    </motion.div>
+                </div>
                 <Image
                     priority={true}
                     alt={'Catalog search background'}
@@ -62,19 +72,20 @@ const SearchPage = ({searchOpen, onClose}) => {
                 exit={{x: '-200%', transition: {ease: 'linear', delay: 0}}}
                 transition={{ease: "linear", duration: 0.4}}
                 className={style.WebsiteSearch}>
-                <Image
-                    className={style.WebsiteSearchBackground}
-                    priority={true}
-                    alt={'Search background'}
-                    src={'/images/search.jpg'}
-                    fill={true}
-                />
-                <motion.div
-                    transition={{delay: 0.5}}
-                    variants={searchBoxVariables}
-                    className={style.SearchBox}>
-                    <SearchBox bordered={true} placeholder={'Search our website'} onPressEnter={handleWebsiteSearch} />
-                </motion.div>
+                <div className={style.Wrapper}>
+                    <motion.div
+                        transition={{delay: 0.5}}
+                        variants={searchBoxVariables}
+                        className={style.TitleBox}>
+                        <h1>{t('website__search')}</h1>
+                    </motion.div>
+                    <motion.div
+                        transition={{delay: 0.6}}
+                        variants={searchBoxVariables}
+                        className={style.SearchBox}>
+                        <SearchBox bordered={true} placeholder={t('search')} onPressEnter={handleWebsiteSearch} />
+                    </motion.div>
+                </div>
                 <motion.div
                     transition={{delay: 0.7}}
                     variants={searchBoxVariables}
@@ -83,6 +94,13 @@ const SearchPage = ({searchOpen, onClose}) => {
                         <IconGeneralClose/>
                     </Button>
                 </motion.div>
+                <Image
+                    className={style.WebsiteSearchBackground}
+                    priority={true}
+                    alt={'Search background'}
+                    src={'/images/search.jpg'}
+                    fill={true}
+                />
             </motion.div>
         </motion.div>
     )
