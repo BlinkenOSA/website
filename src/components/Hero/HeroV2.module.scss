@@ -83,6 +83,7 @@
       padding: 8px 0;
 
       .ButtonWrapper {
+        position: relative;
         display: flex;
         color: $neutral_100;
         z-index: 8;
