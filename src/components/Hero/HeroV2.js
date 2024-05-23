@@ -5,8 +5,10 @@ import getImageUrl from "@/utils/content/getImageUrl";
 import {Col, Container, Row} from "react-bootstrap";
 import getColor from "@/utils/content/getColor";
 import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
 
 const HeroV2 = ({data}) => {
+    const { t, lang } = useTranslation('cards')
 
     // Populate fields
     const date = data['Date']
@@ -65,10 +67,13 @@ const HeroV2 = ({data}) => {
                     <Col xs={12} sm={8} md={6} style={{position: 'relative'}}>
                         <div className={style.TextWrapper}>
                             <div className={`${style.TopRow} hero-top-row`}>
-                                <div className={style.Date}>
-                                    <span>{date}</span>
-                                    {generateTime()}
-                                </div>
+                                {
+                                    date &&
+                                    <div className={style.Date}>
+                                        <span>{date}</span>
+                                        {generateTime()}
+                                    </div>
+                                }
                                 <div className={style.Location}>
                                     {location}
                                 </div>
