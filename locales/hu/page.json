@@ -41,5 +41,9 @@
   "hostingType__filter__title": "Lebonyolítás",
   "language__filter__title": "Nyelv",
   "programType__filter__title": "Programtípus",
-  "program_calendar__past_programs": "Régebbi Programok"
+  "program_calendar__past_programs": "Régebbi Programok",
+  "program_calendar__table__date": "Dátum",
+  "program_calendar__table__type": "Típus",
+  "program_calendar__table__title": "Cím",
+  "program_calendar__table__format_language": "Lebonyolítás / Nyelv"
 }

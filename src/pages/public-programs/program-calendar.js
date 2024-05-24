@@ -44,19 +44,21 @@ export const getServerSideProps = (async (context) => {
 })
 
 const ProgramCalendarHeader = () => {
+	const { t, lang } = useTranslation('page')
+
 	return (
 		<Row className={style.ProgramHeaderRow}>
 			<Col xs={3} className={style.Date}>
-				<span className={'subtitle-small'}>Date</span>
+				<span className={'subtitle-small'}>{t('program_calendar__table__date')}</span>
 			</Col>
 			<Col xs={1} className={style.Icon}>
-				<span className={'subtitle-small'}>Type</span>
+				<span className={'subtitle-small'}>{t('program_calendar__table__type')}</span>
 			</Col>
 			<Col xs={6}>
-				<span className={'subtitle-small'}>Title</span>
+				<span className={'subtitle-small'}>{t('program_calendar__table__title')}</span>
 			</Col>
 			<Col xs={2}>
-				<span className={'subtitle-small'}>Format / Language</span>
+				<span className={'subtitle-small'}>{t('program_calendar__table__format_language')}</span>
 			</Col>
 		</Row>
 	)
