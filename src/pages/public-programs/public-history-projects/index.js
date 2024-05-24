@@ -3,6 +3,7 @@ import style from "@/pages/pages.module.scss";
 import {fetchPublicHistoryProjects} from "@/utils/api/fetchProjects";
 import ProjectCard from "@/components/Cards/ProjectCard";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps = (async () => {
     const [projectsData] = await Promise.all([
@@ -17,6 +18,8 @@ export const getServerSideProps = (async () => {
 
 
 const PublicHistoryProjectsPage = ({projectsData}) => {
+    const { t, lang } = useTranslation('page')
+
     const renderProjects = () => {
         return projectsData["data"].map(project => {
             return (
@@ -34,7 +37,7 @@ const PublicHistoryProjectsPage = ({projectsData}) => {
     return (
         <div className={style.Page}>
             <Container>
-                <SimplePageHeader title={'Public History Projects'} menu={'public-programs'} breadCrumb={'Public Programs'} />
+                <SimplePageHeader title={t('public_history_projects__title')} menu={'public-programs'} breadCrumb={t('breadcrumb__public_programs')} />
                 <Row>
                     {renderProjects()}
                 </Row>

@@ -3,6 +3,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import style from "@/pages/pages.module.scss";
 import AnnualReportCard from "@/components/Cards/AnnualReportCard";
 import PageHeader from "@/components/PageHeader/PageHeader";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps = (async () => {
     const [reportData] = await Promise.all([
@@ -16,6 +17,8 @@ export const getServerSideProps = (async () => {
 })
 
 const AnnualReportsPage = ({reportData}) => {
+    const { t, lang } = useTranslation('page')
+
     const renderReports = () => {
         return reportData["data"].map(report => {
             return <AnnualReportCard
@@ -28,8 +31,8 @@ const AnnualReportsPage = ({reportData}) => {
     return (
         <div className={style.Page}>
             <PageHeader
-                title={'Annual Reports'}
-                breadCrumb={'About Us'}
+                title={t('annual_reports__title')}
+                breadCrumb={t('breadcrumb__about_us')}
                 menu={'about-us'}
                 image={'/images/header-annual-reports.jpg'} />
             <Container>

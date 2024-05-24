@@ -11,6 +11,8 @@ import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import clientFetcher from "@/utils/api/clientFetcher";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import {useState} from "react";
+import {jobTypeFilterValues} from "@/utils/filterValues/jobTypeFilterValues";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchJobs()
@@ -27,10 +29,16 @@ export const getServerSideProps = (async () => {
 })
 
 const JobCards = ({selectedFilters}) => {
+    const { t, lang } = useTranslation('page')
+
     const { data } = useSWR(
         fetchJobs(selectedFilters),
         ([url, params]) => clientFetcher(url, params)
     )
+
+    if (data && data["data"].length === 0) {
+        return <div className={'subtitle-large'} style={{paddingTop: '48px'}}>{t('job__no_openings')}</div>
+    }
 
     return data && data["data"].map(job => {
         return <JobCard
@@ -41,13 +49,9 @@ const JobCards = ({selectedFilters}) => {
 }
 
 const JobsPage = ({initialData}) => {
-    const [jobTypeFilter, setJobTypeFilter] = useState('')
+    const { t, lang } = useTranslation('page')
 
-    const filterValues = [
-        {value: 'Jobs', label: 'Job'},
-        {value: 'Archivum Internships', label: 'Archivum Internship'},
-        {value: 'Volunteering', label: 'Volunteering'}
-    ]
+    const [jobTypeFilter, setJobTypeFilter] = useState('')
 
     const handleFilterChange = (id) => {
         if (jobTypeFilter === id) {
@@ -60,16 +64,16 @@ const JobsPage = ({initialData}) => {
     return (
         <div className={style.Page}>
             <PageHeader
-                title={'Join Us'}
-                breadCrumb={'About Us'}
+                title={t('job__title')}
+                breadCrumb={t('breadcrumb__about_us')}
                 menu={'about-us'}
                 image={''} />
             <Container>
                 <Row>
                     <Col xs={4}>
                         <VerticalFilters
-                            title={'Job Type'}
-                            values={filterValues}
+                            title={t('job__filter__title')}
+                            values={jobTypeFilterValues}
                             selectedFilters={jobTypeFilter}
                             onChange={handleFilterChange}
                         />

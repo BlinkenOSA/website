@@ -6,6 +6,7 @@ import {OverlayTrigger, Tooltip} from "react-bootstrap";
 import React from "react";
 import getImageData from "@/utils/content/getImageData";
 import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
 
 const CollectionCard = ({data}) => {
     const title = data['Title']
@@ -14,6 +15,8 @@ const CollectionCard = ({data}) => {
     const description = data['CardText']
     const types = data['MaterialTypes']
     const slug = data['Slug']
+
+    const { t, lang } = useTranslation('cards')
 
     const ToolTipStuff = ({ id, children, title }) => (
         <OverlayTrigger overlay={<Tooltip id={id}>{title}</Tooltip>}>
@@ -24,13 +27,13 @@ const CollectionCard = ({data}) => {
     const chooseIcon = (type, key) => {
       switch(type) {
         case 'Audio':
-            return <ToolTipStuff key={key} title={'Audio'}><IconAudio size={'small'} color={'orange'} /></ToolTipStuff>
+            return <ToolTipStuff key={key} title={t('collection_card__audio')}><IconAudio size={'small'} color={'orange'} /></ToolTipStuff>
         case 'Moving Image':
-            return <ToolTipStuff key={key} title={'Moving Image'}><IconMovingImage size={'small'} color={'orange'} /></ToolTipStuff>
+            return <ToolTipStuff key={key} title={t('collection_card__moving_image')}><IconMovingImage size={'small'} color={'orange'} /></ToolTipStuff>
         case 'Textual':
-            return <ToolTipStuff key={key} title={'Textual'}><IconDocument size={'small'} color={'orange'} /></ToolTipStuff>
+            return <ToolTipStuff key={key} title={t('collection_card__textual')}><IconDocument size={'small'} color={'orange'} /></ToolTipStuff>
         case 'Still Image':
-            return <ToolTipStuff key={key} title={'Still Image'}><IconPhoto size={'small'} color={'orange'} /></ToolTipStuff>
+            return <ToolTipStuff key={key} title={t('collection_card__still_image')}><IconPhoto size={'small'} color={'orange'} /></ToolTipStuff>
       }
     }
 
@@ -63,12 +66,12 @@ const CollectionCard = ({data}) => {
         const getType = (type) => {
             switch (type) {
                 case 'Curated':
-                    return 'Curated'
+                    return t('collection_card__curated')
                 case 'Digital':
                 case 'Online':
-                    return 'Online'
+                    return t('collection_card__online')
                 case 'AV':
-                    return 'Audiovisual'
+                    return t('collection_card__audiovisual')
             }
         }
 

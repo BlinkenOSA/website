@@ -21,7 +21,7 @@ export const menuConfig = [
       { key: 'news', title: 'News', url: '/news'},
       { key: 'partner-projects', title: 'Partner Projects', url: '/about-us/partner-projects'},
       { key: 'join-us', title: 'Join Us', submenu: [
-          { key: 'visegrad-scholarship', title: 'Visegrad Scholarships', highlight: 'Information about the Visegrad Scholarship Program.', url: '/about-us/about-the-visegrad-scholarship' },
+          { key: 'visegrad-scholarship', title: 'Visegrad Scholarships', highlight: 'Information about the Visegrad Scholarship Program.', url: '/about-us/visegrad-scholarship-at-the-archivum' },
           { key: 'jobs', title: 'Jobs', highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid.', url: '/about-us/jobs' },
           { key: 'volunteering', title: 'Volunteering', highlight: "Work with us on arhcival processing, digitization projects, exhibitions. You won't get paid"}]
       },

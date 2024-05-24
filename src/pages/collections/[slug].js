@@ -4,6 +4,7 @@ import {Container} from "react-bootstrap";
 import Content from "@/components/Content/Content";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import getImageUrl from "@/utils/content/getImageUrl";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -26,6 +27,8 @@ export const getServerSideProps = (async (context) => {
 })
 
 const StaticPage = ({pageData}) => {
+    const { t, lang } = useTranslation('page')
+
     const data = pageData['data'][0]['attributes'];
     const image = getImageUrl(data['CardImage'])
 
@@ -33,7 +36,7 @@ const StaticPage = ({pageData}) => {
         <div className={style.Page}>
             <PageHeader
                 title={data['Title']}
-                breadCrumb={'Collections'}
+                breadCrumb={t('breadcrumb__collections')}
                 menu={'collections'}
                 image={image}
                 scrollScale={0.5}

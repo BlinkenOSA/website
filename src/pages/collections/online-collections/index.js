@@ -7,6 +7,7 @@ import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import clientFetcher from "@/utils/api/clientFetcher";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Spacer from "@/components/Spacer/Spacer";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchCollectionHighlightsList(100, 'Online')
@@ -43,17 +44,18 @@ const CollectionCards = ({selectedFilter}) => {
 
 
 const CollectionHighlightsPage = ({initialData}) => {
+    const { t, lang } = useTranslation('page')
+
     return (
         <div className={style.Page}>
             <Container>
-                <SimplePageHeader title={'Online Collections'} menu={'collections'} breadCrumb={'Collections'} />
+                <SimplePageHeader title={t('online_collections__title')} menu={'collections'} breadCrumb={t('breadcrumb__collections')} />
                 <Row>
                     <Col xs={12}>
                         <div className={style.Description}>
                             {
                                 <p>
-                                    Online collections are selected materials that have been digitized and are,
-                                    available for online browsing in our catalog.
+                                    {t('online_collections__text')}
                                 </p>
                             }
                         </div>

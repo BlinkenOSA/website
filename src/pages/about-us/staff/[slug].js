@@ -14,6 +14,7 @@ import {Media} from "@/utils/media";
 
 import * as PropTypes from "prop-types";
 import BlockContent from "@/components/Content/BlockContent";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -40,6 +41,7 @@ Media.propTypes = {
     children: PropTypes.node
 };
 const StaffPage = ({staffData}) => {
+    const { t, lang } = useTranslation('page')
     const isMobile = useMedia('(max-width: 700px)', true);
 
     const data = staffData['data'][0]['attributes'];
@@ -61,8 +63,8 @@ const StaffPage = ({staffData}) => {
     }
 
     const breadCrumbObject = [
-        {menu: 'about-us', title: 'About Us'},
-        {menu: 'about-us/staff', link: '/about-us/staff', title: 'Staff'}
+        {menu: 'about-us', title: t('breadcrumb__about_us')},
+        {menu: 'about-us/staff', link: '/about-us/staff', title: t('breadcrumb__staff')}
     ]
 
     return (
@@ -93,7 +95,7 @@ const StaffPage = ({staffData}) => {
                                 <Tabs className="mb-3">
                                     {
                                         appearences.length > 0 &&
-                                        <Tab eventKey="appearences" title={isMobile ? "Media" : "Media outreach"}>
+                                        <Tab eventKey="appearences" title={isMobile ? t('staff__tab__appearances') : t('staff__tab__mobile__appearances')}>
                                             {
                                                 appearences.map(
                                                     (app, idx) => <Appearance key={`appearence_${idx}`} data={app['attributes']} />
@@ -103,7 +105,7 @@ const StaffPage = ({staffData}) => {
                                     }
                                     {
                                         courses.length > 0 &&
-                                        <Tab eventKey="courses" title={isMobile ? 'Courses' : 'Courses taught'}>
+                                        <Tab eventKey="courses" title={isMobile ? t('staff__tab__courses') : t('staff__tab__mobile__courses')}>
                                             {
                                                 courses.map(
                                                     (course, idx) => <Course key={`course_${idx}`} data={course['attributes']} />
@@ -113,7 +115,7 @@ const StaffPage = ({staffData}) => {
                                     }
                                     {
                                         publications.length > 0 &&
-                                        <Tab eventKey="publications" title="Publications">
+                                        <Tab eventKey="publications" title={t('staff__tab__publications')}>
                                             {
                                                 publications.map(
                                                     (pub, idx) => <Publication key={`publication_${idx}`} data={pub['attributes']} />
@@ -123,7 +125,7 @@ const StaffPage = ({staffData}) => {
                                     }
                                     {
                                         entries.length > 0 &&
-                                        <Tab eventKey="blogs" title="Blogs">
+                                        <Tab eventKey="blogs" title={t('staff__tab__blogs')}>
                                             {
                                                 entries.map(
                                                     (entry, idx) => <Entry key={`entry_${idx}`} id={entry['id']} data={entry['attributes']} />

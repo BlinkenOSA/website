@@ -1,5 +1,5 @@
 export const entryTypeFilterValues = [
-    {value: 'Blog', label: 'Blog'},
-    {value: 'Podcast', label: 'Podcast'},
-    {value: 'Video', label: 'Video'},
+    {value: 'Blog', translationKey: 'entryType__filter__blog'},
+    {value: 'Podcast', translationKey: 'entryType__filter__podcast'},
+    {value: 'Video', translationKey: 'entryType__filter__video'},
 ]

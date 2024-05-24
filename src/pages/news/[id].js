@@ -7,6 +7,7 @@ import getCreationDate from "@/utils/content/getCreationDate";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import getImageUrl from "@/utils/content/getImageUrl";
 import Spacer from "@/components/Spacer/Spacer";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -29,6 +30,7 @@ export const getServerSideProps = (async (context) => {
 })
 
 const NewsPage = ({newsData}) => {
+	const { t, lang } = useTranslation('page')
 	const data = newsData['data']['attributes'];
 
 	const activityType = data['ActivityType']
@@ -40,8 +42,8 @@ const NewsPage = ({newsData}) => {
 	const image = getImageUrl(data['Image'])
 
 	const breadcrumbObject = [
-		{menu: 'about-us', title: 'About Us'},
-		{menu: 'news', link: '/news', title: 'News'}
+		{menu: 'about-us', title: t('breadcrumb__about_us')},
+		{menu: 'news', link: '/news', title: t('news__title')}
 	]
 
 	return (

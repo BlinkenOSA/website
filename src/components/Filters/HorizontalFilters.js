@@ -1,7 +1,10 @@
 import style from "./HorizontalFilters.module.scss";
 import Button from "@/components/Button/Button";
+import useTranslation from "next-translate/useTranslation";
 
 const HorizontalFilters = ({values, selectedFilter, description = '', align='center', onSelect}) => {
+    const { t, lang } = useTranslation('filters')
+
     const handleFilterSelect = (value) => {
         onSelect(value)
     }
@@ -15,7 +18,7 @@ const HorizontalFilters = ({values, selectedFilter, description = '', align='cen
                         color={'color' in value ? value['color'] : 'neutral'}
                         size={'medium'}
                         isActive={selectedFilter === value['value']}
-                        onClick={() => handleFilterSelect(value['value'])}>{value['label']}
+                        onClick={() => handleFilterSelect(value['value'])}>{t(value['translationKey'])}
                     </Button>
                 </div>
             )

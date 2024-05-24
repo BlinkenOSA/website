@@ -21,6 +21,10 @@ import getImageData from "@/utils/content/getImageData";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import {Media} from "@/utils/media";
 import Spacer from "@/components/Spacer/Spacer";
+import useTranslation from "next-translate/useTranslation";
+import {hostingTypeFilterValues} from "@/utils/filterValues/hostingTypeFilterValues";
+import {languageFilterValues} from "@/utils/filterValues/languageFilterValues";
+import {programTypeFilterValues} from "@/utils/filterValues/programTypeFilterValues";
 
 export const getServerSideProps = (async (context) => {
 	const parameters = context.query;
@@ -95,6 +99,8 @@ const ProgramDataRow = ({id, index, data, onTitleClick}) => {
 }
 
 const ProgramDetail = ({id, data, isOpened}) => {
+	const { t, lang } = useTranslation('page')
+
 	const imageData = getImageData(data['Image'], "medium")
 	const description = data['CardText']
 	const shortDescription = data['DescriptionShort']
@@ -138,6 +144,8 @@ const ProgramDetail = ({id, data, isOpened}) => {
 
 
 const ProgramRows = ({programTypeFilter, languageFilter, hostingTypeFilter}) => {
+	const { t, lang } = useTranslation('page')
+
 	const [openedPrograms, {push, removeAt}] = useList([])
 
 	const onTitleClick = (id) => {
@@ -177,7 +185,7 @@ const ProgramRows = ({programTypeFilter, languageFilter, hostingTypeFilter}) => 
 					<Row className={style.TimeInfoRow}>
 						<Col xs={12}>
 							<div className={style.TimeInfoElements}>
-								<span className={'subtitle-small'}>Past Programs</span>
+								<span className={'subtitle-small'}>{t('program_calendar__past_programs')}</span>
 							</div>
 						</Col>
 					</Row>
@@ -191,6 +199,8 @@ const ProgramRows = ({programTypeFilter, languageFilter, hostingTypeFilter}) => 
 }
 
 const ProgramCalendarPage = ({initialData}) => {
+	const { t, lang } = useTranslation('page')
+
 	const router = useRouter();
 	const {programType} = router.query;
 
@@ -211,28 +221,10 @@ const ProgramCalendarPage = ({initialData}) => {
 		}, undefined, { shallow: true, scroll: false })
 	}, [programTypeFilter])
 
-	const programTypeFilterValues = [
-		{value: '', label: 'All', color: 'neutral'},
-		{value: 'Academic', label: 'Academic Programs', color: 'aqua'},
-		{value: 'Public', label: 'Public Programs', color: 'sage'}
-	]
-
-	const languageFilterValues = [
-		{value: 'English', label: 'English'},
-		{value: 'Hungarian', label: 'Hungarian'},
-		{value: 'Bi-Lingual', label: 'Bi-Lingual'},
-	]
-
-	const hostingTypeFilterValues = [
-		{value: 'In-Person', label: 'In-Person'},
-		{value: 'Hybrid', label: 'Hybrid'},
-		{value: 'Online', label: 'Online'},
-	]
-
 	return (
 		<Col className={style.Page}>
 			<Container>
-				<SimplePageHeader title={'Program Calendar'} menu={'public-programs'} breadCrumb={'Public Programs'} />
+				<SimplePageHeader title={t('program_calendar__title')} menu={'public-programs'} breadCrumb={t('breadcrumb__public_programs')} />
 				<Row>
 					<Col xs={12} sm={12} md={6}>
 						<Media greaterThan="sm">
@@ -245,7 +237,7 @@ const ProgramCalendarPage = ({initialData}) => {
 						<Media lessThan="sm">
 							<div className={style.DropdownFilter}>
 								<DropdownFilter
-									label={'Program Type'}
+									label={t('programType__filter__title')}
 									values={programTypeFilterValues}
 									selectedValue={programTypeFilter}
 									onSelect={setProgramTypeFilter}
@@ -256,11 +248,11 @@ const ProgramCalendarPage = ({initialData}) => {
 					<Col xs={12} sm={12} md={6}>
 						<Media greaterThanOrEqual="sm">
 							<div className={style.DropdownFiltersWrapper}>
-								<div>Filter By</div>
+								<div>{t('filters:dropdown__filter__title')}</div>
 								<Media at="sm">
 									<div className={style.DropdownFilter}>
 										<DropdownFilter
-											label={'Program Type'}
+											label={t('programType__filter__title')}
 											values={programTypeFilterValues}
 											selectedValue={programTypeFilter}
 											onSelect={setProgramTypeFilter}
@@ -269,7 +261,7 @@ const ProgramCalendarPage = ({initialData}) => {
 								</Media>
 								<div className={style.DropdownFilter}>
 									<DropdownFilter
-										label={'Langauge'}
+										label={t('language__filter__title')}
 										values={languageFilterValues}
 										selectedValue={languageFilter}
 										onSelect={setLanguageFilter}
@@ -277,7 +269,7 @@ const ProgramCalendarPage = ({initialData}) => {
 								</div>
 								<div className={style.DropdownFilter}>
 									<DropdownFilter
-										label={'Format'}
+										label={t('hostingType__filter__title')}
 										values={hostingTypeFilterValues}
 										selectedValue={hostingTypeFilter}
 										onSelect={setHostingTypeFilter}

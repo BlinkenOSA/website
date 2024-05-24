@@ -9,10 +9,10 @@ import {useRouter} from "next/router";
 import EntryCard from "@/components/Cards/EntryCard";
 import DropdownFilter from "@/components/Filters/DropdownFilter";
 import ContentPagination from "@/components/Pagination/ContentPagination";
-import {profileFilterValues} from "@/utils/filterValues/profileFilterValues";
 import {entryTypeFilterValues} from "@/utils/filterValues/entryTypeFilterValues";
 import {useMedia, useUpdateEffect} from "react-use";
 import Spacer from "@/components/Spacer/Spacer";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps = (async (context) => {
     const { entryType, ...parameters } = context.query;
@@ -60,6 +60,8 @@ const EntryCards = ({data}) => {
 const EntriesContent = ({initialData}) => {
     const router = useRouter();
     const {page, profile, entryType} = router.query;
+
+    const { t, lang } = useTranslation('filters')
 
     const [profileFilter, setProfileFilter] = useState(profile)
     const [entryTypeFilter, setEntryTypeFilter] = useState(entryType)
@@ -117,10 +119,10 @@ const EntriesContent = ({initialData}) => {
             <Row>
                 <Col xs={12} sm={6} md={4}>
                     <div className={style.DropdownFiltersWrapper}>
-                        <div>Filter By</div>
+                        <div>{t('dropdown__filter__title')}</div>
                         <div className={style.DropdownFilter}>
                             <DropdownFilter
-                                label={'Entry Type'}
+                                label={t('page:entryType__filter__dropdown_title')}
                                 values={entryTypeFilterValues}
                                 selectedValue={entryTypeFilter}
                                 onSelect={setEntryTypeFilter}
@@ -163,13 +165,15 @@ const EntriesContent = ({initialData}) => {
 
 
 const EntriesPage = ({initialData}) => {
+    const { t, lang } = useTranslation('page')
+
     return (
         <div className={style.Page}>
             <Container>
                 <Spacer />
                 <Row>
                     <Col xs={12}>
-                        <h1>Blog - Podcast - Video</h1>
+                        <h1>{t('entries__title')}</h1>
                     </Col>
                 </Row>
                 <Spacer />

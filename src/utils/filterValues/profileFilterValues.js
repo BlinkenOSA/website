@@ -1,6 +1,6 @@
 export const profileFilterValues = [
-    {value: 'Archivum', label: 'Archivum'},
-    {value: 'Collections', label: 'Collections'},
-    {value: 'Academic', label: 'Academic'},
-    {value: 'Public', label: 'Public Programs'},
+    {value: 'Archivum', translationKey: 'profile__filter__archivum'},
+    {value: 'Collections', translationKey: 'profile__filter__collections'},
+    {value: 'Academic', translationKey: 'profile__filter__academics'},
+    {value: 'Public', translationKey: 'profile__filter__public_programs'},
 ]

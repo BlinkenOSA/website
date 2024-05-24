@@ -6,6 +6,7 @@ import LabeledData from "@/components/LabeledData/LabeledData";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Spacer from "@/components/Spacer/Spacer";
 import BlockContent from "@/components/Content/BlockContent";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -28,6 +29,7 @@ export const getServerSideProps = (async (context) => {
 })
 
 const JobPage = ({jobData}) => {
+    const { t, lang } = useTranslation('page')
     const data = jobData['data'][0]['attributes'];
 
     const title = data['Title']
@@ -42,8 +44,8 @@ const JobPage = ({jobData}) => {
     const image = getImageUrl(data['Image'])
 
     const breadCrumbObject = [
-        {menu: 'about-us', title: 'About Us'},
-        {menu: 'about-us/jobs', link: '/about-us/jobs', title: 'Jobs'}
+        {menu: 'about-us', title: t('breadcrumb__about_us')},
+        {menu: 'about-us/jobs', link: '/about-us/jobs', title: t('job__title')}
     ]
 
     return (

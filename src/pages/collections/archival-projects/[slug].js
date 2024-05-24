@@ -6,6 +6,7 @@ import Button from "@/components/Button/Button";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Content from "@/components/Content/Content";
 import Spacer from "@/components/Spacer/Spacer";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -28,6 +29,8 @@ export const getServerSideProps = (async (context) => {
 })
 
 const ProjectPage = ({projectData}) => {
+    const { t, lang } = useTranslation('page')
+
     const data = projectData['data'][0]['attributes'];
 
     const title = data['Title']
@@ -36,8 +39,8 @@ const ProjectPage = ({projectData}) => {
     const content = data['Content']
 
     const breadCrumbObject = [
-        {menu: 'collections', title: 'Collections'},
-        {menu: 'collections/archival-projects', link: '/collections/archival-projects', title: 'Archival Projects'}
+        {menu: 'collections', title: t('breadcrumb__collections')},
+        {menu: 'collections/archival-projects', link: '/collections/archival-projects', title: t('archival_projects__title')}
     ]
 
     return (
@@ -55,7 +58,7 @@ const ProjectPage = ({projectData}) => {
                         type={'primary'}
                         size={'large'}
                         color={'orange'}
-                        link={link}>{buttonText ? buttonText : 'Visit Project'}</Button>
+                        link={link}>{buttonText ? buttonText : t('project__visit_button__text')}</Button>
                 </div>
                 <Spacer />
             </Container>

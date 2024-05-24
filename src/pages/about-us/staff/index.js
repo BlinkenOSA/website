@@ -12,6 +12,8 @@ import React, {useState} from "react";
 import {Media} from "@/utils/media";
 import DropdownFilter from "@/components/Filters/DropdownFilter";
 import Spacer from "@/components/Spacer/Spacer";
+import useTranslation from "next-translate/useTranslation";
+import {staffFilterValues} from "@/utils/filterValues/staffFilterValues";
 
 export const getServerSideProps = (async () => {
 	const [url, params] = fetchStaffList()
@@ -46,23 +48,9 @@ const StaffCards = ({selectedFilters}) => {
 }
 
 const StaffPage = ({initialData}) => {
-	const [unitFilter, setUnitFilter] = useState('')
+	const { t, lang } = useTranslation('page')
 
-	const filterValues = [
-		{label: 'Administration', value: 'Administration'},
-		{label: 'Archival Programs', value: 'Archival Programs'},
-		{label: 'Audiovisual Unit', value: 'Audiovisual Unit'},
-		{label: 'Chief Archivist', value: 'Chief Archivist'},
-		{label: 'Director', value: 'Director'},
-		{label: 'Event & Exhibition', value: 'Event & Exhibition'},
-		{label: 'IT Office', value: 'IT Office'},
-		{label: 'Library', value: 'Library'},
-		{label: 'Public Awareness Unit', value: 'Public Awareness Unit'},
-		{label: 'Records Management', value: 'Records Management'},
-		{label: 'Reference Services', value: 'Reference Services'},
-		{label: 'Research', value: 'Research'},
-		{label: 'Verzio Filmfestival', value: 'Verzio Filmfestival'}
-	]
+	const [unitFilter, setUnitFilter] = useState('')
 
 	const handleFilterChange = (id) => {
 		if (unitFilter === id) {
@@ -75,21 +63,21 @@ const StaffPage = ({initialData}) => {
 	return (
 		<div className={style.Page}>
 			<Container>
-				<SimplePageHeader title={'Our Staff'} menu={'about-us'} breadCrumb={'About Us'} />
+				<SimplePageHeader title={t('staff__title')} menu={'about-us'} breadCrumb={t('breadcrumb__about_us')} />
 				<Row>
 					<Col xs={12} sm={4} md={4}>
 						<Media greaterThanOrEqual="sm">
 							<VerticalFilters
-								title={'Filter by Department'}
-								values={filterValues}
+								title={t('staff__filter__title')}
+								values={staffFilterValues}
 								selectedFilters={unitFilter}
 								onChange={handleFilterChange}
 							/>
 						</Media>
 						<Media lessThan="sm">
 							<DropdownFilter
-								label={'Department'}
-								values={filterValues}
+								label={t('staff__filter__dropdown_title')}
+								values={staffFilterValues}
 								selectedValue={unitFilter}
 								onSelect={handleFilterChange}
 							/>

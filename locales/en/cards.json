@@ -1,5 +1,12 @@
 {
   "annual_report__button": "Read Full Report",
   "project__button": "Project Website",
-  "project__more_button": "Learn More"
+  "project__more_button": "Learn More",
+  "collection_card__audio": "Audio",
+  "collection_card__moving_image": "Moving Image",
+  "collection_card__still_image": "Still Image",
+  "collection_card__textual": "Textual",
+  "collection_card__curated": "Curated",
+  "collection_card__online": "Online",
+  "collection_card__audiovisual": "Audiovisual"
 }

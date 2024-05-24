@@ -8,6 +8,7 @@ import clientFetcher from "@/utils/api/clientFetcher";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Spacer from "@/components/Spacer/Spacer";
 import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchCollectionHighlightsList(100, 'AV')
@@ -44,25 +45,23 @@ const CollectionCards = ({selectedFilter}) => {
 
 
 const CollectionHighlightsPage = ({initialData}) => {
+    const { t, lang } = useTranslation('page')
+
     return (
         <div className={style.Page}>
             <Container>
-                <SimplePageHeader title={'Audio-visual Collections'} menu={'collections'} breadCrumb={'Collections'} />
+                <SimplePageHeader title={t('av_collections__title')} menu={'collections'} breadCrumb={t('breadcrumb__collections')} />
                 <Row>
                     <Col xs={12}>
                         <div className={style.Description}>
                             {
                                 <p>
-                                    The Archivum owns over 10.000 hours of video and sound, plus a growing number of photo
-                                    collections, which come from various sources in 5 continents. Our donors include
-                                    individual authors and artists, media groups, human rights organizations, civil society members,
-                                    UN courtrooms and research communities as well.<br/><br/>
-                                    This is an alternative, media-specific entry point to 60+ of the Archivum’s media
-                                    collections, accompanied by individual curatorial introductions. By creating it,
-                                    we hoped to supplement the Catalog and assist you in locating and exploring our
-                                    unique collections.<br/><br/>
-                                    Some of the collections are <Link href={'/collections/online-collections'}>online</Link>, while others are digitized and available in a
-                                    private research cloud following <Link href={'https://catalog.osaarchivum.org/registration'} target={'_blank'}>registration</Link>.
+                                    {t('av_collections__text01')}<br/><br/>
+                                    {t('av_collections__text02')}<br/><br/>
+                                    {t('av_collections__text03a')}
+                                    &nbsp;<Link href={'/collections/online-collections'}>{t('av_collections__link01')}</Link>&nbsp;
+                                    {t('av_collections__text03b')}
+                                    &nbsp;<Link href={'https://catalog.osaarchivum.org/registration'} target={'_blank'}>{t('av_collections__link02')}</Link>.
                                 </p>
                             }
                         </div>

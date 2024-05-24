@@ -1,5 +1,12 @@
 {
   "annual_report__button": "Olvasd el a teljes jelentést",
   "project__button": "Projekt Weboldal",
-  "project__more_button": "Tudj meg többet"
+  "project__more_button": "Tudj meg többet",
+  "collection_card__audio": "Hang",
+  "collection_card__moving_image": "Mozgókép",
+  "collection_card__still_image": "Fénykép",
+  "collection_card__textual": "Szöveges",
+  "collection_card__curated": "Gondozott",
+  "collection_card__online": "Online",
+  "collection_card__audiovisual": "Audiovizuális"
 }

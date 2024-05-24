@@ -1,18 +1,21 @@
 import style from "./VerticalFilters.module.scss";
 import Checkbox from "@/components/Selectors/Checkbox";
+import useTranslation from "next-translate/useTranslation";
 
 
 const VerticalFilters = ({title, values, selectedFilters, onChange}) => {
+    const { t, lang } = useTranslation('filters')
+
     const renderFilters = () => {
         return values.map(value => {
             return (
-                <div key={value['label']}>
+                <div key={value['value']}>
                     <Checkbox
-                        id={value['label']}
+                        id={value['value']}
                         size={'small'}
-                        text={value['label']}
-                        checked={selectedFilters === value['label']}
-                        onClick={() => onChange(value['label'])}/>
+                        text={t(value['translationKey'])}
+                        checked={selectedFilters === value['value']}
+                        onClick={() => onChange(value['value'])}/>
                 </div>
             )
         })

@@ -5,6 +5,7 @@ import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Button from "@/components/Button/Button";
 import Content from "@/components/Content/Content";
 import Spacer from "@/components/Spacer/Spacer";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -27,17 +28,16 @@ export const getServerSideProps = (async (context) => {
 })
 
 const CollectionDetailPage = ({collectionData}) => {
+    const { t, lang } = useTranslation('page')
     const data = collectionData['data'][0]['attributes'];
 
     const title = data['Title']
     const content = data['Content']
-    const contentTypes = data['ContentTypes']
-    const materialTypes = data['MaterialTypes']
     const link = data['Link']
 
     const breadCrumbObject = [
-        {menu: 'collections', title: 'Collections'},
-        {menu: 'collections/av-collections', link: '/collections/av-collections', title: 'AV Collections'}
+        {menu: 'collections', title: t('breadcrumb__collections')},
+        {menu: 'collections/av-collections', link: '/collections/av-collections', title: t('av_collections__title')}
     ]
 
     return (
@@ -56,7 +56,7 @@ const CollectionDetailPage = ({collectionData}) => {
                         type={'primary'}
                         size={'large'}
                         color={'orange'}
-                        link={link}>{'Visit Collection'}</Button>
+                        link={link}>{t('collections__visit_button__text')}</Button>
                 }
             </Container>
             <Spacer />

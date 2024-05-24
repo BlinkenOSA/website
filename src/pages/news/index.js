@@ -11,9 +11,8 @@ import {fetchNewsList} from "@/utils/api/fetchNews";
 import NewsCard from "@/components/Cards/NewsCard";
 import {profileFilterValues} from "@/utils/filterValues/profileFilterValues";
 import {useMedia, useUpdateEffect} from "react-use";
-import {fetchEntriesList} from "@/utils/api/fetchEntries";
-import {entryTypeFilterValues} from "@/utils/filterValues/entryTypeFilterValues";
 import Spacer from "@/components/Spacer/Spacer";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps = (async (context) => {
     const parameters = context.query;
@@ -62,6 +61,8 @@ const NewsContent = ({initialData}) => {
     const router = useRouter();
     const {page, profile, entryType} = router.query;
 
+    const { t, lang } = useTranslation('filters')
+
     const [profileFilter, setProfileFilter] = useState(profile)
     const [selectedPage, setSelectedPage] = useState(page)
 
@@ -107,10 +108,10 @@ const NewsContent = ({initialData}) => {
             <Row>
                 <Col xs={12} sm={6} md={4}>
                     <div className={style.DropdownFiltersWrapper}>
-                        <div>Filter By</div>
+                        <div>{t('dropdown__filter__title')}</div>
                         <div className={style.DropdownFilter}>
                             <DropdownFilter
-                                label={'Profile'}
+                                label={t('page:profile__filter__dropdown_title')}
                                 values={profileFilterValues}
                                 selectedValue={profileFilter}
                                 onSelect={setProfileFilter}
@@ -153,13 +154,15 @@ const NewsContent = ({initialData}) => {
 
 
 const NewsPage = ({initialData}) => {
+    const { t, lang } = useTranslation('page')
+
     return (
         <div className={style.Page}>
             <Container>
                 <Spacer />
                 <Row>
                     <Col xs={12}>
-                        <h1>News</h1>
+                        <h1>{t('news__title')}</h1>
                     </Col>
                 </Row>
                 <Spacer />

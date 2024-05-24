@@ -7,6 +7,7 @@ import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import clientFetcher from "@/utils/api/clientFetcher";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Spacer from "@/components/Spacer/Spacer";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchCollectionHighlightsList(100, 'Curated')
@@ -43,19 +44,20 @@ const CollectionCards = ({selectedFilter}) => {
 
 
 const CollectionHighlightsPage = ({initialData}) => {
+    const { t, lang } = useTranslation('page')
+
     return (
         <div className={style.Page}>
             <Container>
-                <SimplePageHeader title={'Curated Collections'} menu={'collections'} breadCrumb={'Collections'} />
+                <SimplePageHeader title={t('curated_collections__title')} menu={'collections'} breadCrumb={t('breadcrumb__collections')} />
                 <Row>
                     <Col xs={12}>
                         <div className={style.Description}>
                             {
                                 <p>
-                                    Our curated collections bring together primary and secondary sources from the holdings of the Archivum and its cooperating partners, concerning a particular historical event or phenomenon.
-                                    They include curatorial reflections and background studies by Archivum staff, highlight specific resources, and offer scholars alternative tools, content-related search and filtering options to explore these sources.
+                                    {t('curated_collections__text01')}
                                     <br/><br/>
-                                    These collections are all available online, without registration.
+                                    {t('curated_collections__text02')}
                                 </p>
                             }
                         </div>

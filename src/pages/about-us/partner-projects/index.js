@@ -4,6 +4,7 @@ import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {fetchPartnerProjects} from "@/utils/api/fetchProjects";
 import ProjectCard from "@/components/Cards/ProjectCard";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps = (async () => {
     const [projectsData] = await Promise.all([
@@ -17,6 +18,8 @@ export const getServerSideProps = (async () => {
 })
 
 const PartnerProjectsPage = ({projectsData}) => {
+    const { t, lang } = useTranslation('page')
+
     const renderProjects = () => {
         return projectsData["data"].map(project => {
             return (
@@ -34,7 +37,7 @@ const PartnerProjectsPage = ({projectsData}) => {
     return (
         <div className={style.Page}>
             <Container>
-                <SimplePageHeader title={'Partner Projects'} menu={'about-us'} breadCrumb={'About Us'} />
+                <SimplePageHeader title={t('partner_projects__title')} menu={'about-us'} breadCrumb={t('breadcrumb__about_us')} />
                 <Row>
                     {renderProjects()}
                 </Row>

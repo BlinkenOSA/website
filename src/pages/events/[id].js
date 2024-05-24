@@ -30,6 +30,8 @@ export const getServerSideProps = (async (context) => {
 })
 
 const EventPage = ({eventData}) => {
+	const { t, lang } = useTranslation('page')
+
 	const data = eventData['data']['attributes'];
 	const startDate = data['StartDate']
 	const endDate = data['EndDate']
@@ -43,8 +45,8 @@ const EventPage = ({eventData}) => {
 	const registrationLink = data['RegistrationLink']
 
 	const breadcrumbObject = [
-		{ menu: 'public-programs', title: 'Public Programs'},
-		{ menu: 'program-calendar', link: '/public-programs/program-calendar' , title: 'Program Calendar'},
+		{ menu: 'public-programs', title: t('breadcrumb__public_programs')},
+		{ menu: 'program-calendar', link: '/public-programs/program-calendar' , title: t('program_calendar__title')},
 	]
 
 	return (
