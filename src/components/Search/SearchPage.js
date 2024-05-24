@@ -9,7 +9,7 @@ import useTranslation from "next-translate/useTranslation";
 
 const SearchPage = ({searchOpen, onClose}) => {
     const router = useRouter();
-    const { t, lang } = useTranslation('index')
+    const { t, lang } = useTranslation('page')
 
     const searchPageVariables = {
         open: { x: 0 },
