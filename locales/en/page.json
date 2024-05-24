@@ -45,5 +45,7 @@
   "program_calendar__table__date": "Date",
   "program_calendar__table__type": "Type",
   "program_calendar__table__title": "Title",
-  "program_calendar__table__format_language": "Format / Language"
+  "program_calendar__table__format_language": "Format / Language",
+  "program_calendar__more_info": "More Info",
+  "program_calendar__registration": "Registration Link"
 }

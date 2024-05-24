@@ -126,7 +126,7 @@ const ProgramDetail = ({id, data, isOpened}) => {
 							size={'medium'}
 							color={color}
 							linkTarget={'_self'}
-							link={`/events/${id}`}>More Info</Button>
+							link={`/events/${id}`}>{t('program_calendar__more_info')}</Button>
 						{
 							registrationLink &&
 							<Button
@@ -134,7 +134,7 @@ const ProgramDetail = ({id, data, isOpened}) => {
 								size={'medium'}
 								color={color}
 								link={registrationLink}>
-								Registration Link
+								{t('program_calendar__registration')}
 							</Button>
 						}
 					</div>

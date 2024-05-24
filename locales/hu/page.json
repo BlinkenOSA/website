@@ -45,5 +45,7 @@
   "program_calendar__table__date": "Dátum",
   "program_calendar__table__type": "Típus",
   "program_calendar__table__title": "Cím",
-  "program_calendar__table__format_language": "Lebonyolítás / Nyelv"
+  "program_calendar__table__format_language": "Lebonyolítás / Nyelv",
+  "program_calendar__more_info": "Több Info",
+  "program_calendar__registration": "Regisztráció"
 }
