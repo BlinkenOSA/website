@@ -32,7 +32,7 @@ const AnnualReportsPage = ({reportData}) => {
     return (
         <>
             <Head>
-                <title>Blinken OSA Archivum - {t('annual_reports__title')}</title>
+                <title>Blinken OSA Archivum | {t('annual_reports__title')}</title>
             </Head>
             <div className={style.Page}>
                 <PageHeader

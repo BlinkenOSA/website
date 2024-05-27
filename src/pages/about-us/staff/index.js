@@ -64,7 +64,7 @@ const StaffPage = ({initialData}) => {
 	return (
 		<>
 			<Head>
-				<title>Blinken OSA Archivum - {t('staff__title')}</title>
+				<title>Blinken OSA Archivum | {t('staff__title')}</title>
 			</Head>
 			<div className={style.Page}>
 				<Container>

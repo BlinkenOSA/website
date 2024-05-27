@@ -72,7 +72,7 @@ const StaffPage = ({staffData}) => {
     return (
         <>
             <Head>
-                <title>Blinken OSA Archivum - {lang === 'en' ? `${firstName} ${lastName}` : `${lastName} ${firstName}`}</title>
+                <title>Blinken OSA Archivum | {lang === 'en' ? `${firstName} ${lastName}` : `${lastName} ${firstName}`}</title>
             </Head>
             <div className={style.Page}>
                 <Container>

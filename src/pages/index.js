@@ -73,7 +73,14 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 	return (
 		<>
 			<Head>
-				<title>Blinken OSA Archivum - Facts for real</title>
+				<title>Blinken OSA Archivum | Facts for real</title>
+				<meta
+					name="description"
+					content="Blinken OSA Archvium - A complex archival institution, a repository of important
+					collections, historical documents, primarily related to the history and afterlives of the
+					Cold War, grave international human rights violations and marginalized communities including
+					the Roma, LGBTQI+ people, and people living with disabilities."
+				/>
 			</Head>
 			<div className={style.Page}>
 				{renderHeroes()}

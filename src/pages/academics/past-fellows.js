@@ -98,7 +98,7 @@ const FellowsPage = ({initialData}) => {
     return (
         <>
             <Head>
-                <title>Blinken OSA Archivum - {t('past_fellows__title')}</title>
+                <title>Blinken OSA Archivum | {t('past_fellows__title')}</title>
             </Head>
             <div className={style.Page}>
                 <Container>

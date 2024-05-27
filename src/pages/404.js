@@ -14,7 +14,7 @@ const Custom404Page = () => {
 	return (
 		<>
 			<Head>
-				<title>Blinken OSA Archivum - Not Found - 404</title>
+				<title>Blinken OSA Archivum | Not Found - 404</title>
 			</Head>
 			<div className={pageStyle.Page} style={{position: 'relative'}}>
 				<div className={style.Wrapper}>

@@ -48,7 +48,7 @@ const ProjectPage = ({projectData}) => {
     return (
         <>
             <Head>
-                <title>Blinken OSA Archivum - {title}</title>
+                <title>Blinken OSA Archivum | {title}</title>
             </Head>
             <div className={style.Page}>
                 <PageHeader title={title} breadcrumbObject={breadCrumbObject} image={image} scrollScale={0.2} isBlur={true} />

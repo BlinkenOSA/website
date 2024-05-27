@@ -66,7 +66,7 @@ const JobsPage = ({initialData}) => {
     return (
         <>
             <Head>
-                <title>Blinken OSA Archivum - {t('job__title')}</title>
+                <title>Blinken OSA Archivum | {t('job__title')}</title>
             </Head>
             <div className={style.Page}>
                 <PageHeader

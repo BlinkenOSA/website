@@ -51,7 +51,7 @@ const EntryPage = ({entriesData}) => {
 	return (
 		<>
 			<Head>
-				<title>Blinken OSA Archivum - {getLocData(data, 'Title', lang)}</title>
+				<title>Blinken OSA Archivum | {getLocData(data, 'Title', lang)}</title>
 			</Head>
 			<div className={style.Page}>
 				<PageHeader

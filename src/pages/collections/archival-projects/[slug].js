@@ -47,7 +47,7 @@ const ProjectPage = ({projectData}) => {
     return (
         <>
             <Head>
-                <title>Blinken OSA Archivum - {title}</title>
+                <title>Blinken OSA Archivum | {title}</title>
             </Head>
             <div className={style.Page}>
                 <Container>
