@@ -12,7 +12,7 @@ import detectSelectedMenuItem from "@/utils/detectSelectedMenuItem";
 import detectCurrentMenuTitle from "@/utils/detectCurrentMenuTitle";
 
 const MenuPage = ({menuItems, menuID, number, status}) => {
-    const { t } = useTranslation('menu')
+    const { t, lang } = useTranslation('menu')
 
     const dispatch = useContext(MenuDispatchContext);
     const router = useRouter();
@@ -42,11 +42,6 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
         open: { opacity: 1, x: 0}
     }
 
-    const closeButtonVariants = {
-        closed: { opacity: 0},
-        open: { opacity: 1, transition: { delay: 1.0 }}
-    }
-
     const handleSelectMenu = (key) => {
         if (selectedMenuItem === key) {
             setSelectedMenuItem('')
@@ -65,6 +60,10 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
                 type: 'close'
             })
         });
+    }
+
+    const getURL = (url) => {
+        return lang === 'en' ? url : `/${lang}${url}`
     }
 
     const getMenuList = () => {
@@ -104,7 +103,7 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
                 } else {
                     return (
                         <div className={getClass(item['key'])}>
-                            <a href={'url' in item ? item['url'] : undefined} onClick={(e) => handleMenuClick(e, item['url'])}>
+                            <a href={'url' in item ? getURL(item['url']) : undefined} onClick={(e) => handleMenuClick(e, getURL(item['url']))}>
                                 <div className={`${style.Title} ${detectCurrentMenuTitle(menuItem, router.asPath) ? style.Current : ''}`}>
                                     {t(item['key'])}
                                 </div>
