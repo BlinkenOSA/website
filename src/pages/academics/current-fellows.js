@@ -7,6 +7,8 @@ import clientFetcher from "@/utils/api/clientFetcher";
 import {fetchCurrentFellowsList} from "@/utils/api/fetchFellows";
 import FellowCard from "@/components/Cards/FellowCard";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
+import Head from "next/head";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchCurrentFellowsList()
@@ -41,21 +43,28 @@ const FellowCards = () => {
 }
 
 const FellowsPage = ({initialData}) => {
+    const { t, lang } = useTranslation('page')
+
     return (
-        <div className={style.Page}>
-            <Container>
-                <SimplePageHeader title={'Current Fellows'} menu={'academics'} breadCrumb={'Academics'} />
-                <Row>
-                    <Col xs={12}>
-                        <Row>
-                            <SWRConfig value={{ fallback: initialData }}>
-                                <FellowCards />
-                            </SWRConfig>
-                        </Row>
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+        <>
+            <Head>
+                <title>Blinken OSA Archivum - {t('current_fellows__title')}</title>
+            </Head>
+            <div className={style.Page}>
+                <Container>
+                    <SimplePageHeader title={t('current_fellows__title')} menu={'academics'} breadCrumb={'Academics'} />
+                    <Row>
+                        <Col xs={12}>
+                            <Row>
+                                <SWRConfig value={{ fallback: initialData }}>
+                                    <FellowCards />
+                                </SWRConfig>
+                            </Row>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+        </>
     )
 }
 

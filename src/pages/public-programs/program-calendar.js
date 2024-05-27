@@ -25,6 +25,7 @@ import useTranslation from "next-translate/useTranslation";
 import {hostingTypeFilterValues} from "@/utils/filterValues/hostingTypeFilterValues";
 import {languageFilterValues} from "@/utils/filterValues/languageFilterValues";
 import {programTypeFilterValues} from "@/utils/filterValues/programTypeFilterValues";
+import Head from "next/head";
 
 export const getServerSideProps = (async (context) => {
 	const parameters = context.query;
@@ -224,74 +225,79 @@ const ProgramCalendarPage = ({initialData}) => {
 	}, [programTypeFilter])
 
 	return (
-		<Col className={style.Page}>
-			<Container>
-				<SimplePageHeader title={t('program_calendar__title')} menu={'public-programs'} breadCrumb={t('breadcrumb__public_programs')} />
-				<Row>
-					<Col xs={12} sm={12} md={6}>
-						<Media greaterThan="sm">
-							<HorizontalFilters
-								values={programTypeFilterValues}
-								selectedFilter={programTypeFilter}
-								align={'left'}
-								onSelect={setProgramTypeFilter}/>
-						</Media>
-						<Media lessThan="sm">
-							<div className={style.DropdownFilter}>
-								<DropdownFilter
-									label={t('programType__filter__title')}
+		<>
+			<Head>
+				<title>Blinken OSA Archivum - {t('program_calendar__title')}</title>
+			</Head>
+			<Col className={style.Page}>
+				<Container>
+					<SimplePageHeader title={t('program_calendar__title')} menu={'public-programs'} breadCrumb={t('breadcrumb__public_programs')} />
+					<Row>
+						<Col xs={12} sm={12} md={6}>
+							<Media greaterThan="sm">
+								<HorizontalFilters
 									values={programTypeFilterValues}
-									selectedValue={programTypeFilter}
-									onSelect={setProgramTypeFilter}
-								/>
-							</div>
-						</Media>
-					</Col>
-					<Col xs={12} sm={12} md={6}>
-						<Media greaterThanOrEqual="sm">
-							<div className={style.DropdownFiltersWrapper}>
-								<div>{t('filters:dropdown__filter__title')}</div>
-								<Media at="sm">
+									selectedFilter={programTypeFilter}
+									align={'left'}
+									onSelect={setProgramTypeFilter}/>
+							</Media>
+							<Media lessThan="sm">
+								<div className={style.DropdownFilter}>
+									<DropdownFilter
+										label={t('programType__filter__title')}
+										values={programTypeFilterValues}
+										selectedValue={programTypeFilter}
+										onSelect={setProgramTypeFilter}
+									/>
+								</div>
+							</Media>
+						</Col>
+						<Col xs={12} sm={12} md={6}>
+							<Media greaterThanOrEqual="sm">
+								<div className={style.DropdownFiltersWrapper}>
+									<div>{t('filters:dropdown__filter__title')}</div>
+									<Media at="sm">
+										<div className={style.DropdownFilter}>
+											<DropdownFilter
+												label={t('programType__filter__title')}
+												values={programTypeFilterValues}
+												selectedValue={programTypeFilter}
+												onSelect={setProgramTypeFilter}
+											/>
+										</div>
+									</Media>
 									<div className={style.DropdownFilter}>
 										<DropdownFilter
-											label={t('programType__filter__title')}
-											values={programTypeFilterValues}
-											selectedValue={programTypeFilter}
-											onSelect={setProgramTypeFilter}
+											label={t('language__filter__title')}
+											values={languageFilterValues}
+											selectedValue={languageFilter}
+											onSelect={setLanguageFilter}
 										/>
 									</div>
-								</Media>
-								<div className={style.DropdownFilter}>
-									<DropdownFilter
-										label={t('language__filter__title')}
-										values={languageFilterValues}
-										selectedValue={languageFilter}
-										onSelect={setLanguageFilter}
-									/>
+									<div className={style.DropdownFilter}>
+										<DropdownFilter
+											label={t('hostingType__filter__title')}
+											values={hostingTypeFilterValues}
+											selectedValue={hostingTypeFilter}
+											onSelect={setHostingTypeFilter}
+										/>
+									</div>
 								</div>
-								<div className={style.DropdownFilter}>
-									<DropdownFilter
-										label={t('hostingType__filter__title')}
-										values={hostingTypeFilterValues}
-										selectedValue={hostingTypeFilter}
-										onSelect={setHostingTypeFilter}
-									/>
-								</div>
-							</div>
-						</Media>
-					</Col>
-				</Row>
-				<Spacer />
-				<SWRConfig value={{ fallback: initialData }}>
-					<ProgramCalendarHeader/>
-					<ProgramRows
-						programTypeFilter={programTypeFilter}
-						languageFilter={languageFilter}
-						hostingTypeFilter={hostingTypeFilter}
-					/>
-				</SWRConfig>
-			</Container>
-		</Col>
+							</Media>
+						</Col>
+					</Row>
+					<Spacer />
+					<SWRConfig value={{ fallback: initialData }}>
+						<ProgramCalendarHeader/>
+						<ProgramRows
+							programTypeFilter={programTypeFilter}
+							languageFilter={languageFilter}
+							hostingTypeFilter={hostingTypeFilter}
+						/>
+					</SWRConfig>
+				</Container>
+			</Col>
+		</>
 	)
 }
 

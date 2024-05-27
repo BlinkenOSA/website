@@ -10,6 +10,8 @@ import {useRouter} from "next/router";
 import React, {useEffect, useState} from "react";
 import ContentPagination from "@/components/Pagination/ContentPagination";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
+import useTranslation from "next-translate/useTranslation";
+import Head from "next/head";
 
 export const getServerSideProps = (async (context) => {
     const parameters = context.query;
@@ -73,6 +75,8 @@ const FellowCards = ({page, onPageSelect}) => {
 }
 
 const FellowsPage = ({initialData}) => {
+    const { t, lang } = useTranslation('page')
+
     const router = useRouter();
     const {page} = router.query;
 
@@ -92,23 +96,28 @@ const FellowsPage = ({initialData}) => {
     }, [selectedPage])
 
     return (
-        <div className={style.Page}>
-            <Container>
-                <SimplePageHeader title={'Past Fellows'} menu={'academics'} breadCrumb={'Academics'} />
-                <Row>
-                    <Col xs={12}>
-                        <Row>
-                            <SWRConfig value={{ fallback: initialData }}>
-                                <FellowCards
-                                    page={selectedPage}
-                                    onPageSelect={setSelectedPage}
-                                />
-                            </SWRConfig>
-                        </Row>
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+        <>
+            <Head>
+                <title>Blinken OSA Archivum - {t('past_fellows__title')}</title>
+            </Head>
+            <div className={style.Page}>
+                <Container>
+                    <SimplePageHeader title={t('past_fellows__title')} menu={'academics'} breadCrumb={'Academics'} />
+                    <Row>
+                        <Col xs={12}>
+                            <Row>
+                                <SWRConfig value={{ fallback: initialData }}>
+                                    <FellowCards
+                                        page={selectedPage}
+                                        onPageSelect={setSelectedPage}
+                                    />
+                                </SWRConfig>
+                            </Row>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+        </>
     )
 }
 

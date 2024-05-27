@@ -6,6 +6,8 @@ import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Content from "@/components/Content/Content";
 import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
+import Head from "next/head";
+import getLocData from "@/utils/content/getLocData";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -32,10 +34,10 @@ const ProjectPage = ({projectData}) => {
 
     const data = projectData['data'][0]['attributes'];
 
-    const title = data['Title']
+    const title = getLocData(data, 'Title', lang)
     const link = data['Link']
-    const buttonText = data['ButtonText']
-    const content = data['Content']
+    const buttonText = getLocData(data, 'ButtonText', lang)
+    const content = getLocData(data, 'Content', lang)
 
     const breadCrumbObject = [
         {menu: 'collections', title: t('breadcrumb__collections')},
@@ -43,25 +45,30 @@ const ProjectPage = ({projectData}) => {
     ]
 
     return (
-        <div className={style.Page}>
-            <Container>
-                <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
-                <Row>
-                    <Col xs={12}>
-                        <Content contentObject={content} profile={'Collections'} />
-                    </Col>
-                </Row>
-                <Spacer />
-                <div>
-                    <Button
-                        type={'primary'}
-                        size={'large'}
-                        color={'orange'}
-                        link={link}>{buttonText ? buttonText : t('project__visit_button__text')}</Button>
-                </div>
-                <Spacer />
-            </Container>
-        </div>
+        <>
+            <Head>
+                <title>Blinken OSA Archivum - {title}</title>
+            </Head>
+            <div className={style.Page}>
+                <Container>
+                    <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
+                    <Row>
+                        <Col xs={12}>
+                            <Content contentObject={content} profile={'Collections'} />
+                        </Col>
+                    </Row>
+                    <Spacer />
+                    <div>
+                        <Button
+                            type={'primary'}
+                            size={'large'}
+                            color={'orange'}
+                            link={link}>{buttonText ? buttonText : t('project__visit_button__text')}</Button>
+                    </div>
+                    <Spacer />
+                </Container>
+            </div>
+        </>
     )
 }
 
