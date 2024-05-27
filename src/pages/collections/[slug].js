@@ -29,7 +29,7 @@ export const getServerSideProps = (async (context) => {
 })
 
 const StaticPage = ({pageData}) => {
-    const { t, lang } = useTranslation('page')
+    const { t, lang } = useTranslation('page');
 
     const data = pageData['data'][0]['attributes'];
     const image = getImageUrl(data['CardImage'])
@@ -51,7 +51,8 @@ const StaticPage = ({pageData}) => {
                     <Content contentObject={getLocData(data, 'Content', lang)} profile={'Collections'} />
                 </Container>
             </div>
+        </>
     )
 }
 
-export default StaticPage
+export default StaticPage;
