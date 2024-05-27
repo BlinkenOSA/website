@@ -22,7 +22,7 @@ const getImageUrlSearch = (imageData, size='large') => {
         url = imageData['url']
     }
 
-    const server = process.env.NEXT_PUBLIC_SOLR_STPAPI_DOMAIN;
+    const server = process.env.NEXT_PUBLIC_STPAPI_DOMAIN;
     return `${server}${url}`
 }
 
