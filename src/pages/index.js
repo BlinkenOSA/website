@@ -23,6 +23,7 @@ import CollectionsPanel from "@/components/IndexPage/CollectionsPanel";
 import Spacer from "@/components/Spacer/Spacer";
 import {Media} from "@/utils/media";
 import ResearchRoomPanel from "@/components/IndexPage/ResearchRoomPanel";
+import Head from "next/head";
 
 export const getServerSideProps = (async (context) => {
 	const {locale} = context
@@ -70,64 +71,69 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 	}
 
 	return (
-		<div className={style.Page}>
-			{renderHeroes()}
-			<Container>
-				<Spacer size={'medium'} />
-				<EventsPanel eventsData={eventsData} />
-			</Container>
-			<Container fluid={true}>
-				<CatalogPanel/>
-			</Container>
-			<Container>
-				<Spacer size={'medium'} />
-				<Media at="xs">
-					<NewsPanel newsData={newsData} slidesToShow={1} />
-				</Media>
-				<Media at="sm">
-					<NewsPanel newsData={newsData} slidesToShow={2} />
-				</Media>
-				<Media greaterThanOrEqual="md">
-					<NewsPanel newsData={newsData} slidesToShow={3} />
-				</Media>
-			</Container>
-			<Container fluid={true}>
-				<ResearchRoomPanel />
-			</Container>
-			<Container>
-				<Spacer size={'medium'} />
-				<Media at="xs">
-					<EntriesPanel entriesData={entriesData} slidesToShow={1} />
-				</Media>
-				<Media at="sm">
-					<EntriesPanel entriesData={entriesData} slidesToShow={2} />
-				</Media>
-				<Media greaterThanOrEqual="md">
-					<EntriesPanel entriesData={entriesData} slidesToShow={3} />
-				</Media>
-				<Spacer size={'small'} />
-			</Container>
-			<Container fluid={true}>
-				<CredoPanel credoData={credoData}/>
-			</Container>
-			<Container>
-				<Spacer size={'medium'} />
-				<Media at="xs">
-					<CollectionsPanel collectionsData={collectionsData} slidesToShow={1} />
-				</Media>
-				<Media at="sm">
-					<CollectionsPanel collectionsData={collectionsData} slidesToShow={2} />
-				</Media>
-				<Media greaterThanOrEqual="md">
-					<CollectionsPanel collectionsData={collectionsData} slidesToShow={3} />
-				</Media>
-				<Spacer />
-				<PartnersPanel/>
-				<Spacer />
-				<NewsletterPanel/>
-				<Spacer />
-			</Container>
-		</div>
+		<>
+			<Head>
+				<title>Blinken OSA Archivum - Facts for real</title>
+			</Head>
+			<div className={style.Page}>
+				{renderHeroes()}
+				<Container>
+					<Spacer size={'medium'} />
+					<EventsPanel eventsData={eventsData} />
+				</Container>
+				<Container fluid={true}>
+					<CatalogPanel/>
+				</Container>
+				<Container>
+					<Spacer size={'medium'} />
+					<Media at="xs">
+						<NewsPanel newsData={newsData} slidesToShow={1} />
+					</Media>
+					<Media at="sm">
+						<NewsPanel newsData={newsData} slidesToShow={2} />
+					</Media>
+					<Media greaterThanOrEqual="md">
+						<NewsPanel newsData={newsData} slidesToShow={3} />
+					</Media>
+				</Container>
+				<Container fluid={true}>
+					<ResearchRoomPanel />
+				</Container>
+				<Container>
+					<Spacer size={'medium'} />
+					<Media at="xs">
+						<EntriesPanel entriesData={entriesData} slidesToShow={1} />
+					</Media>
+					<Media at="sm">
+						<EntriesPanel entriesData={entriesData} slidesToShow={2} />
+					</Media>
+					<Media greaterThanOrEqual="md">
+						<EntriesPanel entriesData={entriesData} slidesToShow={3} />
+					</Media>
+					<Spacer size={'small'} />
+				</Container>
+				<Container fluid={true}>
+					<CredoPanel credoData={credoData}/>
+				</Container>
+				<Container>
+					<Spacer size={'medium'} />
+					<Media at="xs">
+						<CollectionsPanel collectionsData={collectionsData} slidesToShow={1} />
+					</Media>
+					<Media at="sm">
+						<CollectionsPanel collectionsData={collectionsData} slidesToShow={2} />
+					</Media>
+					<Media greaterThanOrEqual="md">
+						<CollectionsPanel collectionsData={collectionsData} slidesToShow={3} />
+					</Media>
+					<Spacer />
+					<PartnersPanel/>
+					<Spacer />
+					<NewsletterPanel/>
+					<Spacer />
+				</Container>
+			</div>
+		</>
 	)
 }
 
