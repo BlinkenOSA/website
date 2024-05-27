@@ -30,4 +30,5 @@ module.exports = nextTranslate({
     scrollRestoration: true,
     largePageDataBytes: 128 * 5000,
   },
+  output: "standalone"
 })
