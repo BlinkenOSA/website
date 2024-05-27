@@ -9,6 +9,8 @@ import LabeledData from "@/components/LabeledData/LabeledData";
 import getImageUrl from "@/utils/content/getImageUrl";
 import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
+import Head from "next/head";
+import getLocData from "@/utils/content/getLocData";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -47,33 +49,38 @@ const EntryPage = ({entriesData}) => {
 	]
 
 	return (
-		<div className={style.Page}>
-			<PageHeader
-				title={data['Title']}
-				color={data['Profile']}
-				image={image}
-				breadcrumbObject={breadcrumbObject}
-				scrollScale={0.5}
-				isBlur={true}
-			/>
-			<Container>
-				<Row>
-					<Col xs={6}>
-						<div className={style.CreationDate}>
-							<LabeledData
-								marginBottom={0}
-								data={getCreationDate(originalCreationDate, createdAt)}
-								label={'Published'}/>
-						</div>
-					</Col>
-					<Col xs={6}>
-						<Authors author={author} authorStaff={authorStaff} />
-					</Col>
-				</Row>
-				<Spacer size={'medium'} />
-				<Content contentObject={data['Content']} profile={profile} />
-			</Container>
-		</div>
+		<>
+			<Head>
+				<title>Blinken OSA Archivum - {getLocData(data, 'Title', lang)}</title>
+			</Head>
+			<div className={style.Page}>
+				<PageHeader
+					title={getLocData(data, 'Title', lang)}
+					color={data['Profile']}
+					image={image}
+					breadcrumbObject={breadcrumbObject}
+					scrollScale={0.5}
+					isBlur={true}
+				/>
+				<Container>
+					<Row>
+						<Col xs={6}>
+							<div className={style.CreationDate}>
+								<LabeledData
+									marginBottom={0}
+									data={getCreationDate(originalCreationDate, createdAt)}
+									label={'Published'}/>
+							</div>
+						</Col>
+						<Col xs={6}>
+							<Authors author={author} authorStaff={authorStaff} />
+						</Col>
+					</Row>
+					<Spacer size={'medium'} />
+					<Content contentObject={getLocData(data,'Content', lang)} profile={profile} />
+				</Container>
+			</div>
+		</>
 	)
 }
 

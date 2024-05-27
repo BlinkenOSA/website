@@ -13,6 +13,7 @@ import {entryTypeFilterValues} from "@/utils/filterValues/entryTypeFilterValues"
 import {useMedia, useUpdateEffect} from "react-use";
 import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
+import Head from "next/head";
 
 export const getServerSideProps = (async (context) => {
     const { entryType, ...parameters } = context.query;
@@ -168,19 +169,24 @@ const EntriesPage = ({initialData}) => {
     const { t, lang } = useTranslation('page')
 
     return (
-        <div className={style.Page}>
-            <Container>
-                <Spacer />
-                <Row>
-                    <Col xs={12}>
-                        <h1>{t('entries__title')}</h1>
-                    </Col>
-                </Row>
-                <Spacer />
-                <EntriesContent initialData={initialData}/>
-                <Spacer />
-            </Container>
-        </div>
+        <>
+            <Head>
+                <title>Blinken OSA Archivum - {t('entries__title')}</title>
+            </Head>
+            <div className={style.Page}>
+                <Container>
+                    <Spacer />
+                    <Row>
+                        <Col xs={12}>
+                            <h1>{t('entries__title')}</h1>
+                        </Col>
+                    </Row>
+                    <Spacer />
+                    <EntriesContent initialData={initialData}/>
+                    <Spacer />
+                </Container>
+            </div>
+        </>
     )
 }
 
