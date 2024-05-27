@@ -29,7 +29,7 @@ export const getServerSideProps = (async () => {
 })
 
 const JobCards = ({selectedFilters}) => {
-    const { t, lang } = useTranslation('page')
+    const { t } = useTranslation('page')
 
     const { data } = useSWR(
         fetchJobs(selectedFilters),

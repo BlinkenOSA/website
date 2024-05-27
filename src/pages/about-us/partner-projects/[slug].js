@@ -2,13 +2,12 @@ import style from "@/pages/about-us/style.module.scss";
 import {Col, Container, Row, Tab, Tabs} from "react-bootstrap";
 import {fetchPartnerProjectsDetail} from "@/utils/api/fetchProjects";
 import Button from "@/components/Button/Button";
-import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Content from "@/components/Content/Content";
 import Spacer from "@/components/Spacer/Spacer";
-import BlockContent from "@/components/Content/BlockContent";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import getImageUrl from "@/utils/content/getImageUrl";
 import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -34,10 +33,10 @@ const ProjectPage = ({projectData}) => {
     const { t, lang } = useTranslation('page')
     const data = projectData['data'][0]['attributes'];
 
-    const title = data['Title']
+    const title = getLocData(data, 'Title', lang)
     const link = data['Link']
-    const buttonText = data['ButtonText']
-    const content = data['Content']
+    const buttonText = getLocData(data, 'ButtonText', lang)
+    const content = getLocData(data, 'Content', lang)
     const image = getImageUrl(data['Image'])
 
     const breadCrumbObject = [

@@ -1,12 +1,15 @@
 import fetcher from "@/utils/api/fetcher";
 import {toCapitalize} from "@/utils/toCapitalize";
+import fetcherSlug from "@/utils/api/fetcherSlug";
 
-export const fetchEntriesFrontPage = (locale) => {
+export const fetchEntriesFrontPage = () => {
     const params = {
         'sort[0]': 'rank:asc',
         'sort[1]': 'OriginalCreationDate:desc',
         'sort[2]': 'createdAt:desc',
         'populate[0]': 'Image',
+        'populate[1]': 'localizations',
+        'populate[2]': 'localizations.Image',
         'pagination[start]': 0,
         'pagination[limit]': 9,
         'fields[0]': 'Title',
@@ -14,7 +17,8 @@ export const fetchEntriesFrontPage = (locale) => {
         'fields[2]': 'Profile',
         'fields[4]': 'EntryType',
         'fields[5]': 'OriginalCreationDate',
-        'fields[6]': 'createdAt'
+        'fields[6]': 'createdAt',
+        'fields[7]': 'Slug'
     }
 
     return fetcher('entries', params)
@@ -30,7 +34,12 @@ export const fetchEntriesDetail = (id) => {
         'populate[5]': 'AuthorStaff.Image'
     }
 
-    return fetcher(`entries/${id}`, params)
+    if (isNaN(Number(id))) {
+        params['filters[Slug][$eq]'] = id
+        return fetcherSlug(`entries`, params)
+    } else {
+        return fetcher(`entries/${id}`, params)
+    }
 }
 
 export const fetchEntriesList = (page, profile, entryType) => {
@@ -46,6 +55,7 @@ export const fetchEntriesList = (page, profile, entryType) => {
         'fields[4]': 'EntryType',
         'fields[5]': 'OriginalCreationDate',
         'fields[6]': 'createdAt',
+        'fields[7]': 'Slug'
     }
 
     if (profile) {

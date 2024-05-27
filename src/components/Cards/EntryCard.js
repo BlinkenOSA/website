@@ -7,13 +7,17 @@ import getCreationDate from "@/utils/content/getCreationDate";
 import getImageData from "@/utils/content/getImageData";
 import Link from "next/link";
 import {motion} from 'framer-motion';
+import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 const EntryCard = ({ id, data}) => {
+    const {lang} = useTranslation('cards')
+
     // Populate fields
     const originalDate = data['OriginalCreationDate']
     const date = data['createdAt']
-    const title = data['Title']
-    const description = data['CardText']
+    const title = getLocData(data, 'Title', lang)
+    const description = getLocData(data, 'CardText', lang)
     const imageData = getImageData(data['Image'], 'medium')
     const icon = getIconByType(data['EntryType'], 'normal')
     const color= getColor(data['Profile'])

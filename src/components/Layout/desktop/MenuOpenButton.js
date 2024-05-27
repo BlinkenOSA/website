@@ -3,8 +3,11 @@ import {MenuContext, MenuDispatchContext} from "@/utils/context/MenuContext";
 import Button from "@/components/Button/Button";
 import style from "./MenuOpenButton.module.scss"
 import {motion, AnimatePresence} from "framer-motion";
+import useTranslation from "next-translate/useTranslation";
 
 const MenuOpenButton = () => {
+    const { t, lang } = useTranslation('menu')
+
     const menuOpen = useContext(MenuContext);
     const dispatch = useContext(MenuDispatchContext);
 
@@ -31,7 +34,7 @@ const MenuOpenButton = () => {
                         transition={{delay: 0.3}}
                         exit={{x: '50%', opacity: 0}}
                     >
-                        <Button type={'primary'} color={'neutral'} onClick={handleClick} size={'medium'} >Close Menu</Button>
+                        <Button type={'primary'} color={'neutral'} onClick={handleClick} size={'medium'} >{t('close__button')}</Button>
                     </motion.div>
                 }
             </AnimatePresence>

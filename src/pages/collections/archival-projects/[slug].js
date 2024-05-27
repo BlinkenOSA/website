@@ -1,6 +1,5 @@
 import style from "@/pages/about-us/style.module.scss";
 import {Col, Container, Row, Tab, Tabs} from "react-bootstrap";
-import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 import {fetchArchivalProjectsDetail} from "@/utils/api/fetchProjects";
 import Button from "@/components/Button/Button";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";

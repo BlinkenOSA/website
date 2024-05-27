@@ -1,7 +1,8 @@
 import fetcher from "@/utils/api/fetcher";
 import {toCapitalize} from "@/utils/toCapitalize";
+import fetcherSlug from "@/utils/api/fetcherSlug";
 
-export const fetchNewsFrontPage = (locale) => {
+export const fetchNewsFrontPage = () => {
     const params = {
         'sort[0]': 'rank:asc',
         'sort[1]': 'createdAt:desc',
@@ -14,6 +15,7 @@ export const fetchNewsFrontPage = (locale) => {
         'fields[1]': 'CardText',
         'fields[2]': 'Profile',
         'fields[3]': 'ActivityType',
+        'fields[4]': 'Slug',
         'fields[5]': 'OriginalCreationDate',
         'fields[6]': 'createdAt'
     }
@@ -29,10 +31,19 @@ export const fetchNewsDetail = (id) => {
         'populate[2]': 'Content.Image',
         'populate[3]': 'Content.Images.Image',
         'populate[4]': 'AuthorStaff',
-        'populate[5]': 'AuthorStaff.Image'
+        'populate[5]': 'AuthorStaff.Image',
+        'populate[6]': 'localizations',
+        'populate[7]': 'localizations.Content',
+        'populate[8]': 'localizations.Content.Image',
+        'populate[9]': 'localizations.Content.Images.Image'
     }
 
-    return fetcher(`news-items/${id}`, params)
+    if (isNaN(Number(id))) {
+        params['filters[Slug][$eq]'] = id
+        return fetcherSlug(`news-items`, params)
+    } else {
+        return fetcher(`news-items/${id}`, params)
+    }
 }
 
 export const fetchNewsList = (page, profile, activityType) => {
@@ -47,6 +58,7 @@ export const fetchNewsList = (page, profile, activityType) => {
         'fields[4]': 'ActivityType',
         'fields[5]': 'OriginalCreationDate',
         'fields[6]': 'createdAt',
+        'fields[7]': 'Slug'
     }
 
     if (profile) {

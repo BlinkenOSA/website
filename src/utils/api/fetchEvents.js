@@ -1,5 +1,6 @@
 import fetcher from "@/utils/api/fetcher";
 import dayjs from "dayjs";
+import fetcherSlug from "@/utils/api/fetcherSlug";
 
 export const fetchEventsFrontPage = () => {
     const params = {
@@ -15,6 +16,7 @@ export const fetchEventsFrontPage = () => {
         'fields[2]': 'StartDate',
         'fields[3]': 'EventType',
         'fields[4]': 'Profile',
+        'fields[5]': 'Slug',
         'filters[StartDate][$gte]': dayjs().format('YYYY-MM-DD')
     }
 
@@ -29,5 +31,10 @@ export const fetchEventDetail = (id) => {
         'populate[3]': 'Content.Images.Image',
     }
 
-    return fetcher(`events/${id}`, params)
+    if (isNaN(Number(id))) {
+        params['filters[Slug][$eq]'] = id
+        return fetcherSlug(`events`, params)
+    } else {
+        return fetcher(`events/${id}`, params)
+    }
 }

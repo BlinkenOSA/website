@@ -5,6 +5,7 @@ import Content from "@/components/Content/Content";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import getImageUrl from "@/utils/content/getImageUrl";
 import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -35,13 +36,13 @@ const StaticPage = ({pageData}) => {
     return (
         <div className={style.Page}>
             <PageHeader
-                title={data['Title']}
+                title={getLocData(data, 'Title', lang)}
                 breadCrumb={t('breadcrumb__about_us')}
                 menu={'about-us'}
                 image={image}
                 scrollScale={0.5}/>
             <Container>
-                <Content contentObject={data['Content']} profile={'Archivum'} />
+                <Content contentObject={getLocData(data, 'Content', lang)} profile={'Archivum'} />
             </Container>
         </div>
     )

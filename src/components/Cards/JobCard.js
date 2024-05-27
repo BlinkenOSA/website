@@ -1,10 +1,14 @@
 import style from "./JobCard.module.scss";
 import Button from "@/components/Button/Button";
 import LabeledData from "@/components/LabeledData/LabeledData";
+import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 const JobCard = ({id, data}) => {
-    const title = data['Title']
-    const description = data['ContentHighglight']
+    const {lang} = useTranslation('cards')
+
+    const title = getLocData(data, 'Title', lang)
+    const description = getLocData(data, 'ContentHighlight', lang)
     const startingDate = data['StartingDate']
     const duration = data['Duration']
     const location = data['Location']

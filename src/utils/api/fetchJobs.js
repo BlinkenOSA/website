@@ -3,7 +3,9 @@ import fetcher from "@/utils/api/fetcher";
 export const fetchJobs = (jobType) => {
     const params = {
         'sort[0]': 'createdAt:desc',
-        'populate[0]': 'Image'
+        'populate[0]': 'Image',
+        'populate[1]': 'localizations',
+        'populate[2]': 'localizations.Image'
     }
 
     if (jobType) {
@@ -16,6 +18,8 @@ export const fetchJobs = (jobType) => {
 export const fetchJobDetail = (slug) => {
     const params = {
         'populate[0]': 'Image',
+        'populate[1]': 'localizations',
+        'populate[2]': 'localizations.Image',
         'filters[Slug][$eq]': slug
     }
 

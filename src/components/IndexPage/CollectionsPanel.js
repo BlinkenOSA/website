@@ -1,16 +1,14 @@
 import CollectionCard from "@/components/Cards/CollectionCard";
-import SectionDivider from "@/components/IndexPage/SectionDivider";
 import style from "@/pages/pages.module.scss";
 import useTranslation from "next-translate/useTranslation";
 import Slider from "react-slick";
-import getLocalizedContent from "@/utils/content/getLocalizedContent";
 import {Media} from "@/utils/media";
 import Button from "@/components/Button/Button";
 import SectionFlipper from "@/components/IndexPage/SectionFlipper";
 import {useRef} from "react";
 
 const CollectionsPanel = ({collectionsData, slidesToShow=3}) => {
-    const { t, lang } = useTranslation('index')
+    const { t } = useTranslation('index')
 
     const sliderSettings = {
         dots: false,
@@ -28,7 +26,7 @@ const CollectionsPanel = ({collectionsData, slidesToShow=3}) => {
             return (
                 <div key={`collection_${idx}`} className={style.SliderCard}>
                     <CollectionCard
-                        data={getLocalizedContent(collection['attributes'], lang)}
+                        data={collection['attributes']}
                     />
                 </div>
             )

@@ -1,4 +1,4 @@
-import {Col, Container, Row} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import Hero from "@/components/Hero/HeroV2";
 import HeroControl from "@/components/Hero/HeroControl";
 import CatalogPanel from "@/components/IndexPage/CatalogPanel";
@@ -23,7 +23,6 @@ import CollectionsPanel from "@/components/IndexPage/CollectionsPanel";
 import Spacer from "@/components/Spacer/Spacer";
 import {Media} from "@/utils/media";
 import ResearchRoomPanel from "@/components/IndexPage/ResearchRoomPanel";
-import getLocalizedContent from "@/utils/content/getLocalizedContent";
 
 export const getServerSideProps = (async (context) => {
 	const {locale} = context
@@ -56,7 +55,7 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 			return heroData["data"].map(hero => {
 				return <Hero
 					key={`hero_${hero["id"]}`}
-					data={getLocalizedContent(hero['attributes'], lang)}
+					data={hero['attributes']}
 				/>
 			})
 		}

@@ -8,16 +8,21 @@ import getImageData from "@/utils/content/getImageData";
 
 import {motion} from 'framer-motion';
 import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 const NewsCard = ({ id, data}) => {
+    const {lang} = useTranslation('cards')
+
     // Populate fields
     const originalDate = data['OriginalCreationDate']
     const date = data['createdAt']
-    const title = data['Title']
-    const description = data['CardText']
+    const title = getLocData(data, 'Title', lang)
+    const description = getLocData(data, 'CardText', lang)
     const imageData = getImageData(data['Image'], 'medium')
     const icon = getIconByType(data['ActivityType'], 'normal')
     const color= getColor(data['Profile'])
+    const slug = data['Slug']
 
     const imageAnim = {
         hover: { scale: 0.85 }
@@ -25,7 +30,7 @@ const NewsCard = ({ id, data}) => {
 
     return (
       <motion.div whileHover={"hover"} className={style.Wrapper}>
-          <Link href={`/news/${id}`}>
+          <Link href={`/news/${slug ? slug : id}`}>
               <div
                   className={style.Image}
               >
@@ -42,7 +47,7 @@ const NewsCard = ({ id, data}) => {
               <div className={`${style.EventType} subtitle-small`}>{data['ActivityType']}</div>
               <div className={style.Date}>{getCreationDate(originalDate, date)}</div>
           </div>
-          <Link href={`/news/${id}`}>
+          <Link href={`/news/${slug ? slug : id}`}>
             <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 60)}</h3>
           </Link>
           <div className={style.Description}>
