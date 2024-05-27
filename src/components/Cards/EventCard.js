@@ -17,6 +17,7 @@ const EventCard = ({id, data}) => {
     const imageData = getImageData(data['Image'], 'medium')
     const icon = getIconByType(data['EventType'], 'small')
     const color= getColor(data['Profile'])
+    const slug = data['Slug']
 
     const imageAnim = {
         hover: { scale: 0.85 }
@@ -24,7 +25,7 @@ const EventCard = ({id, data}) => {
 
     return (
         <motion.div whileHover={"hover"} className={style.Wrapper}>
-            <Link href={`/events/${id}`}>
+            <Link href={`/events/${slug ? slug : id}`}>
                 <div className={style.Image}>
                     <motion.div variants={imageAnim} style={{position: 'relative', zIndex: 2}} >
                         <MaskedImage src={imageData['url']} type={'landscape'} />
@@ -35,7 +36,7 @@ const EventCard = ({id, data}) => {
                     <div className={`${style.UnderLayer} ${style[color]}`} />
                 </div>
             </Link>
-            <Link href={`/events/${id}`}>
+            <Link href={`/events/${slug ? slug : id}`}>
                 <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipsis(title, 70)}</h3>
             </Link>
             <div className={style.Description}>

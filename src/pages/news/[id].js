@@ -16,6 +16,8 @@ export const getServerSideProps = (async (context) => {
 		fetchNewsDetail(id)
 	])
 
+	console.log(`NewsDATA: ${newsData}`)
+
 	if (newsData['data'] === null) {
 		return {
 			notFound: true,

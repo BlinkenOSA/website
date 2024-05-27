@@ -1,5 +1,6 @@
 import fetcher from "@/utils/api/fetcher";
 import {toCapitalize} from "@/utils/toCapitalize";
+import fetcherSlug from "@/utils/api/fetcherSlug";
 
 export const fetchEntriesFrontPage = (locale) => {
     const params = {
@@ -14,7 +15,8 @@ export const fetchEntriesFrontPage = (locale) => {
         'fields[2]': 'Profile',
         'fields[4]': 'EntryType',
         'fields[5]': 'OriginalCreationDate',
-        'fields[6]': 'createdAt'
+        'fields[6]': 'createdAt',
+        'fields[7]': 'Slug'
     }
 
     return fetcher('entries', params)
@@ -30,7 +32,12 @@ export const fetchEntriesDetail = (id) => {
         'populate[5]': 'AuthorStaff.Image'
     }
 
-    return fetcher(`entries/${id}`, params)
+    if (isNaN(Number(id))) {
+        params['filters[Slug][$eq]'] = id
+        return fetcherSlug(`news-items`, params)
+    } else {
+        return fetcher(`news-items/${id}`, params)
+    }
 }
 
 export const fetchEntriesList = (page, profile, entryType) => {
@@ -46,6 +53,7 @@ export const fetchEntriesList = (page, profile, entryType) => {
         'fields[4]': 'EntryType',
         'fields[5]': 'OriginalCreationDate',
         'fields[6]': 'createdAt',
+        'fields[7]': 'Slug'
     }
 
     if (profile) {
