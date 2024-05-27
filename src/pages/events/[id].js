@@ -9,6 +9,8 @@ import PageHeader from "@/components/PageHeader/PageHeader";
 import getImageUrl from "@/utils/content/getImageUrl";
 import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
+import Head from "next/head";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -52,9 +54,12 @@ const EventPage = ({eventData}) => {
 
 	return (
 		<>
+			<Head>
+				<title>Blinken OSA Archivum - {getLocData(data, 'Title', lang)}</title>
+			</Head>
 			<div className={style.Page}>
 				<PageHeader
-					title={data['Title']}
+					title={getLocData(data, 'Title', lang)}
 					color={data['Profile']}
 					image={image}
 					breadcrumbObject={breadcrumbObject}
@@ -114,7 +119,7 @@ const EventPage = ({eventData}) => {
 						</Col>
 					</Row>
 					<Spacer />
-					<Content contentObject={data['Content']} profile={profile} />
+					<Content contentObject={getLocData(data, 'Content', lang)} profile={profile} />
 					<Spacer />
 				</Container>
 			</div>
