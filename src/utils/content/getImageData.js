@@ -21,7 +21,7 @@ const getImageData = (imageData, size='large') => {
         data['height'] = imageData['data']['attributes']['height']
     }
 
-    const server = process.env.NEXT_PUBLIC_SOLR_STPAPI_DOMAIN;
+    const server = process.env.NEXT_PUBLIC_STPAPI_DOMAIN;
     data['url'] = `${server}${data['url']}`
 
     return data

@@ -23,8 +23,7 @@ module.exports = nextTranslate({
     ],
   },
   compiler: {
-    styledComponents: true,
-    displayName: false
+    styledComponents: true
   },
   experimental: {
     scrollRestoration: true,
