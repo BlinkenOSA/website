@@ -33,8 +33,8 @@ export const fetchEventDetail = (id) => {
 
     if (isNaN(Number(id))) {
         params['filters[Slug][$eq]'] = id
-        return fetcherSlug(`news-items`, params)
+        return fetcherSlug(`events`, params)
     } else {
-        return fetcher(`news-items/${id}`, params)
+        return fetcher(`events/${id}`, params)
     }
 }
