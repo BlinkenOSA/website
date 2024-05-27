@@ -13,6 +13,8 @@ import PageHeader from "@/components/PageHeader/PageHeader";
 import {useState} from "react";
 import {jobTypeFilterValues} from "@/utils/filterValues/jobTypeFilterValues";
 import useTranslation from "next-translate/useTranslation";
+import Head from "next/head";
+import getLocData from "@/utils/content/getLocData";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchJobs()
@@ -62,32 +64,37 @@ const JobsPage = ({initialData}) => {
     }
 
     return (
-        <div className={style.Page}>
-            <PageHeader
-                title={t('job__title')}
-                breadCrumb={t('breadcrumb__about_us')}
-                menu={'about-us'}
-                image={''} />
-            <Container>
-                <Row>
-                    <Col xs={4}>
-                        <VerticalFilters
-                            title={t('job__filter__title')}
-                            values={jobTypeFilterValues}
-                            selectedFilters={jobTypeFilter}
-                            onChange={handleFilterChange}
-                        />
-                    </Col>
-                    <Col xs={8}>
-                        <Row>
-                            <SWRConfig value={{ fallback: initialData }}>
-                                <JobCards selectedFilters={jobTypeFilter} />
-                            </SWRConfig>
-                        </Row>
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+        <>
+            <Head>
+                <title>Blinken OSA Archivum - {t('job__title')}</title>
+            </Head>
+            <div className={style.Page}>
+                <PageHeader
+                    title={t('job__title')}
+                    breadCrumb={t('breadcrumb__about_us')}
+                    menu={'about-us'}
+                    image={''} />
+                <Container>
+                    <Row>
+                        <Col xs={4}>
+                            <VerticalFilters
+                                title={t('job__filter__title')}
+                                values={jobTypeFilterValues}
+                                selectedFilters={jobTypeFilter}
+                                onChange={handleFilterChange}
+                            />
+                        </Col>
+                        <Col xs={8}>
+                            <Row>
+                                <SWRConfig value={{ fallback: initialData }}>
+                                    <JobCards selectedFilters={jobTypeFilter} />
+                                </SWRConfig>
+                            </Row>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+        </>
     )
 }
 

@@ -8,6 +8,8 @@ import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import dayjs from "dayjs";
 import {toCapitalize} from "@/utils/toCapitalize";
 import BlockContent from "@/components/Content/BlockContent";
+import useTranslation from "next-translate/useTranslation";
+import Head from "next/head";
 
 
 export const getServerSideProps = (async (context) => {
@@ -31,6 +33,8 @@ export const getServerSideProps = (async (context) => {
 })
 
 const FellowPage = ({fellowData}) => {
+    const { t, lang } = useTranslation('page')
+
     const data = fellowData['data'][0]['attributes'];
 
     const name = data['Name']
@@ -56,43 +60,48 @@ const FellowPage = ({fellowData}) => {
     }
 
     const breadCrumbObject = [
-        {menu: 'academics', title: 'Academics'},
-        {menu: `academics/${detectPastFellows()}-fellows`, link: `/academics/${detectPastFellows()}-fellows`, title: `${toCapitalize(detectPastFellows())} Fellows`}
+        {menu: 'academics', title: t('breadcrumb__academics')},
+        {menu: `academics/${detectPastFellows()}-fellows`, link: `/academics/${detectPastFellows()}-fellows`, title: t(`${detectPastFellows()}_fellows__title`)}
     ]
 
     return (
-        <div className={style.Page}>
-            <Container>
-                <SimplePageHeader title={name} breadCrumbObject={breadCrumbObject} />
-                <Row>
-                    <Col xs={{order: 2, span: 12}} sm={{order: 1, span: 8}} md={{order: 1, span: 8}}>
-                        <div className={'subtitle-small'}>{affiliation}</div>
-                        <div>
-                            <span className={'subtitle-small'}>Research topic: </span>
-                            {researchTopic}
-                        </div>
-                        <div>
-                            <span className={'subtitle-small'}>Fellowship program: </span>
-                            {fellowshipProgram}
-                        </div>
-                        <div>
-                            <span className={'subtitle-small'}>Duration: </span>
-                            {startDate} - {endDate}
-                        </div>
-                        <BlockContent content={bio} profile={'Academics'} />
-                    </Col>
-                    <Col xs={{order: 1, span: 12}} sm={{order: 2, span: 4}} md={{order: 2, span: 4}}>
-                        <div className={style.ImageWrapper}>
-                            <MaskedImage src={image} type={'portrait'} />
-                            <div className={style.Caption}>
-                                {name}
+        <>
+            <Head>
+                <title>Blinken OSA Archivum - {name}</title>
+            </Head>
+            <div className={style.Page}>
+                <Container>
+                    <SimplePageHeader title={name} breadCrumbObject={breadCrumbObject} />
+                    <Row>
+                        <Col xs={{order: 2, span: 12}} sm={{order: 1, span: 8}} md={{order: 1, span: 8}}>
+                            <div className={'subtitle-small'}>{affiliation}</div>
+                            <div>
+                                <span className={'subtitle-small'}>Research topic: </span>
+                                {researchTopic}
                             </div>
-                        </div>
-                    </Col>
-                </Row>
-                <div style={{height: '36px'}} />
-            </Container>
-        </div>
+                            <div>
+                                <span className={'subtitle-small'}>Fellowship program: </span>
+                                {fellowshipProgram}
+                            </div>
+                            <div>
+                                <span className={'subtitle-small'}>Duration: </span>
+                                {startDate} - {endDate}
+                            </div>
+                            <BlockContent content={bio} profile={'Academics'} />
+                        </Col>
+                        <Col xs={{order: 1, span: 12}} sm={{order: 2, span: 4}} md={{order: 2, span: 4}}>
+                            <div className={style.ImageWrapper}>
+                                <MaskedImage src={image} type={'portrait'} />
+                                <div className={style.Caption}>
+                                    {name}
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+                    <div style={{height: '36px'}} />
+                </Container>
+            </div>
+        </>
     )
 }
 

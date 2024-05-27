@@ -5,6 +5,8 @@ import Content from "@/components/Content/Content";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import getImageUrl from "@/utils/content/getImageUrl";
 import useTranslation from "next-translate/useTranslation";
+import Head from "next/head";
+import getLocData from "@/utils/content/getLocData";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -27,25 +29,30 @@ export const getServerSideProps = (async (context) => {
 })
 
 const StaticPage = ({pageData}) => {
-    const { t, lang } = useTranslation('page')
+    const { t, lang } = useTranslation('page');
 
     const data = pageData['data'][0]['attributes'];
     const image = getImageUrl(data['CardImage'])
 
     return (
-        <div className={style.Page}>
-            <PageHeader
-                title={data['Title']}
-                breadCrumb={t('breadcrumb__collections')}
-                menu={'collections'}
-                image={image}
-                scrollScale={0.5}
-            />
-            <Container>
-                <Content contentObject={data['Content']} profile={'Collections'} />
-            </Container>
-        </div>
+        <>
+            <Head>
+                <title>Blinken OSA Archivum - {getLocData(data, 'Title', lang)}</title>
+            </Head>
+            <div className={style.Page}>
+                <PageHeader
+                    title={getLocData(data, 'Title', lang)}
+                    breadCrumb={t('breadcrumb__collections')}
+                    menu={'collections'}
+                    image={image}
+                    scrollScale={0.5}
+                />
+                <Container>
+                    <Content contentObject={getLocData(data, 'Content', lang)} profile={'Collections'} />
+                </Container>
+            </div>
+        </>
     )
 }
 
-export default StaticPage
+export default StaticPage;
