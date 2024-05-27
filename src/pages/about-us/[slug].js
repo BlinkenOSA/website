@@ -6,6 +6,7 @@ import PageHeader from "@/components/PageHeader/PageHeader";
 import getImageUrl from "@/utils/content/getImageUrl";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
+import Head from "next/head";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -34,17 +35,22 @@ const StaticPage = ({pageData}) => {
     const image = getImageUrl(data['CardImage'], 'full')
 
     return (
-        <div className={style.Page}>
-            <PageHeader
-                title={getLocData(data, 'Title', lang)}
-                breadCrumb={t('breadcrumb__about_us')}
-                menu={'about-us'}
-                image={image}
-                scrollScale={0.5}/>
-            <Container>
-                <Content contentObject={getLocData(data, 'Content', lang)} profile={'Archivum'} />
-            </Container>
-        </div>
+        <>
+            <Head>
+                <title>Blinken OSA Archivum - {getLocData(data, 'Title', lang)}</title>
+            </Head>
+            <div className={style.Page}>
+                <PageHeader
+                    title={getLocData(data, 'Title', lang)}
+                    breadCrumb={t('breadcrumb__about_us')}
+                    menu={'about-us'}
+                    image={image}
+                    scrollScale={0.5}/>
+                <Container>
+                    <Content contentObject={getLocData(data, 'Content', lang)} profile={'Archivum'} />
+                </Container>
+            </div>
+        </>
     )
 }
 

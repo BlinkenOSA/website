@@ -8,6 +8,7 @@ import Spacer from "@/components/Spacer/Spacer";
 import BlockContent from "@/components/Content/BlockContent";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
+import Head from "next/head";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -50,28 +51,33 @@ const JobPage = ({jobData}) => {
     ]
 
     return (
-        <div className={style.Page}>
-            <Container>
-                <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
-                <Row>
-                    <Col xs={12}>
-                        <LabeledData label={'Starting Date'} data={startingDate} marginBottom={false} />
-                        <LabeledData label={'Location'} data={location} marginBottom={false} />
-                        <LabeledData label={'Duration'} data={duration} marginBottom={false} />
-                        <LabeledData label={'Salary'} data={salary} marginBottom={false} />
-                        <LabeledData label={'Contract Type'} data={contractType} marginBottom={false} />
-                        <LabeledData label={'Application Deadline'} data={deadline} marginBottom={false} />
-                    </Col>
-                </Row>
-                <Spacer />
-                <Row>
-                    <Col xs={12}>
-                        <BlockContent content={content} profile={'Archives'} />
-                    </Col>
-                </Row>
-                <Spacer />
-            </Container>
-        </div>
+        <>
+            <Head>
+                <title>Blinken OSA Archivum - {title}</title>
+            </Head>
+            <div className={style.Page}>
+                <Container>
+                    <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
+                    <Row>
+                        <Col xs={12}>
+                            <LabeledData label={'Starting Date'} data={startingDate} marginBottom={false} />
+                            <LabeledData label={'Location'} data={location} marginBottom={false} />
+                            <LabeledData label={'Duration'} data={duration} marginBottom={false} />
+                            <LabeledData label={'Salary'} data={salary} marginBottom={false} />
+                            <LabeledData label={'Contract Type'} data={contractType} marginBottom={false} />
+                            <LabeledData label={'Application Deadline'} data={deadline} marginBottom={false} />
+                        </Col>
+                    </Row>
+                    <Spacer />
+                    <Row>
+                        <Col xs={12}>
+                            <BlockContent content={content} profile={'Archives'} />
+                        </Col>
+                    </Row>
+                    <Spacer />
+                </Container>
+            </div>
+        </>
     )
 }
 

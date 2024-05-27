@@ -8,6 +8,7 @@ import PageHeader from "@/components/PageHeader/PageHeader";
 import getImageUrl from "@/utils/content/getImageUrl";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
+import Head from "next/head";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -45,25 +46,30 @@ const ProjectPage = ({projectData}) => {
     ]
 
     return (
-        <div className={style.Page}>
-            <PageHeader title={title} breadcrumbObject={breadCrumbObject} image={image} scrollScale={0.2} isBlur={true} />
-            <Container>
-                <Row>
-                    <Col xs={12}>
-                        <Content contentObject={content} />
-                    </Col>
-                </Row>
-                <Spacer />
-                <div>
-                    <Button
-                        type={'primary'}
-                        size={'large'}
-                        color={'mustard'}
-                        link={link}>{buttonText ? buttonText : 'Visit Project'}</Button>
-                </div>
-                <Spacer />
-            </Container>
-        </div>
+        <>
+            <Head>
+                <title>Blinken OSA Archivum - {title}</title>
+            </Head>
+            <div className={style.Page}>
+                <PageHeader title={title} breadcrumbObject={breadCrumbObject} image={image} scrollScale={0.2} isBlur={true} />
+                <Container>
+                    <Row>
+                        <Col xs={12}>
+                            <Content contentObject={content} />
+                        </Col>
+                    </Row>
+                    <Spacer />
+                    <div>
+                        <Button
+                            type={'primary'}
+                            size={'large'}
+                            color={'mustard'}
+                            link={link}>{buttonText ? buttonText : 'Visit Project'}</Button>
+                    </div>
+                    <Spacer />
+                </Container>
+            </div>
+        </>
     )
 }
 

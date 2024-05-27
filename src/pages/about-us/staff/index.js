@@ -14,6 +14,7 @@ import DropdownFilter from "@/components/Filters/DropdownFilter";
 import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
 import {staffFilterValues} from "@/utils/filterValues/staffFilterValues";
+import Head from "next/head";
 
 export const getServerSideProps = (async () => {
 	const [url, params] = fetchStaffList()
@@ -61,41 +62,46 @@ const StaffPage = ({initialData}) => {
 	}
 
 	return (
-		<div className={style.Page}>
-			<Container>
-				<SimplePageHeader title={t('staff__title')} menu={'about-us'} breadCrumb={t('breadcrumb__about_us')} />
-				<Row>
-					<Col xs={12} sm={4} md={4}>
-						<Media greaterThanOrEqual="sm">
-							<VerticalFilters
-								title={t('staff__filter__title')}
-								values={staffFilterValues}
-								selectedFilters={unitFilter}
-								onChange={handleFilterChange}
-							/>
-						</Media>
+		<>
+			<Head>
+				<title>Blinken OSA Archivum - {t('staff__title')}</title>
+			</Head>
+			<div className={style.Page}>
+				<Container>
+					<SimplePageHeader title={t('staff__title')} menu={'about-us'} breadCrumb={t('breadcrumb__about_us')} />
+					<Row>
+						<Col xs={12} sm={4} md={4}>
+							<Media greaterThanOrEqual="sm">
+								<VerticalFilters
+									title={t('staff__filter__title')}
+									values={staffFilterValues}
+									selectedFilters={unitFilter}
+									onChange={handleFilterChange}
+								/>
+							</Media>
+							<Media lessThan="sm">
+								<DropdownFilter
+									label={t('staff__filter__dropdown_title')}
+									values={staffFilterValues}
+									selectedValue={unitFilter}
+									onSelect={handleFilterChange}
+								/>
+							</Media>
+						</Col>
 						<Media lessThan="sm">
-							<DropdownFilter
-								label={t('staff__filter__dropdown_title')}
-								values={staffFilterValues}
-								selectedValue={unitFilter}
-								onSelect={handleFilterChange}
-							/>
+							<Spacer />
 						</Media>
-					</Col>
-					<Media lessThan="sm">
-						<Spacer />
-					</Media>
-					<Col xs={12} sm={8} md={8}>
-						<Row>
-							<SWRConfig value={{ fallback: initialData }}>
-								<StaffCards selectedFilters={unitFilter} />
-							</SWRConfig>
-						</Row>
-					</Col>
-				</Row>
-			</Container>
-		</div>
+						<Col xs={12} sm={8} md={8}>
+							<Row>
+								<SWRConfig value={{ fallback: initialData }}>
+									<StaffCards selectedFilters={unitFilter} />
+								</SWRConfig>
+							</Row>
+						</Col>
+					</Row>
+				</Container>
+			</div>
+		</>
 	)
 }
 
