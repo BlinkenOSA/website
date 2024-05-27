@@ -9,6 +9,7 @@ import getImageUrl from "@/utils/content/getImageUrl";
 import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
+import Head from "next/head";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -47,30 +48,35 @@ const NewsPage = ({newsData}) => {
 	]
 
 	return (
-		<div className={style.Page}>
-			<PageHeader
-				title={data['Title']}
-				color={data['Profile']}
-				image={image}
-				breadCrumbObject={breadcrumbObject}
-				scrollScale={0.5}
-				isBlur={true}
-			/>
-			<Container>
-				<Row>
-					<Col xs={6}>
-						<div>
-							<span>{getCreationDate(originalCreationDate, createdAt)}</span>
-						</div>
-					</Col>
-					<Col xs={6}>
-						<Authors author={author} authorStaff={authorStaff} />
-					</Col>
-				</Row>
-				<Spacer size={'medium'} />
-				<Content contentObject={getLocData(data, 'Content', lang)} profile={profile}/>
-			</Container>
-		</div>
+		<>
+			<Head>
+				<title>{getLocData(data, 'Title', lang)}</title>
+			</Head>
+			<div className={style.Page}>
+				<PageHeader
+					title={getLocData(data, 'Title', lang)}
+					color={data['Profile']}
+					image={image}
+					breadCrumbObject={breadcrumbObject}
+					scrollScale={0.5}
+					isBlur={true}
+				/>
+				<Container>
+					<Row>
+						<Col xs={6}>
+							<div>
+								<span>{getCreationDate(originalCreationDate, createdAt)}</span>
+							</div>
+						</Col>
+						<Col xs={6}>
+							<Authors author={author} authorStaff={authorStaff} />
+						</Col>
+					</Row>
+					<Spacer size={'medium'} />
+					<Content contentObject={getLocData(data, 'Content', lang)} profile={profile}/>
+				</Container>
+			</div>
+		</>
 	)
 }
 

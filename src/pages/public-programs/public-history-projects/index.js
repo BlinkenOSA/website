@@ -4,6 +4,7 @@ import {fetchPublicHistoryProjects} from "@/utils/api/fetchProjects";
 import ProjectCard from "@/components/Cards/ProjectCard";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import useTranslation from "next-translate/useTranslation";
+import Head from "next/head";
 
 export const getServerSideProps = (async () => {
     const [projectsData] = await Promise.all([
@@ -35,14 +36,19 @@ const PublicHistoryProjectsPage = ({projectsData}) => {
     }
 
     return (
-        <div className={style.Page}>
-            <Container>
-                <SimplePageHeader title={t('public_history_projects__title')} menu={'public-programs'} breadCrumb={t('breadcrumb__public_programs')} />
-                <Row>
-                    {renderProjects()}
-                </Row>
-            </Container>
-        </div>
+        <>
+            <Head>
+               <title>{t('public_history_projects__title')}</title>
+            </Head>
+            <div className={style.Page}>
+                <Container>
+                    <SimplePageHeader title={t('public_history_projects__title')} menu={'public-programs'} breadCrumb={t('breadcrumb__public_programs')} />
+                    <Row>
+                        {renderProjects()}
+                    </Row>
+                </Container>
+            </div>
+        </>
     )
 }
 

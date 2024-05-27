@@ -13,6 +13,7 @@ import {profileFilterValues} from "@/utils/filterValues/profileFilterValues";
 import {useMedia, useUpdateEffect} from "react-use";
 import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
+import Head from "next/head";
 
 export const getServerSideProps = (async (context) => {
     const parameters = context.query;
@@ -157,19 +158,24 @@ const NewsPage = ({initialData}) => {
     const { t, lang } = useTranslation('page')
 
     return (
-        <div className={style.Page}>
-            <Container>
-                <Spacer />
-                <Row>
-                    <Col xs={12}>
-                        <h1>{t('news__title')}</h1>
-                    </Col>
-                </Row>
-                <Spacer />
-                <NewsContent initialData={initialData} />
-                <Spacer />
-            </Container>
-        </div>
+        <>
+            <Head>
+               <title>{t('news__title')}</title>
+            </Head>
+            <div className={style.Page}>
+                <Container>
+                    <Spacer />
+                    <Row>
+                        <Col xs={12}>
+                            <h1>{t('news__title')}</h1>
+                        </Col>
+                    </Row>
+                    <Spacer />
+                    <NewsContent initialData={initialData} />
+                    <Spacer />
+                </Container>
+            </div>
+        </>
     )
 }
 
