@@ -8,6 +8,7 @@ import PageHeader from "@/components/PageHeader/PageHeader";
 import getImageUrl from "@/utils/content/getImageUrl";
 import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -15,8 +16,6 @@ export const getServerSideProps = (async (context) => {
 	const [newsData] = await Promise.all([
 		fetchNewsDetail(id)
 	])
-
-	console.log(`NewsDATA: ${newsData}`)
 
 	if (newsData['data'] === null) {
 		return {
@@ -35,7 +34,6 @@ const NewsPage = ({newsData}) => {
 	const { t, lang } = useTranslation('page')
 	const data = newsData['data']['attributes'];
 
-	const activityType = data['ActivityType']
 	const profile = data['Profile']
 	const author = data['Author']
 	const authorStaff = data['AuthorStaff']
@@ -70,7 +68,7 @@ const NewsPage = ({newsData}) => {
 					</Col>
 				</Row>
 				<Spacer size={'medium'} />
-				<Content contentObject={data['Content']} profile={profile}/>
+				<Content contentObject={getLocData(data, 'Content', lang)} profile={profile}/>
 			</Container>
 		</div>
 	)

@@ -7,16 +7,17 @@ import React from "react";
 import getImageData from "@/utils/content/getImageData";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 const CollectionCard = ({data}) => {
-    const title = data['Title']
+    const { t, lang } = useTranslation('cards')
+
+    const title = getLocData(data, 'Title', lang)
     const imageData = getImageData(data['Image'], 'medium')
     const size = data['Size']
-    const description = data['CardText']
+    const description = getLocData(data, 'CardText', lang)
     const types = data['MaterialTypes']
     const slug = data['Slug']
-
-    const { t, lang } = useTranslation('cards')
 
     const ToolTipStuff = ({ id, children, title }) => (
         <OverlayTrigger overlay={<Tooltip id={id}>{title}</Tooltip>}>

@@ -2,12 +2,16 @@ import style from "./FellowCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import getImageData from "@/utils/content/getImageData";
 import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
-const StaffCard = ({id, data}) => {
+const StaffCard = ({data}) => {
+    const { lang } = useTranslation('cards')
+
     // Populate fields
     const name = data['Name']
-    const researchTopic = data['ResearchTopic']
-    const affiliation = data['Affiliation']
+    const researchTopic = getLocData(data, 'ResearchTopic', lang)
+    const affiliation = getLocData(data, 'Affiliation', lang)
     const slug = data['Slug']
     const imageData = getImageData(data['Image'], 'medium')
 

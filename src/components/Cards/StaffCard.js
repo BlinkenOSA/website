@@ -2,15 +2,19 @@ import style from "./StaffCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import getImageData from "@/utils/content/getImageData";
 import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 const StaffCard = ({id, data}) => {
+    const { lang } = useTranslation('cards')
+
     // Populate fields
     const firstName = data['FirstName']
     const lastName = data['LastName']
     const imageData = getImageData(data['Image'], 'medium')
-    const position = data['Position']
+    const position = getLocData(data, 'Position', lang)
     const slug = data['Slug']
-    const OSAUnit = data['Unit']
+    const OSAUnit = getLocData(data, 'Unit', lang)
 
     return (
         <div className={style.Wrapper}>
@@ -19,7 +23,7 @@ const StaffCard = ({id, data}) => {
                     <MaskedImage src={imageData['url']} type={'portrait'} />
                 </div>
                 <div className={`${style.Name} subtitle-large`}>
-                    {firstName} {lastName}
+                    {lang === 'en' ? `${firstName} ${lastName}` : `${lastName} ${firstName}`}
                 </div>
                 <div className={`${style.Position} subtitle-small`}>
                     {position}

@@ -7,11 +7,12 @@ import {Media} from "@/utils/media";
 import Spacer from "@/components/Spacer/Spacer";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 const AnnualReportCard = ({data}) => {
     const { t, lang } = useTranslation('cards')
 
-    const description = data['Description']
+    const description = getLocData(data, "Description", lang)
     const link = data['Link']
     const year = data['Year']
     const imageData = getImageData(data['Image'], 'medium')

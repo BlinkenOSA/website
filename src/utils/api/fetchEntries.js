@@ -2,12 +2,14 @@ import fetcher from "@/utils/api/fetcher";
 import {toCapitalize} from "@/utils/toCapitalize";
 import fetcherSlug from "@/utils/api/fetcherSlug";
 
-export const fetchEntriesFrontPage = (locale) => {
+export const fetchEntriesFrontPage = () => {
     const params = {
         'sort[0]': 'rank:asc',
         'sort[1]': 'OriginalCreationDate:desc',
         'sort[2]': 'createdAt:desc',
         'populate[0]': 'Image',
+        'populate[1]': 'localizations',
+        'populate[2]': 'localizations.Image',
         'pagination[start]': 0,
         'pagination[limit]': 9,
         'fields[0]': 'Title',

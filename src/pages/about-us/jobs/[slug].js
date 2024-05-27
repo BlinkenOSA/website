@@ -7,6 +7,7 @@ import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Spacer from "@/components/Spacer/Spacer";
 import BlockContent from "@/components/Content/BlockContent";
 import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -32,14 +33,14 @@ const JobPage = ({jobData}) => {
     const { t, lang } = useTranslation('page')
     const data = jobData['data'][0]['attributes'];
 
-    const title = data['Title']
+    const title = getLocData(data, "Title", lang)
     const startingDate = data['StartingDate']
     const duration = data['Duration']
     const location = data['Location']
     const contractType = data['ContractType']
     const deadline = data['ApplicationDeadline']
     const salary = data['Salary']
-    const content = data['Content']
+    const content = getLocData(data, 'Content', lang)
     const jobType = data['JobType']
     const image = getImageUrl(data['Image'])
 

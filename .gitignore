@@ -3,4 +3,5 @@ node_modules
 .next
 .idea
 .DS_Store
+.env.local
 .env.local.localbackup

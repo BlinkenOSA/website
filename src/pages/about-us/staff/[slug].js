@@ -64,13 +64,13 @@ const StaffPage = ({staffData}) => {
 
     const breadCrumbObject = [
         {menu: 'about-us', title: t('breadcrumb__about_us')},
-        {menu: 'about-us/staff', link: '/about-us/staff', title: t('breadcrumb__staff')}
+        {menu: 'about-us/staff', link: '/about-us/staff', title: t('staff__title')}
     ]
 
     return (
         <div className={style.Page}>
             <Container>
-                <SimplePageHeader title={`${firstName} ${lastName}`} breadCrumbObject={breadCrumbObject} />
+                <SimplePageHeader title={lang === 'en' ? `${firstName} ${lastName}` : `${lastName} ${firstName}`} breadCrumbObject={breadCrumbObject} />
                 <Row>
                     <Col xs={{order: 2, span: 12}} sm={{order: 1, span: 8}} md={{order: 1, span: 8}}>
                         <div className={'subtitle-large'}>{position}</div>

@@ -4,7 +4,6 @@ import NewsCard from "@/components/Cards/NewsCard";
 import SectionFlipper from "@/components/IndexPage/SectionFlipper";
 import {useRef} from "react";
 import useTranslation from "next-translate/useTranslation";
-import getLocalizedContent from "@/utils/content/getLocalizedContent";
 import SectionSlider from "@/components/IndexPage/SectionSlider";
 import {Media} from "@/utils/media";
 import Spacer from "@/components/Spacer/Spacer";
@@ -30,7 +29,7 @@ const NewsPanel = ({newsData, slidesToShow=3}) => {
                     <NewsCard
                         id={`${entry["id"]}`}
                         key={`${entry["id"]}`}
-                        data={getLocalizedContent(entry['attributes'], lang)}
+                        data={entry['attributes']}
                     />
                 </div>
             )

@@ -8,12 +8,16 @@ import truncateWithEllipsis from "@/utils/truncateWithEllipsis";
 import getImageData from "@/utils/content/getImageData";
 import Link from "next/link";
 import {motion} from "framer-motion";
+import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 const EventCard = ({id, data}) => {
+    const {lang} = useTranslation('cards')
+
     // Populate fields
     const date = getDateString(data['StartDate'], undefined)
-    const title = data['Title']
-    const description = data['CardText']
+    const title = getLocData(data, 'Title', lang)
+    const description = getLocData(data, 'CardText', lang)
     const imageData = getImageData(data['Image'], 'medium')
     const icon = getIconByType(data['EventType'], 'small')
     const color= getColor(data['Profile'])

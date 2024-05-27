@@ -7,13 +7,14 @@ import getImageData from "@/utils/content/getImageData";
 import {useMedia} from "react-use";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 const ProjectCard = ({data, profile}) => {
     const { t, lang } = useTranslation('cards')
 
     // Populate fields
-    const title = data['Title']
-    const description = data['CardText']
+    const title = getLocData(data, 'Title', lang)
+    const description = getLocData(data, 'CardText', lang)
     const imageData = getImageData(data['Image'], 'medium')
     const link = data['Link']
     const buttonText = data['ButtonText']
