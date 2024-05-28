@@ -1,6 +1,6 @@
 {
   "dropdown__filter__title": "Filter by",
-  "dropdown__filter__reset": "Reset Filter",
+  "dropdown__filter__reset": "Reset filter",
   "profile__filter__archivum": "Archivum",
   "profile__filter__collections": "Collections",
   "profile__filter__academics": "Academics",
@@ -15,7 +15,7 @@
   "staff__filter__av_unit": "Audiovisual Unit",
   "staff__filter__chief_archivist": "Chief Archivist",
   "staff__filter__director": "Director",
-  "staff__filter__event_and_exhibition": "Event & Exhibition",
+  "staff__filter__event_and_exhibition": "Events & Exhibitions",
   "staff__filter__it_office": "IT Office",
   "staff__filter__library": "Library",
   "staff__filter__public_awareness_unit": "Public Awareness Unit",
