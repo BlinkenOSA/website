@@ -26,6 +26,7 @@ import {hostingTypeFilterValues} from "@/utils/filterValues/hostingTypeFilterVal
 import {languageFilterValues} from "@/utils/filterValues/languageFilterValues";
 import {programTypeFilterValues} from "@/utils/filterValues/programTypeFilterValues";
 import Head from "next/head";
+import getLocData from "@/utils/content/getLocData";
 
 export const getServerSideProps = (async (context) => {
 	const parameters = context.query;
@@ -72,12 +73,14 @@ const ToolTipStuff = ({ id, children, title }) => (
 );
 
 const ProgramDataRow = ({id, index, data, onTitleClick}) => {
+	const { t, lang } = useTranslation('page')
+
 	const color = getColor(data['Profile'])
 	const icon = getIconByType(data['EventType'], 'normal', color)
-	const title = data['Title']
+	const title = getLocData(data, 'Title', lang)
 	const language = data['Language']
 	const hostingType = data['HostingType']
-	const date = getDateString(data['StartDate'], undefined, 'eventFull')
+	const date = getDateString(data['StartDate'], undefined, 'eventFull', lang)
 
 	return (
 		<>
@@ -105,8 +108,8 @@ const ProgramDetail = ({id, data, isOpened}) => {
 	const { t, lang } = useTranslation('page')
 
 	const imageData = getImageData(data['Image'], "medium")
-	const description = data['CardText']
-	const shortDescription = data['DescriptionShort']
+	const description = getLocData(data, 'CardText', lang)
+	const shortDescription = getLocData(data, 'DescriptionShort', lang)
 	const color = getColor(data['Profile'])
 	const registrationLink = data['RegistrationLink']
 

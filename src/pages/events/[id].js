@@ -72,13 +72,13 @@ const EventPage = ({eventData}) => {
 							<EventTypeTag label={'Event Type'} eventType={eventType} profile={profile} />
 							<div>
 								<span className={'subtitle-small'}>Start: </span>
-								<span>{getDateString(startDate, undefined, 'eventFull')}</span>
+								<span>{getDateString(startDate, undefined, 'eventFull', lang)}</span>
 							</div>
 							{
 								(endDate && endDate !== null) &&
 								<div>
 									<span className={'subtitle-small'}>End: </span>
-									<span>{getDateString(endDate, undefined, 'eventFull')}</span>
+									<span>{getDateString(endDate, undefined, 'eventFull', lang)}</span>
 								</div>
 							}
 							{
