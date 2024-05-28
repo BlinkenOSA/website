@@ -6,7 +6,9 @@ export const fetchPartnerProjects = () => {
         'populate[0]': 'Image',
         'populate[1]': 'StartDate',
         'populate[2]': 'EndDate',
-        'populate[3]': 'locations'
+        'populate[3]': 'locations',
+        'populate[4]': 'localizations',
+        'populate[5]': 'localizations.Image'
     }
 
     return fetcher('projects', params)
@@ -22,6 +24,10 @@ export const fetchPartnerProjectsDetail = (slug) => {
         'populate[4]': 'Content.Image',
         'populate[5]': 'Content.Images.Image',
         'populate[6]': 'Content.Image.Image',
+        'populate[7]': 'localizations',
+        'populate[8]': 'localizations.Content',
+        'populate[9]': 'localizations.Content.Image',
+        'populate[10]': 'localizations.Content.Images.Image',
         'filters[Slug][$eq]': slug
     }
 
@@ -34,7 +40,9 @@ export const fetchArchivalProjects = () => {
         'populate[0]': 'Image',
         'populate[1]': 'StartDate',
         'populate[2]': 'EndDate',
-        'populate[3]': 'locations'
+        'populate[3]': 'locations',
+        'populate[4]': 'localizations',
+        'populate[5]': 'localizations.Image'
     }
 
     return fetcher('projects', params)
@@ -50,6 +58,10 @@ export const fetchArchivalProjectsDetail = (slug) => {
         'populate[4]': 'Content.Image',
         'populate[5]': 'Content.Images.Image',
         'populate[6]': 'Content.Image.Image',
+        'populate[7]': 'localizations',
+        'populate[8]': 'localizations.Content',
+        'populate[9]': 'localizations.Content.Image',
+        'populate[10]': 'localizations.Content.Images.Image',
         'filters[Slug][$eq]': slug
     }
 
@@ -63,7 +75,9 @@ export const fetchPublicHistoryProjects = () => {
         'populate[0]': 'Image',
         'populate[1]': 'StartDate',
         'populate[2]': 'EndDate',
-        'populate[3]': 'locations'
+        'populate[3]': 'locations',
+        'populate[4]': 'localizations',
+        'populate[5]': 'localizations.Image'
     }
 
     return fetcher('projects', params)
@@ -79,6 +93,10 @@ export const fetchPublicHistoryProjectsDetail = (slug) => {
         'populate[4]': 'Content.Image',
         'populate[5]': 'Content.Images.Image',
         'populate[6]': 'Content.Image.Image',
+        'populate[7]': 'localizations',
+        'populate[8]': 'localizations.Content',
+        'populate[9]': 'localizations.Content.Image',
+        'populate[10]': 'localizations.Content.Images.Image',
         'filters[Slug][$eq]': slug
     }
 
