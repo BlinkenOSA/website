@@ -15,7 +15,7 @@ const EventCard = ({id, data}) => {
     const {lang} = useTranslation('cards')
 
     // Populate fields
-    const date = getDateString(data['StartDate'], undefined)
+    const date = getDateString(data['StartDate'], undefined, 'event', lang)
     const title = getLocData(data, 'Title', lang)
     const description = getLocData(data, 'CardText', lang)
     const imageData = getImageData(data['Image'], 'medium')
