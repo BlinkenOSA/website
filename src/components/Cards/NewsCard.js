@@ -12,7 +12,7 @@ import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
 
 const NewsCard = ({ id, data}) => {
-    const {lang} = useTranslation('cards')
+    const {t, lang} = useTranslation('cards')
 
     // Populate fields
     const originalDate = data['OriginalCreationDate']
@@ -44,8 +44,8 @@ const NewsCard = ({ id, data}) => {
               </div>
           </Link>
           <div className={style.Header}>
-              <div className={`${style.EventType} subtitle-small`}>{data['ActivityType']}</div>
-              <div className={style.Date}>{getCreationDate(originalDate, date)}</div>
+              <div className={`${style.EventType} subtitle-small`}>{t(`filters:eventType__filter__${data['ActivityType'].toLowerCase().replace(' ', '_')}`)}</div>
+              <div className={style.Date}>{getCreationDate(originalDate, date, lang)}</div>
           </div>
           <Link href={`/news/${slug ? slug : id}`}>
             <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 60)}</h3>

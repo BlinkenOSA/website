@@ -68,7 +68,7 @@ const EntryPage = ({entriesData}) => {
 							<div className={style.CreationDate}>
 								<LabeledData
 									marginBottom={0}
-									data={getCreationDate(originalCreationDate, createdAt)}
+									data={getCreationDate(originalCreationDate, createdAt, lang)}
 									label={'Published'}/>
 							</div>
 						</Col>

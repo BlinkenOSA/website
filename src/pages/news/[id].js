@@ -65,7 +65,7 @@ const NewsPage = ({newsData}) => {
 					<Row>
 						<Col xs={6}>
 							<div>
-								<span>{getCreationDate(originalCreationDate, createdAt)}</span>
+								<span>{getCreationDate(originalCreationDate, createdAt, lang)}</span>
 							</div>
 						</Col>
 						<Col xs={6}>

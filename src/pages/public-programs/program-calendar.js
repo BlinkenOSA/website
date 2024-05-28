@@ -1,6 +1,5 @@
 import {fetchPrograms} from "@/utils/api/fetchPrograms";
 import style from "./style.module.scss";
-import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {Col, Container, OverlayTrigger, Row, Tooltip} from "react-bootstrap";
 import HorizontalFilters from "@/components/Filters/HorizontalFilters";
 import DropdownFilter from "@/components/Filters/DropdownFilter";
@@ -26,6 +25,7 @@ import {hostingTypeFilterValues} from "@/utils/filterValues/hostingTypeFilterVal
 import {languageFilterValues} from "@/utils/filterValues/languageFilterValues";
 import {programTypeFilterValues} from "@/utils/filterValues/programTypeFilterValues";
 import Head from "next/head";
+import getLocData from "@/utils/content/getLocData";
 
 export const getServerSideProps = (async (context) => {
 	const parameters = context.query;
@@ -72,12 +72,15 @@ const ToolTipStuff = ({ id, children, title }) => (
 );
 
 const ProgramDataRow = ({id, index, data, onTitleClick}) => {
+	const { t, lang } = useTranslation('page')
+
 	const color = getColor(data['Profile'])
 	const icon = getIconByType(data['EventType'], 'normal', color)
-	const title = data['Title']
+	const title = getLocData(data, 'Title', lang)
 	const language = data['Language']
 	const hostingType = data['HostingType']
-	const date = getDateString(data['StartDate'], undefined, 'eventFull')
+	const eventType = t(`filters:eventType__filter__${data['EventType'].toLowerCase().replace(' ', '_')}`)
+	const date = getDateString(data['StartDate'], undefined, 'eventFull', lang)
 
 	return (
 		<>
@@ -86,7 +89,7 @@ const ProgramDataRow = ({id, index, data, onTitleClick}) => {
 					<div className={'subtitle-small'}>{date}</div>
 				</Col>
 				<Col xs={{ span: 2, order: 2 }} sm={1} className={style.Icon}>
-					<ToolTipStuff id={id} title={data['EventType']}>
+					<ToolTipStuff id={id} title={eventType}>
 						{icon}
 					</ToolTipStuff>
 				</Col>
@@ -105,8 +108,8 @@ const ProgramDetail = ({id, data, isOpened}) => {
 	const { t, lang } = useTranslation('page')
 
 	const imageData = getImageData(data['Image'], "medium")
-	const description = data['CardText']
-	const shortDescription = data['DescriptionShort']
+	const description = getLocData(data, 'CardText', lang)
+	const shortDescription = getLocData(data, 'DescriptionShort', lang)
 	const color = getColor(data['Profile'])
 	const registrationLink = data['RegistrationLink']
 
