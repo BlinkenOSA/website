@@ -171,7 +171,7 @@ const EntriesPage = ({initialData}) => {
     return (
         <>
             <Head>
-                <title>Blinken OSA Archivum - {t('entries__title')}</title>
+                <title>Blinken OSA Archivum | {t('entries__title')}</title>
             </Head>
             <div className={style.Page}>
                 <Container>

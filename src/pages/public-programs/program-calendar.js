@@ -227,7 +227,7 @@ const ProgramCalendarPage = ({initialData}) => {
 	return (
 		<>
 			<Head>
-				<title>Blinken OSA Archivum - {t('program_calendar__title')}</title>
+				<title>Blinken OSA Archivum | {t('program_calendar__title')}</title>
 			</Head>
 			<Col className={style.Page}>
 				<Container>

@@ -14,7 +14,7 @@ const Custom505Page = () => {
 	return (
 		<>
 			<Head>
-				<title>Blinken OSA Archivum - Server Error - 500</title>
+				<title>Blinken OSA Archivum | Server Error - 500</title>
 			</Head>
 			<div className={pageStyle.Page} style={{position: 'relative'}}>
 				<div className={style.Wrapper}>

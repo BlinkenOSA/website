@@ -15,6 +15,7 @@ import PageHeader from "@/components/PageHeader/PageHeader";
 import {Media} from "@/utils/media";
 import Button from "@/components/Button/Button";
 import {Collapse} from 'react-collapse';
+import Head from "next/head";
 
 const server = process.env.NEXT_PUBLIC_MEILISEARCH_URL
 const key = process.env.NEXT_PUBLIC_MEILISEARCH_API_KEY
@@ -69,67 +70,72 @@ const SearchPage = ({ serverState, serverUrl }) => {
 	}
 
 	return (
-		<div className={style.Page}>
-			<PageHeader title={'Search'} image={'/images/search.jpg'} isBlur={true} />
-			<Container>
-				<InstantSearchSSRProvider {...serverState}>
-					<InstantSearch
-						indexName="website"
-						searchClient={searchClient}
-						routing={{
-							router: createInstantSearchRouterNext({ singletonRouter, serverUrl,
-								routerOptions: {
-									cleanUrlOnDispose: false,
-								},
-							}),
-						}}
-						future={{
-							preserveSharedStateOnUnmount: true,
-						}}
-					>
-						<div className={searchStyle.Wrapper}>
-							<Row>
-								<Col xs={12} sm={3} md={3}>
-									<Media greaterThanOrEqual={'sm'}>
-										<div className={searchStyle.FiltersWrapper}>
-											<div className="subtitle-large">Filter by Type</div>
-											<RefinementList attribute="type" operator="and" />
-										</div>
-									</Media>
-									<Media lessThan={'sm'}>
-										<Button type={'primary'} color={'neutral'} size={'medium'} onClick={() => setFilterShown(!filterShown)}>
-											{filterShown ? `Close Filter` : `Open Filter`}
-										</Button>
-										<Spacer/>
-										<Collapse isOpened={filterShown}>
+		<>
+			<Head>
+				<meta name="robots" content="noindex,nofollow" key="robots" />
+			</Head>
+			<div className={style.Page}>
+				<PageHeader title={'Search'} image={'/images/search.jpg'} isBlur={true} />
+				<Container>
+					<InstantSearchSSRProvider {...serverState}>
+						<InstantSearch
+							indexName="website"
+							searchClient={searchClient}
+							routing={{
+								router: createInstantSearchRouterNext({ singletonRouter, serverUrl,
+									routerOptions: {
+										cleanUrlOnDispose: false,
+									},
+								}),
+							}}
+							future={{
+								preserveSharedStateOnUnmount: true,
+							}}
+						>
+							<div className={searchStyle.Wrapper}>
+								<Row>
+									<Col xs={12} sm={3} md={3}>
+										<Media greaterThanOrEqual={'sm'}>
 											<div className={searchStyle.FiltersWrapper}>
 												<div className="subtitle-large">Filter by Type</div>
 												<RefinementList attribute="type" operator="and" />
-												<Spacer/>
 											</div>
-										</Collapse>
-									</Media>
-								</Col>
-								<Col xs={12} sm={9} md={9}>
-									<SiteSearchBox />
-									<Spacer size={'small'}/>
-									<SiteSearchPagination
-										showFirst={false}
-										showLast={false}
-									/>
-									<Hits hitComponent={SiteSearchHitCard} />
-									<SiteSearchPagination
-										showFirst={false}
-										showLast={false}
-									/>
-									<Spacer />
-								</Col>
-							</Row>
-						</div>
-					</InstantSearch>
-				</InstantSearchSSRProvider>
-			</Container>
-		</div>
+										</Media>
+										<Media lessThan={'sm'}>
+											<Button type={'primary'} color={'neutral'} size={'medium'} onClick={() => setFilterShown(!filterShown)}>
+												{filterShown ? `Close Filter` : `Open Filter`}
+											</Button>
+											<Spacer/>
+											<Collapse isOpened={filterShown}>
+												<div className={searchStyle.FiltersWrapper}>
+													<div className="subtitle-large">Filter by Type</div>
+													<RefinementList attribute="type" operator="and" />
+													<Spacer/>
+												</div>
+											</Collapse>
+										</Media>
+									</Col>
+									<Col xs={12} sm={9} md={9}>
+										<SiteSearchBox />
+										<Spacer size={'small'}/>
+										<SiteSearchPagination
+											showFirst={false}
+											showLast={false}
+										/>
+										<Hits hitComponent={SiteSearchHitCard} />
+										<SiteSearchPagination
+											showFirst={false}
+											showLast={false}
+										/>
+										<Spacer />
+									</Col>
+								</Row>
+							</div>
+						</InstantSearch>
+					</InstantSearchSSRProvider>
+				</Container>
+			</div>
+		</>
 	)
 }
 

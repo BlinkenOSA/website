@@ -12,11 +12,16 @@ import MobileMenu from "@/components/Menu/mobile/MobileMenu";
 import {MenuProvider} from "@/utils/context/MenuContext";
 import {SearchProvider} from "@/utils/context/SearchContext";
 import MenuOpenButton from "@/components/Layout/desktop/MenuOpenButton";
+import Head from "next/head";
+import React from "react";
 
 const Layout = ({ children }) => {
     return (
         <MenuProvider>
             <SearchProvider>
+                <Head>
+                    <meta name="robots" content="all" key="robots" />
+                </Head>
                 <div className={style.Header}>
                     <Media greaterThanOrEqual="md">
                         <DesktopHeader />

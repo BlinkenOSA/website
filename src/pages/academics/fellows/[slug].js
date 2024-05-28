@@ -67,7 +67,7 @@ const FellowPage = ({fellowData}) => {
     return (
         <>
             <Head>
-                <title>Blinken OSA Archivum - {name}</title>
+                <title>Blinken OSA Archivum | {name}</title>
             </Head>
             <div className={style.Page}>
                 <Container>
