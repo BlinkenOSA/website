@@ -31,7 +31,7 @@ const getDateString = (dateString, format, type = 'event', lang='en') => {
     let template = ''
     switch (type) {
         case 'event':
-            template = lang === 'en' ? 'h:mm A, MMMM DD' : 'MMMM DD, HH:mm'
+            template = lang === 'en' ? 'h:mm A, MMMM DD' : 'MMMM D. HH:mm'
             break
         case 'eventFull':
             template = lang === 'en' ? 'MMMM D, YYYY - h:mm A' : 'YYYY. MMMM D. HH:mm'
