@@ -1,6 +1,5 @@
 import {fetchPrograms} from "@/utils/api/fetchPrograms";
 import style from "./style.module.scss";
-import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {Col, Container, OverlayTrigger, Row, Tooltip} from "react-bootstrap";
 import HorizontalFilters from "@/components/Filters/HorizontalFilters";
 import DropdownFilter from "@/components/Filters/DropdownFilter";
@@ -80,6 +79,7 @@ const ProgramDataRow = ({id, index, data, onTitleClick}) => {
 	const title = getLocData(data, 'Title', lang)
 	const language = data['Language']
 	const hostingType = data['HostingType']
+	const eventType = t(`filters:eventType__filter__${data['EventType'].toLowerCase().replace(' ', '_')}`)
 	const date = getDateString(data['StartDate'], undefined, 'eventFull', lang)
 
 	return (
@@ -89,7 +89,7 @@ const ProgramDataRow = ({id, index, data, onTitleClick}) => {
 					<div className={'subtitle-small'}>{date}</div>
 				</Col>
 				<Col xs={{ span: 2, order: 2 }} sm={1} className={style.Icon}>
-					<ToolTipStuff id={id} title={data['EventType']}>
+					<ToolTipStuff id={id} title={eventType}>
 						{icon}
 					</ToolTipStuff>
 				</Col>
