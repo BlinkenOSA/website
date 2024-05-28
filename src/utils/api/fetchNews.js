@@ -50,6 +50,8 @@ export const fetchNewsList = (page, profile, activityType) => {
     const params = {
         'sort[0]': 'createdAt:desc',
         'populate[0]': 'Image',
+        'populate[1]': 'localizations',
+        'populate[2]': 'localizations.Image',
         'pagination[page]': 1,
         'pagination[pageSize]': 12,
         'fields[0]': 'Title',

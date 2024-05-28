@@ -31,7 +31,11 @@ export const fetchEntriesDetail = (id) => {
         'populate[2]': 'Content.Image',
         'populate[3]': 'Content.Images.Image',
         'populate[4]': 'AuthorStaff',
-        'populate[5]': 'AuthorStaff.Image'
+        'populate[5]': 'AuthorStaff.Image',
+        'populate[6]': 'localizations',
+        'populate[7]': 'localizations.Content',
+        'populate[8]': 'localizations.Content.Image',
+        'populate[9]': 'localizations.Content.Images.Image'
     }
 
     if (isNaN(Number(id))) {
@@ -47,6 +51,8 @@ export const fetchEntriesList = (page, profile, entryType) => {
         'sort[0]': 'OriginalCreationDate:desc',
         'sort[1]': 'createdAt:desc',
         'populate[0]': 'Image',
+        'populate[1]': 'localizations',
+        'populate[2]': 'localizations.Image',
         'pagination[page]': 1,
         'pagination[pageSize]': 12,
         'fields[0]': 'Title',
@@ -55,7 +61,7 @@ export const fetchEntriesList = (page, profile, entryType) => {
         'fields[4]': 'EntryType',
         'fields[5]': 'OriginalCreationDate',
         'fields[6]': 'createdAt',
-        'fields[7]': 'Slug'
+        'fields[7]': 'Slug',
     }
 
     if (profile) {

@@ -15,6 +15,8 @@ export const fetchPrograms = (type='All', language, hostingType) => {
 		'fields[9]': 'DescriptionShort',
 		'fields[10]': 'Slug',
 		'populate[0]': 'Image',
+		'populate[1]': 'localizations',
+		'populate[2]': 'localizations.Image',
 		'sort[0]': 'StartDate:desc',
 		'pagination[start]': 0,
 		'pagination[limit]': 100,
