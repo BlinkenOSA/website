@@ -47,6 +47,8 @@ export const fetchEntriesList = (page, profile, entryType) => {
         'sort[0]': 'OriginalCreationDate:desc',
         'sort[1]': 'createdAt:desc',
         'populate[0]': 'Image',
+        'populate[1]': 'localizations',
+        'populate[2]': 'localizations.Image',
         'pagination[page]': 1,
         'pagination[pageSize]': 12,
         'fields[0]': 'Title',

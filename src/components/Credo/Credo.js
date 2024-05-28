@@ -7,10 +7,14 @@ import Image from "next/image";
 import {Container} from "react-bootstrap";
 import getColor from "@/utils/content/getColor";
 import {motion} from "framer-motion"
+import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 const CredoCard = ({data, active}) => {
-    const weAreText = data['WeAre']
-    const credoText = data['CredoText']
+    const {lang} = useTranslation('page')
+
+    const weAreText = getLocData(data, 'WeAre', lang)
+    const credoText = getLocData(data, 'CredoText', lang)
     const type = data['Type']
 
     const titleVariants = {
