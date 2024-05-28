@@ -6,6 +6,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import getColor from "@/utils/content/getColor";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 const HeroV2 = ({data}) => {
     const { t, lang } = useTranslation('cards')
@@ -14,11 +15,11 @@ const HeroV2 = ({data}) => {
     const date = data['Date']
     const time = data['Time']
     const location = data['Location']
-    const title_1 = data['Title1stRow']
-    const title_2 = data['Title2ndRow']
-    const subtitle_1 = data['Subtitle1stRow']
-    const subtitle_2 = data['Subtitle2ndRow']
-    const buttonText = data['ButtonText']
+    const title_1 = getLocData(data ,'Title1stRow', lang)
+    const title_2 = getLocData(data, 'Title2ndRow', lang)
+    const subtitle_1 = getLocData(data, 'Subtitle1stRow', lang)
+    const subtitle_2 = getLocData(data, 'Subtitle2ndRow', lang)
+    const buttonText = getLocData(data, 'ButtonText', lang)
     const buttonLink = data['ButtonLink']
     const profile = data['Profile']
     const color = getColor(profile)
