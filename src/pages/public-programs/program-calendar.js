@@ -236,7 +236,7 @@ const ProgramCalendarPage = ({initialData}) => {
 				<Container>
 					<SimplePageHeader title={t('program_calendar__title')} menu={'public-programs'} breadCrumb={t('breadcrumb__public_programs')} />
 					<Row>
-						<Col xs={12} sm={12} md={6}>
+						<Col xs={12} sm={12} md={7}>
 							<Media greaterThan="sm">
 								<HorizontalFilters
 									values={programTypeFilterValues}
@@ -255,7 +255,7 @@ const ProgramCalendarPage = ({initialData}) => {
 								</div>
 							</Media>
 						</Col>
-						<Col xs={12} sm={12} md={6}>
+						<Col xs={12} sm={12} md={5}>
 							<Media greaterThanOrEqual="sm">
 								<div className={style.DropdownFiltersWrapper}>
 									<div>{t('filters:dropdown__filter__title')}</div>
