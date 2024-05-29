@@ -9,6 +9,7 @@ import DividerIcon from "@/components/Content/elements/DividerIcon";
 import TextBox from "@/components/Content/elements/TextBox";
 import Quote from "@/components/Content/elements/Quote";
 import ImageGallery from "@/components/Content/elements/ImageGallery";
+import Spacer from "@/components/Spacer/Spacer";
 
 const Content = ({contentObject, profile='Archivum'}) => {
 	const color = getColor(profile)
@@ -51,7 +52,7 @@ const Content = ({contentObject, profile='Archivum'}) => {
 					return (
 						<>
 							{ renderContent(co) }
-							<div style={{height: '24px'}} />
+							<Spacer size={'medium'} />
 						</>
 					)
 				})

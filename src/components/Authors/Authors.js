@@ -1,5 +1,6 @@
 import style from "./Authors.module.scss";
 import AuthorBadge from "@/components/Authors/AuthorBadge";
+import useTranslation from "next-translate/useTranslation";
 
 const Authors = ({author, authorStaff}) => {
     const aStaff = Array.isArray(authorStaff['data']) ? authorStaff['data'] : [authorStaff['data']]

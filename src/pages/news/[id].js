@@ -74,6 +74,7 @@ const NewsPage = ({newsData}) => {
 					</Row>
 					<Spacer size={'medium'} />
 					<Content contentObject={getLocData(data, 'Content', lang)} profile={profile}/>
+					<Spacer size={'medium'} />
 				</Container>
 			</div>
 		</>

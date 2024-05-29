@@ -69,7 +69,7 @@ const EntryPage = ({entriesData}) => {
 								<LabeledData
 									marginBottom={0}
 									data={getCreationDate(originalCreationDate, createdAt, lang)}
-									label={'Published'}/>
+									label={t('blog__published__text')}/>
 							</div>
 						</Col>
 						<Col xs={6}>
@@ -78,6 +78,7 @@ const EntryPage = ({entriesData}) => {
 					</Row>
 					<Spacer size={'medium'} />
 					<Content contentObject={getLocData(data,'Content', lang)} profile={profile} />
+					<Spacer size={'medium'} />
 				</Container>
 			</div>
 		</>

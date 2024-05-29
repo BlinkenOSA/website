@@ -60,5 +60,6 @@
   "event__venue__label": "Helyszín",
   "event__language__label": "Nyelv",
   "event__register__label": "Regisztráció",
-  "event__zoom__label": "Csatlakozás Zoom-on keresztül"
+  "event__zoom__label": "Csatlakozás Zoom-on keresztül",
+  "blog__published__text": "Közzétéve"
 }

@@ -60,5 +60,6 @@
   "event__hosting__label": "Hosting",
   "event__language__label": "Language",
   "event__register__label": "Register",
-  "event__zoom__label": "Join on Zoom"
+  "event__zoom__label": "Join on Zoom",
+  "blog__published__text": "Published"
 }
