@@ -8,5 +8,7 @@
   "collection_card__textual": "Szöveges",
   "collection_card__curated": "Tematikus",
   "collection_card__online": "Online",
-  "collection_card__audiovisual": "Audiovizuális"
+  "collection_card__audiovisual": "Audiovizuális",
+  "collection_card__item": "elem",
+  "collection_card__items": "elem"
 }
