@@ -77,8 +77,8 @@ const ProgramDataRow = ({id, index, data, onTitleClick}) => {
 	const color = getColor(data['Profile'])
 	const icon = getIconByType(data['EventType'], 'normal', color)
 	const title = getLocData(data, 'Title', lang)
-	const language = data['Language']
-	const hostingType = data['HostingType']
+	const language = data['Language'] && t(`filters:language__filter__${data['Language'].toLowerCase()}`)
+	const hostingType = t(`filters:hostingType__filter__${data['HostingType'].toLowerCase()}`)
 	const eventType = t(`filters:eventType__filter__${data['EventType'].toLowerCase().replace(' ', '_')}`)
 	const date = getDateString(data['StartDate'], undefined, 'eventFull', lang)
 
