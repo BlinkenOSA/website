@@ -52,5 +52,13 @@
   "program_calendar__table__title": "Title",
   "program_calendar__table__format_language": "Format / Language",
   "program_calendar__more_info": "More Info",
-  "program_calendar__registration": "Registration Link"
+  "program_calendar__registration": "Registration Link",
+  "event__eventType__label": "Event Type",
+  "event__start__label": "Start",
+  "event__end__label": "End",
+  "event__venue__label": "Venue",
+  "event__hosting__label": "Hosting",
+  "event__language__label": "Language",
+  "event__register__label": "Register",
+  "event__zoom__label": "Join on Zoom"
 }

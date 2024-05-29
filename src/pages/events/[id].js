@@ -39,9 +39,9 @@ const EventPage = ({eventData}) => {
 	const startDate = data['StartDate']
 	const endDate = data['EndDate']
 	const location = data['Location']
-	const language = data['Language']
-	const eventType = data['EventType']
-	const hostingType = data['HostingType']
+	const language = data['Language'] && t(`filters:language__filter__${data['Language'].toLowerCase()}`)
+	const hostingType = t(`filters:hostingType__filter__${data['HostingType'].toLowerCase()}`)
+	const eventType = t(`filters:eventType__filter__${data['EventType'].toLowerCase().replace(' ', '_')}`)
 	const profile = data['Profile']
 	const image = getImageUrl(data['Image'])
 	const zoomLink = data['ZoomLink']
@@ -69,34 +69,34 @@ const EventPage = ({eventData}) => {
 				<Container>
 					<Row>
 						<Col xs={12}>
-							<EventTypeTag label={'Event Type'} eventType={eventType} profile={profile} />
+							<EventTypeTag label={t('event__eventType__label')} eventType={eventType} profile={profile} />
 							<div>
-								<span className={'subtitle-small'}>Start: </span>
+								<span className={'subtitle-small'}>{t('event__start__label')}: </span>
 								<span>{getDateString(startDate, undefined, 'eventFull', lang)}</span>
 							</div>
 							{
 								(endDate && endDate !== null) &&
 								<div>
-									<span className={'subtitle-small'}>End: </span>
+									<span className={'subtitle-small'}>{t('event__end__label')}: </span>
 									<span>{getDateString(endDate, undefined, 'eventFull', lang)}</span>
 								</div>
 							}
 							{
 								(location && location !== null) &&
 								<div>
-									<span className={'subtitle-small'}>Venue: </span>
+									<span className={'subtitle-small'}>{t('event__venue__label')}: </span>
 									<span>{location}</span>
 								</div>
 							}
 							<div>
 								<div>
-									<span className={'subtitle-small'}>Hosting: </span>
+									<span className={'subtitle-small'}>{t('event__hosting__label')}: </span>
 									<span>{hostingType}</span>
 								</div>
 							</div>
 							<div>
 								<div>
-									<span className={'subtitle-small'}>Language: </span>
+									<span className={'subtitle-small'}>{t('event__language__label')}: </span>
 									<span>{language}</span>
 								</div>
 							</div>
@@ -107,11 +107,11 @@ const EventPage = ({eventData}) => {
 									<div className={style.Buttons}>
 										{
 											registrationLink && registrationLink !== null &&
-											<Button link={registrationLink} type={'primary'} size={'medium'} color={'neutral'}>Register</Button>
+											<Button link={registrationLink} type={'primary'} size={'medium'} color={'neutral'}>{t('event__register__label')}</Button>
 										}
 										{
 											zoomLink && zoomLink !== null &&
-											<Button link={registrationLink} type={'primary'} size={'medium'} color={'neutral'}>Join on Zoom</Button>
+											<Button link={registrationLink} type={'primary'} size={'medium'} color={'neutral'}>{t('event__zoom__label')}</Button>
 										}
 									</div>
 								</>
