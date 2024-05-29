@@ -26,7 +26,7 @@
   "job__filter__jobs": "Job",
   "job__filter__internships": "Internship",
   "job__filter__volunteering": "Volunteering",
-  "hostingType__filter__in_person": "In-Person",
+  "hostingType__filter__in-person": "In-Person",
   "hostingType__filter__hybrid": "Hybrid",
   "hostingType__filter__online": "Online",
   "language__filter__english": "English",
