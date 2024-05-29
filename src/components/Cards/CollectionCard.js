@@ -47,7 +47,7 @@ const CollectionCard = ({data}) => {
 
     const getSize = () => {
         if (size > 0) {
-            return `${size} ${size > 1 ? 'items' : 'item'}`
+            return `${size} ${size > 1 ? t('collection_card__items') : t('collection_card__item')}`
         }
     }
 

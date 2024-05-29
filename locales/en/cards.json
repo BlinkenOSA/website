@@ -8,5 +8,7 @@
   "collection_card__textual": "Textual",
   "collection_card__curated": "Curated",
   "collection_card__online": "Online",
-  "collection_card__audiovisual": "Audiovisual"
+  "collection_card__audiovisual": "Audiovisual",
+  "collection_card__item": "item",
+  "collection_card__items": "items"
 }
