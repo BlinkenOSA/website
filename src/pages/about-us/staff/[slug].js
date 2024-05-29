@@ -17,6 +17,7 @@ import BlockContent from "@/components/Content/BlockContent";
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
 import React from "react";
+import getLocData from "@/utils/content/getLocData";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -50,9 +51,9 @@ const StaffPage = ({staffData}) => {
 
     const firstName = data['FirstName']
     const lastName = data['LastName']
-    const bio = data['Bio']
-    const position = data['Position']
-    const unit = data['Unit']
+    const bio = getLocData(data, 'Bio', lang)
+    const position = getLocData(data, 'Position', lang)
+    const unit = getLocData(data, 'Unit', lang)
     const email = data['Email']
     const image = getImageUrl(data['Image'])
     const appearences = data['Appearances']['data']
