@@ -98,6 +98,7 @@ const StaffPage = ({initialData}) => {
 								</SWRConfig>
 							</Row>
 						</Col>
+						<Spacer size={'medium'} />
 					</Row>
 				</Container>
 			</div>

@@ -12,13 +12,6 @@ dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.extend(updateLocale)
 
-dayjs.updateLocale('hu', {
-    months: [
-        "Január", "Február", "Március", "Április", "Május", "Június", "Július",
-        "Augusztus", "Szeptember", "Október", "November", "December"
-    ]
-})
-
 const getDateString = (dateString, format, type = 'event', lang='en') => {
     let dateTime;
 
@@ -31,6 +24,12 @@ const getDateString = (dateString, format, type = 'event', lang='en') => {
     let template = ''
     switch (type) {
         case 'event':
+            dayjs.updateLocale('hu', {
+                months: [
+                    "Január", "Február", "Március", "Április", "Május", "Június", "Július",
+                    "Augusztus", "Szeptember", "Október", "November", "December"
+                ]
+            })
             template = lang === 'en' ? 'h:mm A, MMMM DD' : 'MMMM D. HH:mm'
             break
         case 'eventFull':
