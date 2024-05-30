@@ -39,7 +39,7 @@ const CollectionsBackground = ({backgroundStatus}) => {
                                 style={{zIndex: 1}}
                             >
                                 <Image
-                                    priority
+                                    priority={true}
                                     src={collectionsTopLeft}
                                     width={300}
                                     height={300}
@@ -57,7 +57,7 @@ const CollectionsBackground = ({backgroundStatus}) => {
                                 style={{zIndex: 1}}
                             >
                                 <Image
-                                    priority
+                                    priority={true}
                                     src={collectionsBottomLeft}
                                     width={300}
                                     height={300}
@@ -76,7 +76,7 @@ const CollectionsBackground = ({backgroundStatus}) => {
                             style={{zIndex: 1}}
                         >
                             <Image
-                                priority
+                                priority={true}
                                 src={collectionsMiddle}
                                 width={300}
                                 height={300}
@@ -94,7 +94,7 @@ const CollectionsBackground = ({backgroundStatus}) => {
                             style={{zIndex: 1}}
                         >
                             <Image
-                                priority
+                                priority={true}
                                 src={collectionsTopRight}
                                 width={300}
                                 height={300}

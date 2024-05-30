@@ -25,7 +25,7 @@ const AboutUsBackground = ({backgroundStatus}) => {
                             style={{zIndex: 2}}
                         >
                         <Image
-                            priority
+                            priority={true}
                             src={aboutUsLeft}
                             width={300}
                             height={300}
@@ -43,7 +43,7 @@ const AboutUsBackground = ({backgroundStatus}) => {
                             style={{zIndex: 1}}
                         >
                             <Image
-                                priority
+                                priority={true}
                                 src={aboutUsRight}
                                 width={300}
                                 height={300}

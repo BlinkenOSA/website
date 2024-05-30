@@ -8,7 +8,7 @@ const Logo = ({mode, height, link}) => {
 		return (
 			<Link href={'/'} style={{display: "inline-block", height: height}}>
 				<Image
-					priority
+					priority={true}
 					src={mode === 'dark' ? logoDark : logoLight}
 					height={height}
 					alt="Blinken OSA Archivum"

@@ -34,7 +34,6 @@ const MaskedImage = ({src, aspectRatio, type='landscape', alt="Image", mask=true
                 <Image
                     alt={alt}
                     src={src}
-                    priority={true}
                     fill={true}
                 /> : <div className={style.Placeholder} />
             }

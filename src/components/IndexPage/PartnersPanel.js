@@ -29,7 +29,7 @@ const PartnersPanel = () => {
                             </div>
                             <div className={style.Logo}>
                                 <Image
-                                    priority
+                                    priority={true}
                                     src={galeriaLogo}
                                     height={20}
                                     alt="Galeria Centralis Logo"
@@ -55,7 +55,7 @@ const PartnersPanel = () => {
                             </div>
                             <div className={style.Logo}>
                                 <Image
-                                    priority
+                                    priority={true}
                                     src={verzioLogo}
                                     height={40}
                                     alt="Verzio Logo"
