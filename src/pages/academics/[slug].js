@@ -7,6 +7,7 @@ import getImageUrl from "@/utils/content/getImageUrl";
 import Head from "next/head";
 import getLocData from "@/utils/content/getLocData";
 import useTranslation from "next-translate/useTranslation";
+import TranslationChecker from "@/components/TranslationChecker/TranslationChecker";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -47,6 +48,7 @@ const StaticPage = ({pageData}) => {
                     menu={'academics'}
                     scrollScale={0.5} />
                 <Container>
+                    <TranslationChecker data={data}/>
                     <Content contentObject={getLocData(data, 'Content', lang)} profile={'Academics'} />
                 </Container>
             </div>

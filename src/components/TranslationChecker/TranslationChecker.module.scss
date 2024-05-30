@@ -1,0 +1,10 @@
+@import "@/styles/colors.scss";
+@import "@/styles/variables.scss";
+
+.TranslationCheckerBox {
+  padding: 20px 40px;
+  background-color: $neutral_200;
+  display: inline-block;
+  -webkit-clip-path: polygon(10% 0, 100% 0, 100% 95%, 90% 100%, 0 100%, 0 5%);
+  clip-path: polygon(10% 0, 100% 0, 100% 95%, 90% 100%, 0 100%, 0 5%);
+}

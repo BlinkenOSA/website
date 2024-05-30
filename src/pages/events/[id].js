@@ -11,6 +11,7 @@ import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
 import Head from "next/head";
+import TranslationChecker from "@/components/TranslationChecker/TranslationChecker";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -69,6 +70,7 @@ const EventPage = ({eventData}) => {
 				<Container>
 					<Row>
 						<Col xs={12}>
+							<TranslationChecker data={data}/>
 							<EventTypeTag label={t('event__eventType__label')} eventType={eventType} profile={profile} />
 							<div>
 								<span className={'subtitle-small'}>{t('event__start__label')}: </span>

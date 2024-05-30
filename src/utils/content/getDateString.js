@@ -33,6 +33,12 @@ const getDateString = (dateString, format, type = 'event', lang='en') => {
             template = lang === 'en' ? 'h:mm A, MMMM DD' : 'MMMM D. HH:mm'
             break
         case 'eventFull':
+            dayjs.updateLocale('hu', {
+                months: [
+                    "január", "február", "március", "április", "május", "június", "július",
+                    "augusztus", "szeptember", "október", "november", "december"
+                ]
+            })
             template = lang === 'en' ? 'MMMM D, YYYY - h:mm A' : 'YYYY. MMMM D. HH:mm'
             break
         case 'fellow':

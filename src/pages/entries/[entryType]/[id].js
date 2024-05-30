@@ -11,6 +11,7 @@ import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
 import getLocData from "@/utils/content/getLocData";
+import TranslationChecker from "@/components/TranslationChecker/TranslationChecker";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -63,6 +64,7 @@ const EntryPage = ({entriesData}) => {
 					isBlur={true}
 				/>
 				<Container>
+					<TranslationChecker data={data}/>
 					<Row>
 						<Col xs={6}>
 							<div className={style.CreationDate}>
