@@ -7,6 +7,7 @@ import getImageUrl from "@/utils/content/getImageUrl";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
 import Head from "next/head";
+import TranslationChecker from "@/components/TranslationChecker/TranslationChecker";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -47,6 +48,7 @@ const StaticPage = ({pageData}) => {
                     image={image}
                     scrollScale={0.5}/>
                 <Container>
+                    <TranslationChecker data={data}/>
                     <Content contentObject={getLocData(data, 'Content', lang)} profile={'Archivum'} />
                 </Container>
             </div>

@@ -10,6 +10,7 @@ import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
 import Head from "next/head";
+import TranslationChecker from "@/components/TranslationChecker/TranslationChecker";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -62,6 +63,7 @@ const NewsPage = ({newsData}) => {
 					isBlur={true}
 				/>
 				<Container>
+					<TranslationChecker data={data}/>
 					<Row>
 						<Col xs={6}>
 							<div>
