@@ -23,7 +23,7 @@ const HeroV2 = ({data}) => {
     const buttonLink = data['ButtonLink']
     const profile = data['Profile']
     const color = getColor(profile)
-    const image = getImageUrl(data['Image'])
+    const image = getImageUrl(data['Image'], 'full')
 
     const generateButton = () => {
         if (buttonText !== null) {
@@ -106,7 +106,7 @@ const HeroV2 = ({data}) => {
                 </Row>
             </Container>
             <div className={style.PosterWrapper}>
-                <MaskedImage src={image} type={'hero'}/>
+                <MaskedImage src={image} priority={true} type={'hero'}/>
             </div>
             <div className={`${style.Background} ${style[color]}`}/>
         </div>
