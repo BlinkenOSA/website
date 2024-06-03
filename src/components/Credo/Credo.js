@@ -91,7 +91,6 @@ const CredoCard = ({data, active}) => {
                         variants={logoVariants}
                         className={style.Logo}>
                         <Image
-                            priority
                             src={getImage()}
                             height={400}
                             alt="Blinken OSA Archivum"

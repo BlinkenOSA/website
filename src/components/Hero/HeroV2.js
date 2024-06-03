@@ -8,7 +8,7 @@ import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
 
-const HeroV2 = ({data}) => {
+const HeroV2 = ({data, index}) => {
     const { t, lang } = useTranslation('cards')
 
     // Populate fields
@@ -106,7 +106,7 @@ const HeroV2 = ({data}) => {
                 </Row>
             </Container>
             <div className={style.PosterWrapper}>
-                <MaskedImage src={image} priority={true} type={'hero'}/>
+                <MaskedImage src={image} priority={index === 0} type={'hero'}/>
             </div>
             <div className={`${style.Background} ${style[color]}`}/>
         </div>

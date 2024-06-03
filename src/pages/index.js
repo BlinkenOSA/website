@@ -53,8 +53,9 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 
 	const renderHeroes = () => {
 		const renderHero = () => {
-			return heroData["data"].map(hero => {
+			return heroData["data"].map((hero, index) => {
 				return <Hero
+					index={index}
 					key={`hero_${hero["id"]}`}
 					data={hero['attributes']}
 				/>
