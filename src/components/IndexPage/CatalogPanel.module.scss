@@ -22,12 +22,20 @@
     height: 100%;
     z-index: 2;
 
+    .Left {
+      display: flex;
+      flex-direction: column;
+    }
+
     h1 {
       color: #FFFFFF;
       margin-bottom: 16px;
     }
 
-    p {
+    .CatalogText {
+      display: flex;
+      align-items: center;
+      min-height: 200px;
       padding: 24px;
       margin-left: 24px;
       color: #FFFFFF;

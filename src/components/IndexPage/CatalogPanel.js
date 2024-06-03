@@ -33,7 +33,7 @@ const CatalogPanel = () => {
             />
             <div className={style.Overlay}>
                 <Container>
-                    <Row>
+                    <Row style={{alignItems: "center"}}>
                         <Col xs={12} sm={6} md={4} className={style.Left}>
                             <Link href={'https://catalog.osaarchivum.org/'} target={'_blank'}>
                                 <h1>{t('catalog')}</h1>
@@ -44,10 +44,12 @@ const CatalogPanel = () => {
                             <Spacer />
                         </Media>
                         <Col xs={12} sm={6} md={8}>
-                            {
-                                startAnimation &&
-                                <Typewriter text={t('catalog__text')} />
-                            }
+                            <div className={style.CatalogText}>
+                                {
+                                    startAnimation &&
+                                    <Typewriter text={t('catalog__text')} />
+                                }
+                            </div>
                         </Col>
                     </Row>
                 </Container>
