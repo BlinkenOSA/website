@@ -146,7 +146,7 @@ const StaffPage = ({staffData}) => {
                         </>
                     }
                 </Container>
-                <Spacer size={'medium'} />
+                <Spacer />
             </div>
         </>
     )
