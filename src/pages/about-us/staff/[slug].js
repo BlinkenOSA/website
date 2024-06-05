@@ -143,10 +143,10 @@ const StaffPage = ({staffData}) => {
                                     </Tabs>
                                 </Col>
                             </Row>
-                            <Spacer />
                         </>
                     }
                 </Container>
+                <Spacer size={'medium'} />
             </div>
         </>
     )
