@@ -36,7 +36,7 @@ const AcademicsBackground = ({backgroundStatus}) => {
                             style={{zIndex: 1}}
                         >
                             <Image
-                                priority
+                                priority={true}
                                 src={academicsTop}
                                 width={300}
                                 height={300}
@@ -55,7 +55,7 @@ const AcademicsBackground = ({backgroundStatus}) => {
                                 style={{zIndex: 1}}
                             >
                                 <Image
-                                    priority
+                                    priority={true}
                                     src={academicsBottomLeft}
                                     width={300}
                                     height={300}
@@ -73,7 +73,7 @@ const AcademicsBackground = ({backgroundStatus}) => {
                                 style={{zIndex: 1}}
                             >
                                 <Image
-                                    priority
+                                    priority={true}
                                     src={academicsBottomRight}
                                     width={300}
                                     height={300}

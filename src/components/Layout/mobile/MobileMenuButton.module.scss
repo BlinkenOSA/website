@@ -54,7 +54,7 @@
 
   &.Opened span:nth-child(1) {
     top: 8px;
-    width: 0%;
+    width: 0;
     left: 50%;
   }
 
@@ -74,7 +74,7 @@
 
   &.Opened span:nth-child(4) {
     top: 14px;
-    width: 0%;
+    width: 0;
     left: 50%;
   }
 }

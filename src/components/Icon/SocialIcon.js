@@ -7,7 +7,6 @@ import Image from "next/image";
 
 const SocialIconBase = ({src}) => {
     return <Image
-        priority
         src={src}
         width={16}
         height={16}

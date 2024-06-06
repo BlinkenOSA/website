@@ -9,7 +9,6 @@ import Layout from "@/components/Layout/Layout";
 import PageProgressBar from "@/components/PageProgressBar/PageProgressBar";
 
 const suisseIntlRegular = localFont({src: '../../public/fonts/SuisseIntl-Regular-WebXL.woff2', variable: "--font-suisseIntlRegular"})
-const suisseIntlBook = localFont({src: '../../public/fonts/SuisseIntl-Book-WebXL.woff2', variable: "--font-suisseIntlBook"})
 const suisseIntlMedium = localFont({src: '../../public/fonts/SuisseIntl-Medium-WebXL.woff2', variable: "--font-suisseIntlMedium"})
 const suisseIntlSemiBold = localFont({src: '../../public/fonts/SuisseIntl-SemiBold-WebXL.woff2', variable: "--font-suisseIntlSemiBold"})
 
@@ -24,7 +23,7 @@ export default function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main
-        className={`${suisseIntlRegular.variable} ${suisseIntlBook.variable} ${suisseIntlMedium.variable} ${suisseIntlSemiBold.variable}`}
+        className={`${suisseIntlRegular.variable} ${suisseIntlMedium.variable} ${suisseIntlSemiBold.variable}`}
         style={{height: '100%'}}>
         <MediaContextProvider disableDynamicMediaQueries>
           <ThemeProvider

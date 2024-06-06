@@ -5,7 +5,7 @@ import Image from 'next/image';
  *
  * @param type One of 'landscape', 'portrait', 'hero'
  */
-const MaskedImage = ({src, aspectRatio, type='landscape', alt="Image", mask=true}) => {
+const MaskedImage = ({src, aspectRatio, priority=false, type='landscape', alt="Image", mask=true}) => {
     const getStyle = () => {
         if (aspectRatio) {
             return style.MaskedImageBase
@@ -34,8 +34,9 @@ const MaskedImage = ({src, aspectRatio, type='landscape', alt="Image", mask=true
                 <Image
                     alt={alt}
                     src={src}
-                    priority={true}
                     fill={true}
+                    priority={priority}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 /> : <div className={style.Placeholder} />
             }
         </div>

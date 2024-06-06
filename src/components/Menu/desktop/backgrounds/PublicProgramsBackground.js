@@ -38,7 +38,7 @@ const PublicProgramsBackground = ({backgroundStatus}) => {
                                 style={{zIndex: 1}}
                             >
                                 <Image
-                                    priority
+                                    priority={true}
                                     src={publicProgramsTopLeft}
                                     width={300}
                                     height={300}
@@ -56,7 +56,7 @@ const PublicProgramsBackground = ({backgroundStatus}) => {
                                 style={{zIndex: 1}}
                             >
                                 <Image
-                                    priority
+                                    priority={true}
                                     src={publicProgramsBottomLeft}
                                     width={300}
                                     height={300}
@@ -75,7 +75,7 @@ const PublicProgramsBackground = ({backgroundStatus}) => {
                             style={{zIndex: 1}}
                         >
                             <Image
-                                priority
+                                priority={true}
                                 src={publicProgramsRight}
                                 width={300}
                                 height={300}

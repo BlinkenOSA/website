@@ -53,8 +53,9 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 
 	const renderHeroes = () => {
 		const renderHero = () => {
-			return heroData["data"].map(hero => {
+			return heroData["data"].map((hero, index) => {
 				return <Hero
+					index={index}
 					key={`hero_${hero["id"]}`}
 					data={hero['attributes']}
 				/>
@@ -81,6 +82,12 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 					Cold War, grave international human rights violations and marginalized communities including
 					the Roma, LGBTQI+ people, and people living with disabilities."
 				/>
+				<meta property="og:title" content="Blinken OSA Archivum | Facts for real" />
+				<meta property="og:description" content="Blinken OSA Archvium - A complex archival institution, a repository of important
+					collections, historical documents, primarily related to the history and afterlives of the
+					Cold War, grave international human rights violations and marginalized communities including
+					the Roma, LGBTQI+ people, and people living with disabilities." />
+
 			</Head>
 			<div className={style.Page}>
 				{renderHeroes()}

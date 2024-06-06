@@ -16,7 +16,6 @@ const IconBase = ({src, size, color}) => {
 	return (
 		<div className={style[color]}>
 			<Image
-				priority
 				src={src}
 				width={getSize()}
 				height={getSize()}
