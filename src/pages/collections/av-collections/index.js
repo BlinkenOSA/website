@@ -9,7 +9,7 @@ import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Spacer from "@/components/Spacer/Spacer";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
-import {Head} from "next/document";
+import Head from "next/head";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchCollectionHighlightsList(100, 'AV')
