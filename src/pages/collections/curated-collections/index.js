@@ -9,7 +9,6 @@ import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
-import getLocData from "@/utils/content/getLocData";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchCollectionHighlightsList(100, 'Curated')
