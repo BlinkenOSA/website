@@ -47,26 +47,27 @@ const CollectionDetailPage = ({collectionData}) => {
             <Head>
                 <title>Blinken OSA Archivum | {title}</title>
             </Head>
-        <div className={style.Page}>
-            <Container>
-                <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
-                <Row>
-                    <Col xs={12}>
-                        <Content contentObject={content} profile={'Collections'} />
-                    </Col>
-                </Row>
+            <div className={style.Page}>
+                <Container>
+                    <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
+                    <Row>
+                        <Col xs={12}>
+                            <Content contentObject={content} profile={'Collections'} />
+                        </Col>
+                    </Row>
+                    <Spacer />
+                    {
+                        link &&
+                        <Button
+                            type={'primary'}
+                            size={'large'}
+                            color={'orange'}
+                            link={link}>{t('collections__visit_button__text')}</Button>
+                    }
+                </Container>
                 <Spacer />
-                {
-                    link &&
-                    <Button
-                        type={'primary'}
-                        size={'large'}
-                        color={'orange'}
-                        link={link}>{t('collections__visit_button__text')}</Button>
-                }
-            </Container>
-            <Spacer />
-        </div>
+            </div>
+        </>
     )
 }
 
