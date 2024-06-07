@@ -7,6 +7,7 @@ import Content from "@/components/Content/Content";
 import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
+import {Head} from "next/document";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -42,6 +43,10 @@ const CollectionDetailPage = ({collectionData}) => {
     ]
 
     return (
+        <>
+            <Head>
+                <title>Blinken OSA Archivum | {title}</title>
+            </Head>
         <div className={style.Page}>
             <Container>
                 <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />

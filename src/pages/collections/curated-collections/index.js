@@ -8,6 +8,8 @@ import clientFetcher from "@/utils/api/clientFetcher";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
+import Head from "next/head";
+import getLocData from "@/utils/content/getLocData";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchCollectionHighlightsList(100, 'Curated')
@@ -47,31 +49,36 @@ const CollectionHighlightsPage = ({initialData}) => {
     const { t, lang } = useTranslation('page')
 
     return (
-        <div className={style.Page}>
-            <Container>
-                <SimplePageHeader title={t('curated_collections__title')} menu={'collections'} breadCrumb={t('breadcrumb__collections')} />
-                <Row>
-                    <Col xs={12}>
-                        <div className={style.Description}>
-                            {
-                                <p>
-                                    {t('curated_collections__text01')}
-                                    <br/><br/>
-                                    {t('curated_collections__text02')}
-                                </p>
-                            }
-                        </div>
-                    </Col>
-                </Row>
-                <Spacer />
-                <Row>
-                    <SWRConfig value={{ fallback: initialData }}>
-                        <CollectionCards />
-                    </SWRConfig>
-                </Row>
-                <Spacer />
-            </Container>
-        </div>
+        <>
+            <Head>
+                <title>Blinken OSA Archivum | {t('curated_collections__title')}</title>
+            </Head>
+            <div className={style.Page}>
+                <Container>
+                    <SimplePageHeader title={t('curated_collections__title')} menu={'collections'} breadCrumb={t('breadcrumb__collections')} />
+                    <Row>
+                        <Col xs={12}>
+                            <div className={style.Description}>
+                                {
+                                    <p>
+                                        {t('curated_collections__text01')}
+                                        <br/><br/>
+                                        {t('curated_collections__text02')}
+                                    </p>
+                                }
+                            </div>
+                        </Col>
+                    </Row>
+                    <Spacer />
+                    <Row>
+                        <SWRConfig value={{ fallback: initialData }}>
+                            <CollectionCards />
+                        </SWRConfig>
+                    </Row>
+                    <Spacer />
+                </Container>
+            </div>
+        </>
     )
 }
 
