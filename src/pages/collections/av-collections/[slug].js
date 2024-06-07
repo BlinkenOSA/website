@@ -7,7 +7,7 @@ import Content from "@/components/Content/Content";
 import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
-import {Head} from "next/document";
+import Head from "next/head";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
