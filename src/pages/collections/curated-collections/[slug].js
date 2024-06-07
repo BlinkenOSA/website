@@ -6,6 +6,7 @@ import Button from "@/components/Button/Button";
 import Content from "@/components/Content/Content";
 import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -31,8 +32,8 @@ const CollectionDetailPage = ({collectionData}) => {
     const { t, lang } = useTranslation('page')
     const data = collectionData['data'][0]['attributes'];
 
-    const title = data['Title']
-    const content = data['Content']
+    const title = getLocData(data, 'Title', lang)
+    const content = getLocData(data, 'Content', lang)
     const link = data['Link']
 
     const breadCrumbObject = [
