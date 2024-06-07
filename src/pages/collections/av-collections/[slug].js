@@ -7,6 +7,7 @@ import Content from "@/components/Content/Content";
 import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
+import {Head} from "next/document";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -42,26 +43,31 @@ const CollectionDetailPage = ({collectionData}) => {
     ]
 
     return (
-        <div className={style.Page}>
-            <Container>
-                <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
-                <Row>
-                    <Col xs={12}>
-                        <Content contentObject={content} profile={'Collections'} />
-                    </Col>
-                </Row>
+        <>
+            <Head>
+                <title>Blinken OSA Archivum | {title}</title>
+            </Head>
+            <div className={style.Page}>
+                <Container>
+                    <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
+                    <Row>
+                        <Col xs={12}>
+                            <Content contentObject={content} profile={'Collections'} />
+                        </Col>
+                    </Row>
+                    <Spacer />
+                    {
+                        link &&
+                        <Button
+                            type={'primary'}
+                            size={'large'}
+                            color={'orange'}
+                            link={link}>{t('collections__visit_button__text')}</Button>
+                    }
+                </Container>
                 <Spacer />
-                {
-                    link &&
-                    <Button
-                        type={'primary'}
-                        size={'large'}
-                        color={'orange'}
-                        link={link}>{t('collections__visit_button__text')}</Button>
-                }
-            </Container>
-            <Spacer />
-        </div>
+            </div>
+        </>
     )
 }
 

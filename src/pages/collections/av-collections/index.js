@@ -9,6 +9,7 @@ import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Spacer from "@/components/Spacer/Spacer";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
+import {Head} from "next/document";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchCollectionHighlightsList(100, 'AV')
@@ -48,34 +49,39 @@ const CollectionHighlightsPage = ({initialData}) => {
     const { t, lang } = useTranslation('page')
 
     return (
-        <div className={style.Page}>
-            <Container>
-                <SimplePageHeader title={t('av_collections__title')} menu={'collections'} breadCrumb={t('breadcrumb__collections')} />
-                <Row>
-                    <Col xs={12}>
-                        <div className={style.Description}>
-                            {
-                                <p>
-                                    {t('av_collections__text01')}<br/><br/>
-                                    {t('av_collections__text02')}<br/><br/>
-                                    {t('av_collections__text03a')}
-                                    &nbsp;<Link href={'/collections/online-collections'}>{t('av_collections__link01')}</Link>&nbsp;
-                                    {t('av_collections__text03b')}
-                                    &nbsp;<Link href={'https://catalog.osaarchivum.org/registration'} target={'_blank'}>{t('av_collections__link02')}</Link>.
-                                </p>
-                            }
-                        </div>
-                    </Col>
-                </Row>
-                <Spacer />
-                <Row>
-                    <SWRConfig value={{ fallback: initialData }}>
-                        <CollectionCards />
-                    </SWRConfig>
-                </Row>
-                <Spacer />
-            </Container>
-        </div>
+        <>
+            <Head>
+                <title>Blinken OSA Archivum | {t('av_collections__title')}</title>
+            </Head>
+            <div className={style.Page}>
+                <Container>
+                    <SimplePageHeader title={t('av_collections__title')} menu={'collections'} breadCrumb={t('breadcrumb__collections')} />
+                    <Row>
+                        <Col xs={12}>
+                            <div className={style.Description}>
+                                {
+                                    <p>
+                                        {t('av_collections__text01')}<br/><br/>
+                                        {t('av_collections__text02')}<br/><br/>
+                                        {t('av_collections__text03a')}
+                                        &nbsp;<Link href={'/collections/online-collections'}>{t('av_collections__link01')}</Link>&nbsp;
+                                        {t('av_collections__text03b')}
+                                        &nbsp;<Link href={'https://catalog.osaarchivum.org/registration'} target={'_blank'}>{t('av_collections__link02')}</Link>.
+                                    </p>
+                                }
+                            </div>
+                        </Col>
+                    </Row>
+                    <Spacer />
+                    <Row>
+                        <SWRConfig value={{ fallback: initialData }}>
+                            <CollectionCards />
+                        </SWRConfig>
+                    </Row>
+                    <Spacer />
+                </Container>
+            </div>
+        </>
     )
 }
 

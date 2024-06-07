@@ -8,6 +8,7 @@ import clientFetcher from "@/utils/api/clientFetcher";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
+import Head from "next/head";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchCollectionHighlightsList(100, 'Online')
@@ -47,29 +48,34 @@ const CollectionHighlightsPage = ({initialData}) => {
     const { t, lang } = useTranslation('page')
 
     return (
-        <div className={style.Page}>
-            <Container>
-                <SimplePageHeader title={t('online_collections__title')} menu={'collections'} breadCrumb={t('breadcrumb__collections')} />
-                <Row>
-                    <Col xs={12}>
-                        <div className={style.Description}>
-                            {
-                                <p>
-                                    {t('online_collections__text')}
-                                </p>
-                            }
-                        </div>
-                    </Col>
-                </Row>
-                <Spacer />
-                <Row>
-                    <SWRConfig value={{ fallback: initialData }}>
-                        <CollectionCards />
-                    </SWRConfig>
-                </Row>
-                <Spacer />
-            </Container>
-        </div>
+        <>
+            <Head>
+                <title>Blinken OSA Archivum | {t('online_collections__title')}</title>
+            </Head>
+            <div className={style.Page}>
+                <Container>
+                    <SimplePageHeader title={t('online_collections__title')} menu={'collections'} breadCrumb={t('breadcrumb__collections')} />
+                    <Row>
+                        <Col xs={12}>
+                            <div className={style.Description}>
+                                {
+                                    <p>
+                                        {t('online_collections__text')}
+                                    </p>
+                                }
+                            </div>
+                        </Col>
+                    </Row>
+                    <Spacer />
+                    <Row>
+                        <SWRConfig value={{ fallback: initialData }}>
+                            <CollectionCards />
+                        </SWRConfig>
+                    </Row>
+                    <Spacer />
+                </Container>
+            </div>
+        </>
     )
 }
 
