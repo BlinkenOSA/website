@@ -7,10 +7,13 @@ import {MediaContextProvider, mediaStyles} from "@/utils/media";
 import ThemeProvider from 'react-bootstrap/ThemeProvider'
 import Layout from "@/components/Layout/Layout";
 import PageProgressBar from "@/components/PageProgressBar/PageProgressBar";
+import {inDevEnvironment} from "@/utils/inDevEnvironment";
 
 const suisseIntlRegular = localFont({src: '../../public/fonts/SuisseIntl-Regular-WebXL.woff2', variable: "--font-suisseIntlRegular"})
 const suisseIntlMedium = localFont({src: '../../public/fonts/SuisseIntl-Medium-WebXL.woff2', variable: "--font-suisseIntlMedium"})
 const suisseIntlSemiBold = localFont({src: '../../public/fonts/SuisseIntl-SemiBold-WebXL.woff2', variable: "--font-suisseIntlSemiBold"})
+
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export default function App({ Component, pageProps }) {
   return (
@@ -31,6 +34,7 @@ export default function App({ Component, pageProps }) {
           >
               <Layout>
                   <PageProgressBar />
+                  {!inDevEnvironment && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />}
                   <Component {...pageProps} />
               </Layout>
           </ThemeProvider>
