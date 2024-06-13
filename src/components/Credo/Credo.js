@@ -81,7 +81,7 @@ const CredoCard = ({data, active}) => {
                     <motion.div className={style.Text}>
                         <motion.h1
                             animate={active ? 'active' : 'notActive'}
-                            variants={titleVariants}>We are {weAreText}</motion.h1>
+                            variants={titleVariants}>{lang === 'en' ? 'We are' : 'Mi'} {weAreText} {lang === 'en' ? '' : ' vagyunk'}</motion.h1>
                         <motion.div
                             animate={active ? 'active' : 'notActive'}
                             variants={credoTextVariants}>{credoText}</motion.div>
