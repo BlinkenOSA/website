@@ -1,6 +1,5 @@
 import Credo from "@/components/Credo/Credo";
-import {useEffect, useState} from "react";
-import {AnimatePresence} from "framer-motion";
+import {useState} from "react";
 import Slider from "react-slick";
 
 const CredoPanel = ({credoData}) => {

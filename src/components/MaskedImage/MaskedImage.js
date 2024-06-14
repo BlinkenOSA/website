@@ -25,6 +25,15 @@ const MaskedImage = ({src, aspectRatio, priority=false, type='landscape', alt="I
         }
     }
 
+    const getSizes = () => {
+        switch (type) {
+            case 'hero':
+                return "100vw"
+            default:
+                return "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        }
+    }
+
     return (
         <div className={mask ? getStyle() : `${getStyle()} ${style.NoMask}`}
              style={{aspectRatio: aspectRatio ? aspectRatio : undefined}}
@@ -36,7 +45,7 @@ const MaskedImage = ({src, aspectRatio, priority=false, type='landscape', alt="I
                     src={src}
                     fill={true}
                     priority={priority}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    sizes={getSizes()}
                 /> : <div className={style.Placeholder} />
             }
         </div>

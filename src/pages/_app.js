@@ -7,6 +7,8 @@ import {MediaContextProvider, mediaStyles} from "@/utils/media";
 import ThemeProvider from 'react-bootstrap/ThemeProvider'
 import Layout from "@/components/Layout/Layout";
 import PageProgressBar from "@/components/PageProgressBar/PageProgressBar";
+import Consent from "@/components/Consent/Consent";
+import {inDevEnvironment} from "@/utils/inDevEnvironment";
 
 const suisseIntlRegular = localFont({src: '../../public/fonts/SuisseIntl-Regular-WebXL.woff2', variable: "--font-suisseIntlRegular"})
 const suisseIntlMedium = localFont({src: '../../public/fonts/SuisseIntl-Medium-WebXL.woff2', variable: "--font-suisseIntlMedium"})
@@ -32,6 +34,7 @@ export default function App({ Component, pageProps }) {
               <Layout>
                   <PageProgressBar />
                   <Component {...pageProps} />
+                  {!inDevEnvironment && <Consent />}
               </Layout>
           </ThemeProvider>
         </MediaContextProvider>
