@@ -8,6 +8,8 @@ import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
 import getLocData from "@/utils/content/getLocData";
+import PageHeader from "@/components/PageHeader/PageHeader";
+import getImageUrl from "@/utils/content/getImageUrl";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -38,6 +40,7 @@ const ProjectPage = ({projectData}) => {
     const link = data['Link']
     const buttonText = getLocData(data, 'ButtonText', lang)
     const content = getLocData(data, 'Content', lang)
+    const image = getImageUrl(data['Image'])
 
     const breadCrumbObject = [
         {menu: 'collections', title: t('breadcrumb__collections')},
@@ -51,7 +54,7 @@ const ProjectPage = ({projectData}) => {
             </Head>
             <div className={style.Page}>
                 <Container>
-                    <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
+                    <PageHeader title={title} breadcrumbObject={breadCrumbObject} image={image} scrollScale={0.2} isBlur={true} />
                     <Row>
                         <Col xs={12}>
                             <Content contentObject={content} profile={'Collections'} />
