@@ -52,7 +52,6 @@ const Footer = () => {
 								<div className={style.Links}>
 									<ul>
 										<li><Link href={'/about-us/privacy-policy'}>{t('privacy-policy')}</Link></li>
-										<li>{t('sitemap')}</li>
 									</ul>
 								</div>
 							</div>
