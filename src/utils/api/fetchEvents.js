@@ -4,8 +4,7 @@ import fetcherSlug from "@/utils/api/fetcherSlug";
 
 export const fetchEventsFrontPage = () => {
     const params = {
-        'sort[0]': 'rank:asc',
-        'sort[1]': 'StartDate:desc',
+        'sort[0]': 'StartDate:asc',
         'populate[0]': 'Image',
         'populate[1]': 'localizations',
         'populate[2]': 'localizations.Image',
