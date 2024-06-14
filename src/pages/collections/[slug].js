@@ -46,6 +46,7 @@ const StaticPage = ({pageData}) => {
                     menu={'collections'}
                     image={image}
                     scrollScale={0.5}
+                    isBlur={true}
                 />
                 <Container>
                     <Content contentObject={getLocData(data, 'Content', lang)} profile={'Collections'} />
