@@ -10,5 +10,9 @@
   "about": "Rólunk",
   "privacy-policy": "Adatvédelem",
   "terms-conditions": "Feltételek és kondíciók",
-  "sitemap": "Oldaltérkép"
+  "sitemap": "Oldaltérkép",
+  "cookie_consent": "Sütiket használunk, hogy javítsuk az oldalunkon a felhasználói élményt. További információ ezen az ",
+  "cookie_consent_page": "oldalon",
+  "cookie_consent__accept": "Elfogadom",
+  "cookie_consent__decline": "Elutasítom"
 }

@@ -10,5 +10,9 @@
   "about": "About",
   "privacy-policy": "Privacy Policy",
   "terms-conditions": "Terms & Conditions",
-  "sitemap": "Sitemap"
+  "sitemap": "Sitemap",
+  "cookie_consent": "We use cookies to improve your experience on our site. For more info, check this ",
+  "cookie_consent_page": "page",
+  "cookie_consent__accept": "Accept",
+  "cookie_consent__decline": "Decline"
 }
