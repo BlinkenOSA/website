@@ -5,11 +5,15 @@ import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import getCreationDate from "@/utils/content/getCreationDate";
 import getIconByType from "@/utils/content/getIconByType";
 import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 const Entry = ({id, data}) => {
-    const title = data['Title']
-    const cardText = data['CardText']
-    const entryType = data['EntryType']
+    const { lang } = useTranslation('page')
+
+    const title = getLocData(data, 'Title', lang)
+    const cardText = getLocData(data, 'CardText', lang)
+    const entryType = getLocData(data, 'EntryType', lang)
     const image = getImageUrl(data['Image'])
     const originalDate = data['OriginalCreationDate']
     const icon = getIconByType(data['EntryType'], 'small')

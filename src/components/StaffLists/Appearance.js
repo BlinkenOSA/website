@@ -1,9 +1,13 @@
 import style from "./lists.module.scss"
 import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 const Appearance = ({data}) => {
-    const description = data['Description']
+    const { lang } = useTranslation('page')
+
+    const description = getLocData(data, 'Description', lang)
     const link = data['Link']
 
     return (
