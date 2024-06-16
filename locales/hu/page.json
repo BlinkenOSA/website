@@ -56,7 +56,7 @@
   "event__eventType__label": "Esemény",
   "event__start__label": "Kezdés",
   "event__end__label": "Befejezés",
-  "event__hosting__label": "Lebonyolítás",
+  "event__hosting__label": "Részvétel",
   "event__venue__label": "Helyszín",
   "event__language__label": "Nyelv",
   "event__register__label": "Regisztráció",
