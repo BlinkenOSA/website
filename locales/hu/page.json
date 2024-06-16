@@ -56,11 +56,11 @@
   "event__eventType__label": "Esemény",
   "event__start__label": "Kezdés",
   "event__end__label": "Befejezés",
-  "event__hosting__label": "Lebonyolítás",
+  "event__hosting__label": "Részvétel",
   "event__venue__label": "Helyszín",
   "event__language__label": "Nyelv",
   "event__register__label": "Regisztráció",
   "event__zoom__label": "Csatlakozás Zoom-on keresztül",
   "blog__published__text": "Közzétéve",
-  "page__not_yet_translated__text": "Ez az oldal még nem érhető el magyar nyelven. Kérjük nézzen vissza később!"
+  "page__not_yet_translated__text": "Ez az oldal (még) nem érhető el magyar nyelven. Kérjük nézzen vissza később!"
 }

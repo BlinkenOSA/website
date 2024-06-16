@@ -20,7 +20,7 @@ const HeroV2 = ({data, index}) => {
     const subtitle_1 = getLocData(data, 'Subtitle1stRow', lang)
     const subtitle_2 = getLocData(data, 'Subtitle2ndRow', lang)
     const buttonText = getLocData(data, 'ButtonText', lang)
-    const buttonLink = data['ButtonLink']
+    const buttonLink = getLocData(data, 'ButtonLink', lang)
     const profile = data['Profile']
     const color = getColor(profile)
     const image = getImageUrl(data['Image'], 'full')

@@ -57,6 +57,7 @@ const SiteSearchHitCard = ({hit}) => {
                 switch (hit.Profiles[0]) {
                     case 'Archivum':
                     case 'Archival':
+                    case 'Partner':
                         return `/about-us/partner-projects/${hit.Slug}`
                     case 'Collections':
                         return `/collections/archival-projects/${hit.Slug}`
@@ -65,7 +66,6 @@ const SiteSearchHitCard = ({hit}) => {
                     default:
                         return ''
                 }
-                break;
             case 'fellow':
                 return `/academics/fellows/${hit.Slug}`
             case 'job':

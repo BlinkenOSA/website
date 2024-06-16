@@ -1,10 +1,14 @@
 import style from "./lists.module.scss"
 import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 const Course = ({data}) => {
-    const title = data['Title']
-    const university = data['University']
-    const contentHighlight = data['ContentHighlight']
+    const { lang } = useTranslation('page')
+
+    const title = getLocData(data, 'Title', lang)
+    const university = getLocData(data, 'University', lang)
+    const contentHighlight = getLocData(data, 'ContentHighlight', lang)
     const link = data['Link']
 
     return (
