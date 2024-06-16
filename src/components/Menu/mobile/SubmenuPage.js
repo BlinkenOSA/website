@@ -50,7 +50,10 @@ const SubmenuPage = ({menuID, status, selectedSubmenu, onBackClick}) => {
                             className={`${style.SubmenuItem} ${detectCurrentMenuTitle(sm, router.asPath) ? style.Current : ''}`}
                         >
                             <div className={`${style.Title}`}>{t(sm['key'])}</div>
-                            <div className={style.Description}>{t(`${sm['key']}__text`)}</div>
+                            {
+                                t(`${sm['key']}__text`) !== '' &&
+                                <div className={style.Description}>{t(`${sm['key']}__text`)}</div>
+                            }
                         </motion.div>
                     </a>
                 )
