@@ -60,7 +60,7 @@ export const menuConfig = [
     url: 'academics',
     menuItems: [
       { key: 'research-and-publications', title: 'Our Research and Publications', url: '/academics/our-research' },
-      { key: 'visegrad-scholarship', title: 'Visegrad Scholarship', url: '/academics/visegrad-scholarship-at-the-archivum'},
+      { key: 'visegrad-scholarship', title: 'Visegrad Scholarship', url: '/academics/visegrad-scholarship-at-osa'},
       { key: 'fellows', title: 'Fellows', submenu: [
           { key: 'current-fellows', title: 'Current Fellows',  highlight: "You can meet them, when you are in the Archivum.", url: '/academics/current-fellows'},
           { key: 'past-fellows', title: 'Past fellows', highlight: "All the participants of the Visegrad Fellowship Program.", url: '/academics/past-fellows'}]
