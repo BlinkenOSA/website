@@ -93,13 +93,6 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 				{renderHeroes()}
 				<Container>
 					<Spacer size={'medium'} />
-					<EventsPanel eventsData={eventsData} />
-				</Container>
-				<Container fluid={true}>
-					<CatalogPanel/>
-				</Container>
-				<Container>
-					<Spacer size={'medium'} />
 					<Media at="xs">
 						<NewsPanel newsData={newsData} slidesToShow={1} />
 					</Media>
@@ -109,6 +102,13 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 					<Media greaterThanOrEqual="md">
 						<NewsPanel newsData={newsData} slidesToShow={3} />
 					</Media>
+				</Container>
+				<Container fluid={true}>
+					<CatalogPanel/>
+				</Container>
+				<Container>
+					<Spacer size={'medium'} />
+					<EventsPanel eventsData={eventsData} />
 				</Container>
 				<Container fluid={true}>
 					<ResearchRoomPanel />
