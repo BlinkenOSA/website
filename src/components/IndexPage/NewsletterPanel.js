@@ -6,7 +6,7 @@ import useTranslation from "next-translate/useTranslation";
 import {Media} from "@/utils/media";
 
 const NewsletterPanel = ({type='landing', color='neutral'}) => {
-    const { t } = useTranslation('index')
+    const { t, lang } = useTranslation('index')
 
     return (
         <div className={type === 'landing' ? `${style.Wrapper} ${style.Landing}` : style.Wrapper}>
@@ -27,7 +27,7 @@ const NewsletterPanel = ({type='landing', color='neutral'}) => {
                             size={'large'}
                             type={'primary'}
                             color={color}
-                            link={'https://newsletter.osaarchivum.org/public-programs'}
+                            link={lang === 'en' ? 'https://newsletter.osaarchivum.org/public-programs' : 'https://newsletter.osaarchivum.org/aktualis-programok'}
                             linkTarget={'_blank'}
                         >
                             {t('newsletter__subscribe')}
