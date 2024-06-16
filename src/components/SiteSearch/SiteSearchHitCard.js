@@ -66,7 +66,6 @@ const SiteSearchHitCard = ({hit}) => {
                     default:
                         return ''
                 }
-                break;
             case 'fellow':
                 return `/academics/fellows/${hit.Slug}`
             case 'job':
