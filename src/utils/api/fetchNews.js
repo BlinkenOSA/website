@@ -4,7 +4,6 @@ import fetcherSlug from "@/utils/api/fetcherSlug";
 
 export const fetchNewsFrontPage = () => {
     const params = {
-        // 'sort[0]': 'rank:asc',
         'sort[0]': 'createdAt:desc',
         'populate[0]': 'Image',
         'populate[1]': 'localizations',
