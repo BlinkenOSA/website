@@ -24,7 +24,6 @@ const Footer = () => {
 								<div className={style.Label}>{t('contact')}</div>
 								<div className={style.Info}>
 									{t('contact__archival')}<br/>
-									{t('contact__programs')}<br/>
 									<br/>
 									{t('address')}<br/>
 									{t('phone')}
