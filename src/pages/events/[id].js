@@ -113,7 +113,7 @@ const EventPage = ({eventData}) => {
 										}
 										{
 											zoomLink && zoomLink !== null &&
-											<Button link={registrationLink} type={'primary'} size={'medium'} color={'neutral'}>{t('event__zoom__label')}</Button>
+											<Button link={zoomLink} type={'primary'} size={'medium'} color={'neutral'}>{t('event__zoom__label')}</Button>
 										}
 									</div>
 								</>
