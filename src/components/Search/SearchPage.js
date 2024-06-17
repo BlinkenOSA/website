@@ -27,7 +27,7 @@ const SearchPage = ({searchOpen, onClose}) => {
     }
 
     const handleCatalogSearch = (value) => {
-        window.open(`https://catalog.osaarchivum.org/?query=${value}`)
+        window.open(`https://catalog.archivum.org/?query=${value}`)
     }
 
     const handleWebsiteSearch = (value) => {

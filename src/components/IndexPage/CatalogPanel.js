@@ -20,7 +20,7 @@ const CatalogPanel = () => {
     })
 
     const handleEnter = (value) => {
-        window.open(`https://catalog.osaarchivum.org/?query=${value}`)
+        window.open(`https://catalog.archivum.org/?query=${value}`)
     }
 
     return (
@@ -35,7 +35,7 @@ const CatalogPanel = () => {
                 <Container>
                     <Row style={{alignItems: "center"}}>
                         <Col xs={12} sm={6} md={4} className={style.Left}>
-                            <Link href={'https://catalog.osaarchivum.org/'} target={'_blank'}>
+                            <Link href={'https://catalog.archivum.org/'} target={'_blank'}>
                                 <h1>{t('catalog')}</h1>
                             </Link>
                             <SearchBox onPressEnter={handleEnter} />

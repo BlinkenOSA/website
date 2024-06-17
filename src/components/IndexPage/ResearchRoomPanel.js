@@ -40,7 +40,7 @@ const ResearchRoomPanel = () => {
                                     <span className={style.Value}>{t('research_room__opening_hours__text')}</span>
                                 </p>
                                 <div className={style.Buttons}>
-                                    <Button type={'primary'} size={'medium'} color={'mustard'} link={'https://catalog.osaarchivum.org/registration'}>{t('research_room__registration')}</Button>
+                                    <Button type={'primary'} size={'medium'} color={'mustard'} link={'https://catalog.archivum.org/registration'}>{t('research_room__registration')}</Button>
                                     <Button type={'secondary'} size={'medium'} color={'neutral'} link={'/collections/research-room'} linkTarget={'_self'}>{t('research_room__more_info')}</Button>
                                 </div>
                             </div>
