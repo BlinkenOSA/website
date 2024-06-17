@@ -73,6 +73,7 @@ const SearchPage = ({ serverState, serverUrl }) => {
 		<>
 			<Head>
 				<meta name="robots" content="noindex,nofollow" key="robots" />
+				<title>Blinken OSA Archivum</title>
 			</Head>
 			<div className={style.Page}>
 				<PageHeader title={'Search'} image={'/images/search.jpg'} isBlur={true} />

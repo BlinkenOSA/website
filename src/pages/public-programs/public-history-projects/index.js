@@ -38,7 +38,7 @@ const PublicHistoryProjectsPage = ({projectsData}) => {
     return (
         <>
             <Head>
-               <title>{t('public_history_projects__title')}</title>
+               <title>Blinken OSA Archivum | {t('public_history_projects__title')}</title>
             </Head>
             <div className={style.Page}>
                 <Container>

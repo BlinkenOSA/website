@@ -4,6 +4,7 @@ import {fetchArchivalProjects, fetchPartnerProjects} from "@/utils/api/fetchProj
 import ProjectCard from "@/components/Cards/ProjectCard";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import useTranslation from "next-translate/useTranslation";
+import Head from "next/head";
 
 export const getServerSideProps = (async () => {
     const [projectsData] = await Promise.all([
@@ -34,14 +35,19 @@ const ArchivalProjectsPage = ({projectsData}) => {
     }
 
     return (
-        <div className={style.Page}>
-            <Container>
-                <SimplePageHeader title={t('archival_projects__title')} menu={'collections'} breadCrumb={t('breadcrumb__collections')} />
-                <Row>
-                    {renderProjects()}
-                </Row>
-            </Container>
-        </div>
+        <>
+            <Head>
+                <title>Blinken OSA Archivum | {t('archival_projects__title')}</title>
+            </Head>
+            <div className={style.Page}>
+                <Container>
+                    <SimplePageHeader title={t('archival_projects__title')} menu={'collections'} breadCrumb={t('breadcrumb__collections')} />
+                    <Row>
+                        {renderProjects()}
+                    </Row>
+                </Container>
+            </div>
+        </>
     )
 }
 
