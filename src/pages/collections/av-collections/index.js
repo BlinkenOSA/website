@@ -66,7 +66,7 @@ const CollectionHighlightsPage = ({initialData}) => {
                                         {t('av_collections__text03a')}
                                         &nbsp;<Link href={'/collections/online-collections'}>{t('av_collections__link01')}</Link>&nbsp;
                                         {t('av_collections__text03b')}
-                                        &nbsp;<Link href={'https://catalog.osaarchivum.org/registration'} target={'_blank'}>{t('av_collections__link02')}</Link>.
+                                        &nbsp;<Link href={'https://catalog.archivum.org/registration'} target={'_blank'}>{t('av_collections__link02')}</Link>.
                                     </p>
                                 }
                             </div>
