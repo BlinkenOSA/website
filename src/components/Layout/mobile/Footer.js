@@ -28,7 +28,6 @@ const Footer = () => {
 								<div className={style.Label}>{t('contact')}</div>
 								<div className={style.Info}>
 									{t('contact__archival')}<br/>
-									<br/>
 									{t('address')}<br/>
 									{t('phone')}
 								</div>
@@ -47,7 +46,6 @@ const Footer = () => {
 						</Media>
 						<Col xs={12} sm={6}>
 							<div className={style.InfoWrapperRight}>
-								<div className={style.Label}>{t('about')}</div><br/>
 								<div className={style.Links}>
 									<ul>
 										<li><Link href={'/about-us/privacy-policy'}>{t('privacy-policy')}</Link></li>
