@@ -1,4 +1,8 @@
 const getImageData = (imageData, size='large') => {
+    if (!imageData) {
+        return {'url': ''}
+    }
+
     if (imageData['data'] === null) {
         return {'url': ''}
     }
