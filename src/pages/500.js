@@ -23,11 +23,11 @@ const Custom505Page = () => {
 					</p>
 					<Spacer />
 					<h3>
-						{t('notfound__text')}
+						{t('error__text')}
 					</h3>
 					<Spacer />
 					<Button type={'primary'} color={'neutral'} size={'large'} onClick={() => router.back()}>
-						{t('notfound__button')}
+						{t('error__button')}
 					</Button>
 				</div>
 			</div>
