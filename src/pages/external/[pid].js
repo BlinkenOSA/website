@@ -8,6 +8,7 @@ import {useRouter} from "next/router";
 import Button from "@/components/Button/Button";
 import getColor from "@/utils/content/getColor";
 import getImageUrl from "@/utils/content/getImageUrl";
+import Head from "next/head";
 
 export const getServerSideProps = (async (context) => {
 	const { pid } = context.query;
@@ -49,16 +50,21 @@ const ExternalPage = ({pageData}) => {
 	const menu = externalPageConfig[pid]['menu']
 
 	return (
-		<div className={style.Page}>
-			<PageHeader title={data['Title']} image={image} scrollScale={0.2} breadCrumb={breadCrumb} menu={menu} />
-			<Container>
-				<Content contentObject={content} profile={profile} />
-				<div className={style.BottomLine}>
-					<Button link={data['Link']} color={getColor(profile)}>{data['LinkButtonText']}</Button>
-				</div>
-				<div style={{height: '48px'}}/>
-			</Container>
-		</div>
+		<>
+			<Head>
+				<title>Blinken OSA Archivum | {data['Title']}</title>
+			</Head>
+			<div className={style.Page}>
+				<PageHeader title={data['Title']} image={image} scrollScale={0.2} breadCrumb={breadCrumb} menu={menu} />
+				<Container>
+					<Content contentObject={content} profile={profile} />
+					<div className={style.BottomLine}>
+						<Button link={data['Link']} color={getColor(profile)}>{data['LinkButtonText']}</Button>
+					</div>
+					<div style={{height: '48px'}}/>
+				</Container>
+			</div>
+		</>
 	)
 }
 

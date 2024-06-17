@@ -160,7 +160,7 @@ const NewsPage = ({initialData}) => {
     return (
         <>
             <Head>
-               <title>{t('news__title')}</title>
+               <title>Blinken OSA Archivum | {t('news__title')}</title>
             </Head>
             <div className={style.Page}>
                 <Container>
