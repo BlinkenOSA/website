@@ -33,6 +33,7 @@ const Content = ({contentObject, profile='Archivum'}) => {
 			// DividerIcon
 			case 'components.divider-icon':
 				return <DividerIcon profile={profile} content={content} />
+			// Booking iframe
 			case 'components.i-frame':
 				return <iframe style={{width: '100%', minHeight: '1235px', border: 'none', margin: 0, padding: 0}} src={content['Source']} />
 			// ImageGallery
