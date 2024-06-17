@@ -7,7 +7,7 @@ const ContentWithImage = ({content}) => {
     const imagePlacement = content['ImagePlacement']
 
     const renderImages = (size) => {
-        return content['Images'].map((imageData, idx) => {
+        return content['Images'] && content['Images'].map((imageData, idx) => {
             return (
                 <div className={style.ImageWrapper}>
                     <div className={style.StickyImage}>
