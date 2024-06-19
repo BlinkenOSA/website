@@ -21,6 +21,7 @@ const EntryCard = ({ id, data}) => {
     const imageData = getImageData(data['Image'], 'medium')
     const icon = getIconByType(data['EntryType'], 'normal')
     const color= getColor(data['Profile'])
+    const slug = data['Slug']
 
     const url = data['EntryType'].toLowerCase();
 
@@ -30,7 +31,7 @@ const EntryCard = ({ id, data}) => {
 
     return (
       <motion.div whileHover={'hover'} className={style.Wrapper}>
-          <Link href={`/entries/${url}/${id}`}>
+          <Link href={`/entries/${url}/${slug ? slug : id}`}>
               <div className={style.Image}>
                   <motion.div variants={imageAnim} style={{position: 'relative', zIndex: 2}}>
                     <MaskedImage src={imageData['url']} type={'landscape'} />
