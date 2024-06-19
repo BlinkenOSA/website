@@ -5,3 +5,4 @@ Disallow: /api
 # Allow all crawlers
 User-agent: *
 Allow: /
+Crawl-delay: 2
