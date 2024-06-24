@@ -45,6 +45,7 @@
   "eventType__filter__education_program": "Education Program",
   "eventType__filter__exhibition": "Exhibition",
   "eventType__filter__film_screening": "Film Screening",
+  "eventType__filter__guided_tour": "Guided Tour",
   "eventType__filter__internship": "Internship",
   "eventType__filter__job": "Job",
   "eventType__filter__join_us": "Join Us",
