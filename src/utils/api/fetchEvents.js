@@ -13,10 +13,12 @@ export const fetchEventsFrontPage = () => {
         'fields[0]': 'Title',
         'fields[1]': 'CardText',
         'fields[2]': 'StartDate',
-        'fields[3]': 'EventType',
-        'fields[4]': 'Profile',
-        'fields[5]': 'Slug',
-        'filters[StartDate][$gte]': dayjs().format('YYYY-MM-DD')
+        'fields[3]': 'EndDate',
+        'fields[4]': 'EventType',
+        'fields[5]': 'Profile',
+        'fields[6]': 'Slug',
+        'filters[$or][0][StartDate][$gte]': dayjs().format('YYYY-MM-DD'),
+        'filters[$or][1][EndDate][$gte]': dayjs().format('YYYY-MM-DD')
     }
 
     return fetcher('events', params)
