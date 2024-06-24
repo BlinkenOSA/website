@@ -15,7 +15,8 @@ const EventCard = ({id, data}) => {
     const {lang} = useTranslation('cards')
 
     // Populate fields
-    const date = getDateString(data['StartDate'], undefined, 'event', lang)
+    const startDate = getDateString(data['StartDate'], undefined, data['EventType'] === 'Exhibition' ? 'exhibition' : 'event', lang)
+    const endDate = getDateString(data['EndDate'], undefined, data['EventType'] === 'Exhibition' ? 'exhibition' : 'event', lang)
     const title = getLocData(data, 'Title', lang)
     const description = getLocData(data, 'CardText', lang)
     const imageData = getImageData(data['Image'], 'medium')
@@ -27,6 +28,14 @@ const EventCard = ({id, data}) => {
         hover: { scale: 0.85 }
     }
 
+    const getDate = () => {
+        if (data['EventType'] === 'Exhibition' && endDate !== '') {
+           return `${startDate} - ${endDate}`
+        } else {
+           return startDate
+        }
+    }
+
     return (
         <motion.div whileHover={"hover"} className={style.Wrapper}>
             <Link href={`/events/${slug ? slug : id}`}>
@@ -35,7 +44,7 @@ const EventCard = ({id, data}) => {
                         <MaskedImage src={imageData['url']} type={'landscape'} />
                     </motion.div>
                     <div className={style.Tag}>
-                        <Tag text={date} icon={icon} color={color}/>
+                        <Tag text={getDate()} icon={icon} color={color}/>
                     </div>
                     <div className={`${style.UnderLayer} ${style[color]}`} />
                 </div>
