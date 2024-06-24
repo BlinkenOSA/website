@@ -9,6 +9,8 @@ import Button from "@/components/Button/Button";
 import getColor from "@/utils/content/getColor";
 import getImageUrl from "@/utils/content/getImageUrl";
 import Head from "next/head";
+import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
 export const getServerSideProps = (async (context) => {
 	const { pid } = context.query;
@@ -40,26 +42,32 @@ export const getServerSideProps = (async (context) => {
 const ExternalPage = ({pageData}) => {
 	const router = useRouter();
 	const {pid} = router.query;
+
+	const {t, lang} = useTranslation('menu')
+
 	const data = pageData['data']['attributes'];
 
-	const content = data['Content']
+	const title = getLocData(data, 'Title', lang)
+	const content = getLocData(data, 'Content', lang)
 	const image = getImageUrl(data['CardImage'], 'full')
+	const link = getLocData(data, 'Link', lang)
+	const linkButtonText = getLocData(data, 'LinkButtonText', lang)
 
 	const profile = externalPageConfig[pid]['profile']
-	const breadCrumb = externalPageConfig[pid]['breadCrumb']
+	const breadCrumb = t(externalPageConfig[pid]['menu'])
 	const menu = externalPageConfig[pid]['menu']
 
 	return (
 		<>
 			<Head>
-				<title>Blinken OSA Archivum | {data['Title']}</title>
+				<title>Blinken OSA Archivum | {title}</title>
 			</Head>
 			<div className={style.Page}>
-				<PageHeader title={data['Title']} image={image} scrollScale={0.2} breadCrumb={breadCrumb} menu={menu} />
+				<PageHeader title={title} image={image} scrollScale={0.2} breadCrumb={breadCrumb} menu={menu} />
 				<Container>
 					<Content contentObject={content} profile={profile} />
 					<div className={style.BottomLine}>
-						<Button link={data['Link']} color={getColor(profile)}>{data['LinkButtonText']}</Button>
+						<Button link={link} color={getColor(profile)}>{linkButtonText}</Button>
 					</div>
 					<div style={{height: '48px'}}/>
 				</Container>
