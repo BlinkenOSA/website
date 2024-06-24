@@ -169,18 +169,31 @@ const ProgramRows = ({programTypeFilter, languageFilter, hostingTypeFilter}) => 
 	)
 
 	const detectPastProgram = (index) => {
+		const detectPast = (start, end) => {
+			const now = dayjs()
+
+			if (end !== null) {
+				if (start < now && end < now) {
+					return true
+				}
+			} else {
+				if (start < now) {
+					return true
+				}
+			}
+
+			return false
+		}
+
 		const startDate = dayjs(data['data'][index]['attributes']['StartDate'])
-		const now = dayjs()
+		const endDate = data['data'][index]['attributes']['EndDate'] && dayjs(data['data'][index]['attributes']['EndDate'])
 
 		if (index === 0) {
-			if (startDate < now) {
-				return true
-			}
+			return detectPast(startDate, endDate)
 		} else {
 			const previousStartDate = dayjs(data['data'][index-1]['attributes']['StartDate'])
-			if (startDate < now && previousStartDate >= now) {
-				return true
-			}
+			const previousEndDate = data['data'][index-1]['attributes']['EndDate'] && dayjs(data['data'][index-1]['attributes']['EndDate'])
+			return detectPast(startDate, endDate) && !detectPast(previousStartDate, previousEndDate)
 		}
 	}
 
