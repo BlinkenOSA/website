@@ -51,6 +51,8 @@ const getIconByType = (type, size, color='neutral') => {
             return <IconExhibition size={size} color={color} />
         case 'Film Screening':
             return <IconFilmScreening size={size} color={color} />
+        case 'Guided Tour':
+            return <IconTalk size={size} color={color} />
         case 'Internship':
             return <IconInternship size={size} color={color} />
         case 'Job':

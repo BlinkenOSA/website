@@ -1,6 +1,3 @@
-import fetcher from "@/utils/api/fetcher";
-import dayjs from "dayjs";
-
 export const fetchPrograms = (type='All', language, hostingType) => {
 	const params = {
 		'fields[0]': 'Title',

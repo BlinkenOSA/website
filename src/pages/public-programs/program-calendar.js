@@ -80,13 +80,22 @@ const ProgramDataRow = ({id, index, data, onTitleClick}) => {
 	const language = data['Language'] && t(`filters:language__filter__${data['Language'].toLowerCase()}`)
 	const hostingType = t(`filters:hostingType__filter__${data['HostingType'].toLowerCase()}`)
 	const eventType = t(`filters:eventType__filter__${data['EventType'].toLowerCase().replace(' ', '_')}`)
-	const date = getDateString(data['StartDate'], undefined, 'eventFull', lang)
+	const startDate = getDateString(data['StartDate'], undefined, data['EventType'] === 'Exhibition' ? 'exhibitionFull' : 'eventFull', lang)
+	const endDate = getDateString(data['EndDate'], undefined, data['EventType'] === 'Exhibition' ? 'exhibitionFull' : 'eventFull', lang)
+
+	const getDate = () => {
+		if (data['EventType'] === 'Exhibition' && endDate !== '') {
+			return <>{startDate}<br/>{endDate}</>
+		} else {
+			return startDate
+		}
+	}
 
 	return (
 		<>
 			<Row className={index === 0 ? `${style.ProgramRow} ${style.First}` : style.ProgramRow} onClick={() => onTitleClick(id)}>
 				<Col xs={{ span: 10, order: 1 }} sm={3} className={style.Date}>
-					<div className={'subtitle-small'}>{date}</div>
+					<div className={'subtitle-small'}>{getDate()}</div>
 				</Col>
 				<Col xs={{ span: 2, order: 2 }} sm={1} className={style.Icon}>
 					<ToolTipStuff id={id} title={eventType}>
@@ -155,6 +164,9 @@ const ProgramRows = ({programTypeFilter, languageFilter, hostingTypeFilter}) => 
 
 	const [openedPrograms, {push, removeAt}] = useList([])
 
+	const pastPrograms = [];
+	const futurePrograms = [];
+
 	const onTitleClick = (id) => {
 		if (openedPrograms.includes(id)) {
 			removeAt(openedPrograms.indexOf(id))
@@ -168,41 +180,58 @@ const ProgramRows = ({programTypeFilter, languageFilter, hostingTypeFilter}) => 
 		([url, params]) => clientFetcher(url, params)
 	)
 
-	const detectPastProgram = (index) => {
-		const startDate = dayjs(data['data'][index]['attributes']['StartDate'])
-		const now = dayjs()
+	data && data['data'].map((program, idx) => {
+		const startDate = dayjs(program['attributes']['StartDate'])
+		const endDate = program['attributes']['EndDate'] && dayjs(program['attributes']['EndDate'])
 
-		if (index === 0) {
-			if (startDate < now) {
-				return true
-			}
-		} else {
-			const previousStartDate = dayjs(data['data'][index-1]['attributes']['StartDate'])
-			if (startDate < now && previousStartDate >= now) {
-				return true
-			}
-		}
-	}
+		const detectPast = (start, end) => {
+			const now = dayjs()
 
-	return data && data['data'].map((program, idx) => {
-		return (
-			<React.Fragment key={`program_${program['id']}`}>
-				{
-					detectPastProgram(idx) &&
-					<Row className={style.TimeInfoRow}>
-						<Col xs={12}>
-							<div className={style.TimeInfoElements}>
-								<span className={'subtitle-small'}>{t('program_calendar__past_programs')}</span>
-							</div>
-						</Col>
-					</Row>
+			if (end !== null) {
+				if (start < now && end < now) {
+					return true
 				}
+			} else {
+				if (start < now) {
+					return true
+				}
+			}
 
-				<ProgramDataRow id={program['id']} data={program['attributes']} index={idx} onTitleClick={onTitleClick} />
-				<ProgramDetail id={program['id']} data={program['attributes']} isOpened={openedPrograms.includes(program['id'])} />
-			</React.Fragment>
-		)
+			return false
+		}
+
+		detectPast(startDate, endDate) ? pastPrograms.push(program) : futurePrograms.push(program)
 	})
+
+	return (
+		<>
+			{
+				futurePrograms && futurePrograms.map((program, idx) => (
+					<>
+						<ProgramDataRow id={program['id']} data={program['attributes']} index={idx} onTitleClick={onTitleClick} />
+						<ProgramDetail id={program['id']} data={program['attributes']} isOpened={openedPrograms.includes(program['id'])} />
+					</>
+				))
+			}
+			{
+				<Row className={style.TimeInfoRow}>
+					<Col xs={12}>
+						<div className={style.TimeInfoElements}>
+							<span className={'subtitle-small'}>{t('program_calendar__past_programs')}</span>
+						</div>
+					</Col>
+				</Row>
+			}
+			{
+				pastPrograms && pastPrograms.map((program, idx) => (
+					<>
+						<ProgramDataRow id={program['id']} data={program['attributes']} index={idx} onTitleClick={onTitleClick} />
+						<ProgramDetail id={program['id']} data={program['attributes']} isOpened={openedPrograms.includes(program['id'])} />
+					</>
+				))
+			}
+		</>
+	)
 }
 
 const ProgramCalendarPage = ({initialData}) => {

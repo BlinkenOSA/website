@@ -41,6 +41,24 @@ const getDateString = (dateString, format, type = 'event', lang='en') => {
             })
             template = lang === 'en' ? 'MMMM D, YYYY - h:mm A' : 'YYYY. MMMM D. HH:mm'
             break
+        case 'exhibition':
+            dayjs.updateLocale('hu', {
+                months: [
+                    "Január", "Február", "Március", "Április", "Május", "Június", "Július",
+                    "Augusztus", "Szeptember", "Október", "November", "December"
+                ]
+            })
+            template = lang === 'en' ? 'MMMM DD' : 'MMMM D.'
+            break
+        case 'exhibitionFull':
+            dayjs.updateLocale('hu', {
+                months: [
+                    "január", "február", "március", "április", "május", "június", "július",
+                    "augusztus", "szeptember", "október", "november", "december"
+                ]
+            })
+            template = lang === 'en' ? 'MMMM D, YYYY' : 'YYYY. MMMM D.'
+            break
         case 'fellow':
             template = lang === 'en' ? 'MMMM/YYYY' : 'YYYY/MMMM'
             break
