@@ -112,6 +112,7 @@ const ProgramDetail = ({id, data, isOpened}) => {
 	const shortDescription = getLocData(data, 'DescriptionShort', lang)
 	const color = getColor(data['Profile'])
 	const registrationLink = data['RegistrationLink']
+	const slug = data['Slug']
 
 	return (
 		<Collapse isOpened={isOpened}>
@@ -130,7 +131,7 @@ const ProgramDetail = ({id, data, isOpened}) => {
 							size={'medium'}
 							color={color}
 							linkTarget={'_self'}
-							link={`/events/${id}`}>{t('program_calendar__more_info')}</Button>
+							link={`/events/${slug ? slug : id}`}>{t('program_calendar__more_info')}</Button>
 						{
 							registrationLink &&
 							<Button
