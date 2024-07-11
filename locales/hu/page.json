@@ -31,10 +31,10 @@
   "collections__visit_button__text": "Gyűjtemény megtekintése",
   "av_collections__title": "Audiovizuális gyűjtemények",
   "av_collections__text01": "Az Archivum több mint 10 000 órányi videó- és hanganyaggal rendelkezik, valamint egyre több fotógyűjteménnyel, amelyek öt kontinens különböző forrásaiból származnak. Adományozóink között vannak egyéni szerzők és művészek, médiacsoportok, emberi jogi szervezetek, a civil társadalom tagjai, ENSZ büntetőtörvényszékek és kutatóközösségek is.",
-  "av_collections__text02": "Ez egy alternatív, egyedi kurátori bevezetőkkel kísért, médiaspecifikus belépési pont az Archivum több mint hatvan médiagyűjteményéhez.  Létrehozásával azt reméltük, hogy segítséget tudunk nyújtani egyedülálló gyűjteményeink felfedezésében.",
+  "av_collections__text02": "Ez egy alternatív, egyedi kurátori bevezetőkkel kísért, médiaspecifikus belépési pont az Archivum több mint hatvan médiagyűjteményéhez. Létrehozásával azt reméltük, hogy segítséget tudunk nyújtani egyedülálló gyűjteményeink felfedezésében.",
   "av_collections__text03a": "Az itt összegyűjtött anyagok egy része regisztráció nélkül elérhető",
-  "av_collections__link01": "online gyűjteményeink között",
-  "av_collections__text03b": ", míg másik része egy privát felhőn kereszül kutatható",
+  "av_collections__link01": "online gyűjteményeink között,",
+  "av_collections__text03b": "míg másik része egy privát felhőn kereszül kutatható",
   "av_collections__link02": "regisztrációt követően.",
   "curated_collections__title": "Tematikus gyűjtemények",
   "curated_collections__text01": "Tematikus gyűjteményeink az Archivum és együttműködő partnereink állományából származó, egy adott történelmi eseményre vagy jelenségre vonatkozó elsődleges és másodlagos forrásokat gyűjtenek össze. Tartalmazzák az Archivum munkatársainak kurátori reflexióit és háttértanulmányait, kiemelnek konkrét forrásokat és alternatív eszközöket, tartalmi keresési és szűrési lehetőségeket kínálnak a kutatóknak e források feltárásához.",
@@ -62,5 +62,5 @@
   "event__register__label": "Regisztráció",
   "event__zoom__label": "Csatlakozás Zoom-on keresztül",
   "blog__published__text": "Közzétéve",
-  "page__not_yet_translated__text": "Ez az oldal (még) nem érhető el magyar nyelven. Kérjük nézzen vissza később!"
+  "page__not_yet_translated__text": "Ez az oldal (még) nem érhető el magyar nyelven."
 }
