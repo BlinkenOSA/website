@@ -1,33 +1,3 @@
-import {
-    IconAcademicNews,
-    IconAnnouncement,
-    IconArchivumNews,
-    IconBlog,
-    IconBookLaunch,
-    IconCollectionNews,
-    IconCommunity,
-    IconConference,
-    IconEduPro,
-    IconExhibition,
-    IconFilmScreening,
-    IconInternship,
-    IconJob,
-    IconJoinUs,
-    IconLibrary,
-    IconMusic,
-    IconPartnerProjects,
-    IconPodcast,
-    IconProgramSeries,
-    IconPublication,
-    IconResearch,
-    IconRoundTable,
-    IconScholarship,
-    IconTalk,
-    IconTheatre,
-    IconUniversityCourse,
-    IconVideo,
-    IconWorkshop
-} from "@/components/Icon/Icon";
 import {IconAcademics, IconArchivum, IconCollections, IconPublicPrograms} from "@/components/Icon/CategoriesIcon";
 
 const getIconByProfile = (profile, size, color='neutral') => {
