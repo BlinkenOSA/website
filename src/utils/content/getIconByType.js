@@ -75,7 +75,7 @@ const getIconByType = (type, size, color='neutral') => {
             return <IconPublication size={size} color={color} />
         case 'Research':
             return <IconResearch size={size} color={color} />
-        case 'Round Table':
+        case 'Roundtable':
             return <IconRoundTable size={size} color={color} />
         case 'Scholarship':
             return <IconScholarship size={size} color={color} />
