@@ -37,7 +37,8 @@ export const fetchEntriesDetail = (id) => {
         'populate[9]': 'localizations.Content',
         'populate[10]': 'localizations.Content.Image',
         'populate[11]': 'localizations.Content.Image.Image',
-        'populate[12]': 'localizations.Content.Images.Image'
+        'populate[12]': 'localizations.Content.Images.Image',
+        'populate[13]': 'Content.PDF'
     }
 
     if (isNaN(Number(id))) {

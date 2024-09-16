@@ -11,6 +11,7 @@ export const fetchStaticPage = (slug, locale) => {
         'populate[6]': 'localizations.Content',
         'populate[7]': 'localizations.Content.Image',
         'populate[8]': 'localizations.Content.Images.Image',
+        'populate[9]': 'Content.PDF',
         'filters[Slug][$eq]': slug
     }
 

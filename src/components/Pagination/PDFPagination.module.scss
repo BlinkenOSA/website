@@ -1,0 +1,15 @@
+@import "@/styles/colors.scss";
+@import "@/styles/variables.scss";
+
+.Pagination {
+  display: flex;
+  padding: 0;
+  border-radius: 0;
+  justify-content: right;
+  margin-bottom: 8px;
+
+  // Mobile
+  @media (max-width: $sm) {
+    justify-content: center;
+  }
+}
