@@ -29,5 +29,9 @@ module.exports = nextTranslate({
     scrollRestoration: true,
     largePageDataBytes: 128 * 5000,
   },
+  webpack: (config) => {
+    config.resolve.alias.canvas = false;
+    return config;
+  },
   output: "standalone"
 })

@@ -1,0 +1,51 @@
+@import "@/styles/colors.scss";
+@import "@/styles/variables.scss";
+
+.PDFWrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 630px;
+  min-height: 800px;
+  margin-top: 16px;
+
+  .Pagination {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      text-decoration: none;
+      margin: 0;
+      padding: 0;
+
+      &::before {
+        content:none;
+      }
+    }
+  }
+
+  .Document {
+    padding: 16px;
+    background-color: $neutral_100;
+    // clip-path: polygon(42% 0, 100% 0, 100% 95%, 58% 100%, 0 100%, 0 5%);
+
+    // Mobile
+    @media (max-width: $md) {
+      padding: 10px;
+      clip-path: unset;
+    }
+  }
+
+  .Caption {
+    margin-top: 8px;
+    color: $neutral_800;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+.PaginationMobile {
+  a {
+    text-decoration: unset !important;
+  }
+}

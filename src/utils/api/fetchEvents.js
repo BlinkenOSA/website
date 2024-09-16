@@ -36,7 +36,8 @@ export const fetchEventDetail = (id) => {
         'populate[7]': 'localizations.Content.Image',
         'populate[8]': 'localizations.Content.Image.Image',
         'populate[9]': 'localizations.Content.Images.Image',
-        'populate[10]': 'localizations.Content.Images.Image'
+        'populate[10]': 'localizations.Content.Images.Image',
+        'populate[11]': 'Content.PDF'
     }
 
     if (isNaN(Number(id))) {

@@ -10,6 +10,11 @@ import TextBox from "@/components/Content/elements/TextBox";
 import Quote from "@/components/Content/elements/Quote";
 import ImageGallery from "@/components/Content/elements/ImageGallery";
 import Spacer from "@/components/Spacer/Spacer";
+import dynamic from "next/dynamic";
+
+const PDF = dynamic(() => import('@/components/Content/elements/PDF'), {
+	ssr: false
+})
 
 const Content = ({contentObject, profile='Archivum'}) => {
 	const color = getColor(profile)
@@ -45,6 +50,8 @@ const Content = ({contentObject, profile='Archivum'}) => {
 			// Video
 			case 'media.video':
 				return <Video content={content} />
+			case 'media.pdf':
+				return <PDF content={content} />
 		}
 	}
 
@@ -53,10 +60,10 @@ const Content = ({contentObject, profile='Archivum'}) => {
 			{
 				contentObject.map((co, idx) => {
 					return (
-						<>
+						<div key={idx}>
 							{ renderContent(co) }
 							<Spacer size={'medium'} />
-						</>
+						</div>
 					)
 				})
 			}
