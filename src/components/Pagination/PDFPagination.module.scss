@@ -6,10 +6,17 @@
   padding: 0;
   border-radius: 0;
   justify-content: right;
+  align-items: center;
   margin-bottom: 8px;
 
   // Mobile
   @media (max-width: $sm) {
     justify-content: center;
+  }
+
+  .PageInfo {
+    width: 140px;
+    text-align: center;
+    user-select: none;
   }
 }

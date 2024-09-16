@@ -9,7 +9,7 @@ const ContentWithImage = ({content}) => {
     const renderImages = (size) => {
         return content['Images'] && content['Images'].map((imageData, idx) => {
             return (
-                <div className={style.ImageWrapper}>
+                <div key={idx} className={style.ImageWrapper}>
                     <div className={style.StickyImage}>
                         <ImageWithCaption imageContent={imageData} size={size} />
                     </div>

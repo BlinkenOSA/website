@@ -15,7 +15,7 @@ const Authors = ({author, authorStaff}) => {
                 </div>
             }
             {
-                aStaff.map(as => <AuthorBadge authorStaff={as} />)
+                aStaff.map(as => <AuthorBadge key={as} authorStaff={as} />)
             }
         </div>
     )

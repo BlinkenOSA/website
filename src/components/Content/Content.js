@@ -20,7 +20,6 @@ const Content = ({contentObject, profile='Archivum'}) => {
 	const color = getColor(profile)
 
 	const renderContent = (content) => {
-		console.log(content)
 		switch (content['__component']) {
 			// ContentWithImage
 			case 'contents.content-left':
@@ -61,10 +60,10 @@ const Content = ({contentObject, profile='Archivum'}) => {
 			{
 				contentObject.map((co, idx) => {
 					return (
-						<>
+						<div key={idx}>
 							{ renderContent(co) }
 							<Spacer size={'medium'} />
-						</>
+						</div>
 					)
 				})
 			}

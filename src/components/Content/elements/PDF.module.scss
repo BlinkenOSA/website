@@ -8,57 +8,43 @@
   max-width: 630px;
   min-height: 800px;
 
+  .Pagination {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      text-decoration: none;
+      margin: 0;
+      padding: 0;
+
+      &::before {
+        content:none;
+      }
+    }
+  }
+
   .Document {
     padding: 16px;
     background-color: $neutral_100;
-    clip-path: polygon(42% 0, 100% 0, 100% 95%, 58% 100%, 0 100%, 0 5%);
+    // clip-path: polygon(42% 0, 100% 0, 100% 95%, 58% 100%, 0 100%, 0 5%);
+
+    // Mobile
+    @media (max-width: $md) {
+      padding: 10px;
+      clip-path: unset;
+    }
   }
 
-  .PageControls {
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    background: white;
-    opacity: 0;
-    transform: translate(-50%);
-    transition: opacity ease-in-out .2s;
-    box-shadow: 0 30px 40px 0 rgba(16, 36, 94, .2);
-    border-radius: 4px;
-    z-index: 2;
+  .Caption {
+    margin-top: 8px;
+    color: $neutral_800;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
 
-    span {
-      font: inherit;
-      font-size: .8em;
-      padding: 0 .5em
-    }
-
-    button {
-      width: 44px;
-      height: 44px;
-      background: white;
-      border: 0;
-      font: inherit;
-      font-size: .8em;
-      border-radius: 4px;
-
-      &:enabled:hover {
-        background-color: #e6e6e6;
-        cursor: pointer
-      }
-
-      &:enabled:focus {
-        background-color: #e6e6e6
-      }
-
-      &:first-child {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0
-      }
-
-      &:last-child {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0
-      }
-    }
+.PaginationMobile {
+  a {
+    text-decoration: unset !important;
   }
 }
