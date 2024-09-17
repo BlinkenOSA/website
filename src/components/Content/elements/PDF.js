@@ -11,7 +11,7 @@ import {useMedia} from "react-use";
 import Button from "@/components/Button/Button";
 import useTranslation from "next-translate/useTranslation";
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
 
 const PDF = ({content}) => {
 	const pdf = content['PDF']['data']['attributes']['url']
