@@ -21,6 +21,8 @@ const dictionary = {
 }
 
 const SiteSearchHitCard = ({hit}) => {
+    console.log(hit)
+
     const getActivityType = () => {
         switch (hit.type) {
             case 'news':
@@ -33,43 +35,67 @@ const SiteSearchHitCard = ({hit}) => {
     }
 
     const getLink = () => {
+        const getSlug = () => {
+            if (hit.locale !== 'en') {
+                if (hit.localizations[0].hasOwnProperty('Slug')) {
+                    return hit.localizations[0].Slug
+                } else {
+                    return hit.localizations[0].id
+                }
+            } else {
+                if (hit.hasOwnProperty('Slug')) {
+                    return hit.Slug
+                } else {
+                    return hit.id
+                }
+            }
+        }
+
+        const detectLanguage = () => {
+            if (hit.locale === 'en') {
+                return ''
+            } else {
+                return 'hu'
+            }
+        }
+
         switch (hit.type) {
             case 'news':
-                return `/news/${hit.id}`
+                return `${detectLanguage()}/news/${getSlug()}`
             case 'event':
-                return `/events/${hit.id}`
+                return `${detectLanguage()}/events/${getSlug()}`
             case 'collection':
                 switch (hit.ContentTypes[0]) {
                     case 'Curated':
-                        return `/collections/curated-collections/${hit.Slug}`
+                        return `${detectLanguage()}/collections/curated-collections/${getSlug()}`
                     case 'Digital':
                     case 'Online':
-                        return `/collections/online-collections/${hit.Slug}`
+                        return `${detectLanguage()}/collections/online-collections/${getSlug()}`
                     case 'AV':
-                        return `/collections/av-collections/${hit.Slug}`
+                        return `${detectLanguage()}/collections/av-collections/${getSlug()}`
                 }
                 break;
             case 'entry':
-                return `/entries/${hit.EntryType.toLowerCase()}/${hit.id}`
+                return `${detectLanguage()}/entries/${hit.EntryType.toLowerCase()}/${getSlug()}`
             case 'staff':
-                return `/about-us/staff/${hit.Slug}`
+                return `${detectLanguage()}/about-us/staff/${getSlug()}`
             case 'project':
                 switch (hit.Profiles[0]) {
                     case 'Archivum':
                     case 'Archival':
                     case 'Partner':
-                        return `/about-us/partner-projects/${hit.Slug}`
+                        return `${detectLanguage()}/about-us/partner-projects/${getSlug()}`
                     case 'Collections':
-                        return `/collections/archival-projects/${hit.Slug}`
+                        return `${detectLanguage()}/collections/archival-projects/${getSlug()}`
                     case 'Public':
-                        return `/public-programs/public-history-projects/${hit.Slug}`
+                        return `${detectLanguage()}/public-programs/public-history-projects/${getSlug()}`
                     default:
                         return ''
                 }
             case 'fellow':
-                return `/academics/fellows/${hit.Slug}`
+                return `${detectLanguage()}/academics/fellows/${getSlug()}`
             case 'job':
-                return `/about-us/jobs/${hit.Slug}`
+                return `${detectLanguage()}/about-us/jobs/${getSlug()}`
             default:
                 return ''
         }
