@@ -6,6 +6,7 @@ import getImageUrlSearch from "@/utils/content/getImageUrlSearch";
 import getCreationDate from "@/utils/content/getCreationDate";
 import getIconByType from "@/utils/content/getIconByType";
 import Link from "next/link";
+import {menuConfig} from "@/config/menuConfig";
 
 const dictionary = {
     annualReport: 'Annual Report',
@@ -21,8 +22,6 @@ const dictionary = {
 }
 
 const SiteSearchHitCard = ({hit}) => {
-    console.log(hit)
-
     const getActivityType = () => {
         switch (hit.type) {
             case 'news':
@@ -49,6 +48,29 @@ const SiteSearchHitCard = ({hit}) => {
                     return hit.id
                 }
             }
+        }
+
+        const getSlugForStaticPage = () => {
+            const slug = getSlug()
+            let staticPageLink = ''
+
+            menuConfig.forEach(mainMenu => {
+                mainMenu.menuItems.forEach(menuItem => {
+                    if (menuItem.hasOwnProperty('submenu')) {
+                        menuItem['submenu'].forEach(submenu => {
+                            if (submenu['url'].includes(slug)) {
+                                staticPageLink = submenu['url']
+                            }
+                        })
+                    } else {
+                        if (menuItem['url'].includes(slug)) {
+                            staticPageLink = menuItem['url']
+                        }
+                    }
+                })
+            })
+
+            return staticPageLink
         }
 
         const detectLanguage = () => {
@@ -96,6 +118,8 @@ const SiteSearchHitCard = ({hit}) => {
                 return `${detectLanguage()}/academics/fellows/${getSlug()}`
             case 'job':
                 return `${detectLanguage()}/about-us/jobs/${getSlug()}`
+            case 'page':
+                return `${detectLanguage()}${getSlugForStaticPage()}`
             default:
                 return ''
         }
