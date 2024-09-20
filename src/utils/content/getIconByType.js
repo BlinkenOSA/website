@@ -45,7 +45,7 @@ const getIconByType = (type, size, color='neutral') => {
             return <IconCommunity size={size} color={color}/>
         case 'Conference':
             return <IconConference size={size} color={color} />
-        case 'Education Prgram':
+        case 'Education Program':
             return <IconEduPro size={size} color={color} />
         case 'Exhibition':
             return <IconExhibition size={size} color={color} />
