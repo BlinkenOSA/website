@@ -62,5 +62,6 @@
   "event__register__label": "Regisztráció",
   "event__zoom__label": "Csatlakozás Zoom-on keresztül",
   "blog__published__text": "Közzétéve",
-  "page__not_yet_translated__text": "Ez az oldal (még) nem érhető el magyar nyelven."
+  "page__not_yet_translated__text": "Ez az oldal (még) nem érhető el magyar nyelven.",
+  "show_more": "Még több..."
 }

@@ -1,4 +1,4 @@
-export const fetchPrograms = (type='All', language, hostingType) => {
+export const fetchPrograms = (type='All', language, hostingType, page=1, size=100) => {
 	const params = {
 		'fields[0]': 'Title',
 		'fields[1]': 'StartDate',
@@ -15,8 +15,8 @@ export const fetchPrograms = (type='All', language, hostingType) => {
 		'populate[1]': 'localizations',
 		'populate[2]': 'localizations.Image',
 		'sort[0]': 'StartDate:desc',
-		'pagination[start]': 0,
-		'pagination[limit]': 100,
+		'pagination[start]': (page-1) * size,
+		'pagination[limit]': size,
 	}
 
 	if (type !== '') {
