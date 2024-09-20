@@ -7,7 +7,7 @@ import getIconByType from "@/utils/content/getIconByType";
 import getDateString from "@/utils/content/getDateString";
 import getColor from "@/utils/content/getColor";
 import {Collapse} from 'react-collapse';
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import {useList, useUpdateEffect} from "react-use";
 import Button from "@/components/Button/Button";
@@ -164,8 +164,13 @@ const ProgramRows = ({programTypeFilter, languageFilter, hostingTypeFilter}) => 
 
 	const [openedPrograms, {push, removeAt}] = useList([])
 
-	const pastPrograms = [];
-	const futurePrograms = [];
+	const [pastPrograms, pastProgramMethods] = useList([]);
+	const pushPastPrograms = pastProgramMethods['push']
+
+	const [futurePrograms, futureProgramMethods] = useList([]);
+	const pushFuturePrograms = futureProgramMethods['push']
+
+	const [page, setPage] = useState(1)
 
 	const onTitleClick = (id) => {
 		if (openedPrograms.includes(id)) {
@@ -175,33 +180,36 @@ const ProgramRows = ({programTypeFilter, languageFilter, hostingTypeFilter}) => 
 		}
 	}
 
-	const { data } = useSWR(
-		fetchPrograms(programTypeFilter, languageFilter, hostingTypeFilter),
+
+	const { data, isLoading } = useSWR(
+		fetchPrograms(programTypeFilter, languageFilter, hostingTypeFilter, page),
 		([url, params]) => clientFetcher(url, params)
 	)
 
-	data && data['data'].map((program, idx) => {
-		const startDate = dayjs(program['attributes']['StartDate'])
-		const endDate = program['attributes']['EndDate'] && dayjs(program['attributes']['EndDate'])
+	useEffect(() => {
+		data && data['data'].map((program, idx) => {
+			const startDate = dayjs(program['attributes']['StartDate'])
+			const endDate = program['attributes']['EndDate'] && dayjs(program['attributes']['EndDate'])
 
-		const detectPast = (start, end) => {
-			const now = dayjs()
+			const detectPast = (start, end) => {
+				const now = dayjs()
 
-			if (end !== null) {
-				if (start < now && end < now) {
-					return true
+				if (end !== null) {
+					if (start < now && end < now) {
+						return true
+					}
+				} else {
+					if (start < now) {
+						return true
+					}
 				}
-			} else {
-				if (start < now) {
-					return true
-				}
+
+				return false
 			}
 
-			return false
-		}
-
-		detectPast(startDate, endDate) ? pastPrograms.push(program) : futurePrograms.push(program)
-	})
+			detectPast(startDate, endDate) ? pushPastPrograms(program) : pushFuturePrograms(program)
+		})
+	}, [data])
 
 	return (
 		<>
@@ -230,6 +238,14 @@ const ProgramRows = ({programTypeFilter, languageFilter, hostingTypeFilter}) => 
 					</>
 				))
 			}
+			<div className={style.ShowMoreButton}>
+				<Button
+					type="secondary"
+					size={'medium'}
+					color={'neutral'}
+					disabled={isLoading || !data || data['meta']['pagination']['total'] <= (page) * 100}
+					onClick={() => setPage(page + 1)}>{t('show_more')}</Button>
+			</div>
 		</>
 	)
 }
