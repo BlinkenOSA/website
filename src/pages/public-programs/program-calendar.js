@@ -166,9 +166,11 @@ const ProgramRows = ({programTypeFilter, languageFilter, hostingTypeFilter}) => 
 
 	const [pastPrograms, pastProgramMethods] = useList([]);
 	const pushPastPrograms = pastProgramMethods['push']
+	const clearPastPrograms = pastProgramMethods['clear']
 
 	const [futurePrograms, futureProgramMethods] = useList([]);
 	const pushFuturePrograms = futureProgramMethods['push']
+	const clearFuturePrograms = futureProgramMethods['clear']
 
 	const [page, setPage] = useState(1)
 
@@ -180,13 +182,22 @@ const ProgramRows = ({programTypeFilter, languageFilter, hostingTypeFilter}) => 
 		}
 	}
 
-
 	const { data, isLoading } = useSWR(
 		fetchPrograms(programTypeFilter, languageFilter, hostingTypeFilter, page),
 		([url, params]) => clientFetcher(url, params)
 	)
 
 	useEffect(() => {
+			setPage(1)
+	}, [programTypeFilter, languageFilter, hostingTypeFilter])
+
+	useEffect(() => {
+		// Reset programs
+		if (page === 1) {
+			clearFuturePrograms()
+			clearPastPrograms()
+		}
+
 		data && data['data'].map((program, idx) => {
 			const startDate = dayjs(program['attributes']['StartDate'])
 			const endDate = program['attributes']['EndDate'] && dayjs(program['attributes']['EndDate'])
