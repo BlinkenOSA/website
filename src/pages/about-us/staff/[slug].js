@@ -101,16 +101,6 @@ const StaffPage = ({staffData}) => {
                                 <Col xs={12}>
                                     <Tabs className="mb-3">
                                         {
-                                            appearences.length > 0 &&
-                                            <Tab eventKey="appearences" title={isMobile ? t('staff__tab__appearances') : t('staff__tab__mobile__appearances')}>
-                                                {
-                                                    appearences.map(
-                                                        (app, idx) => <Appearance key={`appearence_${idx}`} data={app['attributes']} />
-                                                    )
-                                                }
-                                            </Tab>
-                                        }
-                                        {
                                             courses.length > 0 &&
                                             <Tab eventKey="courses" title={isMobile ? t('staff__tab__courses') : t('staff__tab__mobile__courses')}>
                                                 {
@@ -136,6 +126,16 @@ const StaffPage = ({staffData}) => {
                                                 {
                                                     entries.map(
                                                         (entry, idx) => <Entry key={`entry_${idx}`} id={entry['id']} data={entry['attributes']} />
+                                                    )
+                                                }
+                                            </Tab>
+                                        }
+                                        {
+                                            appearences.length > 0 &&
+                                            <Tab eventKey="appearences" title={isMobile ? t('staff__tab__appearances') : t('staff__tab__mobile__appearances')}>
+                                                {
+                                                    appearences.map(
+                                                        (app, idx) => <Appearance key={`appearence_${idx}`} data={app['attributes']} />
                                                     )
                                                 }
                                             </Tab>
