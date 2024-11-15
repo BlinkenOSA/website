@@ -27,7 +27,7 @@ const NewsletterPanel = ({type='landing', color='neutral'}) => {
                             size={'large'}
                             type={'primary'}
                             color={color}
-                            link={lang === 'en' ? 'https://dashboard.mailerlite.com/forms/982957/137796678462735997/share' : 'https://dashboard.mailerlite.com/forms/982957/137796678462735997/share'}
+                            link={lang === 'en' ? 'https://dashboard.mailerlite.com/forms/982957/137999695450474370/share' : 'https://dashboard.mailerlite.com/forms/982957/137796678462735997/share'}
                             linkTarget={'_blank'}
                         >
                             {t('newsletter__subscribe')}
