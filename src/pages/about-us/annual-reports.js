@@ -39,7 +39,7 @@ const AnnualReportsPage = ({reportData}) => {
                     title={t('annual_reports__title')}
                     breadCrumb={t('breadcrumb__about_us')}
                     menu={'about-us'}
-                    image={'/images/header-annual-reports.jpg'} />
+                    image={'/images/header-annual-reports.webp'} />
                 <Container>
                     <Row>
                         <Col xs={12}>

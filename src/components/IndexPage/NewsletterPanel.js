@@ -12,7 +12,7 @@ const NewsletterPanel = ({type='landing', color='neutral'}) => {
         <div className={type === 'landing' ? `${style.Wrapper} ${style.Landing}` : style.Wrapper}>
             <Media at="xs">
                 <MaskedImage
-                    src={'https://fortepan.download/file/fortepan-eu/1600/fortepan_56385.jpg'}
+                    src={'/images/newsletter.webp'}
                 />
             </Media>
             <div className={style.Left}>
@@ -38,7 +38,7 @@ const NewsletterPanel = ({type='landing', color='neutral'}) => {
             <div className={style.Right}>
                 <Media greaterThan="xs">
                     <MaskedImage
-                        src={'https://fortepan.download/file/fortepan-eu/1600/fortepan_56385.jpg'}
+                        src={'/images/newsletter.webp'}
                     />
                 </Media>
             </div>

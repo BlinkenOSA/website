@@ -61,7 +61,7 @@ const SearchPage = ({searchOpen, onClose}) => {
                 <Image
                     priority={true}
                     alt={'Catalog search background'}
-                    src={'/images/search-catalog.jpg'}
+                    src={'/images/search-catalog.webp'}
                     fill={true}
                 />
             </motion.div>
@@ -98,7 +98,7 @@ const SearchPage = ({searchOpen, onClose}) => {
                     className={style.WebsiteSearchBackground}
                     priority={true}
                     alt={'Search background'}
-                    src={'/images/search.jpg'}
+                    src={'/images/search.webp'}
                     fill={true}
                 />
             </motion.div>

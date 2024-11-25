@@ -28,7 +28,7 @@ const CatalogPanel = () => {
             <Image
                 priority={true}
                 alt={'Catalog background'}
-                src={'/images/panel-catalog.jpg'}
+                src={'/images/panel-catalog.webp'}
                 fill={true}
             />
             <div className={style.Overlay}>

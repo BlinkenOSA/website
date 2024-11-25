@@ -22,7 +22,7 @@ const ResearchRoomPanel = () => {
             <Image
                 priority={true}
                 alt={'Research Room background'}
-                src={'/images/panel-research-room.jpg'}
+                src={'/images/panel-research-room.webp'}
                 fill={true}
             />
             <div className={style.Overlay}>
