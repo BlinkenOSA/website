@@ -76,7 +76,7 @@ const SearchPage = ({ serverState, serverUrl }) => {
 				<title>Blinken OSA Archivum</title>
 			</Head>
 			<div className={style.Page}>
-				<PageHeader title={'Search'} image={'/images/search.jpg'} isBlur={true} />
+				<PageHeader title={'Search'} image={'/images/search.webp'} isBlur={true} />
 				<Container>
 					<InstantSearchSSRProvider {...serverState}>
 						<InstantSearch
