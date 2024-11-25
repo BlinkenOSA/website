@@ -126,17 +126,17 @@ const HeroV2 = ({data, index}) => {
             </Container>
             <Media at="xs">
                 <div className={style.PosterWrapper}>
-                    <MaskedImage src={getImageUrl(data['Image'], 'small')} priority={index === 0} type={'hero'} quality={90}/>
+                    <MaskedImage src={getImageUrl(data['Image'], 'small')} type={'hero'} quality={90}/>
                 </div>
             </Media>
             <Media at="sm">
                 <div className={style.PosterWrapper}>
-                    <MaskedImage src={getImageUrl(data['Image'], 'medium')} priority={index === 0} type={'hero'}/>
+                    <MaskedImage src={getImageUrl(data['Image'], 'medium')} type={'hero'}/>
                 </div>
             </Media>
             <Media greaterThanOrEqual="md">
                 <div className={style.PosterWrapper}>
-                    <MaskedImage src={getImageUrl(data['Image'], 'full')} priority={index === 0} type={'hero'}/>
+                    <MaskedImage src={getImageUrl(data['Image'], 'full')} type={'hero'}/>
                 </div>
             </Media>
             <div className={`${style.Background} ${style[color]}`}/>
