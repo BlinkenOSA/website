@@ -28,6 +28,7 @@ module.exports = nextTranslate({
   experimental: {
     scrollRestoration: true,
     largePageDataBytes: 128 * 5000,
+    optimizePackageImports: ['react-bootstrap', 'slick-carousel', 'next-translate', 'framer-motion', 'bootstrap']
   },
   webpack: (config) => {
     config.resolve.alias.canvas = false;
