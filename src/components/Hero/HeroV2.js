@@ -8,7 +8,6 @@ import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
 import {useWindowSize} from "react-use";
-import {getImageSize} from "@/utils/getImageSize";
 
 const HeroV2 = ({data, index}) => {
     const { t, lang } = useTranslation('cards')
