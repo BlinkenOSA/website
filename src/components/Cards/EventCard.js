@@ -19,7 +19,7 @@ const EventCard = ({id, data}) => {
     const endDate = getDateString(data['EndDate'], undefined, data['EventType'] === 'Exhibition' ? 'exhibition' : 'event', lang)
     const title = getLocData(data, 'Title', lang)
     const description = getLocData(data, 'CardText', lang)
-    const imageData = getImageData(data['Image'], 'medium')
+    const imageData = getImageData(data['Image'], 'small')
     const icon = getIconByType(data['EventType'], 'small')
     const color= getColor(data['Profile'])
     const slug = data['Slug']

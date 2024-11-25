@@ -11,7 +11,7 @@ const StaffCard = ({id, data}) => {
     // Populate fields
     const firstName = data['FirstName']
     const lastName = data['LastName']
-    const imageData = getImageData(data['Image'], 'medium')
+    const imageData = getImageData(data['Image'], 'small')
     const position = getLocData(data, 'Position', lang)
     const slug = data['Slug']
     const OSAUnit = getLocData(data, 'Unit', lang)

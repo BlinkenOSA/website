@@ -18,7 +18,7 @@ const EntryCard = ({ id, data}) => {
     const date = data['createdAt']
     const title = getLocData(data, 'Title', lang)
     const description = getLocData(data, 'CardText', lang)
-    const imageData = getImageData(data['Image'], 'medium')
+    const imageData = getImageData(data['Image'], 'small')
     const icon = getIconByType(data['EntryType'], 'normal')
     const color= getColor(data['Profile'])
     const slug = data['Slug']

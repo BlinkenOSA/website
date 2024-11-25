@@ -15,7 +15,7 @@ const AnnualReportCard = ({data}) => {
     const description = getLocData(data, "Description", lang)
     const link = data['Link']
     const year = data['Year']
-    const imageData = getImageData(data['Image'], 'medium')
+    const imageData = getImageData(data['Image'], 'small')
 
     return (
         <div className={style.AnnualReportWrapper}>

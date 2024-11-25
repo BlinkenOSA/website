@@ -13,7 +13,7 @@ const StaffCard = ({data}) => {
     const researchTopic = getLocData(data, 'ResearchTopic', lang)
     const affiliation = getLocData(data, 'Affiliation', lang)
     const slug = data['Slug']
-    const imageData = getImageData(data['Image'], 'medium')
+    const imageData = getImageData(data['Image'], 'small')
 
     return (
         <div className={style.Wrapper}>
