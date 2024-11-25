@@ -13,7 +13,7 @@ const CollectionCard = ({data}) => {
     const { t, lang } = useTranslation('cards')
 
     const title = getLocData(data, 'Title', lang)
-    const imageData = getImageData(data['Image'], 'medium')
+    const imageData = getImageData(data['Image'], 'small')
     const size = data['Size']
     const description = getLocData(data, 'CardText', lang)
     const types = data['MaterialTypes']

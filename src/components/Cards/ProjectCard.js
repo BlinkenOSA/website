@@ -15,7 +15,7 @@ const ProjectCard = ({data, profile}) => {
     // Populate fields
     const title = getLocData(data, 'Title', lang)
     const description = getLocData(data, 'CardText', lang)
-    const imageData = getImageData(data['Image'], 'medium')
+    const imageData = getImageData(data['Image'], 'small')
     const link = data['Link']
     const buttonText = data['ButtonText']
     const slug = data['Slug']
