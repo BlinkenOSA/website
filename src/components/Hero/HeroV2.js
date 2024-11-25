@@ -7,9 +7,28 @@ import getColor from "@/utils/content/getColor";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
+import {useWindowSize} from "react-use";
 
 const HeroV2 = ({data, index}) => {
     const { t, lang } = useTranslation('cards')
+
+    const {width, height} = useWindowSize();
+
+    const getImageSize = (w) => {
+        if (w > 1200) {
+            return 'full'
+        }
+
+        if (w > 800) {
+            return 'large'
+        }
+
+        if (w > 600) {
+            return 'medium'
+        }
+
+        return 'small'
+    }
 
     // Populate fields
     const date = data['Date']
@@ -23,7 +42,7 @@ const HeroV2 = ({data, index}) => {
     const buttonLink = getLocData(data, 'ButtonLink', lang)
     const profile = data['Profile']
     const color = getColor(profile)
-    const image = getImageUrl(data['Image'], 'full')
+    const image = getImageUrl(data['Image'], getImageSize(width))
 
     const generateButton = () => {
         if (buttonText !== null) {
