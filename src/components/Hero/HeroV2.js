@@ -8,6 +8,7 @@ import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
 import {useWindowSize} from "react-use";
+import {Media} from "@/utils/media";
 
 const HeroV2 = ({data, index}) => {
     const { t, lang } = useTranslation('cards')
@@ -42,7 +43,6 @@ const HeroV2 = ({data, index}) => {
     const buttonLink = getLocData(data, 'ButtonLink', lang)
     const profile = data['Profile']
     const color = getColor(profile)
-    const image = getImageUrl(data['Image'], getImageSize(width))
 
     const generateButton = () => {
         if (buttonText !== null) {
@@ -124,9 +124,21 @@ const HeroV2 = ({data, index}) => {
                     </Col>
                 </Row>
             </Container>
-            <div className={style.PosterWrapper}>
-                <MaskedImage src={image} priority={index === 0} type={'hero'}/>
-            </div>
+            <Media at="xs">
+                <div className={style.PosterWrapper}>
+                    <MaskedImage src={getImageUrl(data['Image'], 'small')} priority={index === 0} type={'hero'} quality={90}/>
+                </div>
+            </Media>
+            <Media at="sm">
+                <div className={style.PosterWrapper}>
+                    <MaskedImage src={getImageUrl(data['Image'], 'medium')} priority={index === 0} type={'hero'}/>
+                </div>
+            </Media>
+            <Media greaterThanOrEqual="md">
+                <div className={style.PosterWrapper}>
+                    <MaskedImage src={getImageUrl(data['Image'], 'full')} priority={index === 0} type={'hero'}/>
+                </div>
+            </Media>
             <div className={`${style.Background} ${style[color]}`}/>
         </div>
     )
