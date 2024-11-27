@@ -67,6 +67,7 @@ const JobsPage = ({initialData}) => {
         <>
             <Head>
                 <title>Blinken OSA Archivum | {t('job__title')}</title>
+                <meta property="og:title" content={`Blinken OSA Archivum | ${t('job__title')}`}/>
             </Head>
             <div className={style.Page}>
                 <PageHeader

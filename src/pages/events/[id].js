@@ -53,10 +53,24 @@ const EventPage = ({eventData}) => {
 		{ menu: 'program-calendar', link: '/public-programs/program-calendar' , title: t('program_calendar__title')},
 	]
 
+	const title = getLocData(data, 'Title', lang)
+	const description = getLocData(data, 'CardText', lang)
+
 	return (
 		<>
 			<Head>
-				<title>Blinken OSA Archivum | {getLocData(data, 'Title', lang)}</title>
+				<title>Blinken OSA Archivum | {title}</title>
+				<meta property="og:site_name" content="Blinken OSA Archivum"/>
+				<meta property="og:type" content="website"/>
+				<meta property="og:title" content={`${title} - ${startDate}`}/>
+				<meta property="og:locale" content={lang}/>
+				<meta property="og:description" content={description}/>
+				<meta property="og:image" content={image}/>
+				<meta name="twitter:site" content="@BlinkenOSA"/>
+				<meta name="twitter:card" content="summary"/>
+				<meta name="twitter:title" content={`${title} - ${startDate}`}/>
+				<meta name="twitter:description" content={description}/>
+				<meta name="twitter:image" content={image}/>
 			</Head>
 			<div className={style.Page}>
 				<PageHeader
@@ -71,7 +85,7 @@ const EventPage = ({eventData}) => {
 					<Row>
 						<Col xs={12}>
 							<TranslationChecker data={data}/>
-							<EventTypeTag label={t('event__eventType__label')} eventType={eventType} profile={profile} />
+							<EventTypeTag label={t('event__eventType__label')} eventType={eventType} profile={profile}/>
 							<div>
 								<span className={'subtitle-small'}>{t('event__start__label')}: </span>
 								<span>{getDateString(startDate, undefined, 'eventFull', lang)}</span>

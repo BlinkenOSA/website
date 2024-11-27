@@ -42,6 +42,8 @@ const ProjectPage = ({projectData}) => {
     const content = getLocData(data, 'Content', lang)
     const image = getImageUrl(data['Image'])
 
+    const description = getLocData(data, 'CardText', lang)
+
     const breadCrumbObject = [
         {menu: 'collections', title: t('breadcrumb__collections')},
         {menu: 'collections/archival-projects', link: '/collections/archival-projects', title: t('archival_projects__title')}
@@ -51,16 +53,28 @@ const ProjectPage = ({projectData}) => {
         <>
             <Head>
                 <title>Blinken OSA Archivum | {title}</title>
+                <meta property="og:site_name" content="Blinken OSA Archivum"/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:title" content={title}/>
+                <meta property="og:locale" content={lang}/>
+                <meta property="og:description" content={description}/>
+                <meta property="og:image" content={image}/>
+                <meta name="twitter:site" content="@BlinkenOSA"/>
+                <meta name="twitter:card" content="summary"/>
+                <meta name="twitter:title" content={title}/>
+                <meta name="twitter:description" content={description}/>
+                <meta name="twitter:image" content={image}/>
             </Head>
             <div className={style.Page}>
                 <Container>
-                    <PageHeader title={title} breadcrumbObject={breadCrumbObject} image={image} scrollScale={0.2} isBlur={true} />
+                    <PageHeader title={title} breadcrumbObject={breadCrumbObject} image={image} scrollScale={0.2}
+                                isBlur={true}/>
                     <Row>
                         <Col xs={12}>
-                            <Content contentObject={content} profile={'Collections'} />
+                            <Content contentObject={content} profile={'Collections'}/>
                         </Col>
                     </Row>
-                    <Spacer />
+                    <Spacer/>
                     <div>
                         <Button
                             type={'primary'}

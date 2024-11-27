@@ -35,6 +35,7 @@ const JobPage = ({jobData}) => {
     const data = jobData['data'][0]['attributes'];
 
     const title = getLocData(data, "Title", lang)
+    const description = getLocData(data, 'ContentHighlight', lang)
     const startingDate = data['StartingDate']
     const duration = data['Duration']
     const location = data['Location']
@@ -54,10 +55,21 @@ const JobPage = ({jobData}) => {
         <>
             <Head>
                 <title>Blinken OSA Archivum | {title}</title>
+                <meta property="og:site_name" content="Blinken OSA Archivum"/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:title" content={title}/>
+                <meta property="og:locale" content={lang}/>
+                <meta property="og:description" content={description}/>
+                <meta property="og:image" content={image}/>
+                <meta name="twitter:site" content="@BlinkenOSA"/>
+                <meta name="twitter:card" content="summary"/>
+                <meta name="twitter:title" content={title}/>
+                <meta name="twitter:description" content={description}/>
+                <meta name="twitter:image" content={image}/>
             </Head>
             <div className={style.Page}>
                 <Container>
-                    <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
+                    <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject}/>
                     <Row>
                         <Col xs={12}>
                             <LabeledData label={'Starting Date'} data={startingDate} marginBottom={false} />

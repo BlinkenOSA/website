@@ -61,11 +61,20 @@ const ExternalPage = ({pageData}) => {
 		<>
 			<Head>
 				<title>Blinken OSA Archivum | {title}</title>
+				<meta property="og:site_name" content="Blinken OSA Archivum"/>
+				<meta property="og:type" content="website"/>
+				<meta property="og:title" content={title}/>
+				<meta property="og:locale" content={lang}/>
+				<meta property="og:image" content={image}/>
+				<meta name="twitter:site" content="@BlinkenOSA"/>
+				<meta name="twitter:card" content="summary"/>
+				<meta name="twitter:title" content={title}/>
+				<meta name="twitter:image" content={image}/>
 			</Head>
 			<div className={style.Page}>
-				<PageHeader title={title} image={image} scrollScale={0.2} breadCrumb={breadCrumb} menu={menu} />
+				<PageHeader title={title} image={image} scrollScale={0.2} breadCrumb={breadCrumb} menu={menu}/>
 				<Container>
-					<Content contentObject={content} profile={profile} />
+					<Content contentObject={content} profile={profile}/>
 					<div className={style.BottomLine}>
 						<Button link={link} color={getColor(profile)}>{linkButtonText}</Button>
 					</div>

@@ -35,6 +35,7 @@ const ProjectPage = ({projectData}) => {
     const data = projectData['data'][0]['attributes'];
 
     const title = getLocData(data, 'Title', lang)
+    const description = getLocData(data, 'CardText', lang)
     const link = data['Link']
     const buttonText = getLocData(data, 'ButtonText', lang)
     const content = getLocData(data, 'Content', lang)
@@ -49,6 +50,17 @@ const ProjectPage = ({projectData}) => {
         <>
             <Head>
                 <title>Blinken OSA Archivum | {title}</title>
+                <meta property="og:site_name" content="Blinken OSA Archivum"/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:title" content={title}/>
+                <meta property="og:locale" content={lang}/>
+                <meta property="og:description" content={description}/>
+                <meta property="og:image" content={image}/>
+                <meta name="twitter:site" content="@BlinkenOSA"/>
+                <meta name="twitter:card" content="summary"/>
+                <meta name="twitter:title" content={title}/>
+                <meta name="twitter:description" content={description}/>
+                <meta name="twitter:image" content={image}/>
             </Head>
             <div className={style.Page}>
                 <PageHeader title={title} breadcrumbObject={breadCrumbObject} image={image} scrollScale={0.2} isBlur={true} />

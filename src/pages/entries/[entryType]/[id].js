@@ -44,6 +44,9 @@ const EntryPage = ({entriesData}) => {
 	const createdAt = data['createdAt']
 	const image = getImageUrl(data['Image'])
 
+	const title = getLocData(data, 'Title', lang)
+	const description = getLocData(data, 'CardText', lang)
+
 	const breadcrumbObject = [
 		{ menu: 'about-us', title: t('breadcrumb__about_us')},
 		{ menu: 'blog', link: '/entries', title: t('entries__title')},
@@ -52,7 +55,18 @@ const EntryPage = ({entriesData}) => {
 	return (
 		<>
 			<Head>
-				<title>Blinken OSA Archivum | {getLocData(data, 'Title', lang)}</title>
+				<title>Blinken OSA Archivum | {title}</title>
+				<meta property="og:site_name" content="Blinken OSA Archivum"/>
+				<meta property="og:type" content="article"/>
+				<meta property="og:title" content={title}/>
+				<meta property="og:locale" content={lang}/>
+				<meta property="og:description" content={description}/>
+				<meta property="og:image" content={image}/>
+				<meta name="twitter:site" content="@BlinkenOSA"/>
+				<meta name="twitter:card" content="summary"/>
+				<meta name="twitter:title" content={title}/>
+				<meta name="twitter:description" content={description}/>
+				<meta name="twitter:image" content={image}/>
 			</Head>
 			<div className={style.Page}>
 				<PageHeader

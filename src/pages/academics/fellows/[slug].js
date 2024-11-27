@@ -68,10 +68,21 @@ const FellowPage = ({fellowData}) => {
         <>
             <Head>
                 <title>Blinken OSA Archivum | {name}</title>
+                <meta property="og:site_name" content="Blinken OSA Archivum"/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:title" content={name}/>
+                <meta property="og:locale" content={lang}/>
+                <meta property="og:description" content={affiliation}/>
+                <meta property="og:image" content={image}/>
+                <meta name="twitter:site" content="@BlinkenOSA"/>
+                <meta name="twitter:card" content="summary"/>
+                <meta name="twitter:title" content={name}/>
+                <meta name="twitter:description" content={affiliation}/>
+                <meta name="twitter:image" content={image}/>
             </Head>
             <div className={style.Page}>
                 <Container>
-                    <SimplePageHeader title={name} breadCrumbObject={breadCrumbObject} />
+                    <SimplePageHeader title={name} breadCrumbObject={breadCrumbObject}/>
                     <Row>
                         <Col xs={{order: 2, span: 12}} sm={{order: 1, span: 8}} md={{order: 1, span: 8}}>
                             <div className={'subtitle-small'}>{affiliation}</div>
