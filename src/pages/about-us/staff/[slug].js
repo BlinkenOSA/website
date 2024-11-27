@@ -61,6 +61,9 @@ const StaffPage = ({staffData}) => {
     const entries = data['Entries']['data']
     const publications = data['Publications']['data']
 
+    const displayName = lang === 'en' ? `${firstName} ${lastName}` : `${lastName} ${firstName}`
+
+
     const detectTabsVisible = () => {
         return appearences.length > 0 || courses.length > 0 || entries.length > 0 || publications.length > 0
     }
@@ -73,11 +76,24 @@ const StaffPage = ({staffData}) => {
     return (
         <>
             <Head>
-                <title>Blinken OSA Archivum | {lang === 'en' ? `${firstName} ${lastName}` : `${lastName} ${firstName}`}</title>
+                <title>Blinken OSA Archivum
+                    | {lang === 'en' ? `${firstName} ${lastName}` : `${lastName} ${firstName}`}</title>
+                <meta property="og:site_name" content="Blinken OSA Archivum"/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:title" content={displayName}/>
+                <meta property="og:locale" content={lang}/>
+                <meta property="og:description" content={position}/>
+                <meta property="og:image" content={image}/>
+                <meta name="twitter:site" content="@BlinkenOSA"/>
+                <meta name="twitter:card" content="summary"/>
+                <meta name="twitter:title" content={displayName}/>
+                <meta name="twitter:description" content={position}/>
+                <meta name="twitter:image" content={image}/>
             </Head>
             <div className={style.Page}>
                 <Container>
-                    <SimplePageHeader title={lang === 'en' ? `${firstName} ${lastName}` : `${lastName} ${firstName}`} breadCrumbObject={breadCrumbObject} />
+                    <SimplePageHeader title={lang === 'en' ? `${firstName} ${lastName}` : `${lastName} ${firstName}`}
+                                      breadCrumbObject={breadCrumbObject}/>
                     <Row>
                         <Col xs={{order: 2, span: 12}} sm={{order: 1, span: 8}} md={{order: 1, span: 8}}>
                             <div className={'subtitle-large'}>{position}</div>
@@ -85,7 +101,7 @@ const StaffPage = ({staffData}) => {
                                 {unit}<br/>
                                 {email}
                             </p>
-                            {bio && <BlockContent content={bio} profile={'Archives'} />}
+                            {bio && <BlockContent content={bio} profile={'Archives'}/>}
                         </Col>
                         <Col xs={{order: 1, span: 12}} sm={{order: 2, span: 4}} md={{order: 2, span: 4}}>
                             <div className={style.ImageWrapper}>

@@ -8,6 +8,7 @@ import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
 import Head from "next/head";
+import getImageUrl from "@/utils/content/getImageUrl";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -37,6 +38,9 @@ const CollectionDetailPage = ({collectionData}) => {
     const content = getLocData(data, 'Content', lang)
     const link = data['Link']
 
+    const description = getLocData(data, 'CardText', lang)
+    const image = getImageUrl(data['Image'])
+
     const breadCrumbObject = [
         {menu: 'collections', title: t('breadcrumb__collections')},
         {menu: 'collections/av-collections', link: '/collections/av-collections', title: t('av_collections__title')}
@@ -46,16 +50,27 @@ const CollectionDetailPage = ({collectionData}) => {
         <>
             <Head>
                 <title>Blinken OSA Archivum | {title}</title>
+                <meta property="og:site_name" content="Blinken OSA Archivum"/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:title" content={title}/>
+                <meta property="og:locale" content={lang}/>
+                <meta property="og:description" content={description}/>
+                <meta property="og:image" content={image}/>
+                <meta name="twitter:site" content="@BlinkenOSA"/>
+                <meta name="twitter:card" content="summary"/>
+                <meta name="twitter:title" content={title}/>
+                <meta name="twitter:description" content={description}/>
+                <meta name="twitter:image" content={image}/>
             </Head>
             <div className={style.Page}>
                 <Container>
-                    <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject} />
+                    <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject}/>
                     <Row>
                         <Col xs={12}>
-                            <Content contentObject={content} profile={'Collections'} />
+                            <Content contentObject={content} profile={'Collections'}/>
                         </Col>
                     </Row>
-                    <Spacer />
+                    <Spacer/>
                     {
                         link &&
                         <Button

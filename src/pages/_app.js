@@ -17,15 +17,15 @@ const suisseIntlSemiBold = localFont({src: '../../public/fonts/SuisseIntl-SemiBo
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Head>
-        <style
-          type="text/css"
-          dangerouslySetInnerHTML={{ __html: mediaStyles }}
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-      <main
-        className={`${suisseIntlRegular.variable} ${suisseIntlMedium.variable} ${suisseIntlSemiBold.variable}`}
+        <Head>
+            <style
+                type="text/css"
+                dangerouslySetInnerHTML={{__html: mediaStyles}}
+            />
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        </Head>
+        <main
+            className={`${suisseIntlRegular.variable} ${suisseIntlMedium.variable} ${suisseIntlSemiBold.variable}`}
         style={{height: '100%'}}>
         <MediaContextProvider disableDynamicMediaQueries>
           <ThemeProvider
