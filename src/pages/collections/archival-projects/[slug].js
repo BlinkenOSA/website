@@ -10,6 +10,7 @@ import Head from "next/head";
 import getLocData from "@/utils/content/getLocData";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import getImageUrl from "@/utils/content/getImageUrl";
+import {getFullURL} from "@/utils/getFullURL";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -59,6 +60,7 @@ const ProjectPage = ({projectData}) => {
                 <meta property="og:locale" content={lang}/>
                 <meta property="og:description" content={description}/>
                 <meta property="og:image" content={image}/>
+                <meta property="og:url" content={getFullURL(lang)}/>
                 <meta name="twitter:site" content="@BlinkenOSA"/>
                 <meta name="twitter:card" content="summary"/>
                 <meta name="twitter:title" content={title}/>
