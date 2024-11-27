@@ -10,6 +10,7 @@ import {toCapitalize} from "@/utils/toCapitalize";
 import BlockContent from "@/components/Content/BlockContent";
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
+import {getFullURL} from "@/utils/getFullURL";
 
 
 export const getServerSideProps = (async (context) => {
@@ -74,6 +75,7 @@ const FellowPage = ({fellowData}) => {
                 <meta property="og:locale" content={lang}/>
                 <meta property="og:description" content={affiliation}/>
                 <meta property="og:image" content={image}/>
+                <meta property="og:url" content={getFullURL(lang)}/>
                 <meta name="twitter:site" content="@BlinkenOSA"/>
                 <meta name="twitter:card" content="summary"/>
                 <meta name="twitter:title" content={name}/>
