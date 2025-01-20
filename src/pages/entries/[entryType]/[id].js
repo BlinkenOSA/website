@@ -13,6 +13,10 @@ import Head from "next/head";
 import getLocData from "@/utils/content/getLocData";
 import TranslationChecker from "@/components/TranslationChecker/TranslationChecker";
 import {getFullURL} from "@/utils/getFullURL";
+import RelatedMaterials from "@/components/RelatedMaterials/RelatedMaterials";
+import {Media} from "@/utils/media";
+import NewsPanel from "@/components/IndexPage/NewsPanel";
+import ResearchRoomPanel from "@/components/IndexPage/ResearchRoomPanel";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -97,6 +101,17 @@ const EntryPage = ({entriesData}) => {
 					<Spacer size={'medium'} />
 					<Content contentObject={getLocData(data,'Content', lang)} profile={profile} />
 					<Spacer size={'medium'} />
+				</Container>
+				<Container>
+					<Media at="xs">
+						<RelatedMaterials materialData={data} slidesToShow={1} />
+					</Media>
+					<Media at="sm">
+						<RelatedMaterials materialData={data} slidesToShow={2} />
+					</Media>
+					<Media greaterThanOrEqual="md">
+						<RelatedMaterials materialData={data} slidesToShow={3} />
+					</Media>
 				</Container>
 			</div>
 		</>
