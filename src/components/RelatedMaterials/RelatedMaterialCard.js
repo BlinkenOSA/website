@@ -1,37 +1,57 @@
-import style from "./NewsCard.module.scss";
+import style from "./RelatedMaterialCard.module.scss";
 import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import truncateWithEllipses from "@/utils/truncateWithEllipsis";
 import getColor from "@/utils/content/getColor";
 
 import {motion} from 'framer-motion';
 import Link from "next/link";
-import useTranslation from "next-translate/useTranslation";
+import getIconByType from "@/utils/content/getIconByType";
 
 const RelatedMaterialCard = ({ id, data}) => {
-    const {t, lang} = useTranslation('cards')
-
-    console.log(data)
-
     // Populate fields
     const title = data['Title']
-    const description = data['CardText']
+    const description = data['CardText'] ? data['CardText'] : ''
     const imageData = data['Image']
-    const icon = data['Type']
-    const color= getColor(data['Profile'])
+    const icon = getIconByType(data['IconDefine'], 'normal')
     const slug = data['Slug']
 
     const imageAnim = {
         hover: { scale: 0.85 }
     }
 
+    const detectColorSelector = () => {
+      if (data.hasOwnProperty('ColorDefine')) {
+        return getColor(data['ColorDefine'])
+      } else {
+        return 'mustard'
+      }
+    }
+
+    const getType = () => {
+      switch (data['Type']) {
+        case 'collection':
+          return 'Collection'
+        case 'entry':
+          return 'Blog / Video / Podcast'
+        case 'event':
+          return 'Program'
+        case 'news':
+          return 'News'
+        case 'page':
+          return 'Page'
+        case 'project':
+          return 'Project'
+      }
+    }
+
+    const color= detectColorSelector()
+
     return (
       <motion.div whileHover={"hover"} className={style.Wrapper}>
-          <Link href={`/news/${slug ? slug : id}`}>
-              <div
-                  className={style.Image}
-              >
+          <Link href={data['URL']}>
+              <div className={style.Image} >
                   <motion.div variants={imageAnim} style={{position: 'relative', zIndex: 2}} >
-                    <MaskedImage src={imageData['url']} type={'landscape'} />
+                    <MaskedImage src={imageData} type={'landscape'} />
                   </motion.div>
                   <div className={`${style.Icon} ${style[color]}`}>
                       {icon}
@@ -40,9 +60,9 @@ const RelatedMaterialCard = ({ id, data}) => {
               </div>
           </Link>
           <div className={style.Header}>
-              <div className={`${style.EventType} subtitle-small`}></div>
+              <div className={`${style.EventType} subtitle-small`}>{getType()}</div>
           </div>
-          <Link href={`/news/${slug ? slug : id}`}>
+          <Link href={data['URL']}>
             <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 60)}</h3>
           </Link>
           <div className={style.Description}>

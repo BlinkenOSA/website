@@ -10,6 +10,9 @@ import getLocData from "@/utils/content/getLocData";
 import Head from "next/head";
 import getImageUrl from "@/utils/content/getImageUrl";
 import {getFullURL} from "@/utils/getFullURL";
+import {Media} from "@/utils/media";
+import RelatedMaterials from "@/components/RelatedMaterials/RelatedMaterials";
+import getRelatedMaterials from "@/utils/content/getRelatedMaterials";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -47,6 +50,8 @@ const CollectionDetailPage = ({collectionData}) => {
         {menu: 'collections/av-collections', link: '/collections/av-collections', title: t('av_collections__title')}
     ]
 
+    const relatedMaterialsData = getRelatedMaterials(collectionData['data']['id'], data)
+
     return (
         <>
             <Head>
@@ -83,6 +88,17 @@ const CollectionDetailPage = ({collectionData}) => {
                     }
                 </Container>
                 <Spacer />
+                <Container>
+                    <Media at="xs">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={1} />
+                    </Media>
+                    <Media at="sm">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={2} />
+                    </Media>
+                    <Media greaterThanOrEqual="md">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={3} />
+                    </Media>
+                </Container>
             </div>
         </>
     )

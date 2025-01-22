@@ -10,6 +10,12 @@ import getLocData from "@/utils/content/getLocData";
 import Head from "next/head";
 import getImageUrl from "@/utils/content/getImageUrl";
 import {getFullURL} from "@/utils/getFullURL";
+import {Media} from "@/utils/media";
+import RelatedMaterials from "@/components/RelatedMaterials/RelatedMaterials";
+import getRelatedMaterials from "@/utils/content/getRelatedMaterials";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -41,6 +47,8 @@ const CollectionDetailPage = ({collectionData}) => {
 
     const description = getLocData(data, 'CardText', lang)
     const image = getImageUrl(data['Image'])
+
+    const relatedMaterialsData = getRelatedMaterials(collectionData['data']['id'], data)
 
     const breadCrumbObject = [
         {menu: 'collections', title: t('breadcrumb__collections')},
@@ -82,6 +90,17 @@ const CollectionDetailPage = ({collectionData}) => {
                             link={link}>{t('collections__visit_button__text')}</Button>
                     }
                     <Spacer />
+                </Container>
+                <Container>
+                    <Media at="xs">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={1} />
+                    </Media>
+                    <Media at="sm">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={2} />
+                    </Media>
+                    <Media greaterThanOrEqual="md">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={3} />
+                    </Media>
                 </Container>
             </div>
         </>

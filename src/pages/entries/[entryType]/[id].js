@@ -15,8 +15,10 @@ import TranslationChecker from "@/components/TranslationChecker/TranslationCheck
 import {getFullURL} from "@/utils/getFullURL";
 import RelatedMaterials from "@/components/RelatedMaterials/RelatedMaterials";
 import {Media} from "@/utils/media";
-import NewsPanel from "@/components/IndexPage/NewsPanel";
-import ResearchRoomPanel from "@/components/IndexPage/ResearchRoomPanel";
+import getRelatedMaterials from "@/utils/content/getRelatedMaterials";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -48,6 +50,8 @@ const EntryPage = ({entriesData}) => {
 	const originalCreationDate = data['OriginalCreationDate']
 	const createdAt = data['createdAt']
 	const image = getImageUrl(data['Image'])
+
+	const relatedMaterialsData = getRelatedMaterials(entriesData['data']['id'], data)
 
 	const title = getLocData(data, 'Title', lang)
 	const description = getLocData(data, 'CardText', lang)
@@ -104,13 +108,13 @@ const EntryPage = ({entriesData}) => {
 				</Container>
 				<Container>
 					<Media at="xs">
-						<RelatedMaterials materialData={data} slidesToShow={1} />
+						<RelatedMaterials materialData={relatedMaterialsData} slidesToShow={1} />
 					</Media>
 					<Media at="sm">
-						<RelatedMaterials materialData={data} slidesToShow={2} />
+						<RelatedMaterials materialData={relatedMaterialsData} slidesToShow={2} />
 					</Media>
 					<Media greaterThanOrEqual="md">
-						<RelatedMaterials materialData={data} slidesToShow={3} />
+						<RelatedMaterials materialData={relatedMaterialsData} slidesToShow={3} />
 					</Media>
 				</Container>
 			</div>

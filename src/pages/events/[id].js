@@ -14,6 +14,9 @@ import Head from "next/head";
 import TranslationChecker from "@/components/TranslationChecker/TranslationChecker";
 import {getFullURL} from "@/utils/getFullURL";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
 

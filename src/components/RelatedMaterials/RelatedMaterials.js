@@ -1,18 +1,15 @@
 import Slider from "react-slick";
 import SectionFlipper from "@/components/IndexPage/SectionFlipper";
-import {useEffect, useRef, useState} from "react";
+import {useRef} from "react";
 import useTranslation from "next-translate/useTranslation";
 import SectionSlider from "@/components/IndexPage/SectionSlider";
 import {Media} from "@/utils/media";
 import Spacer from "@/components/Spacer/Spacer";
-import getRelatedMaterials from "@/utils/content/getRelatedMaterials";
 import style from "./RelatedMaterials.module.scss";
-import NewsCard from "@/components/Cards/NewsCard";
-import RelatedMaterialCard from "@/components/Cards/RelatedMaterialCard";
+import RelatedMaterialCard from "@/components/RelatedMaterials/RelatedMaterialCard";
 
-const RelatedMaterials = ({materialData, pageType, slidesToShow=3}) => {
-    const { t, lang } = useTranslation('index')
-    const [data, setData] = useState([])
+const RelatedMaterials = ({materialData, slidesToShow}) => {
+    const { t, lang } = useTranslation('cards')
 
     const sliderSettings = {
         dots: false,
@@ -23,17 +20,13 @@ const RelatedMaterials = ({materialData, pageType, slidesToShow=3}) => {
         slidesToScroll: 1,
     };
 
-    useEffect(() => {
-        setData(getRelatedMaterials(materialData, pageType))
-    }, [materialData])
-
     let sliderRef = useRef(null);
 
     const renderCards = () => {
-        return data.map((d, idx) => {
+        return materialData.map((d, idx) => {
             return (
                 <div key={`related_material_${idx}`} className={style.SliderCard}>
-                    <RelatedMaterialCard id={idx} data={d}/>
+                    <RelatedMaterialCard id={idx} key={idx} data={d}/>
                 </div>
             )
         })
@@ -46,7 +39,7 @@ const RelatedMaterials = ({materialData, pageType, slidesToShow=3}) => {
         sliderRef.slickPrev();
     };
 
-    if (data.length > 0) {
+    if (materialData.length > 0) {
         return (
             <>
                 <SectionFlipper

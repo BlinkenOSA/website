@@ -1,4 +1,5 @@
 import fetcher from "@/utils/api/fetcher";
+import addRelatedEntries from "@/utils/api/addRelatedEntries";
 
 export const fetchCollectionHighlightsFrontPage = () => {
     const params = {
@@ -53,7 +54,7 @@ export const fetchCollectionHighlightsList = (max, contentType) => {
 }
 
 export const fetchCollectionHighlightsDetail = (slug, contentType) => {
-    const params = {
+    let params = {
         'populate[0]': 'Image',
         'populate[1]': 'Content',
         'populate[2]': 'Content.Image',
@@ -65,6 +66,8 @@ export const fetchCollectionHighlightsDetail = (slug, contentType) => {
         'filters[Slug][$eq]': slug,
         'filters[ContentTypes][$contains]': contentType
     }
+
+    params = addRelatedEntries(params, 8, 'collection')
 
     return fetcher(`collections`, params)
 }

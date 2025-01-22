@@ -1,6 +1,7 @@
 import fetcher from "@/utils/api/fetcher";
 import {toCapitalize} from "@/utils/toCapitalize";
 import fetcherSlug from "@/utils/api/fetcherSlug";
+import addRelatedEntries from "@/utils/api/addRelatedEntries";
 
 export const fetchEntriesFrontPage = () => {
     const params = {
@@ -24,7 +25,7 @@ export const fetchEntriesFrontPage = () => {
 }
 
 export const fetchEntriesDetail = (id) => {
-    const params = {
+    let params = {
         'populate[0]': 'Image',
         'populate[1]': 'Content',
         'populate[2]': 'Content.Image',
@@ -37,22 +38,10 @@ export const fetchEntriesDetail = (id) => {
         'populate[10]': 'localizations.Content.Image',
         'populate[11]': 'localizations.Content.Image.Image',
         'populate[12]': 'localizations.Content.Images.Image',
-        'populate[13]': 'Content.PDF',
-        'populate[14]': 'RelatedCollections',
-        'populate[15]': 'RelatedCollections.Image',
-        'populate[16]': 'RelatedEvents',
-        'populate[17]': 'RelatedEvents.Image',
-        'populate[18]': 'RelatedNews',
-        'populate[19]': 'RelatedNews.Image',
-        'populate[20]': 'RelatedPages',
-        'populate[21]': 'RelatedPages.CardImage',
-        'populate[22]': 'RelatedProjects',
-        'populate[23]': 'RelatedProjects.Image',
-        'populate[24]': 'RelatedEntriesSource',
-        'populate[25]': 'RelatedEntriesSource.Image',
-        'populate[26]': 'RelatedEntriesDestination',
-        'populate[27]': 'RelatedEntriesDestination.Image',
+        'populate[13]': 'Content.PDF'
     }
+
+    params = addRelatedEntries(params, 14, 'entry')
 
     if (isNaN(Number(id))) {
         params['filters[Slug][$eq]'] = id
