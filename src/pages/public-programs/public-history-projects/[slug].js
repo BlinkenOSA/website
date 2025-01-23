@@ -11,6 +11,9 @@ import getLocData from "@/utils/content/getLocData";
 import getImageUrl from "@/utils/content/getImageUrl";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import {getFullURL} from "@/utils/getFullURL";
+import getRelatedMaterials from "@/utils/content/getRelatedMaterials";
+import {Media} from "@/utils/media";
+import RelatedMaterials from "@/components/RelatedMaterials/RelatedMaterials";
 
 
 export const getServerSideProps = (async (context) => {
@@ -42,6 +45,8 @@ const ProjectPage = ({projectData}) => {
     const buttonText = getLocData(data, 'ButtonText', lang)
     const content = getLocData(data, 'Content', lang)
     const image = getImageUrl(data['Image'])
+
+    const relatedMaterialsData = getRelatedMaterials(projectData['data']['id'], data)
 
     const description = getLocData(data, 'CardText', lang)
 
@@ -85,6 +90,17 @@ const ProjectPage = ({projectData}) => {
                             link={link}>{buttonText ? buttonText : t('project__visit_button__text')}</Button>
                     </div>
                     <Spacer />
+                </Container>
+                <Container>
+                    <Media at="xs">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={1} />
+                    </Media>
+                    <Media at="sm">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={2} />
+                    </Media>
+                    <Media greaterThanOrEqual="md">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={3} />
+                    </Media>
                 </Container>
             </div>
         </>

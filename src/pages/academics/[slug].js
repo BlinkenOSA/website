@@ -8,6 +8,9 @@ import Head from "next/head";
 import getLocData from "@/utils/content/getLocData";
 import useTranslation from "next-translate/useTranslation";
 import TranslationChecker from "@/components/TranslationChecker/TranslationChecker";
+import getRelatedMaterials from "@/utils/content/getRelatedMaterials";
+import {Media} from "@/utils/media";
+import RelatedMaterials from "@/components/RelatedMaterials/RelatedMaterials";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -36,6 +39,8 @@ const AcademicsPage = ({pageData}) => {
     const image = getImageUrl(data['CardImage'], 'full')
     const title = getLocData(data, 'Title', lang)
 
+    const relatedMaterialsData = getRelatedMaterials(pageData['data']['id'], data)
+
     return (
         <>
             <Head>
@@ -60,6 +65,17 @@ const AcademicsPage = ({pageData}) => {
                 <Container>
                     <TranslationChecker data={data}/>
                     <Content contentObject={getLocData(data, 'Content', lang)} profile={'Academics'}/>
+                </Container>
+                <Container>
+                    <Media at="xs">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={1} />
+                    </Media>
+                    <Media at="sm">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={2} />
+                    </Media>
+                    <Media greaterThanOrEqual="md">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={3} />
+                    </Media>
                 </Container>
             </div>
         </>

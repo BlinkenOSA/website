@@ -11,5 +11,11 @@
   "collection_card__audiovisual": "Audiovizuális",
   "collection_card__item": "elem",
   "collection_card__items": "elem",
-  "related_content": "Kapcsolódó tartalom"
+  "related_content": "Kapcsolódó tartalom",
+  "related_content__collection": "Gyűjtemény",
+  "related_content__entry": "Blog / Video / Podcast",
+  "related_content__event": "Esemény",
+  "related_content__news": "Hír",
+  "related_content__page": "Oldal",
+  "related_content__project": "Projekt"
 }

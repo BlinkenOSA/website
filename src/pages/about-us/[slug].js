@@ -8,6 +8,9 @@ import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
 import Head from "next/head";
 import TranslationChecker from "@/components/TranslationChecker/TranslationChecker";
+import getRelatedMaterials from "@/utils/content/getRelatedMaterials";
+import {Media} from "@/utils/media";
+import RelatedMaterials from "@/components/RelatedMaterials/RelatedMaterials";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -34,6 +37,8 @@ const StaticPage = ({pageData}) => {
 
     const data = pageData['data'][0]['attributes'];
     const image = getImageUrl(data['CardImage'], 'full')
+
+    const relatedMaterialsData = getRelatedMaterials(pageData['data']['id'], data)
 
     const title = getLocData(data, 'Title', lang)
 
@@ -62,6 +67,17 @@ const StaticPage = ({pageData}) => {
                 <Container>
                     <TranslationChecker data={data}/>
                     <Content contentObject={getLocData(data, 'Content', lang)} profile={'Archivum'}/>
+                </Container>
+                <Container>
+                    <Media at="xs">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={1} />
+                    </Media>
+                    <Media at="sm">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={2} />
+                    </Media>
+                    <Media greaterThanOrEqual="md">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={3} />
+                    </Media>
                 </Container>
             </div>
         </>

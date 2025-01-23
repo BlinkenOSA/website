@@ -1,3 +1,10 @@
 .SliderCard {
   padding: 0 12px;
 }
+
+.Slider {
+  :global .slick-track {
+    margin-left: unset;
+    margin-right: unset;
+  }
+}

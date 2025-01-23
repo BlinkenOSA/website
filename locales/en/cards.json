@@ -11,5 +11,11 @@
   "collection_card__audiovisual": "Audiovisual",
   "collection_card__item": "item",
   "collection_card__items": "items",
-  "related_content": "Related Content"
+  "related_content": "Related Content",
+  "related_content__collection": "Collection",
+  "related_content__entry": "Blog / Video / Podcast",
+  "related_content__event": "Event",
+  "related_content__news": "News",
+  "related_content__page": "Page",
+  "related_content__project": "Project"
 }

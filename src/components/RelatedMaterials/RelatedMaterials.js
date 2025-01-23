@@ -14,7 +14,9 @@ const RelatedMaterials = ({materialData, slidesToShow}) => {
     const sliderSettings = {
         dots: false,
         arrows: false,
-        infinite: true,
+        centerMode: false,
+        infinite: materialData.length >= slidesToShow,
+        autoplay: materialData.length >= slidesToShow,
         speed: 400,
         slidesToShow: slidesToShow,
         slidesToScroll: 1,
@@ -45,12 +47,14 @@ const RelatedMaterials = ({materialData, slidesToShow}) => {
                 <SectionFlipper
                     title={t('related_content')}
                     border={true}
+                    showSlider={materialData.length >= slidesToShow}
                     onNextClick={onNextClick}
                     onPreviousClick={onPreviousClick}/>
                 <Slider
                     ref={slider => {
                         sliderRef = slider;
                     }}
+                    className={style.Slider}
                     {...sliderSettings}>
                     {renderCards()}
                 </Slider>
@@ -61,6 +65,7 @@ const RelatedMaterials = ({materialData, slidesToShow}) => {
                     />
                     <Spacer />
                 </Media>
+                <Spacer size={'medium'} />
             </>
         )
     } else {

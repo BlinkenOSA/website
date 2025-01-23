@@ -15,6 +15,9 @@ import {getFullURL} from "@/utils/getFullURL";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import {Media} from "@/utils/media";
+import RelatedMaterials from "@/components/RelatedMaterials/RelatedMaterials";
+import getRelatedMaterials from "@/utils/content/getRelatedMaterials";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -46,6 +49,8 @@ const NewsPage = ({newsData}) => {
 	const originalCreationDate = data['OriginalCreationDate']
 	const createdAt = data['createdAt']
 	const image = getImageUrl(data['Image'])
+
+	const relatedMaterialsData = getRelatedMaterials(newsData['data']['id'], data)
 
 	const title = getLocData(data, 'Title', lang)
 	const description = getLocData(data, 'CardText', lang)
@@ -96,6 +101,17 @@ const NewsPage = ({newsData}) => {
 					<Spacer size={'medium'} />
 					<Content contentObject={getLocData(data, 'Content', lang)} profile={profile}/>
 					<Spacer size={'medium'} />
+				</Container>
+				<Container>
+					<Media at="xs">
+						<RelatedMaterials materialData={relatedMaterialsData} slidesToShow={1} />
+					</Media>
+					<Media at="sm">
+						<RelatedMaterials materialData={relatedMaterialsData} slidesToShow={2} />
+					</Media>
+					<Media greaterThanOrEqual="md">
+						<RelatedMaterials materialData={relatedMaterialsData} slidesToShow={3} />
+					</Media>
 				</Container>
 			</div>
 		</>

@@ -1,6 +1,7 @@
 import fetcher from "@/utils/api/fetcher";
 import {toCapitalize} from "@/utils/toCapitalize";
 import fetcherSlug from "@/utils/api/fetcherSlug";
+import addRelatedEntries from "@/utils/api/addRelatedEntries";
 
 export const fetchNewsFrontPage = () => {
     const params = {
@@ -24,7 +25,7 @@ export const fetchNewsFrontPage = () => {
 
 
 export const fetchNewsDetail = (id) => {
-    const params = {
+    let params = {
         'populate[0]': 'Image',
         'populate[1]': 'Content',
         'populate[2]': 'Content.Image',
@@ -39,6 +40,8 @@ export const fetchNewsDetail = (id) => {
         'populate[12]': 'localizations.Content.Images.Image',
         'populate[13]': 'Content.PDF'
     }
+
+    params = addRelatedEntries(params, 14, 'news')
 
     if (isNaN(Number(id))) {
         params['filters[Slug][$eq]'] = id

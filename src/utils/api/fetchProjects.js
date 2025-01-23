@@ -1,4 +1,5 @@
 import fetcher from "@/utils/api/fetcher";
+import addRelatedEntries from "@/utils/api/addRelatedEntries";
 
 export const fetchPartnerProjects = () => {
     const params = {
@@ -15,7 +16,7 @@ export const fetchPartnerProjects = () => {
 }
 
 export const fetchPartnerProjectsDetail = (slug) => {
-    const params = {
+    let params = {
         'filters[Profiles][$contains]': 'Partner',
         'populate[0]': 'Image',
         'populate[1]': 'StartDate',
@@ -30,6 +31,8 @@ export const fetchPartnerProjectsDetail = (slug) => {
         'populate[10]': 'localizations.Content.Images.Image',
         'filters[Slug][$eq]': slug
     }
+
+    params = addRelatedEntries(params, 11, 'project')
 
     return fetcher('projects', params)
 }
@@ -49,7 +52,7 @@ export const fetchArchivalProjects = () => {
 }
 
 export const fetchArchivalProjectsDetail = (slug) => {
-    const params = {
+    let params = {
         'filters[Profiles][$contains]': 'Archival',
         'populate[0]': 'Image',
         'populate[1]': 'StartDate',
@@ -64,6 +67,8 @@ export const fetchArchivalProjectsDetail = (slug) => {
         'populate[10]': 'localizations.Content.Images.Image',
         'filters[Slug][$eq]': slug
     }
+
+    params = addRelatedEntries(params, 11, 'project')
 
     return fetcher('projects', params)
 }
@@ -84,7 +89,7 @@ export const fetchPublicHistoryProjects = () => {
 }
 
 export const fetchPublicHistoryProjectsDetail = (slug) => {
-    const params = {
+    let params = {
         'filters[Profiles][$contains]': 'Public',
         'populate[0]': 'Image',
         'populate[1]': 'StartDate',
@@ -100,5 +105,7 @@ export const fetchPublicHistoryProjectsDetail = (slug) => {
         'filters[Slug][$eq]': slug
     }
 
+    params = addRelatedEntries(params, 11, 'project')
+    
     return fetcher('projects', params)
 }

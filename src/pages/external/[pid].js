@@ -11,6 +11,9 @@ import getImageUrl from "@/utils/content/getImageUrl";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
+import getRelatedMaterials from "@/utils/content/getRelatedMaterials";
+import {Media} from "@/utils/media";
+import RelatedMaterials from "@/components/RelatedMaterials/RelatedMaterials";
 
 export const getServerSideProps = (async (context) => {
 	const { pid } = context.query;
@@ -57,6 +60,8 @@ const ExternalPage = ({pageData}) => {
 	const breadCrumb = t(externalPageConfig[pid]['menu'])
 	const menu = externalPageConfig[pid]['menu']
 
+	const relatedMaterialsData = getRelatedMaterials(pageData['data']['id'], data)
+
 	return (
 		<>
 			<Head>
@@ -79,6 +84,17 @@ const ExternalPage = ({pageData}) => {
 						<Button link={link} color={getColor(profile)}>{linkButtonText}</Button>
 					</div>
 					<div style={{height: '48px'}}/>
+				</Container>
+				<Container>
+					<Media at="xs">
+						<RelatedMaterials materialData={relatedMaterialsData} slidesToShow={1} />
+					</Media>
+					<Media at="sm">
+						<RelatedMaterials materialData={relatedMaterialsData} slidesToShow={2} />
+					</Media>
+					<Media greaterThanOrEqual="md">
+						<RelatedMaterials materialData={relatedMaterialsData} slidesToShow={3} />
+					</Media>
 				</Container>
 			</div>
 		</>

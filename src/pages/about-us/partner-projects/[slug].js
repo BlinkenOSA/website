@@ -11,6 +11,12 @@ import getLocData from "@/utils/content/getLocData";
 import Head from "next/head";
 import {getFullURL} from "@/utils/getFullURL";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import getRelatedMaterials from "@/utils/content/getRelatedMaterials";
+import {Media} from "@/utils/media";
+import RelatedMaterials from "@/components/RelatedMaterials/RelatedMaterials";
+
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
 
@@ -41,6 +47,8 @@ const ProjectPage = ({projectData}) => {
     const buttonText = getLocData(data, 'ButtonText', lang)
     const content = getLocData(data, 'Content', lang)
     const image = getImageUrl(data['Image'])
+
+    const relatedMaterialsData = getRelatedMaterials(projectData['data']['id'], data)
 
     const breadCrumbObject = [
         {menu: 'about-us', title: t('breadcrumb__about_us')},
@@ -81,6 +89,17 @@ const ProjectPage = ({projectData}) => {
                             link={link}>{buttonText ? buttonText : 'Visit Project'}</Button>
                     </div>
                     <Spacer />
+                </Container>
+                <Container>
+                    <Media at="xs">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={1} />
+                    </Media>
+                    <Media at="sm">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={2} />
+                    </Media>
+                    <Media greaterThanOrEqual="md">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={3} />
+                    </Media>
                 </Container>
             </div>
         </>

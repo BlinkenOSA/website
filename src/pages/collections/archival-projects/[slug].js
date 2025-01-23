@@ -1,8 +1,7 @@
 import style from "@/pages/about-us/style.module.scss";
-import {Col, Container, Row, Tab, Tabs} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 import {fetchArchivalProjectsDetail} from "@/utils/api/fetchProjects";
 import Button from "@/components/Button/Button";
-import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
 import Content from "@/components/Content/Content";
 import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
@@ -11,6 +10,13 @@ import getLocData from "@/utils/content/getLocData";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import getImageUrl from "@/utils/content/getImageUrl";
 import {getFullURL} from "@/utils/getFullURL";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import {Media} from "@/utils/media";
+import RelatedMaterials from "@/components/RelatedMaterials/RelatedMaterials";
+import getRelatedMaterials from "@/utils/content/getRelatedMaterials";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -42,6 +48,8 @@ const ProjectPage = ({projectData}) => {
     const buttonText = getLocData(data, 'ButtonText', lang)
     const content = getLocData(data, 'Content', lang)
     const image = getImageUrl(data['Image'])
+
+    const relatedMaterialsData = getRelatedMaterials(projectData['data']['id'], data)
 
     const description = getLocData(data, 'CardText', lang)
 
@@ -85,6 +93,17 @@ const ProjectPage = ({projectData}) => {
                             link={link}>{buttonText ? buttonText : t('project__visit_button__text')}</Button>
                     </div>
                     <Spacer />
+                </Container>
+                <Container>
+                    <Media at="xs">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={1} />
+                    </Media>
+                    <Media at="sm">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={2} />
+                    </Media>
+                    <Media greaterThanOrEqual="md">
+                        <RelatedMaterials materialData={relatedMaterialsData} slidesToShow={3} />
+                    </Media>
                 </Container>
             </div>
         </>

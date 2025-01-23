@@ -1,6 +1,7 @@
 import fetcher from "@/utils/api/fetcher";
 import dayjs from "dayjs";
 import fetcherSlug from "@/utils/api/fetcherSlug";
+import addRelatedEntries from "@/utils/api/addRelatedEntries";
 
 export const fetchEventsFrontPage = () => {
     const params = {
@@ -25,7 +26,7 @@ export const fetchEventsFrontPage = () => {
 }
 
 export const fetchEventDetail = (id) => {
-    const params = {
+    let params = {
         'populate[0]': 'Image',
         'populate[1]': 'Content',
         'populate[2]': 'Content.Image',
@@ -39,6 +40,8 @@ export const fetchEventDetail = (id) => {
         'populate[10]': 'localizations.Content.Images.Image',
         'populate[11]': 'Content.PDF'
     }
+
+    params = addRelatedEntries(params, 12, 'event')
 
     if (isNaN(Number(id))) {
         params['filters[Slug][$eq]'] = id

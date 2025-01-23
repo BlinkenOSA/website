@@ -45,10 +45,10 @@ const CollectionDetailPage = ({collectionData}) => {
     const content = getLocData(data, 'Content', lang)
     const link = data['Link']
 
+    const relatedMaterialsData = getRelatedMaterials(collectionData['data']['id'], data)
+
     const description = getLocData(data, 'CardText', lang)
     const image = getImageUrl(data['Image'])
-
-    const relatedMaterialsData = getRelatedMaterials(collectionData['data']['id'], data)
 
     const breadCrumbObject = [
         {menu: 'collections', title: t('breadcrumb__collections')},

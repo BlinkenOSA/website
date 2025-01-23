@@ -16,6 +16,9 @@ import {getFullURL} from "@/utils/getFullURL";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import getRelatedMaterials from "@/utils/content/getRelatedMaterials";
+import {Media} from "@/utils/media";
+import RelatedMaterials from "@/components/RelatedMaterials/RelatedMaterials";
 
 export const getServerSideProps = (async (context) => {
 	const { id } = context.query;
@@ -51,6 +54,8 @@ const EventPage = ({eventData}) => {
 	const image = getImageUrl(data['Image'])
 	const zoomLink = data['ZoomLink']
 	const registrationLink = data['RegistrationLink']
+
+	const relatedMaterialsData = getRelatedMaterials(eventData['data']['id'], data)
 
 	const breadcrumbObject = [
 		{ menu: 'public-programs', title: t('breadcrumb__public_programs')},
@@ -141,7 +146,18 @@ const EventPage = ({eventData}) => {
 					</Row>
 					<Spacer />
 					<Content contentObject={getLocData(data, 'Content', lang)} profile={profile} />
-					<Spacer />
+					<Spacer size={'medium'} />
+				</Container>
+				<Container>
+					<Media at="xs">
+						<RelatedMaterials materialData={relatedMaterialsData} slidesToShow={1} />
+					</Media>
+					<Media at="sm">
+						<RelatedMaterials materialData={relatedMaterialsData} slidesToShow={2} />
+					</Media>
+					<Media greaterThanOrEqual="md">
+						<RelatedMaterials materialData={relatedMaterialsData} slidesToShow={3} />
+					</Media>
 				</Container>
 			</div>
 		</>

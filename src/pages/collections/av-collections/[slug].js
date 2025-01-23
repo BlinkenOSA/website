@@ -14,6 +14,9 @@ import {Media} from "@/utils/media";
 import RelatedMaterials from "@/components/RelatedMaterials/RelatedMaterials";
 import getRelatedMaterials from "@/utils/content/getRelatedMaterials";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
 
@@ -42,6 +45,8 @@ const CollectionDetailPage = ({collectionData}) => {
     const content = getLocData(data, 'Content', lang)
     const link = data['Link']
 
+    const relatedMaterialsData = getRelatedMaterials(collectionData['data']['id'], data)
+
     const description = getLocData(data, 'CardText', lang)
     const image = getImageUrl(data['Image'])
 
@@ -49,8 +54,6 @@ const CollectionDetailPage = ({collectionData}) => {
         {menu: 'collections', title: t('breadcrumb__collections')},
         {menu: 'collections/av-collections', link: '/collections/av-collections', title: t('av_collections__title')}
     ]
-
-    const relatedMaterialsData = getRelatedMaterials(collectionData['data']['id'], data)
 
     return (
         <>

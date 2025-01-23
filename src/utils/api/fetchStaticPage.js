@@ -1,7 +1,8 @@
 import fetcher from "@/utils/api/fetcher";
+import addRelatedEntries from "@/utils/api/addRelatedEntries";
 
 export const fetchStaticPage = (slug, locale) => {
-    const params = {
+    let params = {
         'populate[0]': 'Image',
         'populate[1]': 'Content',
         'populate[2]': 'Content.Image',
@@ -14,6 +15,8 @@ export const fetchStaticPage = (slug, locale) => {
         'populate[9]': 'Content.PDF',
         'filters[Slug][$eq]': slug
     }
+
+    params = addRelatedEntries(params, 10, 'page')
 
     return fetcher(`static-pages`, params)
 }

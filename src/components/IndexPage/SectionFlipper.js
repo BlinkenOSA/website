@@ -5,7 +5,7 @@ import Spacer from "@/components/Spacer/Spacer";
 import {Media} from "@/utils/media";
 import SectionSlider from "@/components/IndexPage/SectionSlider";
 
-const SectionFlipper = ({title, link, border = false, onNextClick, onPreviousClick}) => {
+const SectionFlipper = ({title, link, border = false, showSlider = true, onNextClick, onPreviousClick}) => {
     const getTitle = () => {
         if (link) {
             return (
@@ -23,13 +23,15 @@ const SectionFlipper = ({title, link, border = false, onNextClick, onPreviousCli
             <div className={style.Wrapper}>
                 <div className={style.Header}>
                     {getTitle()}
-                    <Media greaterThanOrEqual="md">
-                        <SectionSlider
-                            link={link}
-                            onPreviousClick={onPreviousClick}
-                            onNextClick={onNextClick}
-                        />
-                    </Media>
+                    { showSlider &&
+                        <Media greaterThanOrEqual="md">
+                            <SectionSlider
+                                link={link}
+                                onPreviousClick={onPreviousClick}
+                                onNextClick={onNextClick}
+                            />
+                        </Media>
+                    }
                 </div>
                 { border && <div className={style.Border} /> }
             </div>

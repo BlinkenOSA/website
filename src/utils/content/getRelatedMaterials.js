@@ -142,6 +142,7 @@ const getRelatedMaterials = (id, data) => {
                     result['ColorDefine'] = getColorDefine(rm['attributes'], pageType)
                     result['IconDefine'] = getIconDefine(rm['attributes'], pageType)
                     result['createdAt'] = rm['attributes']['createdAt']
+                    result['localizations'] = rm['attributes']['localizations']
 
                     if (dataSource.includes('RelatedPages')) {
                         result['Image'] = getImageUrl(rm['attributes']['CardImage'], 'small')

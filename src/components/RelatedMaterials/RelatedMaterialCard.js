@@ -6,14 +6,17 @@ import getColor from "@/utils/content/getColor";
 import {motion} from 'framer-motion';
 import Link from "next/link";
 import getIconByType from "@/utils/content/getIconByType";
+import useTranslation from "next-translate/useTranslation";
+import getLocData from "@/utils/content/getLocData";
 
-const RelatedMaterialCard = ({ id, data}) => {
+const RelatedMaterialCard = ({ data }) => {
+    const { t, lang } = useTranslation('cards')
+
     // Populate fields
-    const title = data['Title']
-    const description = data['CardText'] ? data['CardText'] : ''
+    const title = getLocData(data, 'Title', lang)
+    const description = data['CardText'] ? getLocData(data, 'CardText', lang) : ''
     const imageData = data['Image']
     const icon = getIconByType(data['IconDefine'], 'normal')
-    const slug = data['Slug']
 
     const imageAnim = {
         hover: { scale: 0.85 }
@@ -24,23 +27,6 @@ const RelatedMaterialCard = ({ id, data}) => {
         return getColor(data['ColorDefine'])
       } else {
         return 'mustard'
-      }
-    }
-
-    const getType = () => {
-      switch (data['Type']) {
-        case 'collection':
-          return 'Collection'
-        case 'entry':
-          return 'Blog / Video / Podcast'
-        case 'event':
-          return 'Program'
-        case 'news':
-          return 'News'
-        case 'page':
-          return 'Page'
-        case 'project':
-          return 'Project'
       }
     }
 
@@ -60,7 +46,7 @@ const RelatedMaterialCard = ({ id, data}) => {
               </div>
           </Link>
           <div className={style.Header}>
-              <div className={`${style.EventType} subtitle-small`}>{getType()}</div>
+              <div className={`${style.EventType} subtitle-small`}>{t(`related_content__${data['Type']}`)}</div>
           </div>
           <Link href={data['URL']}>
             <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 60)}</h3>
