@@ -6,25 +6,31 @@ import getLocData from "@/utils/content/getLocData";
 
 const JobCard = ({id, data}) => {
     const {lang} = useTranslation('cards')
+    const {t} = useTranslation('page')
+
+    const contractTypes = {
+        'Full-Time': t('job__full_time'),
+        'Part-Time': t('job__part_time'),
+    }
 
     const title = getLocData(data, 'Title', lang)
     const description = getLocData(data, 'ContentHighlight', lang)
-    const startingDate = data['StartingDate']
-    const duration = data['Duration']
-    const location = data['Location']
-    const contractType = data['ContractType']
-    const salary = data['Salary']
+    const startingDate = getLocData(data, 'StartingDate', lang)
+    const duration = getLocData(data, 'Duration', lang)
+    const location = getLocData(data, 'Location', lang)
+    const contractType = data['ContractType'] ? contractTypes[data['ContractType']] : ''
+    const salary = getLocData(data, 'Salary', lang)
     const slug = data['Slug']
 
     return (
         <div className={style.Wrapper}>
             <div style={{marginBottom: '24px'}} className={`subtitle-large`}>{title}</div>
             <div style={{marginBottom: '24px'}}>{description}</div>
-            <LabeledData label={'Starting Date'} data={startingDate} />
-            <LabeledData label={'Location'} data={location} />
-            <LabeledData label={'Duration'} data={duration} />
-            <LabeledData label={'Salary'} data={salary} />
-            <LabeledData label={'Contract Type'} data={contractType} />
+            <LabeledData label={t('job__starting_date')} data={startingDate} />
+            <LabeledData label={t('job__location')} data={location} />
+            <LabeledData label={t('job__duration')} data={duration} />
+            <LabeledData label={t('job__salary')} data={salary} />
+            <LabeledData label={t('job__contract_type')} data={contractType} />
             <div style={{marginTop: '24px'}}>
                 <Button
                     type={'primary'}
@@ -32,7 +38,7 @@ const JobCard = ({id, data}) => {
                     size={'large'}
                     linkTarget={'_self'}
                     link={`/about-us/jobs/${slug}`}>
-                    Details and Application
+                    {t('job__details_and_apply')}
                 </Button>
             </div>
         </div>

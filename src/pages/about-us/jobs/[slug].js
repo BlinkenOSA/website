@@ -35,16 +35,20 @@ const JobPage = ({jobData}) => {
     const { t, lang } = useTranslation('page')
     const data = jobData['data'][0]['attributes'];
 
+    const contractTypes = {
+        'Full-Time': t('job__full_time'),
+        'Part-Time': t('job__part_time'),
+    }
+
     const title = getLocData(data, "Title", lang)
     const description = getLocData(data, 'ContentHighlight', lang)
-    const startingDate = data['StartingDate']
-    const duration = data['Duration']
-    const location = data['Location']
-    const contractType = data['ContractType']
-    const deadline = data['ApplicationDeadline']
-    const salary = data['Salary']
+    const startingDate = getLocData(data, 'StartingDate', lang)
+    const duration = getLocData(data, 'Duration', lang)
+    const location = getLocData(data, 'Location', lang)
+    const contractType = data['ContractType'] ? contractTypes[data['ContractType']] : ''
+    const deadline = getLocData(data, 'ApplicationDeadline', lang)
+    const salary = getLocData(data, 'Salary', lang)
     const content = getLocData(data, 'Content', lang)
-    const jobType = data['JobType']
     const image = getImageUrl(data['Image'])
 
     const breadCrumbObject = [
@@ -74,12 +78,12 @@ const JobPage = ({jobData}) => {
                     <SimplePageHeader title={title} breadCrumbObject={breadCrumbObject}/>
                     <Row>
                         <Col xs={12}>
-                            <LabeledData label={'Starting Date'} data={startingDate} marginBottom={false} />
-                            <LabeledData label={'Location'} data={location} marginBottom={false} />
-                            <LabeledData label={'Duration'} data={duration} marginBottom={false} />
-                            <LabeledData label={'Salary'} data={salary} marginBottom={false} />
-                            <LabeledData label={'Contract Type'} data={contractType} marginBottom={false} />
-                            <LabeledData label={'Application Deadline'} data={deadline} marginBottom={false} />
+                            <LabeledData label={t('job__starting_date')} data={startingDate} marginBottom={false} />
+                            <LabeledData label={t('job__location')} data={location} marginBottom={false} />
+                            <LabeledData label={t('job__duration')} data={duration} marginBottom={false} />
+                            <LabeledData label={t('job__salary')} data={salary} marginBottom={false} />
+                            <LabeledData label={t('job__contract_type')} data={contractType} marginBottom={false} />
+                            <LabeledData label={t('job__application_deadline')} data={deadline} marginBottom={false} />
                         </Col>
                     </Row>
                     <Spacer />
