@@ -1,7 +1,13 @@
 import style from "@/components/Layout/mobile/Footer.module.scss";
 import Logo from "@/components/Logo/Logo";
 import {Col, Container, Row} from "react-bootstrap";
-import {SocialIconFB, SocialIconInsta, SocialIconX, SocialIconYT} from "@/components/Icon/SocialIcon";
+import {
+	SocialIconBlueSky,
+	SocialIconFB,
+	SocialIconInsta, SocialIconLinkedin,
+	SocialIconX,
+	SocialIconYT
+} from "@/components/Icon/SocialIcon";
 import useTranslation from "next-translate/useTranslation";
 import Spacer from "@/components/Spacer/Spacer";
 import React from "react";
@@ -57,7 +63,8 @@ const Footer = () => {
 								<Link href={'https://www.facebook.com/OSAarchivum'} target={'_blank'}><SocialIconFB /></Link>
 								<Link href={'https://www.instagram.com/blinkenosaarchivum/'} target={'_blank'}><SocialIconInsta /></Link>
 								<Link href={'https://www.youtube.com/channel/UCToZ4NBHMP_DjBPh6XYF0og'} target={'_blank'}><SocialIconYT /></Link>
-								<Link href={'https://twitter.com/blinkenosa'} target={'_blank'}><SocialIconX /></Link>
+								<Link href={'https://bsky.app/profile/archivum.org'} target={'_blank'}><SocialIconBlueSky /></Link>
+								<Link href={'https://www.linkedin.com/company/blinken-osa-archivum'} target={'_blank'}><SocialIconLinkedin /></Link>
 							</div>
 							<br/>
 							<div className={style.CEULogo}>
