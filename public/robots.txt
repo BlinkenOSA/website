@@ -2,7 +2,14 @@
 User-agent: *
 Disallow: /api
 
-# Allow all crawlers
+# Disable all crawlers
 User-agent: *
+Disallow: /
+
+# Google
+User-agent: Googlebot
 Allow: /
-Crawl-delay: 2
+
+# Yahoo
+User-agent: Slurp
+Allow: /
