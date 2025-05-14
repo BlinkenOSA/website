@@ -13,10 +13,11 @@ export const fetchStaticPage = (slug, locale) => {
         'populate[7]': 'localizations.Content.Image',
         'populate[8]': 'localizations.Content.Images.Image',
         'populate[9]': 'Content.PDF',
+        'populate[10]': 'localizations.Content.PDF',
         'filters[Slug][$eq]': slug
     }
 
-    params = addRelatedEntries(params, 10, 'page')
+    params = addRelatedEntries(params, 11, 'page')
 
     return fetcher(`static-pages`, params)
 }

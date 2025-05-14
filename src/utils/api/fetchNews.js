@@ -38,10 +38,11 @@ export const fetchNewsDetail = (id) => {
         'populate[10]': 'localizations.Content.Image',
         'populate[11]': 'localizations.Content.Image.Image',
         'populate[12]': 'localizations.Content.Images.Image',
-        'populate[13]': 'Content.PDF'
+        'populate[13]': 'Content.PDF',
+        'populate[14]': 'localizations.Content.PDF'
     }
 
-    params = addRelatedEntries(params, 14, 'news')
+    params = addRelatedEntries(params, 15, 'news')
 
     if (isNaN(Number(id))) {
         params['filters[Slug][$eq]'] = id

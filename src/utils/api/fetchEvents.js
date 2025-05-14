@@ -38,10 +38,11 @@ export const fetchEventDetail = (id) => {
         'populate[8]': 'localizations.Content.Image.Image',
         'populate[9]': 'localizations.Content.Images.Image',
         'populate[10]': 'localizations.Content.Images.Image',
-        'populate[11]': 'Content.PDF'
+        'populate[11]': 'Content.PDF',
+        'populate[12]': 'localizations.Content.PDF'
     }
 
-    params = addRelatedEntries(params, 12, 'event')
+    params = addRelatedEntries(params, 13, 'event')
 
     if (isNaN(Number(id))) {
         params['filters[Slug][$eq]'] = id
