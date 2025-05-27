@@ -5,7 +5,7 @@ import addRelatedEntries from "@/utils/api/addRelatedEntries";
 
 export const fetchNewsFrontPage = () => {
     const params = {
-        'sort[0]': 'createdAt:desc',
+        'sort[0]': 'OriginalCreationDate:desc',
         'populate[0]': 'Image',
         'populate[1]': 'localizations',
         'populate[2]': 'localizations.Image',
