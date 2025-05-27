@@ -54,7 +54,7 @@ export const fetchNewsDetail = (id) => {
 
 export const fetchNewsList = (page, profile, activityType) => {
     const params = {
-        'sort[0]': 'createdAt:desc',
+        'sort[0]': 'OriginalCreationDate:desc',
         'populate[0]': 'Image',
         'populate[1]': 'localizations',
         'populate[2]': 'localizations.Image',
