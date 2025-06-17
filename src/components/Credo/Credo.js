@@ -78,18 +78,23 @@ const CredoCard = ({data, active}) => {
             ${style[getColor(type)]}`}>
             <Container>
                 <div className={style.Card}>
-                    <motion.div className={style.Text}>
+                    <motion.div className={style.Text} aria-hidden={!active}>
                         <motion.h1
+                            initial="notActive"
                             animate={active ? 'active' : 'notActive'}
+                            className={!active ? style.invisibleElement : ""}
                             variants={titleVariants}>{weAreText}</motion.h1>
                         <motion.div
+                            initial="notActive"
                             animate={active ? 'active' : 'notActive'}
+                            className={!active ? style.invisibleElement : ""}
                             variants={credoTextVariants}>{credoText}</motion.div>
                     </motion.div>
                     <motion.div
                         animate={active ? 'active' : 'notActive'}
                         variants={logoVariants}
-                        className={style.Logo}>
+                        className={style.Logo}
+                        aria-hidden={!active}>
                         <Image
                             src={getImage()}
                             height={400}

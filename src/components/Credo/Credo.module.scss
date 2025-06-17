@@ -27,6 +27,12 @@
     align-items: center;
     height: 100%;
 
+    .invisibleElement {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
     .Text {
       position: absolute;
       flex: 1;

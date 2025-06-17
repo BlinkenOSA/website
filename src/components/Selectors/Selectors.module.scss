@@ -86,7 +86,7 @@
   width: 60px;
   gap: 12px;
   font-size: 16px;
-  color: $neutral-300;
+  color: $neutral-1000;
 
   // Mobile
   @media (max-width: $sm) {
@@ -103,6 +103,7 @@
 
     &.Selected {
       color: $neutral-1000;
+      border-bottom: 1px solid $neutral-1000;
     }
   }
 }

@@ -28,8 +28,12 @@
     }
 
     h1 {
+      display: inline-block;
       color: #FFFFFF;
       margin-bottom: 16px;
+      background-color: rgba(#000, 0.9);
+      clip-path: polygon(25% 0, 100% 0, 100% 85%, 75% 100%, 0 100%, 0 15%);
+      padding: 12px 24px;
     }
 
     .CatalogText {
