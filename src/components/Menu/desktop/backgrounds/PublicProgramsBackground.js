@@ -42,7 +42,7 @@ const PublicProgramsBackground = ({backgroundStatus}) => {
                                     src={publicProgramsTopLeft}
                                     width={300}
                                     height={300}
-                                    alt="Icon"
+                                    alt="Puglic Programs Big Icon Top Left"
                                 />
                             </motion.div>
                         </div>
@@ -60,7 +60,7 @@ const PublicProgramsBackground = ({backgroundStatus}) => {
                                     src={publicProgramsBottomLeft}
                                     width={300}
                                     height={300}
-                                    alt="Icon"
+                                    alt="Puglic Programs Big Icon Bottom Left"
                                 />
                             </motion.div>
                         </div>
@@ -79,7 +79,7 @@ const PublicProgramsBackground = ({backgroundStatus}) => {
                                 src={publicProgramsRight}
                                 width={300}
                                 height={300}
-                                alt="Icon"
+                                alt="Puglic Programs Big Icon Right"
                             />
                         </motion.div>
                     </div>

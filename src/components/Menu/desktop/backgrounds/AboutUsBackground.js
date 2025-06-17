@@ -29,7 +29,7 @@ const AboutUsBackground = ({backgroundStatus}) => {
                             src={aboutUsLeft}
                             width={300}
                             height={300}
-                            alt="Icon"
+                            alt="About Us Big Icon Left Side"
                         />
                         </motion.div>
                     </div>
@@ -47,7 +47,7 @@ const AboutUsBackground = ({backgroundStatus}) => {
                                 src={aboutUsRight}
                                 width={300}
                                 height={300}
-                                alt="Icon"
+                                alt="About Us Big Icon Right Side"
                             />
                         </motion.div>
                     </div>

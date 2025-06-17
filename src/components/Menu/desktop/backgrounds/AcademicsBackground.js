@@ -40,7 +40,7 @@ const AcademicsBackground = ({backgroundStatus}) => {
                                 src={academicsTop}
                                 width={300}
                                 height={300}
-                                alt="Icon"
+                                alt="Acadmeics Big Icon Top"
                             />
                         </motion.div>
                     </div>
@@ -59,7 +59,7 @@ const AcademicsBackground = ({backgroundStatus}) => {
                                     src={academicsBottomLeft}
                                     width={300}
                                     height={300}
-                                    alt="Icon"
+                                    alt="Acadmeics Big Icon Bottom Left"
                                 />
                             </motion.div>
                         </div>
@@ -77,7 +77,7 @@ const AcademicsBackground = ({backgroundStatus}) => {
                                     src={academicsBottomRight}
                                     width={300}
                                     height={300}
-                                    alt="Icon"
+                                    alt="Acadmeics Big Icon Bottom Right"
                                 />
                             </motion.div>
                         </div>

@@ -17,7 +17,7 @@ import warning from "../../../public/icons/general/warning.svg";
 import style from "./Icon.module.scss";
 import Image from "next/image";
 
-const IconBase = ({src, size, color}) => {
+const IconBase = ({src, size, color, alt}) => {
 	const getSize = () => {
 		switch (size) {
 			case 'small':
@@ -35,68 +35,68 @@ const IconBase = ({src, size, color}) => {
 				src={src}
 				width={getSize()}
 				height={getSize()}
-				alt="Icon"
+				alt={alt}
 			/>
 		</div>)
 }
 
 
 export const IconGeneralClose = ({size='normal', color='neutral'}) => {
-	return <IconBase src={close} size={size} color={color} />
+	return <IconBase src={close} size={size} color={color} alt={'Close Icon'}/>
 }
 
 export const IconGeneralDown = ({size='normal', color='neutral'}) => {
-	return <IconBase src={down} size={size} color={color} />
+	return <IconBase src={down} size={size} color={color} alt={'Down Icon'} />
 }
 
 export const IconGeneralEye = ({size='normal', color='neutral'}) => {
-	return <IconBase src={eye} size={size} color={color} />
+	return <IconBase src={eye} size={size} color={color}  alt={'Eye Icon'} />
 }
 
 export const IconGeneralHelp = ({size='normal', color='neutral'}) => {
-	return <IconBase src={help} size={size} color={color} />
+	return <IconBase src={help} size={size} color={color} alt={'Help Icon'} />
 }
 
 export const IconGeneralInfo = ({size='normal', color='neutral'}) => {
-	return <IconBase src={info} size={size} color={color} />
+	return <IconBase src={info} size={size} color={color} alt={'Info Icon'} />
 }
 
 export const IconGeneralLeft = ({size='normal', color='neutral'}) => {
-	return <IconBase src={left} size={size} color={color} />
+	return <IconBase src={left} size={size} color={color} alt={'Left Icon'} />
 }
 
 export const IconGeneralMenu = ({size='normal', color='neutral'}) => {
-	return <IconBase src={menu} size={size} color={color} />
+	return <IconBase src={menu} size={size} color={color} alt={'Menu Icon'} />
 }
 
 export const IconGeneralMinus = ({size='normal', color='neutral'}) => {
-	return <IconBase src={minus} size={size} color={color} />
+	return <IconBase src={minus} size={size} color={color} alt={'Minus Icon'} />
 }
 
 export const IconGeneralMore = ({size='normal', color='neutral'}) => {
-	return <IconBase src={more} size={size} color={color} />
+	return <IconBase src={more} size={size} color={color} alt={'More Icon'} />
 }
 
 export const IconGeneralPlus = ({size='normal', color='neutral'}) => {
-	return <IconBase src={plus} size={size} color={color} />
+	return <IconBase src={plus} size={size} color={color} alt={'Plus Icon'} />
 }
 
 export const IconGeneralRight = ({size='normal', color='neutral'}) => {
-	return <IconBase src={right} size={size} color={color} />
+	return <IconBase src={right} size={size} color={color} alt={'Right Icon'} />
 }
 
 export const IconGeneralSearch = ({size='normal', color='neutral'}) => {
-	return <IconBase src={search} size={size} color={color} />
+	return <IconBase src={search} size={size} color={color} alt={'Search Icon'} />
 }
 
 export const IconGeneralTrash = ({size='normal', color='neutral'}) => {
-	return <IconBase src={trash} size={size} color={color} />
+	return <IconBase src={trash} size={size} color={color} alt={'Trash Icon'} />
 }
 
 export const IconGeneralUp = ({size='normal', color='neutral'}) => {
-	return <IconBase src={up} size={size} color={color} />
+	return <IconBase src={up} size={size} color={color} alt={'Up Icon'} />
 }
 
 export const IconGeneralWarning = ({size='normal', color='neutral'}) => {
-	return <IconBase src={warning} size={size} color={color} />
+	return <IconBase src={warning} size={size} color={color} alt={'Warning Icon'} />
 }

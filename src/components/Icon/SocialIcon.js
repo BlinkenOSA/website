@@ -7,35 +7,35 @@ import linkedin from "../../../public/icons/social/linkedin.svg";
 import Image from "next/image";
 
 
-const SocialIconBase = ({src}) => {
+const SocialIconBase = ({src, alt}) => {
     return <Image
         src={src}
         width={16}
         height={16}
-        alt="Icon"
+        alt={alt}
     />
 }
 
 export const SocialIconFB = () => {
-    return <SocialIconBase src={fb} />
+    return <SocialIconBase src={fb} alt={'Facebook Icon'}/>
 }
 
 export const SocialIconInsta = () => {
-    return <SocialIconBase src={insta} />
+    return <SocialIconBase src={insta} alt={'Instagram Icon'} />
 }
 
 export const SocialIconYT = () => {
-    return <SocialIconBase src={yt} />
+    return <SocialIconBase src={yt} alt={'Youtube Icon'} />
 }
 
 export const SocialIconX = () => {
-    return <SocialIconBase src={x} />
+    return <SocialIconBase src={x} alt={'X (ex-Twitter) Icon'} />
 }
 
 export const SocialIconBlueSky = () => {
-    return <SocialIconBase src={bluesky} />
+    return <SocialIconBase src={bluesky} alt={'BlueSky Icon'} />
 }
 
 export const SocialIconLinkedin = () => {
-    return <SocialIconBase src={linkedin} />
+    return <SocialIconBase src={linkedin} alt={'LinkedIn Icon'} />
 }

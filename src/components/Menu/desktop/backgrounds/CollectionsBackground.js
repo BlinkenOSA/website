@@ -43,7 +43,7 @@ const CollectionsBackground = ({backgroundStatus}) => {
                                     src={collectionsTopLeft}
                                     width={300}
                                     height={300}
-                                    alt="Icon"
+                                    alt="Collections Big Icon Top Left"
                                 />
                             </motion.div>
                         </div>
@@ -61,7 +61,7 @@ const CollectionsBackground = ({backgroundStatus}) => {
                                     src={collectionsBottomLeft}
                                     width={300}
                                     height={300}
-                                    alt="Icon"
+                                    alt="Collections Big Icon Bottom Left"
                                 />
                             </motion.div>
                         </div>
@@ -80,7 +80,7 @@ const CollectionsBackground = ({backgroundStatus}) => {
                                 src={collectionsMiddle}
                                 width={300}
                                 height={300}
-                                alt="Icon"
+                                alt="Collections Big Icon Middle"
                             />
                         </motion.div>
                     </div>
@@ -98,7 +98,7 @@ const CollectionsBackground = ({backgroundStatus}) => {
                                 src={collectionsTopRight}
                                 width={300}
                                 height={300}
-                                alt="Icon"
+                                alt="Collections Big Icon Top Right"
                             />
                         </motion.div>
                     </div>

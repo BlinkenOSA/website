@@ -10,7 +10,7 @@ const Logo = ({mode, height, link}) => {
 				<Image
 					src={mode === 'dark' ? logoDark : logoLight}
 					height={height}
-					alt="Blinken OSA Archivum"
+					alt="Blinken OSA Archivum logo"
 				/>
 			</Link>
 		)
@@ -19,7 +19,7 @@ const Logo = ({mode, height, link}) => {
 			<Image
 				src={mode === 'dark' ? logoDark : logoLight}
 				height={height}
-				alt="Blinken OSA Archivum"
+				alt="Blinken OSA Archivum logo"
 			/>
 		)
 	}

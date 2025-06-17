@@ -7,7 +7,7 @@ const LogoHero = ({mode, height}) => {
 			priority
 			src={logoHero}
 			height={height}
-			alt="Blinken OSA Archivum"
+			alt="Blinken OSA Archivum logo"
 		/>
 	)
 }
