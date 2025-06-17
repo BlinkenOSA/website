@@ -81,28 +81,24 @@ const CollectionCard = ({data}) => {
 
     return (
         <div className={style.Wrapper}>
+          <Link href={`/collections/${getURL()}/${slug}`}>
             <div className={style.Header}>
                 <div className={style.ItemNumber}>{getSize()}</div>
                 <div className={style.Icons}>{getIcons()}</div>
             </div>
             <div className={style.Image}>
-                <Link href={`/collections/${getURL()}/${slug}`}>
-                    <MaskedImage src={imageData['url']} type={'landscape'} />
-                </Link>
+                <MaskedImage src={imageData['url']} type={'landscape'} />
             </div>
             <h3 className={style.Title}>
-                <Link href={`/collections/${getURL()}/${slug}`}>
-                    {truncateWithEllipses(title, 50)}
-                </Link>
+                {truncateWithEllipses(title, 50)}
             </h3>
             <div className={style.Description}>
-                <Link href={`/collections/${getURL()}/${slug}`}>
-                    {truncateWithEllipses(description, 190)}
-                </Link>
+                {truncateWithEllipses(description, 190)}
             </div>
             <div className={style.CollectionType}>
                 {getCollectionTypes()}
             </div>
+          </Link>
         </div>
     )
 }

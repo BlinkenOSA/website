@@ -31,28 +31,26 @@ const NewsCard = ({ id, data}) => {
     return (
       <motion.div whileHover={"hover"} className={style.Wrapper}>
           <Link href={`/news/${slug ? slug : id}`}>
-              <div
-                  className={style.Image}
-              >
-                  <motion.div variants={imageAnim} style={{position: 'relative', zIndex: 2}} >
-                    <MaskedImage src={imageData['url']} type={'landscape'} />
-                  </motion.div>
-                  <div className={`${style.Icon} ${style[color]}`}>
-                      {icon}
-                  </div>
-                  <div className={`${style.UnderLayer} ${style[color]}`} />
-              </div>
-          </Link>
-          <div className={style.Header}>
-              <div className={`${style.EventType} subtitle-small`}>{t(`filters:eventType__filter__${data['ActivityType'].toLowerCase().replace(' ', '_')}`)}</div>
-              <div className={style.Date}>{getCreationDate(originalDate, date, lang)}</div>
-          </div>
-          <Link href={`/news/${slug ? slug : id}`}>
+            <div
+                className={style.Image}
+            >
+                <motion.div variants={imageAnim} style={{position: 'relative', zIndex: 2}} >
+                  <MaskedImage src={imageData['url']} type={'landscape'} />
+                </motion.div>
+                <div className={`${style.Icon} ${style[color]}`}>
+                    {icon}
+                </div>
+                <div className={`${style.UnderLayer} ${style[color]}`} />
+            </div>
+            <div className={style.Header}>
+                <div className={`${style.EventType} subtitle-small`}>{t(`filters:eventType__filter__${data['ActivityType'].toLowerCase().replace(' ', '_')}`)}</div>
+                <div className={style.Date}>{getCreationDate(originalDate, date, lang)}</div>
+            </div>
             <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 60)}</h3>
+            <div className={style.Description}>
+                {truncateWithEllipses(description, title.length > 60 ? 100 : 150)}
+            </div>
           </Link>
-          <div className={style.Description}>
-              {truncateWithEllipses(description, title.length > 60 ? 100 : 150)}
-          </div>
       </motion.div>
     )
 }

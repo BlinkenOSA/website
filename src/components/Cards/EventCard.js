@@ -39,22 +39,20 @@ const EventCard = ({id, data}) => {
     return (
         <motion.div whileHover={"hover"} className={style.Wrapper}>
             <Link href={`/events/${slug ? slug : id}`}>
-                <div className={style.Image}>
-                    <motion.div variants={imageAnim} style={{position: 'relative', zIndex: 2}} >
-                        <MaskedImage src={imageData['url']} type={'landscape'} />
-                    </motion.div>
-                    <div className={style.Tag}>
-                        <Tag text={getDate()} icon={icon} color={color}/>
-                    </div>
-                    <div className={`${style.UnderLayer} ${style[color]}`} />
-                </div>
+              <div className={style.Image}>
+                  <motion.div variants={imageAnim} style={{position: 'relative', zIndex: 2}} >
+                      <MaskedImage src={imageData['url']} type={'landscape'} />
+                  </motion.div>
+                  <div className={style.Tag}>
+                      <Tag text={getDate()} icon={icon} color={color}/>
+                  </div>
+                  <div className={`${style.UnderLayer} ${style[color]}`} />
+              </div>
+              <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipsis(title, 70)}</h3>
+              <div className={style.Description}>
+                  {truncateWithEllipsis(description, 180)}
+              </div>
             </Link>
-            <Link href={`/events/${slug ? slug : id}`}>
-                <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipsis(title, 70)}</h3>
-            </Link>
-            <div className={style.Description}>
-                {truncateWithEllipsis(description, 180)}
-            </div>
         </motion.div>
     )
 }
