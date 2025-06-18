@@ -26,6 +26,7 @@ import {languageFilterValues} from "@/utils/filterValues/languageFilterValues";
 import {programTypeFilterValues} from "@/utils/filterValues/programTypeFilterValues";
 import Head from "next/head";
 import getLocData from "@/utils/content/getLocData";
+import truncateWithEllipsis from "@/utils/truncateWithEllipsis";
 
 export const getServerSideProps = (async (context) => {
 	const parameters = context.query;
@@ -118,6 +119,7 @@ const ProgramDetail = ({id, data, isOpened}) => {
 
 	const imageData = getImageData(data['Image'], "medium")
 	const description = getLocData(data, 'CardText', lang)
+	const title = getLocData(data, 'Title', lang)
 	const shortDescription = getLocData(data, 'DescriptionShort', lang)
 	const color = getColor(data['Profile'])
 	const registrationLink = data['RegistrationLink']
@@ -127,7 +129,7 @@ const ProgramDetail = ({id, data, isOpened}) => {
 		<Collapse isOpened={isOpened}>
 			<Row style={{padding: '24px 0'}}>
 				<Col xs={12} sm={4}>
-					{imageData && <MaskedImage src={imageData['url']} type={'landscape'} />}
+					{imageData && <MaskedImage src={imageData['url']} type={'landscape'} alt={`Cover image of the event: ${truncateWithEllipsis(title, 70)}`} />}
 				</Col>
 				<Media lessThan="sm">
 					<Spacer />

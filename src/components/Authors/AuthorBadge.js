@@ -13,7 +13,9 @@ const AuthorBadge = ({authorStaff}) => {
 
         return (
             <div className={style.AuthorBadge}>
-                <div className={style.Image}><MaskedImage src={imageData['url']} type={'square'} /></div>
+                <div className={style.Image}>
+                    <MaskedImage src={imageData['url']} type={'square'} alt={`Small photo of the author ${name}`}/>
+                </div>
                 <div className={`${style.Name} subtitle-small`}>{name}</div>
             </div>
         )

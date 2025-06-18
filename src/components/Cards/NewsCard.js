@@ -35,7 +35,7 @@ const NewsCard = ({ id, data}) => {
                 className={style.Image}
             >
                 <motion.div variants={imageAnim} style={{position: 'relative', zIndex: 2}} >
-                  <MaskedImage src={imageData['url']} type={'landscape'} />
+                  <MaskedImage src={imageData['url']} type={'landscape'} alt={`Cover image for the news: ${truncateWithEllipses(title, 60)}`} />
                 </motion.div>
                 <div className={`${style.Icon} ${style[color]}`}>
                     {icon}
@@ -46,7 +46,7 @@ const NewsCard = ({ id, data}) => {
                 <div className={`${style.EventType} subtitle-small`}>{t(`filters:eventType__filter__${data['ActivityType'].toLowerCase().replace(' ', '_')}`)}</div>
                 <div className={style.Date}>{getCreationDate(originalDate, date, lang)}</div>
             </div>
-            <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 60)}</h3>
+            <h2 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 60)}</h2>
             <div className={style.Description}>
                 {truncateWithEllipses(description, title.length > 60 ? 100 : 150)}
             </div>

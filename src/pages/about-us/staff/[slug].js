@@ -107,7 +107,7 @@ const StaffPage = ({staffData}) => {
                         </Col>
                         <Col xs={{order: 1, span: 12}} sm={{order: 2, span: 4}} md={{order: 2, span: 4}}>
                             <div className={style.ImageWrapper}>
-                                <MaskedImage src={image} type={'portrait'} />
+                                <MaskedImage src={image} type={'portrait'} alt={`Photo of ${lang === 'en' ? `${firstName} ${lastName}` : `${lastName} ${firstName}`}`}/>
                             </div>
                         </Col>
                     </Row>

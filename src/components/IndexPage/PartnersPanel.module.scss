@@ -15,9 +15,10 @@
   min-height: 280px;
   padding: 10% 20% 20% 5%;
 
-  h2 {
-    color: $neutral_100;
+  h1 {
+    font-size: 40px;
     line-height: 40px;
+    color: $neutral_100;
   }
 
   &.Left {

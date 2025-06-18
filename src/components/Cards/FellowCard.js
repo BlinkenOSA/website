@@ -4,6 +4,7 @@ import getImageData from "@/utils/content/getImageData";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
+import truncateWithEllipses from "@/utils/truncateWithEllipsis";
 
 const StaffCard = ({data}) => {
     const { lang } = useTranslation('cards')
@@ -19,7 +20,7 @@ const StaffCard = ({data}) => {
         <div className={style.Wrapper}>
             <Link href={`/academics/fellows/${slug}`}>
                 <div className={style.Image}>
-                    <MaskedImage src={imageData['url']} type={'portrait'} />
+                    <MaskedImage src={imageData['url']} type={'portrait'}  alt={`Photo of ${name}`}/>
                 </div>
                 <div className={`${style.Name} subtitle-large`}>
                     {name}

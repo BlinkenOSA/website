@@ -15,7 +15,7 @@ const PartnersPanel = () => {
                 <Col xs={12} sm={6} md={6}>
                     <div className={`${style.Panel} ${style.Left}`}>
                         <div className={style.Text}>
-                            <h2>{t('partners__galeria')}</h2>
+                            <h1>{t('partners__galeria')}</h1>
                         </div>
                         <div className={style.Row}>
                             <div className={style.Button}>
@@ -40,7 +40,7 @@ const PartnersPanel = () => {
                 <Col xs={12} sm={6} md={6}>
                     <div className={`${style.Panel} ${style.Right}`}>
                         <div className={style.Text}>
-                            <h2>{t('partners__verzio')}</h2>
+                            <h1>{t('partners__verzio')}</h1>
                         </div>
                         <div className={style.Row}>
                             <div className={style.Button}>

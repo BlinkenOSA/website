@@ -41,14 +41,14 @@ const EventCard = ({id, data}) => {
             <Link href={`/events/${slug ? slug : id}`}>
               <div className={style.Image}>
                   <motion.div variants={imageAnim} style={{position: 'relative', zIndex: 2}} >
-                      <MaskedImage src={imageData['url']} type={'landscape'} />
+                      <MaskedImage src={imageData['url']} type={'landscape'} alt={`Cover image of the event: ${truncateWithEllipsis(title, 70)}`} />
                   </motion.div>
                   <div className={style.Tag}>
                       <Tag text={getDate()} icon={icon} color={color}/>
                   </div>
                   <div className={`${style.UnderLayer} ${style[color]}`} />
               </div>
-              <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipsis(title, 70)}</h3>
+              <h2 className={`${style.Title} subtitle-large`}>{truncateWithEllipsis(title, 70)}</h2>
               <div className={style.Description}>
                   {truncateWithEllipsis(description, 180)}
               </div>

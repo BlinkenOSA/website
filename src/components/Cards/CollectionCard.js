@@ -87,11 +87,11 @@ const CollectionCard = ({data}) => {
                 <div className={style.Icons}>{getIcons()}</div>
             </div>
             <div className={style.Image}>
-                <MaskedImage src={imageData['url']} type={'landscape'} />
+                <MaskedImage src={imageData['url']} type={'landscape'} alt={`Cover image for the collection: ${truncateWithEllipses(title, 50)}`}/>
             </div>
-            <h3 className={style.Title}>
+            <h2 className={style.Title}>
                 {truncateWithEllipses(title, 50)}
-            </h3>
+            </h2>
             <div className={style.Description}>
                 {truncateWithEllipses(description, 190)}
             </div>

@@ -20,7 +20,7 @@ const StaffCard = ({id, data}) => {
         <div className={style.Wrapper}>
             <Link href={`/about-us/staff/${slug}`}>
                 <div className={style.Image}>
-                    <MaskedImage src={imageData['url']} type={'portrait'} />
+                    <MaskedImage src={imageData['url']} type={'portrait'} alt={`Photo of ${lang === 'en' ? `${firstName} ${lastName}` : `${lastName} ${firstName}`}`} />
                 </div>
                 <div className={`${style.Name} subtitle-large`}>
                     {lang === 'en' ? `${firstName} ${lastName}` : `${lastName} ${firstName}`}

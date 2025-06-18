@@ -13,10 +13,11 @@ const NewsletterPanel = ({type='landing', color='neutral'}) => {
             <Media at="xs">
                 <MaskedImage
                     src={'/images/newsletter.webp'}
+                    alt={'A black and white image with a lady reading a newspaper'}
                 />
             </Media>
             <div className={style.Left}>
-                <h2>{t('newsletter__title')}</h2>
+                <h1>{t('newsletter__title')}</h1>
                 <p>
                     {t('newsletter__content_01')}<br/>
                     {t('newsletter__content_02')}
@@ -39,6 +40,7 @@ const NewsletterPanel = ({type='landing', color='neutral'}) => {
                 <Media greaterThan="xs">
                     <MaskedImage
                         src={'/images/newsletter.webp'}
+                        alt={'A black and white image with a lady reading a newspaper'}
                     />
                 </Media>
             </div>

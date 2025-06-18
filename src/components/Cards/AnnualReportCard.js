@@ -8,6 +8,7 @@ import Spacer from "@/components/Spacer/Spacer";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
+import truncateWithEllipses from "@/utils/truncateWithEllipsis";
 
 const AnnualReportCard = ({data}) => {
     const { t, lang } = useTranslation('cards')
@@ -33,6 +34,7 @@ const AnnualReportCard = ({data}) => {
                         type={'landscape'}
                         src={imageData['url']}
                         aspectRatio={imageData['width']/imageData['height']}
+                        alt={`Image of the ${year} Annual Report`}
                     />
                 </Col>
                 <Media at="xs">
