@@ -18,7 +18,7 @@ const SearchBox = ({disabled, placeholder, bordered=false, onPressEnter, isMobil
 
 	return (
 		<InputGroup className={bordered ? `${style.InputGroup} ${style.Bordered}` : style.InputGroup}>
-			<Form.Label for={'search-box'} className={style.Label}>{t('search')}</Form.Label>
+			<Form.Label htmlFor={'search-box'} className={style.Label}>{t('search')}</Form.Label>
 			<Form.Control
 				type={"search"}
 				id={"search-box"}

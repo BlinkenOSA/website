@@ -4,8 +4,11 @@ import academicsTop from "../../../../../public/icons/menu/academics_top.svg";
 import Image from "next/image";
 import style from "./AcademicsBackground.module.scss"
 import {AnimatePresence, motion} from "framer-motion"
+import useTranslation from "next-translate/useTranslation";
 
 const AcademicsBackground = ({backgroundStatus}) => {
+    const { t } = useTranslation('accessibility');
+
     const topVariants = {
         open: { opacity: 1, x: 0 },
         closed: { opacity: 0, x: "100%" },
@@ -40,7 +43,7 @@ const AcademicsBackground = ({backgroundStatus}) => {
                                 src={academicsTop}
                                 width={300}
                                 height={300}
-                                alt="Acadmeics Big Icon Top"
+                                alt={t('alt_text__academics_top_icon')}
                             />
                         </motion.div>
                     </div>
@@ -59,7 +62,7 @@ const AcademicsBackground = ({backgroundStatus}) => {
                                     src={academicsBottomLeft}
                                     width={300}
                                     height={300}
-                                    alt="Acadmeics Big Icon Bottom Left"
+                                    alt={t('alt_text__academics_bottom_left_icon')}
                                 />
                             </motion.div>
                         </div>
@@ -77,7 +80,7 @@ const AcademicsBackground = ({backgroundStatus}) => {
                                     src={academicsBottomRight}
                                     width={300}
                                     height={300}
-                                    alt="Acadmeics Big Icon Bottom Right"
+                                    alt={t('alt_text__academics_bottom_right_icon')}
                                 />
                             </motion.div>
                         </div>

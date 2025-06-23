@@ -5,8 +5,11 @@ import publicProgramsRight from "../../../../../public/icons/menu/public_program
 import Image from "next/image";
 import style from "./PublicProgramsBackground.module.scss"
 import {AnimatePresence, motion} from "framer-motion"
+import useTranslation from "next-translate/useTranslation";
 
 const PublicProgramsBackground = ({backgroundStatus}) => {
+    const { t } = useTranslation('accessibility');
+
     const topVariants = {
         open: { opacity: 1, y: 0 },
         closed: { opacity: 0, y: "-100%" },
@@ -42,7 +45,7 @@ const PublicProgramsBackground = ({backgroundStatus}) => {
                                     src={publicProgramsTopLeft}
                                     width={300}
                                     height={300}
-                                    alt="Puglic Programs Big Icon Top Left"
+                                    alt={t("alt_text__public_programs_top_left_icon")}
                                 />
                             </motion.div>
                         </div>
@@ -60,7 +63,7 @@ const PublicProgramsBackground = ({backgroundStatus}) => {
                                     src={publicProgramsBottomLeft}
                                     width={300}
                                     height={300}
-                                    alt="Puglic Programs Big Icon Bottom Left"
+                                    alt={t("alt_text__public_programs_bottom_left_icon")}
                                 />
                             </motion.div>
                         </div>
@@ -79,7 +82,7 @@ const PublicProgramsBackground = ({backgroundStatus}) => {
                                 src={publicProgramsRight}
                                 width={300}
                                 height={300}
-                                alt="Puglic Programs Big Icon Right"
+                                alt={t("alt_text__public_programs_right_icon")}
                             />
                         </motion.div>
                     </div>

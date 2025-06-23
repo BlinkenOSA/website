@@ -72,6 +72,19 @@ const CredoCard = ({data, active}) => {
         }
     }
 
+    const getAltText = () => {
+        switch (type) {
+            case 'Archivum':
+                return 'The logo of the archivum'
+            case 'Collection':
+                return 'The logo of the collections section'
+            case 'Academics':
+                return 'The logo of the academics section'
+            case 'Public Programs':
+                return 'The logo of the public programs section'
+        }
+    }
+
     return (
         <motion.div
             className={`${style.Credo} 
@@ -98,7 +111,7 @@ const CredoCard = ({data, active}) => {
                         <Image
                             src={getImage()}
                             height={400}
-                            alt="Blinken OSA Archivum"
+                            alt={getAltText()}
                         />
                     </motion.div>
                 </div>

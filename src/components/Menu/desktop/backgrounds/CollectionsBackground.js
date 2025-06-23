@@ -5,9 +5,12 @@ import collectionsBottomLeft from "../../../../../public/icons/menu/collections_
 import collectionsMiddle from "../../../../../public/icons/menu/collections_middle.svg";
 import collectionsTopRight from "../../../../../public/icons/menu/collections_top_right.svg";
 import {motion, AnimatePresence} from "framer-motion";
+import useTranslation from "next-translate/useTranslation";
 
 
 const CollectionsBackground = ({backgroundStatus}) => {
+    const { t } = useTranslation('accessibility');
+
     const leftVariants = {
         open: { opacity: 1, x: 0 },
         closed: { opacity: 0, x: "50%" },
@@ -43,7 +46,7 @@ const CollectionsBackground = ({backgroundStatus}) => {
                                     src={collectionsTopLeft}
                                     width={300}
                                     height={300}
-                                    alt="Collections Big Icon Top Left"
+                                    alt={t("alt_text__collections_top_left_icon")}
                                 />
                             </motion.div>
                         </div>
@@ -61,7 +64,7 @@ const CollectionsBackground = ({backgroundStatus}) => {
                                     src={collectionsBottomLeft}
                                     width={300}
                                     height={300}
-                                    alt="Collections Big Icon Bottom Left"
+                                    alt={t("alt_text__collections_bottom_left_icon")}
                                 />
                             </motion.div>
                         </div>
@@ -80,7 +83,7 @@ const CollectionsBackground = ({backgroundStatus}) => {
                                 src={collectionsMiddle}
                                 width={300}
                                 height={300}
-                                alt="Collections Big Icon Middle"
+                                alt={t("alt_text__collections_middle_icon")}
                             />
                         </motion.div>
                     </div>
@@ -98,7 +101,7 @@ const CollectionsBackground = ({backgroundStatus}) => {
                                 src={collectionsTopRight}
                                 width={300}
                                 height={300}
-                                alt="Collections Big Icon Top Right"
+                                alt={t("alt_text__collections_top_right_icon")}
                             />
                         </motion.div>
                     </div>

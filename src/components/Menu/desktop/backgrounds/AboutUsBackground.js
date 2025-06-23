@@ -3,8 +3,11 @@ import aboutUsRight from "../../../../../public/icons/menu/about_us_right.svg";
 import Image from "next/image";
 import style from "./AboutUsBackground.module.scss";
 import {AnimatePresence, motion} from "framer-motion"
+import useTranslation from "next-translate/useTranslation";
 
 const AboutUsBackground = ({backgroundStatus}) => {
+    const { t } = useTranslation('accessibility');
+
     const variants = {
         open: { opacity: 1, x: 0 },
         closed: { opacity: 0, x: "100%" },
@@ -29,7 +32,7 @@ const AboutUsBackground = ({backgroundStatus}) => {
                             src={aboutUsLeft}
                             width={300}
                             height={300}
-                            alt="About Us Big Icon Left Side"
+                            alt={t('alt_text__about_us_left_icon')}
                         />
                         </motion.div>
                     </div>
@@ -47,7 +50,7 @@ const AboutUsBackground = ({backgroundStatus}) => {
                                 src={aboutUsRight}
                                 width={300}
                                 height={300}
-                                alt="About Us Big Icon Right Side"
+                                alt={t('alt_text__about_us_right_icon')}
                             />
                         </motion.div>
                     </div>

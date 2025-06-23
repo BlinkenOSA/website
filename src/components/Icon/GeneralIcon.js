@@ -16,8 +16,11 @@ import warning from "../../../public/icons/general/warning.svg";
 
 import style from "./Icon.module.scss";
 import Image from "next/image";
+import useTranslation from "next-translate/useTranslation";
 
 const IconBase = ({src, size, color, alt}) => {
+	const { t } = useTranslation('accessibility');
+
 	const getSize = () => {
 		switch (size) {
 			case 'small':
@@ -35,68 +38,68 @@ const IconBase = ({src, size, color, alt}) => {
 				src={src}
 				width={getSize()}
 				height={getSize()}
-				alt={alt}
+				alt={t(alt)}
 			/>
 		</div>)
 }
 
 
 export const IconGeneralClose = ({size='normal', color='neutral'}) => {
-	return <IconBase src={close} size={size} color={color} alt={'Close Icon'}/>
+	return <IconBase src={close} size={size} color={color} alt={'alt_text__close_icon'}/>
 }
 
 export const IconGeneralDown = ({size='normal', color='neutral'}) => {
-	return <IconBase src={down} size={size} color={color} alt={'Down Icon'} />
+	return <IconBase src={down} size={size} color={color} alt={'alt_text__down_icon'} />
 }
 
 export const IconGeneralEye = ({size='normal', color='neutral'}) => {
-	return <IconBase src={eye} size={size} color={color}  alt={'Eye Icon'} />
+	return <IconBase src={eye} size={size} color={color}  alt={'alt_text__eye_icon'} />
 }
 
 export const IconGeneralHelp = ({size='normal', color='neutral'}) => {
-	return <IconBase src={help} size={size} color={color} alt={'Help Icon'} />
+	return <IconBase src={help} size={size} color={color} alt={'alt_text__help_icon'} />
 }
 
 export const IconGeneralInfo = ({size='normal', color='neutral'}) => {
-	return <IconBase src={info} size={size} color={color} alt={'Info Icon'} />
+	return <IconBase src={info} size={size} color={color} alt={'alt_text__info_icon'} />
 }
 
 export const IconGeneralLeft = ({size='normal', color='neutral'}) => {
-	return <IconBase src={left} size={size} color={color} alt={'Left Icon'} />
+	return <IconBase src={left} size={size} color={color} alt={'alt_text__left_icon'} />
 }
 
 export const IconGeneralMenu = ({size='normal', color='neutral'}) => {
-	return <IconBase src={menu} size={size} color={color} alt={'Menu Icon'} />
+	return <IconBase src={menu} size={size} color={color} alt={'alt_text__menu_icon'} />
 }
 
 export const IconGeneralMinus = ({size='normal', color='neutral'}) => {
-	return <IconBase src={minus} size={size} color={color} alt={'Minus Icon'} />
+	return <IconBase src={minus} size={size} color={color} alt={'alt_text__minus_icon'} />
 }
 
 export const IconGeneralMore = ({size='normal', color='neutral'}) => {
-	return <IconBase src={more} size={size} color={color} alt={'More Icon'} />
+	return <IconBase src={more} size={size} color={color} alt={'alt_text__more_icon'} />
 }
 
 export const IconGeneralPlus = ({size='normal', color='neutral'}) => {
-	return <IconBase src={plus} size={size} color={color} alt={'Plus Icon'} />
+	return <IconBase src={plus} size={size} color={color} alt={'alt_text__plus_icon'} />
 }
 
 export const IconGeneralRight = ({size='normal', color='neutral'}) => {
-	return <IconBase src={right} size={size} color={color} alt={'Right Icon'} />
+	return <IconBase src={right} size={size} color={color} alt={'alt_text__right_icon'} />
 }
 
 export const IconGeneralSearch = ({size='normal', color='neutral'}) => {
-	return <IconBase src={search} size={size} color={color} alt={'Search Icon'} />
+	return <IconBase src={search} size={size} color={color} alt={'alt_text__search_icon'} />
 }
 
 export const IconGeneralTrash = ({size='normal', color='neutral'}) => {
-	return <IconBase src={trash} size={size} color={color} alt={'Trash Icon'} />
+	return <IconBase src={trash} size={size} color={color} alt={'alt_text__trash_icon'} />
 }
 
 export const IconGeneralUp = ({size='normal', color='neutral'}) => {
-	return <IconBase src={up} size={size} color={color} alt={'Up Icon'} />
+	return <IconBase src={up} size={size} color={color} alt={'alt_text__up_icon'} />
 }
 
 export const IconGeneralWarning = ({size='normal', color='neutral'}) => {
-	return <IconBase src={warning} size={size} color={color} alt={'Warning Icon'} />
+	return <IconBase src={warning} size={size} color={color} alt={'alt_text__warning_icon'} />
 }
