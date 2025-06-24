@@ -6,7 +6,7 @@ import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
 
 const StaffCard = ({id, data}) => {
-    const { lang } = useTranslation('cards')
+    const { t, lang } = useTranslation('cards')
 
     // Populate fields
     const firstName = data['FirstName']
@@ -20,7 +20,7 @@ const StaffCard = ({id, data}) => {
         <div className={style.Wrapper}>
             <Link href={`/about-us/staff/${slug}`}>
                 <div className={style.Image}>
-                    <MaskedImage src={imageData['url']} type={'portrait'} alt={`Photo of ${lang === 'en' ? `${firstName} ${lastName}` : `${lastName} ${firstName}`}`} />
+                    <MaskedImage src={imageData['url']} type={'portrait'} alt={`${t('alt_text__photo_of')} ${lang === 'en' ? `${firstName} ${lastName}` : `${lastName} ${firstName}`}`} />
                 </div>
                 <div className={`${style.Name} subtitle-large`}>
                     {lang === 'en' ? `${firstName} ${lastName}` : `${lastName} ${firstName}`}

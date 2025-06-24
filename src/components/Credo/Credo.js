@@ -73,15 +73,17 @@ const CredoCard = ({data, active}) => {
     }
 
     const getAltText = () => {
+        const {t} = useTranslation('accessibility')
+
         switch (type) {
             case 'Archivum':
-                return 'The logo of the archivum'
+                return t('alt_text__credo_archivum_logo')
             case 'Collection':
-                return 'The logo of the collections section'
+                return t('alt_text__credo_collections_logo')
             case 'Academics':
-                return 'The logo of the academics section'
+                return t('alt_text__credo_academics_logo')
             case 'Public Programs':
-                return 'The logo of the public programs section'
+                return t('alt_text__credo_public_programs_logo')
         }
     }
 

@@ -17,5 +17,13 @@
   "related_content__event": "Event",
   "related_content__news": "News",
   "related_content__page": "Page",
-  "related_content__project": "Project"
+  "related_content__project": "Project",
+
+  "alt_text__annual_report_card_image": "Annual Report cover image",
+  "alt_text__collection_card_image": "Cover image for the collection",
+  "alt_text__entry_card_image": "Cover image of",
+  "alt_text__event_card_image": "Cover image of the event",
+  "alt_text__photo_of": "Photo of",
+  "alt_text__news_card_image": "Cover image for the news",
+  "alt_text__project_card_image": "Cover image of the project"
 }

@@ -51,7 +51,10 @@ const ProjectCard = ({data, profile}) => {
         <div className={style.Wrapper}>
             <Link href={`${getURL()}/${slug}`}>
                 <div className={style.Image}>
-                    <MaskedImage src={imageData['url']} type={'hdtv'}  alt={`Cover image of the project: ${truncateWithEllipses(title, 100)}`}/>
+                    <MaskedImage
+                      src={imageData['url']}
+                      type={'hdtv'}
+                      alt={`${t('alt_text__project_card_image')}: ${truncateWithEllipses(title, 100)}`}/>
                 </div>
             </Link>
             <div className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 150)}</div>

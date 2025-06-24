@@ -3,6 +3,8 @@ import MaskedImage from "@/components/MaskedImage/MaskedImage";
 import getImageData from "@/utils/content/getImageData";
 
 const AuthorBadge = ({authorStaff}) => {
+
+
     if (authorStaff) {
         const data = authorStaff['attributes']
 

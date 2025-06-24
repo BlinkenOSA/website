@@ -76,5 +76,10 @@
   "alt_text__collections_top_right_icon": "Collections Big Icon Top Right",
   "alt_text__public_programs_top_left_icon": "Public Programs Big Icon Top Left",
   "alt_text__public_programs_bottom_left_icon": "Public Programs Big Icon Bottom Left",
-  "alt_text__public_programs_right_icon": "Public Programs Big Icon Right Side"
+  "alt_text__public_programs_right_icon": "Public Programs Big Icon Right Side",
+
+  "alt_text__credo_archivum_logo": "The logo of the archivum",
+  "alt_text__credo_collections_logo": "The logo of the collections section",
+  "alt_text__credo_academics_logo": "The logo of the academics section",
+  "alt_text__credo_public_programs_logo": "The logo of the public programs section"
 }

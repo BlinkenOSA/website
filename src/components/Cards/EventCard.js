@@ -12,7 +12,7 @@ import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
 
 const EventCard = ({id, data}) => {
-    const {lang} = useTranslation('cards')
+    const {t, lang} = useTranslation('cards')
 
     // Populate fields
     const startDate = getDateString(data['StartDate'], undefined, data['EventType'] === 'Exhibition' ? 'exhibition' : 'event', lang)
@@ -41,7 +41,10 @@ const EventCard = ({id, data}) => {
             <Link href={`/events/${slug ? slug : id}`}>
               <div className={style.Image}>
                   <motion.div variants={imageAnim} style={{position: 'relative', zIndex: 2}} >
-                      <MaskedImage src={imageData['url']} type={'landscape'} alt={`Cover image of the event: ${truncateWithEllipsis(title, 70)}`} />
+                      <MaskedImage
+                        src={imageData['url']}
+                        type={'landscape'}
+                        alt={`${t('alt_text__event_card_image')}: ${truncateWithEllipsis(title, 70)}`} />
                   </motion.div>
                   <div className={style.Tag}>
                       <Tag text={getDate()} icon={icon} color={color}/>

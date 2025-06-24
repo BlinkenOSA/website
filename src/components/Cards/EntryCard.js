@@ -11,7 +11,7 @@ import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
 
 const EntryCard = ({ id, data}) => {
-    const {lang} = useTranslation('cards')
+    const {t, lang} = useTranslation('cards')
 
     // Populate fields
     const originalDate = data['OriginalCreationDate']
@@ -34,7 +34,11 @@ const EntryCard = ({ id, data}) => {
           <Link href={`/entries/${url}/${slug ? slug : id}`}>
             <div className={style.Image}>
                 <motion.div variants={imageAnim} style={{position: 'relative', zIndex: 2}}>
-                  <MaskedImage src={imageData['url']} type={'landscape'} alt={`Cover image of ${data['EntryType']}: ${truncateWithEllipses(title, 60)}`} />
+                  <MaskedImage
+                    src={imageData['url']}
+                    type={'landscape'}
+                    alt={`${t('alt_text__entry_card_image')} ${data['EntryType']}: ${truncateWithEllipses(title, 60)}`}
+                  />
                 </motion.div>
                 <div className={`${style.Icon} ${style[color]}`}>
                     {icon}

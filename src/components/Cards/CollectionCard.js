@@ -9,6 +9,7 @@ import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
 
+
 const CollectionCard = ({data}) => {
     const { t, lang } = useTranslation('cards')
 
@@ -87,7 +88,10 @@ const CollectionCard = ({data}) => {
                 <div className={style.Icons}>{getIcons()}</div>
             </div>
             <div className={style.Image}>
-                <MaskedImage src={imageData['url']} type={'landscape'} alt={`Cover image for the collection: ${truncateWithEllipses(title, 50)}`}/>
+                <MaskedImage
+                  src={imageData['url']}
+                  type={'landscape'}
+                  alt={`${t('alt_text__collection_card_image')}: ${truncateWithEllipses(title, 50)}`}/>
             </div>
             <h2 className={style.Title}>
                 {truncateWithEllipses(title, 50)}

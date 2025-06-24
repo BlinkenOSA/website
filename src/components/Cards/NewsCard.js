@@ -35,7 +35,7 @@ const NewsCard = ({ id, data}) => {
                 className={style.Image}
             >
                 <motion.div variants={imageAnim} style={{position: 'relative', zIndex: 2}} >
-                  <MaskedImage src={imageData['url']} type={'landscape'} alt={`Cover image for the news: ${truncateWithEllipses(title, 60)}`} />
+                  <MaskedImage src={imageData['url']} type={'landscape'} alt={`${t('alt_text__news_card_image')}: ${truncateWithEllipses(title, 60)}`} />
                 </motion.div>
                 <div className={`${style.Icon} ${style[color]}`}>
                     {icon}
