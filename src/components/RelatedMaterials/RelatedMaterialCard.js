@@ -35,25 +35,27 @@ const RelatedMaterialCard = ({ data }) => {
     return (
       <motion.div whileHover={"hover"} className={style.Wrapper}>
           <Link href={data['URL']}>
-              <div className={style.Image} >
-                  <motion.div variants={imageAnim} style={{position: 'relative', zIndex: 2}} >
-                    <MaskedImage src={imageData} type={'landscape'} />
-                  </motion.div>
-                  <div className={`${style.Icon} ${style[color]}`}>
-                      {icon}
-                  </div>
-                  <div className={`${style.UnderLayer} ${style[color]}`} />
-              </div>
-          </Link>
-          <div className={style.Header}>
+            <div className={style.Image} >
+                <motion.div variants={imageAnim} style={{position: 'relative', zIndex: 2}} >
+                  <MaskedImage
+                    src={imageData}
+                    type={'landscape'}
+                    alt={`${t('alt_text__entry_card_image')}: ${title}`}
+                  />
+                </motion.div>
+                <div className={`${style.Icon} ${style[color]}`}>
+                    {icon}
+                </div>
+                <div className={`${style.UnderLayer} ${style[color]}`} />
+            </div>
+            <div className={style.Header}>
               <div className={`${style.EventType} subtitle-small`}>{t(`related_content__${data['Type']}`)}</div>
-          </div>
-          <Link href={data['URL']}>
-            <h3 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 60)}</h3>
+            </div>
+            <h2 className={`${style.Title} subtitle-large`}>{truncateWithEllipses(title, 60)}</h2>
+            <div className={style.Description}>
+                {truncateWithEllipses(description, title.length > 60 ? 100 : 150)}
+            </div>
           </Link>
-          <div className={style.Description}>
-              {truncateWithEllipses(description, title.length > 60 ? 100 : 150)}
-          </div>
       </motion.div>
     )
 }

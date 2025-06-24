@@ -14,7 +14,7 @@ const ImageWithCaption = ({imageContent, size}) => {
                 src={imageData['url']}
                 aspectRatio={imageData['width'] / imageData['height']}
                 type={getImageType(imageContent['Image'])}
-                alt={`${(caption && caption !== '') && {caption}}`}
+                alt={`${(caption && caption !== '') && caption}`}
             />
             {
                 (caption && caption !== '') && <div className={style.Caption}>{caption}</div>
