@@ -1,7 +1,6 @@
 import {CookieConsent} from "react-cookie-consent";
 import useTranslation from "next-translate/useTranslation";
 import style from "./Consent.module.scss";
-import {inDevEnvironment} from "@/utils/inDevEnvironment";
 import { getCookieConsentValue } from "react-cookie-consent";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import {useState} from "react";

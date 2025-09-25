@@ -72,5 +72,7 @@
   "event__zoom__label": "Join on Zoom",
   "blog__published__text": "Published",
   "page__not_yet_translated__text": "This page is not available in English (yet).",
-  "show_more": "Show more..."
+  "show_more": "Show more...",
+  "academic_current_projects__title": "Current Projects",
+  "academic_completed_projects__title": "Completed Projects"
 }

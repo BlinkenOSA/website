@@ -87,5 +87,10 @@
   "past-programs": "Past Programs",
   "public-history-projects": "Public History Projects",
   "verzio": "Verzió Film Festival",
-  "public-program-news": "Public Program News"
+  "public-program-news": "Public Program News",
+  "academics-projects": "Projects",
+  "academics-current-projects": "Current Projects",
+  "academics-current-projects__text": "Ongoing academic projects at the Archivum.",
+  "academics-completed-projects": "Completed Projects",
+  "academics-completed-projects__text": "Completed academic projects at the Archivum."
 }

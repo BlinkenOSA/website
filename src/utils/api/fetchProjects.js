@@ -1,5 +1,6 @@
 import fetcher from "@/utils/api/fetcher";
 import addRelatedEntries from "@/utils/api/addRelatedEntries";
+import dayjs from "dayjs";
 
 export const fetchPartnerProjects = () => {
     const params = {
@@ -107,5 +108,57 @@ export const fetchPublicHistoryProjectsDetail = (slug) => {
 
     params = addRelatedEntries(params, 11, 'project')
     
+    return fetcher('projects', params)
+}
+
+export const fetchAcademicProjectsCurrent = () => {
+    const params = {
+        'filters[Profiles][$contains]': 'Academic',
+        'populate[0]': 'Image',
+        'populate[1]': 'StartDate',
+        'populate[2]': 'EndDate',
+        'populate[3]': 'locations',
+        'populate[4]': 'localizations',
+        'populate[5]': 'localizations.Image',
+        'filters[EndDate][$gte]': dayjs().format('YYYY-MM-DD')
+    }
+
+    return fetcher('projects', params)
+}
+
+export const fetchAcademicProjectsPast = () => {
+    const params = {
+        'filters[Profiles][$contains]': 'Academic',
+        'populate[0]': 'Image',
+        'populate[1]': 'StartDate',
+        'populate[2]': 'EndDate',
+        'populate[3]': 'locations',
+        'populate[4]': 'localizations',
+        'populate[5]': 'localizations.Image',
+        'filters[EndDate][$lte]': dayjs().format('YYYY-MM-DD')
+    }
+
+    return fetcher('projects', params)
+}
+
+export const fetchAcademicProjectsDetail = (slug) => {
+    let params = {
+        'filters[Profiles][$contains]': 'Academic',
+        'populate[0]': 'Image',
+        'populate[1]': 'StartDate',
+        'populate[2]': 'EndDate',
+        'populate[3]': 'Content',
+        'populate[4]': 'Content.Image',
+        'populate[5]': 'Content.Images.Image',
+        'populate[6]': 'Content.Image.Image',
+        'populate[7]': 'localizations',
+        'populate[8]': 'localizations.Content',
+        'populate[9]': 'localizations.Content.Image',
+        'populate[10]': 'localizations.Content.Images.Image',
+        'filters[Slug][$eq]': slug
+    }
+
+    params = addRelatedEntries(params, 11, 'project')
+
     return fetcher('projects', params)
 }
