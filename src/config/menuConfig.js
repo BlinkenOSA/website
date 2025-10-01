@@ -108,7 +108,7 @@ export const menuConfig = [
                         key: 'permanent-fellows',
                         title: 'Permanent Fellows',
                         highlight: "You can meet them, when you are in the Archivum.",
-                        url: '/about-us/staff  '
+                        url: '/about-us/staff?filter=Research'
                     }, {
                         key: 'visiting-fellows',
                         title: 'Visiting Fellows',
@@ -122,19 +122,20 @@ export const menuConfig = [
                     }]
             },
             {key: 'visegrad-scholarship', title: 'Visegrad Scholarship', url: '/academics/visegrad-scholarship-at-osa'},
-            {key: 'teaching', title: 'Teaching', url: '/academics/teaching'},
             {
-                key: 'edupro', title: 'Education Program', submenu: [
-                    {key: 'for-university-students', title: 'For University Students', url: '#'},
-                    {key: 'for-teachers', title: 'For Teachers', url: 'https://edupro.osaarchivum.org/tanaroknak/'},
-                    {key: 'for-students', title: 'For Students', url: 'https://edupro.osaarchivum.org/diakok/'}
+                key: 'teaching', title: 'Teaching', submenu: [
+                    {key: 'for-university-students', title: 'For University Students', url: '/academics/teaching'},
+                    {key: 'for-teachers', title: 'For High School Teachers', url: '/academics/for-high-school-teachers'},
+                    {key: 'for-students', title: 'For Students', url: '/academics/for-high-school-students'}
                 ]
             }, {
                 key: 'interns', title: 'Interns', submenu: [
                     {key: 'current-interns', title: 'Current', url: '/academics/current-interns'},
                     {key: 'past-interns', title: 'Past', url: '/academics/past-interns'}
                 ]
-            }, {
+            },
+            {key: 'publications', title: 'Publications', url: '/academics/publications'},
+            {
                 key: 'academic-events',
                 title: 'Academic Events',
                 url: '/public-programs/program-calendar?programType=Academic'

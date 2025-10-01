@@ -11,17 +11,18 @@ import BlockContent from "@/components/Content/BlockContent";
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
 import {getFullURL} from "@/utils/getFullURL";
+import {fetchInternDetails} from "@/utils/api/fetchInterns";
 import Spacer from "@/components/Spacer/Spacer";
 
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
 
-    const [fellowData] = await Promise.all([
-        fetchFellowDetails(slug)
+    const [internData] = await Promise.all([
+        fetchInternDetails(slug)
     ])
 
-    if (fellowData['data'].length === 0) {
+    if (internData['data'].length === 0) {
         return {
             notFound: true,
         }
@@ -29,41 +30,39 @@ export const getServerSideProps = (async (context) => {
 
     return {
         props: {
-            fellowData
+            internData
         }
     }
 })
 
-const FellowPage = ({fellowData}) => {
+const InternPage = ({internData}) => {
     const { t, lang } = useTranslation('page')
 
-    const data = fellowData['data'][0]['attributes'];
+    const data = internData['data'][0]['attributes'];
 
     const name = data['Name']
     const bio = data['Bio']
-    const fellowshipProgram = data['FellowshipProgram']
-    const researchTopic = data['ResearchTopic']
-    const affiliation = data['Affiliation']
+    const project = data['Project']
     const startDate = getDateString(data['StartDate'], 'YYYY-MM-DD', 'fellow')
     const endDate = getDateString(data['EndDate'], 'YYYY-MM-DD', 'fellow')
     const image = getImageUrl(data['Image'])
 
-    const detectPastFellows = () => {
+    const detectPastInterns = () => {
         const now = dayjs()
-        let fellow = 'current'
+        let intern = 'current'
 
         if (data['EndDate']) {
             if (dayjs(data['EndDate']) < now) {
-                fellow = 'past'
+                intern = 'past'
             }
         }
 
-        return fellow
+        return intern
     }
 
     const breadCrumbObject = [
         {menu: 'academics', title: t('breadcrumb__academics')},
-        {menu: `academics/${detectPastFellows()}-fellows`, link: `/academics/${detectPastFellows()}-fellows`, title: t(`${detectPastFellows()}_fellows__title`)}
+        {menu: `academics/${detectPastInterns()}-interns`, link: `/academics/${detectPastInterns()}-interns`, title: t(`${detectPastInterns()}_interns__title`)}
     ]
 
     return (
@@ -74,13 +73,13 @@ const FellowPage = ({fellowData}) => {
                 <meta property="og:type" content="website"/>
                 <meta property="og:title" content={name}/>
                 <meta property="og:locale" content={lang}/>
-                <meta property="og:description" content={affiliation}/>
+                <meta property="og:description" content={project}/>
                 <meta property="og:image" content={image}/>
                 <meta property="og:url" content={getFullURL(lang)}/>
                 <meta name="twitter:site" content="@BlinkenOSA"/>
                 <meta name="twitter:card" content="summary"/>
                 <meta name="twitter:title" content={name}/>
-                <meta name="twitter:description" content={affiliation}/>
+                <meta name="twitter:description" content={project}/>
                 <meta name="twitter:image" content={image}/>
             </Head>
             <div className={style.Page}>
@@ -88,14 +87,10 @@ const FellowPage = ({fellowData}) => {
                     <SimplePageHeader title={name} breadCrumbObject={breadCrumbObject}/>
                     <Row>
                         <Col xs={{order: 2, span: 12}} sm={{order: 1, span: 8}} md={{order: 1, span: 8}}>
-                            <div className={'subtitle-small'}>{affiliation}</div>
+                            <div className={'subtitle-small'}>Archives Intern</div>
                             <div>
-                                <span className={'subtitle-small'}>Research topic: </span>
-                                {researchTopic}
-                            </div>
-                            <div>
-                                <span className={'subtitle-small'}>Fellowship program: </span>
-                                {fellowshipProgram}
+                                <span className={'subtitle-small'}>Project: </span>
+                                {project}
                             </div>
                             <div>
                                 <span className={'subtitle-small'}>Duration: </span>
@@ -120,4 +115,4 @@ const FellowPage = ({fellowData}) => {
     )
 }
 
-export default FellowPage
+export default InternPage

@@ -112,6 +112,9 @@ export const fetchPublicHistoryProjectsDetail = (slug) => {
 }
 
 export const fetchAcademicProjectsCurrent = () => {
+    const now = dayjs();
+    const year = now.year();
+
     const params = {
         'filters[Profiles][$contains]': 'Academic',
         'populate[0]': 'Image',
@@ -120,13 +123,16 @@ export const fetchAcademicProjectsCurrent = () => {
         'populate[3]': 'locations',
         'populate[4]': 'localizations',
         'populate[5]': 'localizations.Image',
-        'filters[EndDate][$gte]': dayjs().format('YYYY-MM-DD')
+        'filters[EndDate][Year][$gte]': year
     }
 
     return fetcher('projects', params)
 }
 
 export const fetchAcademicProjectsPast = () => {
+    const now = dayjs();
+    const year = now.year();
+
     const params = {
         'filters[Profiles][$contains]': 'Academic',
         'populate[0]': 'Image',
@@ -135,7 +141,8 @@ export const fetchAcademicProjectsPast = () => {
         'populate[3]': 'locations',
         'populate[4]': 'localizations',
         'populate[5]': 'localizations.Image',
-        'filters[EndDate][$lte]': dayjs().format('YYYY-MM-DD')
+        'filters[$or][0][EndDate][Year][$lt]': year,
+        'filters[$or][1][EndDate][$null]': true
     }
 
     return fetcher('projects', params)

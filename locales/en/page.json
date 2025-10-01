@@ -15,7 +15,7 @@
   "staff__tab__blogs": "Blogs",
   "staff__filter__title": "Filter by Department",
   "staff__filter__dropdown_title": "Department",
-  "current_fellows__title": "Current Fellows",
+  "current_fellows__title": "Visiting Fellows",
   "past_fellows__title": "Alumni Fellows",
   "annual_reports__title": "Annual Reports",
   "news__title": "News",
@@ -74,5 +74,7 @@
   "page__not_yet_translated__text": "This page is not available in English (yet).",
   "show_more": "Show more...",
   "academic_current_projects__title": "Current Projects",
-  "academic_completed_projects__title": "Completed Projects"
+  "academic_completed_projects__title": "Completed Projects",
+  "current_interns__title": "Current Interns",
+  "past_interns__title": "Past Interns"
 }

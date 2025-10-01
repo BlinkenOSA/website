@@ -8,27 +8,30 @@ import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import fetcher from "@/utils/api/fetcher";
 import clientFetcher from "@/utils/api/clientFetcher";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Media} from "@/utils/media";
 import DropdownFilter from "@/components/Filters/DropdownFilter";
 import Spacer from "@/components/Spacer/Spacer";
 import useTranslation from "next-translate/useTranslation";
 import {staffFilterValues} from "@/utils/filterValues/staffFilterValues";
 import Head from "next/head";
+import {useRouter} from "next/router";
 
-export const getServerSideProps = (async () => {
-	const [url, params] = fetchStaffList()
-	const [staffData] = await Promise.all([
-		fetcher(url, params)
-	])
+export const getServerSideProps = async (context) => {
+	const selectedFilter = context.query.filter || ""; // 👈 read query param
+	const [url, params] = fetchStaffList(selectedFilter);
+
+	const [staffData] = await Promise.all([fetcher(url, params)]);
+
 	return {
 		props: {
 			initialData: {
-				[unstable_serialize([url, params])]: staffData
-			}
-		}
-	}
-})
+				[unstable_serialize([url, params])]: staffData,
+			},
+			initialFilter: selectedFilter, // 👈 pass filter down
+		},
+	};
+};
 
 const StaffCards = ({selectedFilters}) => {
 	const { data } = useSWR(
@@ -36,7 +39,7 @@ const StaffCards = ({selectedFilters}) => {
 		([url, params]) => clientFetcher(url, params)
 	)
 
-	return data && data["data"].map(staff => {
+	return data?.["data"]?.map(staff => {
 		return (
 			<Col xs={12} sm={6} md={4}>
 				<StaffCard
@@ -48,18 +51,26 @@ const StaffCards = ({selectedFilters}) => {
 	})
 }
 
-const StaffPage = ({initialData}) => {
+const StaffPage = ({initialData, initialFilter}) => {
 	const { t, lang } = useTranslation('page')
+	const router = useRouter();
 
-	const [unitFilter, setUnitFilter] = useState('')
+	const [unitFilter, setUnitFilter] = useState(initialFilter)
 
 	const handleFilterChange = (id) => {
-		if (unitFilter === id) {
-			setUnitFilter('')
-		} else {
-			setUnitFilter(id)
-		}
-	}
+		const newFilter = unitFilter === id ? "" : id;
+		setUnitFilter(newFilter);
+
+		// Update URL without reloading the page
+		router.push(
+			{
+				pathname: router.pathname,
+				query: newFilter ? { filter: newFilter } : {},
+			},
+			undefined,
+			{ shallow: true }
+		);
+	};
 
 	return (
 		<>
