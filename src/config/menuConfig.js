@@ -38,8 +38,13 @@ export const menuConfig = [
                         title: 'Jobs',
                         highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid.',
                         url: '/about-us/jobs'
+                    },
+                    {
+                        key: 'internships',
+                        title: 'Internships',
+                        highlight: 'Internship opportunities at the Archivum.',
+                        url: '/about-us/internships'
                     }
-                    // { key: 'volunteering', title: 'Volunteering', highlight: "Work with us on arhcival processing, digitization projects, exhibitions. You won't get paid"}
                 ]
             },
             {key: 'visit-us', title: 'Visit Us', url: '/about-us/visit-us'},
