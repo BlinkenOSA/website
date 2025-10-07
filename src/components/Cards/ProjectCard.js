@@ -32,6 +32,8 @@ const ProjectCard = ({data, profile}) => {
                 return '/collections/archival-projects'
             case 'Public':
                 return '/public-programs/public-history-projects'
+            case 'Academic':
+                return '/academics/projects'
         }
     }
 
