@@ -50,11 +50,11 @@ const FellowPage = ({fellowData}) => {
 
     const detectPastFellows = () => {
         const now = dayjs()
-        let fellow = 'current'
+        let fellow = 'visiting'
 
         if (data['EndDate']) {
             if (dayjs(data['EndDate']) < now) {
-                fellow = 'past'
+                fellow = 'alumni'
             }
         }
 

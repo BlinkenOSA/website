@@ -48,11 +48,11 @@ const FellowsPage = ({initialData}) => {
     return (
         <>
             <Head>
-                <title>Blinken OSA Archivum | {t('current_fellows__title')}</title>
+                <title>Blinken OSA Archivum | {t('visiting_fellows__title')}</title>
             </Head>
             <div className={style.Page}>
                 <Container>
-                    <SimplePageHeader title={t('current_fellows__title')} menu={'academics'} breadCrumb={'Academics'} />
+                    <SimplePageHeader title={t('visiting_fellows__title')} menu={'academics'} breadCrumb={'Academics'} />
                     <Row>
                         <Col xs={12}>
                             <Row>
