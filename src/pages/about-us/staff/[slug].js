@@ -19,6 +19,7 @@ import Head from "next/head";
 import React from "react";
 import getLocData from "@/utils/content/getLocData";
 import {getFullURL} from "@/utils/getFullURL";
+import {staffFilterValues} from "@/utils/filterValues/staffFilterValues";
 
 export const getServerSideProps = (async (context) => {
     const { slug } = context.query;
@@ -53,8 +54,8 @@ const StaffPage = ({staffData}) => {
     const firstName = data['FirstName']
     const lastName = data['LastName']
     const bio = getLocData(data, 'Bio', lang)
+    // const unit = getLocData(data, 'Unit', lang)
     const position = getLocData(data, 'Position', lang)
-    const unit = getLocData(data, 'Unit', lang)
     const email = data['Email']
     const image = getImageUrl(data['Image'])
     const appearences = data['Appearances']['data']
@@ -64,6 +65,19 @@ const StaffPage = ({staffData}) => {
 
     const displayName = lang === 'en' ? `${firstName} ${lastName}` : `${lastName} ${firstName}`
 
+    const getUnit = (unit) => {
+        const {t, lang} = useTranslation('filters')
+
+        const filteredFilters = staffFilterValues.filter(filter => filter['value'] === unit)
+
+        if (filteredFilters.length > 0) {
+            return t(filteredFilters[0]['translationKey'])
+        } else {
+            return getLocData(data, 'Unit', lang)
+        }
+    }
+
+    const unit = getUnit(data['Unit'])
 
     const detectTabsVisible = () => {
         return appearences.length > 0 || courses.length > 0 || entries.length > 0 || publications.length > 0
