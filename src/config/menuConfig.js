@@ -35,15 +35,9 @@ export const menuConfig = [
                     },
                     {
                         key: 'jobs',
-                        title: 'Jobs',
+                        title: 'Jobs and Internships',
                         highlight: 'Work with us on arhcival processing, digitization projects, exhibitions. You will get paid.',
                         url: '/about-us/jobs'
-                    },
-                    {
-                        key: 'internships',
-                        title: 'Internships',
-                        highlight: 'Internship opportunities at the Archivum.',
-                        url: '/about-us/internships'
                     }
                 ]
             },
