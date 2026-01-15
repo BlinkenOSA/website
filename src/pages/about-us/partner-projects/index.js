@@ -1,6 +1,5 @@
 import {Col, Container, Row} from "react-bootstrap";
 import style from "@/pages/pages.module.scss";
-import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {fetchPartnerProjects} from "@/utils/api/fetchProjects";
 import ProjectCard from "@/components/Cards/ProjectCard";
 import SimplePageHeader from "@/components/PageHeader/SimplePageHeader";

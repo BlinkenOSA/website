@@ -1,11 +1,8 @@
-import {fetchAnnualReports} from "@/utils/api/fetchAnnualReports";
 import {Col, Container, Row} from "react-bootstrap";
 import style from "@/pages/pages.module.scss";
-import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import {fetchJobs} from "@/utils/api/fetchJobs";
 import VerticalFilters from "@/components/Filters/VerticalFilters";
 import JobCard from "@/components/Cards/JobCard";
-import {useList} from "react-use";
 import fetcher from "@/utils/api/fetcher";
 import useSWR, {SWRConfig, unstable_serialize} from "swr";
 import clientFetcher from "@/utils/api/clientFetcher";
@@ -14,7 +11,6 @@ import {useState} from "react";
 import {jobTypeFilterValues} from "@/utils/filterValues/jobTypeFilterValues";
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
-import getLocData from "@/utils/content/getLocData";
 
 export const getServerSideProps = (async () => {
     const [url, params] = fetchJobs()
@@ -74,7 +70,8 @@ const JobsPage = ({initialData}) => {
                     title={t('job__title')}
                     breadCrumb={t('breadcrumb__about_us')}
                     menu={'about-us'}
-                    image={''} />
+                    scrollScale={0.1}
+                    image={'/images/header-join-us.webp'} />
                 <Container>
                     <Row>
                         <Col xs={4}>
