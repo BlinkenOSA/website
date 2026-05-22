@@ -2,11 +2,6 @@ import style from "./ImageGallery.module.scss";
 
 import PhotoAlbum from "react-photo-album";
 
-import "yet-another-react-lightbox/styles.css";
-import "yet-another-react-lightbox/plugins/captions.css";
-import "yet-another-react-lightbox/plugins/counter.css";
-import "yet-another-react-lightbox/plugins/thumbnails.css";
-
 import {useState} from "react";
 import getImageData from "@/utils/content/getImageData";
 import LightBox from "@/components/Content/elements/LightBox";
