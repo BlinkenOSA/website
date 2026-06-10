@@ -36,7 +36,7 @@ const CatalogPanel = () => {
                     <Row style={{alignItems: "center"}}>
                         <Col xs={12} sm={6} md={4} className={style.Left}>
                             <Link href={'https://catalog.archivum.org/'} target={'_blank'}>
-                                <h1>{t('catalog')}</h1>
+                                <h2>{t('catalog')}</h2>
                             </Link>
                             <SearchBox onPressEnter={handleEnter} />
                         </Col>

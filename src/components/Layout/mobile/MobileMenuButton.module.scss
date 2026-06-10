@@ -17,6 +17,10 @@
   -o-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
   cursor: pointer;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  position: relative;
 
   @media (max-width: $sm) {
     margin-left: 16px;

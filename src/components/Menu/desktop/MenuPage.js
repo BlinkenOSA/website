@@ -87,17 +87,20 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
                             className={getClass(item['key'])}
                             style={{display: "flex"}}
                         >
-                            <div
+                            <button
+                                type="button"
                                 onClick={() => handleSelectMenu(item['key'])}
                                 className={style.Title}
+                                aria-expanded={selectedMenuItem === item['key']}
                             >
                                 {t(item['key'])}
-                            </div>
-                            <div
+                            </button>
+                            <button
+                                type="button"
                                 onClick={() => handleSelectMenu(item['key'])}
                                 className={style.Icon}>
                                 <IconGeneralRight />
-                            </div>
+                            </button>
                         </div>
                     )
                 } else {

@@ -28,12 +28,17 @@ const MenuItem = ({menuID, title, icon, number, color, menuOpen, onClick, menuIt
             variants={menuVariants}
             transition={transition}
         >
-            <div className={`${style.MenuHeader} ${style[color]}`}
-                 onClick={(e) => onClick(number)}>
+            <button
+                type="button"
+                className={`${style.MenuHeader} ${style[color]}`}
+                onClick={() => onClick(number)}
+                aria-expanded={menuOpen.includes(number)}
+                aria-controls={`desktop-menu-panel-${number}`}>
                 <div className={style.MenuTitle}>{title}</div>
                 <div className={style.MenuIcon}>{icon}</div>
-            </div>
+            </button>
             <MenuPage
+                id={`desktop-menu-panel-${number}`}
                 menuID={menuID}
                 menuItems={menuItems}
                 number={number}

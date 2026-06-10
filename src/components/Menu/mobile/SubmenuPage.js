@@ -75,9 +75,10 @@ const SubmenuPage = ({menuID, status, selectedSubmenu, onBackClick}) => {
                 animate={selectedSubmenu ? 'open' : status}
                 exit={{ opacity: 0, y: '-30%'}}
                 className={style.BackButton}
-                onClick={onBackClick}
                 >
-                <IconGeneralLeft/> {selectedSubmenu['title']}
+                <button type="button" onClick={onBackClick}>
+                    <IconGeneralLeft/> {selectedSubmenu['title']}
+                </button>
             </motion.div>
             {getSubmenuItems()}
         </div>

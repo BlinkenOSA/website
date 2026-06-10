@@ -4,7 +4,6 @@ import Button from "@/components/Button/Button";
 import getImageUrl from "@/utils/content/getImageUrl";
 import {Col, Container, Row} from "react-bootstrap";
 import getColor from "@/utils/content/getColor";
-import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import getLocData from "@/utils/content/getLocData";
 import {useWindowSize} from "react-use";
@@ -48,13 +47,18 @@ const HeroV2 = ({data, index}) => {
         if (buttonText !== null) {
             if (buttonLink) {
                 return (
-                    <Link href={buttonLink}>
-                        <div className={style.ButtonWrapper}>
-                            <div className={style.Button}>
-                                <Button size={'large'} type={'hero-primary'} color={'neutral'}>{buttonText}</Button>
-                            </div>
+                    <div className={style.ButtonWrapper}>
+                        <div className={style.Button}>
+                            <Button
+                                size={'large'}
+                                type={'hero-primary'}
+                                color={'neutral'}
+                                link={buttonLink}
+                                linkTarget={'_self'}>
+                                {buttonText}
+                            </Button>
                         </div>
-                    </Link>
+                    </div>
                 )
             } else {
                 return (

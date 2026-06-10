@@ -30,7 +30,7 @@ const ResearchRoomPanel = () => {
                     <Row>
                         <Col xs={12} sm={8} md={8}>
                             <div className={style.Text}>
-                                <h1>{t('research_room')}</h1>
+                                <h2>{t('research_room')}</h2>
                                 <p>{t('research_room__text')}</p>
                                 <p>
                                     <span className={`${style.Label}`}>{t('research_room__where_to_find')}</span>

@@ -17,7 +17,7 @@ const NewsletterPanel = ({type='landing', color='neutral'}) => {
                 />
             </Media>
             <div className={style.Left}>
-                <h1>{t('newsletter__title')}</h1>
+                <h2>{t('newsletter__title')}</h2>
                 <p>
                     {t('newsletter__content_01')}<br/>
                     {t('newsletter__content_02')}

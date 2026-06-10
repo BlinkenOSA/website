@@ -9,7 +9,7 @@ const SectionDivider = ({title, buttonText, buttonLink, subTitle, border = false
         <Row>
             <div className={style.Wrapper}>
                 <div className={style.Header}>
-                    <h1>{title}</h1>
+                    <h2 className={style.Title}>{title}</h2>
                     <Media greaterThanOrEqual="sm">
                         <Button
                             type={'primary'}

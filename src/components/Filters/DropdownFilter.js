@@ -29,7 +29,7 @@ const DropdownFilter = ({label, values, selectedValue, onSelect}) => {
 				</Dropdown.Menu>
 			</Dropdown>
 			{
-				selectedValue && <span className={style.Reset} onClick={() => onSelect('')}>{t('dropdown__filter__reset')}</span>
+				selectedValue && <button type="button" className={style.Reset} onClick={() => onSelect('')}>{t('dropdown__filter__reset')}</button>
 			}
 		</>
 	)

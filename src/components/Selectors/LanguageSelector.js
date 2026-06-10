@@ -12,8 +12,20 @@ const LanguageSelector = ({onClick}) => {
 
     return (
         <div className={`${style.LanguageSelector} suisseIntlMedium`}>
-            <span className={lang === 'en' ? style.Selected : undefined} onClick={() => handleClick('en')}>EN</span>
-            <span className={lang === 'hu' ? style.Selected : undefined} onClick={() => handleClick('hu')}>HU</span>
+            <button
+                type="button"
+                className={lang === 'en' ? style.Selected : undefined}
+                onClick={() => handleClick('en')}
+                aria-pressed={lang === 'en'}>
+                EN
+            </button>
+            <button
+                type="button"
+                className={lang === 'hu' ? style.Selected : undefined}
+                onClick={() => handleClick('hu')}
+                aria-pressed={lang === 'hu'}>
+                HU
+            </button>
         </div>
     )
 }

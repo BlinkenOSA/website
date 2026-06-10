@@ -94,11 +94,11 @@ const CredoCard = ({data, active}) => {
             <Container>
                 <div className={style.Card}>
                     <motion.div className={style.Text} aria-hidden={!active}>
-                        <motion.h1
+                        <motion.h2
                             initial="notActive"
                             animate={active ? 'active' : 'notActive'}
                             className={!active ? style.invisibleElement : ""}
-                            variants={titleVariants}>{weAreText}</motion.h1>
+                            variants={titleVariants}>{weAreText}</motion.h2>
                         <motion.div
                             initial="notActive"
                             animate={active ? 'active' : 'notActive'}

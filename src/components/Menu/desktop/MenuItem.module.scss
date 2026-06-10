@@ -23,6 +23,11 @@
     border-right: 1px solid #000;
     border-left: 1px solid #000;
     transition: background-color ease 0.2s;
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 1px solid #000;
+    border-left: 1px solid #000;
+    text-align: inherit;
 
     .OpenClose {
       opacity: 0.2;

@@ -6,10 +6,13 @@ import Button from "@/components/Button/Button";
 import {IconGeneralClose} from "@/components/Icon/GeneralIcon";
 import {useRouter} from "next/router";
 import useTranslation from "next-translate/useTranslation";
+import {useId} from "react";
 
 const SearchPage = ({searchOpen, onClose}) => {
     const router = useRouter();
     const { t, lang } = useTranslation('page')
+    const catalogHeadingId = useId();
+    const websiteHeadingId = useId();
 
     const searchPageVariables = {
         open: { x: 0 },
@@ -36,20 +39,21 @@ const SearchPage = ({searchOpen, onClose}) => {
     }
 
     return (
-        <motion.div className={style.SearchPageWrapper}>
+        <motion.div className={style.SearchPageWrapper} id="site-search-panel" role="dialog" aria-modal="true" aria-label={t('search')}>
             <motion.div
                 animate={searchOpen ? 'open' : 'closed'}
                 variants={searchPageVariables}
                 initial={'closed'}
                 exit={{x: '-100%', transition: {ease: 'linear', delay: 0.2}}}
                 transition={{ease: "linear", duration: 0.2}}
+                aria-labelledby={catalogHeadingId}
                 className={style.CatalogSearch}>
                 <div className={style.Wrapper}>
                     <motion.div
                         transition={{delay: 0.3}}
                         variants={searchBoxVariables}
                         className={style.TitleBox}>
-                        <h1>{t('catalog__search')}</h1>
+                        <h2 id={catalogHeadingId}>{t('catalog__search')}</h2>
                     </motion.div>
                     <motion.div
                         transition={{delay: 0.4}}
@@ -71,13 +75,14 @@ const SearchPage = ({searchOpen, onClose}) => {
                 initial={'closed'}
                 exit={{x: '-200%', transition: {ease: 'linear', delay: 0}}}
                 transition={{ease: "linear", duration: 0.4}}
+                aria-labelledby={websiteHeadingId}
                 className={style.WebsiteSearch}>
                 <div className={style.Wrapper}>
                     <motion.div
                         transition={{delay: 0.5}}
                         variants={searchBoxVariables}
                         className={style.TitleBox}>
-                        <h1>{t('website__search')}</h1>
+                        <h2 id={websiteHeadingId}>{t('website__search')}</h2>
                     </motion.div>
                     <motion.div
                         transition={{delay: 0.6}}
@@ -90,7 +95,7 @@ const SearchPage = ({searchOpen, onClose}) => {
                     transition={{delay: 0.7}}
                     variants={searchBoxVariables}
                     className={style.CloseButton}>
-                    <Button type={'secondary'} color={'neutral'} size={'medium'} onClick={onClose}>
+                    <Button type={'secondary'} color={'neutral'} size={'medium'} onClick={onClose} ariaLabel={t('close__button')}>
                         <IconGeneralClose/>
                     </Button>
                 </motion.div>

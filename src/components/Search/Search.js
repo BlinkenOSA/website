@@ -33,9 +33,15 @@ const Search = () => {
 
     return (
         <>
-            <div className={style.Search} onClick={handleClick}>
+            <button
+                type="button"
+                className={style.Search}
+                onClick={handleClick}
+                aria-label={searchOpen ? 'Close search' : 'Open search'}
+                aria-expanded={searchOpen}
+                aria-controls="site-search-panel">
                 <IconGeneralSearch size={'small'} />
-            </div>
+            </button>
             <AnimatePresence>
                 {
                     searchOpen &&

@@ -95,11 +95,14 @@
     gap: 0;
   }
 
-  span {
+  button {
     text-decoration: unset;
     color: inherit;
     cursor: pointer;
     transition: color 0.2s;
+    border: 0;
+    background: transparent;
+    padding: 0;
 
     &.Selected {
       color: $neutral-1000;

@@ -17,6 +17,15 @@
     align-items: center;
     padding-left: 5px;
     padding-bottom: 24px;
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: transparent;
+      border: 0;
+      padding: 0;
+    }
   }
 
   .Submenu {

@@ -47,6 +47,7 @@ const Menu = () => {
     return (
         <>
             <motion.nav
+                id="mobile-site-menu"
                 animate={menuOpen[0] === 'openMobileMenu' ? 'open' : 'closed'}
                 variants={navVariants}
                 className={menuOpen[0] === 'openMobileMenu' ? `${style.BarNavigation} ${style.Open}` : style.BarNavigation}>

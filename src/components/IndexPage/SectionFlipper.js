@@ -10,11 +10,11 @@ const SectionFlipper = ({title, link, border = false, showSlider = true, onNextC
         if (link) {
             return (
                 <Link href={link} target={'_self'}>
-                    <h1>{title}</h1>
+                    <h2 className={style.Title}>{title}</h2>
                 </Link>
             )
         } else {
-            return (<h1>{title}</h1>)
+            return (<h2 className={style.Title}>{title}</h2>)
         }
     }
 

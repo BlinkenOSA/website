@@ -38,6 +38,7 @@ const HeroControl = ({children}) => {
                                     type={'hero-primary'}
                                     size={'medium'}
                                     color={'neutral'}
+                                    ariaLabel={'Previous hero slide'}
                                     isIcon={true}><IconGeneralLeft/></Button>
                                 <Button
                                     onClick={handleNext}
@@ -45,6 +46,7 @@ const HeroControl = ({children}) => {
                                     type={'hero-primary'}
                                     size={'medium'}
                                     color={'neutral'}
+                                    ariaLabel={'Next hero slide'}
                                     isIcon={true}><IconGeneralRight/></Button>
                             </div>
                         </div>

@@ -89,6 +89,7 @@ const IndexPage = ({heroData, eventsData, newsData, entriesData, collectionsData
 					the Roma, LGBTQI+ people, and people living with disabilities." />
 			</Head>
 			<div className={style.Page}>
+				<h1 className="sr-only">Blinken OSA Archivum</h1>
 				{renderHeroes()}
 				<Container>
 					<Spacer size={'medium'} />

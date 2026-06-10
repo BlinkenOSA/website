@@ -13,6 +13,16 @@
     // margin-bottom: 4px;
   }
 
+  .Title {
+    font-size: 48px;
+    line-height: 120%;
+    margin-bottom: 0;
+
+    @media (max-width: $sm) {
+      font-size: 40px;
+    }
+  }
+
   .Controls {
     display: flex;
     gap: 8px;
@@ -28,4 +38,3 @@
     color: $neutral_500;
   }
 }
-

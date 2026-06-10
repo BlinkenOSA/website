@@ -50,6 +50,32 @@ a {
   text-decoration: none;
 }
 
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  z-index: 2000;
+  background: $neutral_1000;
+  color: $white;
+  padding: 8px 12px;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 p {
   font-size: 18px;
   line-height: 24px;
@@ -79,4 +105,3 @@ li {
 .ReactCollapse--collapse {
   transition: height 400ms;
 }
-

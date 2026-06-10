@@ -19,13 +19,17 @@ const MobileMenuItem = ({title, icon, color, number, menuOpen, menuItems, onClic
             style={{zIndex: 5 - number}}
             className={style.MenuItem}
         >
-            <div onClick={(e) => onClick(number)}
-                 className={`${style.MenuHeader} ${style[color]}`}>
+            <button
+                 type="button"
+                 onClick={() => onClick(number)}
+                 className={`${style.MenuHeader} ${style[color]}`}
+                 aria-expanded={menuOpen.includes(number)}
+                 aria-controls={`mobile-menu-panel-${number}`}>
                 <div className={style.MenuIcon}>{icon}</div>
                 <div className={style.MenuTitle}>{title}</div>
-            </div>
+            </button>
             <Collapse isOpened={menuOpen.includes(number)}>
-                <div className={style.MenuPage}>
+                <div className={style.MenuPage} id={`mobile-menu-panel-${number}`}>
                     <MenuPage
                         menuID={menuOpen[1]}
                         menuItems={menuItems}

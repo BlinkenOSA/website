@@ -28,6 +28,12 @@
           cursor: pointer;
           border-bottom: solid 1px transparent;
           transition: border 0.5s ease, color 0.5s ease;
+          background: transparent;
+          border-top: 0;
+          border-left: 0;
+          border-right: 0;
+          text-align: left;
+          padding: 0;
 
           &.Current {
             color: $neutral_1000;
@@ -75,6 +81,9 @@
           width: 60px;
           align-items: center;
           justify-content: center;
+          background: transparent;
+          border: 0;
+          padding: 0;
         }
       }
     }

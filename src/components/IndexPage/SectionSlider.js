@@ -24,12 +24,14 @@ const SectionSlider = ({link, onPreviousClick, onNextClick}) => {
                 size={'medium'}
                 color={'neutral'}
                 onClick={onPreviousClick}
+                ariaLabel={lang === 'hu' ? 'Előző' : 'Previous'}
                 isIcon={true}><IconGeneralLeft/></Button>
             <Button
                 type={'primary'}
                 size={'medium'}
                 color={'neutral'}
                 onClick={onNextClick}
+                ariaLabel={lang === 'hu' ? 'Következő' : 'Next'}
                 isIcon={true}><IconGeneralRight/></Button>
         </div>
     )

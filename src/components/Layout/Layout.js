@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
                 <Head>
                     <meta name="robots" content="all" key="robots" />
                 </Head>
-                <div className={style.Header}>
+                <header className={style.Header}>
                     <Media greaterThanOrEqual="md">
                         <DesktopHeader />
                         <MenuOpenButton />
@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
                     <Media lessThan="md">
                         <MobileHeader />
                     </Media>
-                </div>
+                </header>
                 <div className={`suisseIntlRegular`} style={{zIndex: 1}}>
                     {children}
                     <Media greaterThanOrEqual="md">
@@ -44,12 +44,14 @@ const Layout = ({ children }) => {
                         </div>
                     </Media>
                 </div>
-                <Media greaterThanOrEqual="md">
-                    <DesktopFooter />
-                </Media>
-                <Media lessThan="md">
-                    <MobileFooter />
-                </Media>
+                <footer>
+                    <Media greaterThanOrEqual="md">
+                        <DesktopFooter />
+                    </Media>
+                    <Media lessThan="md">
+                        <MobileFooter />
+                    </Media>
+                </footer>
             </SearchProvider>
         </MenuProvider>
     )

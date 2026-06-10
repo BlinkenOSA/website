@@ -24,7 +24,9 @@ export default function App({ Component, pageProps }) {
             />
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
         </Head>
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         <main
+            id="main-content"
             className={`${suisseIntlRegular.variable} ${suisseIntlMedium.variable} ${suisseIntlSemiBold.variable}`}
         style={{height: '100%'}}>
         <MediaContextProvider disableDynamicMediaQueries>
