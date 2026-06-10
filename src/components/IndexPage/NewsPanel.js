@@ -7,17 +7,22 @@ import useTranslation from "next-translate/useTranslation";
 import SectionSlider from "@/components/IndexPage/SectionSlider";
 import {Media} from "@/utils/media";
 import Spacer from "@/components/Spacer/Spacer";
+import {useReducedMotion} from "framer-motion";
 
 const NewsPanel = ({newsData, slidesToShow=3}) => {
     const { t, lang } = useTranslation('index')
+    const shouldReduceMotion = useReducedMotion()
+    const hasOverflow = newsData["data"].length > slidesToShow;
 
     const sliderSettings = {
         dots: false,
         arrows: false,
-        infinite: true,
-        speed: 400,
+        infinite: hasOverflow,
+        speed: shouldReduceMotion ? 0 : 400,
         slidesToShow: slidesToShow,
         slidesToScroll: 1,
+        pauseOnFocus: true,
+        accessibility: true,
     };
 
     let sliderRef = useRef(null);
@@ -49,6 +54,7 @@ const NewsPanel = ({newsData, slidesToShow=3}) => {
                 title={t('news')}
                 link={'/news'}
                 border={true}
+                showSlider={hasOverflow}
                 onNextClick={onNextClick}
                 onPreviousClick={onPreviousClick}/>
             <Slider
@@ -59,12 +65,16 @@ const NewsPanel = ({newsData, slidesToShow=3}) => {
                 {renderNewsCard()}
             </Slider>
             <Media lessThan="md">
-                <SectionSlider
-                    link={'/news'}
-                    onPreviousClick={onPreviousClick}
-                    onNextClick={onNextClick}
-                />
-                <Spacer />
+                {hasOverflow && (
+                    <>
+                        <SectionSlider
+                            link={'/news'}
+                            onPreviousClick={onPreviousClick}
+                            onNextClick={onNextClick}
+                        />
+                        <Spacer />
+                    </>
+                )}
             </Media>
         </>
     )

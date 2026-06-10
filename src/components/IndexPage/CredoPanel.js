@@ -1,10 +1,12 @@
 import Credo from "@/components/Credo/Credo";
 import {useState} from "react";
 import Slider from "react-slick";
+import {useReducedMotion} from "framer-motion";
 
 const CredoPanel = ({credoData}) => {
     const [activeCredo, setActiveCredo] = useState(0)
     const data = credoData['data']
+    const shouldReduceMotion = useReducedMotion();
 
     const handleChange = (index) => {
         setActiveCredo(index)
@@ -12,15 +14,17 @@ const CredoPanel = ({credoData}) => {
 
     const sliderSettings = {
         dots: false,
-        fade: true,
+        fade: !shouldReduceMotion,
         infinite: true,
-        speed: 500,
+        speed: shouldReduceMotion ? 0 : 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
+        autoplay: !shouldReduceMotion,
         autoplaySpeed: 6000,
         waitForAnimate: false,
-        pauseOnHover: false,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+        accessibility: true,
         afterChange: handleChange
     };
 

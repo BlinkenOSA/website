@@ -3,13 +3,16 @@ import {useState} from "react";
 import Button from "@/components/Button/Button";
 import {IconGeneralLeft, IconGeneralRight} from "@/components/Icon/GeneralIcon";
 import style from './HeroControl.module.scss';
+import {useReducedMotion} from "framer-motion";
 
 const HeroControl = ({children}) => {
     const [activeItem, setActiveItem] = useState(0);
+    const [pauseAutoplay, setPauseAutoplay] = useState(false);
+    const shouldReduceMotion = useReducedMotion();
 
     const renderItems = () => {
         return children.map((child, idx) => {
-            return <Carousel.Item key={idx} interval={7000}>{child}</Carousel.Item>
+            return <Carousel.Item key={idx}>{child}</Carousel.Item>
         })
     }
 
@@ -27,7 +30,13 @@ const HeroControl = ({children}) => {
 
     return (
         <>
-            <Container>
+            <Container
+                onFocusCapture={() => setPauseAutoplay(true)}
+                onBlurCapture={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget)) {
+                        setPauseAutoplay(false);
+                    }
+                }}>
                 <Row className={style.HeroRow}>
                     <Col xs={12}>
                         <div className={style.HeroControlWrapper}>
@@ -53,7 +62,14 @@ const HeroControl = ({children}) => {
                     </Col>
                 </Row>
             </Container>
-            <Carousel activeIndex={activeItem} controls={false} indicators={false} onSelect={handleSelect} pause={false}>
+            <Carousel
+                activeIndex={activeItem}
+                controls={false}
+                indicators={false}
+                onSelect={handleSelect}
+                interval={shouldReduceMotion || pauseAutoplay ? null : 7000}
+                pause={'hover'}
+                touch={!shouldReduceMotion}>
                 {renderItems()}
             </Carousel>
         </>

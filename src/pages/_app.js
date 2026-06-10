@@ -3,6 +3,7 @@ import '@/styles/custom.scss';
 import localFont from 'next/font/local'
 import Head from 'next/head';
 import {MediaContextProvider, mediaStyles} from "@/utils/media";
+import {MotionConfig} from "framer-motion";
 
 import ThemeProvider from 'react-bootstrap/ThemeProvider'
 import Layout from "@/components/Layout/Layout";
@@ -29,17 +30,19 @@ export default function App({ Component, pageProps }) {
             id="main-content"
             className={`${suisseIntlRegular.variable} ${suisseIntlMedium.variable} ${suisseIntlSemiBold.variable}`}
         style={{height: '100%'}}>
-        <MediaContextProvider disableDynamicMediaQueries>
-          <ThemeProvider
-            breakpoints={['xs', 'sm', 'md']}
-          >
-              <Layout>
-                  <PageProgressBar />
-                  <Component {...pageProps} />
-                  {!inDevEnvironment && <Consent />}
-              </Layout>
-          </ThemeProvider>
-        </MediaContextProvider>
+        <MotionConfig reducedMotion="user">
+            <MediaContextProvider disableDynamicMediaQueries>
+              <ThemeProvider
+                breakpoints={['xs', 'sm', 'md']}
+              >
+                  <Layout>
+                      <PageProgressBar />
+                      <Component {...pageProps} />
+                      {!inDevEnvironment && <Consent />}
+                  </Layout>
+              </ThemeProvider>
+            </MediaContextProvider>
+        </MotionConfig>
       </main>
     </>
   )

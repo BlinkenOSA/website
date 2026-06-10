@@ -74,7 +74,7 @@
     }
 
     &:hover {
-      background-color: $neutral_600;
+      background-color: $neutral_500;
     }
 
     &:active {
@@ -82,7 +82,7 @@
     }
 
     &:focus {
-      background-color: $neutral_600;
+      background-color: $neutral_500;
     }
 
     &:disabled {
@@ -447,7 +447,7 @@
     &:hover {
       // border-color: $neutral_100;
       color: $neutral_100;
-      background-color: $neutral_600;
+      background-color: $neutral_500;
     }
 
     &:disabled {

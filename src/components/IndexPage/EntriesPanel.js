@@ -7,19 +7,24 @@ import useTranslation from "next-translate/useTranslation";
 import {Media} from "@/utils/media";
 import SectionSlider from "@/components/IndexPage/SectionSlider";
 import Spacer from "@/components/Spacer/Spacer";
+import {useReducedMotion} from "framer-motion";
 
 const EntriesPanel = ({entriesData, slidesToShow=3}) => {
     let sliderRef = useRef(null);
 
     const { t, lang } = useTranslation('index')
+    const shouldReduceMotion = useReducedMotion()
+    const hasOverflow = entriesData["data"].length > slidesToShow;
 
     const sliderSettings = {
         dots: false,
         arrows: false,
-        infinite: true,
-        speed: 400,
+        infinite: hasOverflow,
+        speed: shouldReduceMotion ? 0 : 400,
         slidesToShow: slidesToShow,
         slidesToScroll: 1,
+        pauseOnFocus: true,
+        accessibility: true,
     };
 
     const renderEntryCard = () => {
@@ -50,6 +55,7 @@ const EntriesPanel = ({entriesData, slidesToShow=3}) => {
                 title={t('entries')}
                 link={'/entries'}
                 border={true}
+                showSlider={hasOverflow}
                 onNextClick={onNextClick}
                 onPreviousClick={onPreviousClick}/>
             <Slider
@@ -60,12 +66,16 @@ const EntriesPanel = ({entriesData, slidesToShow=3}) => {
                 {renderEntryCard()}
             </Slider>
             <Media lessThan="md">
-                <SectionSlider
-                    link={'/entries'}
-                    onPreviousClick={onPreviousClick}
-                    onNextClick={onNextClick}
-                />
-                <Spacer />
+                {hasOverflow && (
+                    <>
+                        <SectionSlider
+                            link={'/entries'}
+                            onPreviousClick={onPreviousClick}
+                            onNextClick={onNextClick}
+                        />
+                        <Spacer />
+                    </>
+                )}
             </Media>
         </>
     )

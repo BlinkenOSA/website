@@ -7,19 +7,24 @@ import {Media} from "@/utils/media";
 import Spacer from "@/components/Spacer/Spacer";
 import style from "./RelatedMaterials.module.scss";
 import RelatedMaterialCard from "@/components/RelatedMaterials/RelatedMaterialCard";
+import {useReducedMotion} from "framer-motion";
 
 const RelatedMaterials = ({materialData, slidesToShow}) => {
     const { t, lang } = useTranslation('cards')
+    const shouldReduceMotion = useReducedMotion();
 
     const sliderSettings = {
         dots: false,
         arrows: false,
         centerMode: false,
         infinite: materialData.length >= slidesToShow,
-        autoplay: materialData.length >= slidesToShow,
-        speed: 400,
+        autoplay: !shouldReduceMotion && materialData.length >= slidesToShow,
+        speed: shouldReduceMotion ? 0 : 400,
         slidesToShow: slidesToShow,
         slidesToScroll: 1,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+        accessibility: true,
     };
 
     let sliderRef = useRef(null);

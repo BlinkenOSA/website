@@ -6,17 +6,22 @@ import {Media} from "@/utils/media";
 import Button from "@/components/Button/Button";
 import SectionFlipper from "@/components/IndexPage/SectionFlipper";
 import {useRef} from "react";
+import {useReducedMotion} from "framer-motion";
 
 const CollectionsPanel = ({collectionsData, slidesToShow=3}) => {
     const { t } = useTranslation('index')
+    const shouldReduceMotion = useReducedMotion()
+    const hasOverflow = collectionsData["data"].length > slidesToShow;
 
     const sliderSettings = {
         dots: false,
         arrows: false,
-        infinite: true,
-        speed: 400,
+        infinite: hasOverflow,
+        speed: shouldReduceMotion ? 0 : 400,
         slidesToShow: slidesToShow,
         slidesToScroll: 1,
+        pauseOnFocus: true,
+        accessibility: true,
     };
 
     let sliderRef = useRef(null);
@@ -46,6 +51,7 @@ const CollectionsPanel = ({collectionsData, slidesToShow=3}) => {
             <SectionFlipper
                 title={t('collection-highlights')}
                 border={false}
+                showSlider={hasOverflow}
                 onNextClick={onNextClick}
                 onPreviousClick={onPreviousClick}/>
             <Slider
