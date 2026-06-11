@@ -6,7 +6,7 @@ import logoLight from "../../../public/logos/logo-light.svg";
 const Logo = ({mode, height, link}) => {
 	if (link) {
 		return (
-			<Link href={'/'} style={{display: "inline-block", height: height}}>
+			<Link href={'/'} style={{display: "inline-block", height: height}} aria-label="Blinken OSA Archivum home page">
 				<Image
 					src={mode === 'dark' ? logoDark : logoLight}
 					height={height}

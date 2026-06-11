@@ -5,17 +5,15 @@ import x from "../../../public/icons/social/x.svg";
 import bluesky from "../../../public/icons/social/bluesky.svg";
 import linkedin from "../../../public/icons/social/linkedin.svg";
 import Image from "next/image";
-import useTranslation from "next-translate/useTranslation";
 
 
 const SocialIconBase = ({src, alt}) => {
-    const { t } = useTranslation('accessibility');
-
     return <Image
         src={src}
         width={16}
         height={16}
-        alt={alt}
+        alt=""
+        aria-hidden="true"
     />
 }
 
