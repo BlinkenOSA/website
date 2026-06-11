@@ -11,8 +11,9 @@ import {SearchDispatchContext} from "@/utils/context/SearchContext";
 import detectSelectedMenuItem from "@/utils/detectSelectedMenuItem";
 import detectCurrentMenuTitle from "@/utils/detectCurrentMenuTitle";
 
-const MenuPage = ({menuItems, menuID, number, status}) => {
+const MenuPage = ({menuItems, menuID, number, status, id}) => {
     const { t, lang } = useTranslation('menu')
+    const isOpen = status === 'open';
 
     const dispatch = useContext(MenuDispatchContext);
     const router = useRouter();
@@ -134,7 +135,15 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
     }
 
     return (
-        <div className={style.MenuPageWrapper} style={{width: `calc(100% - (${number * 56 - (4 - number)}px))`}}>
+        <div
+            id={id}
+            className={style.MenuPageWrapper}
+            style={{width: `calc(100% - (${number * 56 - (4 - number)}px))`}}
+            role="region"
+            aria-label={t(menuID)}
+            aria-hidden={!isOpen}
+            tabIndex={-1}
+            inert={!isOpen ? '' : undefined}>
             <div className={style.SubmenuWrapper}>
                 <motion.div
                     variants={submenuContainer}

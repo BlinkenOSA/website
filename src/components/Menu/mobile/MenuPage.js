@@ -143,7 +143,7 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
             <AnimatePresence>
             {
                 selectedMenuItem === '' &&
-                <div className={style.SubmenuWrapper}>
+                <div className={style.SubmenuWrapper} aria-hidden={selectedMenuItem !== ''} inert={selectedMenuItem !== '' ? '' : undefined}>
                     <motion.div
                         variants={submenuContainer}
                         animate={status}
@@ -154,7 +154,7 @@ const MenuPage = ({menuItems, menuID, number, status}) => {
             }
             {
                 selectedMenuItem !== '' &&
-                <div className={style.SubmenuSecondLevel}>
+                <div className={style.SubmenuSecondLevel} aria-hidden={selectedMenuItem === ''} inert={selectedMenuItem === '' ? '' : undefined}>
                     <SubmenuPage
                         menuID={menuID}
                         status={selectedMenuItem !== ''}

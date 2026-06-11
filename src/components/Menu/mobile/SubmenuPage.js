@@ -68,7 +68,7 @@ const SubmenuPage = ({menuID, status, selectedSubmenu, onBackClick}) => {
     }
 
     return (
-        <div className={style.SubmenuWrapper}>
+        <div className={style.SubmenuWrapper} role="region" aria-label={selectedSubmenu?.title}>
             <motion.div
                 initial={"closed"}
                 variants={submenu}
