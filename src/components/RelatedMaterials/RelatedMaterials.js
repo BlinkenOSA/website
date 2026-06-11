@@ -8,10 +8,15 @@ import Spacer from "@/components/Spacer/Spacer";
 import style from "./RelatedMaterials.module.scss";
 import RelatedMaterialCard from "@/components/RelatedMaterials/RelatedMaterialCard";
 import {useReducedMotion} from "framer-motion";
+import useSlickA11y from "@/utils/hooks/useSlickA11y";
 
 const RelatedMaterials = ({materialData, slidesToShow}) => {
     const { t, lang } = useTranslation('cards')
     const shouldReduceMotion = useReducedMotion();
+    const sliderRef = useRef(null);
+    const sliderContainerRef = useRef(null);
+
+    useSlickA11y(sliderContainerRef, [materialData, shouldReduceMotion, slidesToShow]);
 
     const sliderSettings = {
         dots: false,
@@ -27,8 +32,6 @@ const RelatedMaterials = ({materialData, slidesToShow}) => {
         accessibility: true,
     };
 
-    let sliderRef = useRef(null);
-
     const renderCards = () => {
         return materialData.map((d, idx) => {
             return (
@@ -40,10 +43,10 @@ const RelatedMaterials = ({materialData, slidesToShow}) => {
     }
 
     const onNextClick = () => {
-        sliderRef.slickNext();
+        sliderRef.current?.slickNext();
     };
     const onPreviousClick = () => {
-        sliderRef.slickPrev();
+        sliderRef.current?.slickPrev();
     };
 
     if (materialData.length > 0) {
@@ -55,14 +58,14 @@ const RelatedMaterials = ({materialData, slidesToShow}) => {
                     showSlider={materialData.length >= slidesToShow}
                     onNextClick={onNextClick}
                     onPreviousClick={onPreviousClick}/>
-                <Slider
-                    ref={slider => {
-                        sliderRef = slider;
-                    }}
-                    className={style.Slider}
-                    {...sliderSettings}>
-                    {renderCards()}
-                </Slider>
+                <div ref={sliderContainerRef}>
+                    <Slider
+                        ref={sliderRef}
+                        className={style.Slider}
+                        {...sliderSettings}>
+                        {renderCards()}
+                    </Slider>
+                </div>
                 <Media lessThan="md">
                     <SectionSlider
                         onPreviousClick={onPreviousClick}

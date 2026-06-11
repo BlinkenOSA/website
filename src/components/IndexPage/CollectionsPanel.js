@@ -7,11 +7,16 @@ import Button from "@/components/Button/Button";
 import SectionFlipper from "@/components/IndexPage/SectionFlipper";
 import {useRef} from "react";
 import {useReducedMotion} from "framer-motion";
+import useSlickA11y from "@/utils/hooks/useSlickA11y";
 
 const CollectionsPanel = ({collectionsData, slidesToShow=3}) => {
     const { t } = useTranslation('index')
     const shouldReduceMotion = useReducedMotion()
     const hasOverflow = collectionsData["data"].length > slidesToShow;
+    const sliderRef = useRef(null);
+    const sliderContainerRef = useRef(null);
+
+    useSlickA11y(sliderContainerRef, [collectionsData, hasOverflow, slidesToShow]);
 
     const sliderSettings = {
         dots: false,
@@ -23,8 +28,6 @@ const CollectionsPanel = ({collectionsData, slidesToShow=3}) => {
         pauseOnFocus: true,
         accessibility: true,
     };
-
-    let sliderRef = useRef(null);
 
     const renderCollectionCard = () => {
         return collectionsData["data"].map((collection, idx) => {
@@ -39,11 +42,11 @@ const CollectionsPanel = ({collectionsData, slidesToShow=3}) => {
     }
 
     const onNextClick = () => {
-        sliderRef.slickNext();
+        sliderRef.current?.slickNext();
     };
 
     const onPreviousClick = () => {
-        sliderRef.slickPrev();
+        sliderRef.current?.slickPrev();
     };
 
     return (
@@ -54,13 +57,13 @@ const CollectionsPanel = ({collectionsData, slidesToShow=3}) => {
                 showSlider={hasOverflow}
                 onNextClick={onNextClick}
                 onPreviousClick={onPreviousClick}/>
-            <Slider
-                ref={slider => {
-                    sliderRef = slider;
-                }}
-                {...sliderSettings}>
-                {renderCollectionCard()}
-            </Slider>
+            <div ref={sliderContainerRef}>
+                <Slider
+                    ref={sliderRef}
+                    {...sliderSettings}>
+                    {renderCollectionCard()}
+                </Slider>
+            </div>
             <Media lessThan="sm">
                 <div style={{textAlign: "center"}}>
                     <Button

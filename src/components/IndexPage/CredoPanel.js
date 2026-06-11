@@ -1,12 +1,16 @@
 import Credo from "@/components/Credo/Credo";
-import {useState} from "react";
+import {useRef, useState} from "react";
 import Slider from "react-slick";
 import {useReducedMotion} from "framer-motion";
+import useSlickA11y from "@/utils/hooks/useSlickA11y";
 
 const CredoPanel = ({credoData}) => {
     const [activeCredo, setActiveCredo] = useState(0)
     const data = credoData['data']
     const shouldReduceMotion = useReducedMotion();
+    const sliderContainerRef = useRef(null);
+
+    useSlickA11y(sliderContainerRef, [credoData, shouldReduceMotion]);
 
     const handleChange = (index) => {
         setActiveCredo(index)
@@ -29,15 +33,17 @@ const CredoPanel = ({credoData}) => {
     };
 
     return (
-        <Slider
-            {...sliderSettings}
-        >
-            {
-                data.map((d, idx) => {
-                    return <Credo key={`credo{idx}`} data={d['attributes']} active={idx === activeCredo} />
-                })
-            }
-        </Slider>
+        <div ref={sliderContainerRef}>
+            <Slider
+                {...sliderSettings}
+            >
+                {
+                    data.map((d, idx) => {
+                        return <Credo key={`credo{idx}`} data={d['attributes']} active={idx === activeCredo} />
+                    })
+                }
+            </Slider>
+        </div>
     )
 }
 

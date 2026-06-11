@@ -8,13 +8,17 @@ import {Media} from "@/utils/media";
 import SectionSlider from "@/components/IndexPage/SectionSlider";
 import Spacer from "@/components/Spacer/Spacer";
 import {useReducedMotion} from "framer-motion";
+import useSlickA11y from "@/utils/hooks/useSlickA11y";
 
 const EntriesPanel = ({entriesData, slidesToShow=3}) => {
-    let sliderRef = useRef(null);
+    const sliderRef = useRef(null);
+    const sliderContainerRef = useRef(null);
 
     const { t, lang } = useTranslation('index')
     const shouldReduceMotion = useReducedMotion()
     const hasOverflow = entriesData["data"].length > slidesToShow;
+
+    useSlickA11y(sliderContainerRef, [entriesData, hasOverflow, slidesToShow]);
 
     const sliderSettings = {
         dots: false,
@@ -43,10 +47,10 @@ const EntriesPanel = ({entriesData, slidesToShow=3}) => {
     }
 
     const onNextClick = () => {
-        sliderRef.slickNext();
+        sliderRef.current?.slickNext();
     };
     const onPreviousClick = () => {
-        sliderRef.slickPrev();
+        sliderRef.current?.slickPrev();
     };
 
     return (
@@ -58,13 +62,13 @@ const EntriesPanel = ({entriesData, slidesToShow=3}) => {
                 showSlider={hasOverflow}
                 onNextClick={onNextClick}
                 onPreviousClick={onPreviousClick}/>
-            <Slider
-                ref={slider => {
-                    sliderRef = slider;
-                }}
-                {...sliderSettings}>
-                {renderEntryCard()}
-            </Slider>
+            <div ref={sliderContainerRef}>
+                <Slider
+                    ref={sliderRef}
+                    {...sliderSettings}>
+                    {renderEntryCard()}
+                </Slider>
+            </div>
             <Media lessThan="md">
                 {hasOverflow && (
                     <>

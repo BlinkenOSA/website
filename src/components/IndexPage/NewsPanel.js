@@ -8,11 +8,16 @@ import SectionSlider from "@/components/IndexPage/SectionSlider";
 import {Media} from "@/utils/media";
 import Spacer from "@/components/Spacer/Spacer";
 import {useReducedMotion} from "framer-motion";
+import useSlickA11y from "@/utils/hooks/useSlickA11y";
 
 const NewsPanel = ({newsData, slidesToShow=3}) => {
     const { t, lang } = useTranslation('index')
     const shouldReduceMotion = useReducedMotion()
     const hasOverflow = newsData["data"].length > slidesToShow;
+    const sliderRef = useRef(null);
+    const sliderContainerRef = useRef(null);
+
+    useSlickA11y(sliderContainerRef, [hasOverflow, slidesToShow, newsData]);
 
     const sliderSettings = {
         dots: false,
@@ -24,8 +29,6 @@ const NewsPanel = ({newsData, slidesToShow=3}) => {
         pauseOnFocus: true,
         accessibility: true,
     };
-
-    let sliderRef = useRef(null);
 
     const renderNewsCard = () => {
         return newsData["data"].map((entry, idx) => {
@@ -42,10 +45,10 @@ const NewsPanel = ({newsData, slidesToShow=3}) => {
     }
 
     const onNextClick = () => {
-        sliderRef.slickNext();
+        sliderRef.current?.slickNext();
     };
     const onPreviousClick = () => {
-        sliderRef.slickPrev();
+        sliderRef.current?.slickPrev();
     };
 
     return (
@@ -57,13 +60,13 @@ const NewsPanel = ({newsData, slidesToShow=3}) => {
                 showSlider={hasOverflow}
                 onNextClick={onNextClick}
                 onPreviousClick={onPreviousClick}/>
-            <Slider
-                ref={slider => {
-                    sliderRef = slider;
-                }}
-                {...sliderSettings}>
-                {renderNewsCard()}
-            </Slider>
+            <div ref={sliderContainerRef}>
+                <Slider
+                    ref={sliderRef}
+                    {...sliderSettings}>
+                    {renderNewsCard()}
+                </Slider>
+            </div>
             <Media lessThan="md">
                 {hasOverflow && (
                     <>
