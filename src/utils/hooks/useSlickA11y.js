@@ -17,9 +17,13 @@ const updateHiddenSlideFocusability = (container) => {
         const focusableElements = slide.querySelectorAll(FOCUSABLE_SELECTOR);
 
         if (isHidden) {
-            slide.setAttribute('inert', '');
+            if (!slide.hasAttribute('inert')) {
+                slide.setAttribute('inert', '');
+            }
         } else {
-            slide.removeAttribute('inert');
+            if (slide.hasAttribute('inert')) {
+                slide.removeAttribute('inert');
+            }
         }
 
         focusableElements.forEach((element) => {
@@ -28,14 +32,20 @@ const updateHiddenSlideFocusability = (container) => {
             }
 
             if (isHidden) {
-                element.setAttribute('tabindex', '-1');
+                if (element.getAttribute('tabindex') !== '-1') {
+                    element.setAttribute('tabindex', '-1');
+                }
             } else {
                 const originalTabindex = element.dataset.slickA11yOriginalTabindex;
 
                 if (originalTabindex === '') {
-                    element.removeAttribute('tabindex');
+                    if (element.hasAttribute('tabindex')) {
+                        element.removeAttribute('tabindex');
+                    }
                 } else {
-                    element.setAttribute('tabindex', originalTabindex);
+                    if (element.getAttribute('tabindex') !== originalTabindex) {
+                        element.setAttribute('tabindex', originalTabindex);
+                    }
                 }
             }
         });
@@ -45,25 +55,53 @@ const updateHiddenSlideFocusability = (container) => {
 const useSlickA11y = (containerRef, dependencies = []) => {
     useEffect(() => {
         const container = containerRef.current;
+        let animationFrameId = null;
 
         if (!container) {
             return;
         }
 
+        const scheduleUpdate = () => {
+            if (animationFrameId !== null) {
+                return;
+            }
+
+            animationFrameId = window.requestAnimationFrame(() => {
+                animationFrameId = null;
+                updateHiddenSlideFocusability(container);
+            });
+        };
+
         updateHiddenSlideFocusability(container);
 
-        const observer = new MutationObserver(() => {
-            updateHiddenSlideFocusability(container);
+        const observer = new MutationObserver((mutations) => {
+            const shouldUpdate = mutations.some((mutation) => {
+                if (mutation.type === 'childList') {
+                    return true;
+                }
+
+                return mutation.type === 'attributes' && mutation.attributeName === 'aria-hidden';
+            });
+
+            if (shouldUpdate) {
+                scheduleUpdate();
+            }
         });
 
         observer.observe(container, {
             subtree: true,
             childList: true,
             attributes: true,
-            attributeFilter: ['aria-hidden', 'class', 'tabindex']
+            attributeFilter: ['aria-hidden']
         });
 
-        return () => observer.disconnect();
+        return () => {
+            observer.disconnect();
+
+            if (animationFrameId !== null) {
+                window.cancelAnimationFrame(animationFrameId);
+            }
+        };
     }, dependencies);
 };
 

@@ -15,20 +15,24 @@ const RelatedMaterials = ({materialData, slidesToShow}) => {
     const shouldReduceMotion = useReducedMotion();
     const sliderRef = useRef(null);
     const sliderContainerRef = useRef(null);
+    const hasOverflow = materialData.length > slidesToShow;
 
-    useSlickA11y(sliderContainerRef, [materialData, shouldReduceMotion, slidesToShow]);
+    useSlickA11y(sliderContainerRef, [materialData, hasOverflow, slidesToShow]);
 
     const sliderSettings = {
         dots: false,
         arrows: false,
         centerMode: false,
-        infinite: materialData.length >= slidesToShow,
-        autoplay: !shouldReduceMotion && materialData.length >= slidesToShow,
+        infinite: hasOverflow,
+        autoplay: !shouldReduceMotion && hasOverflow,
         speed: shouldReduceMotion ? 0 : 400,
         slidesToShow: slidesToShow,
         slidesToScroll: 1,
         pauseOnHover: true,
         pauseOnFocus: true,
+        swipe: hasOverflow,
+        draggable: hasOverflow,
+        touchMove: hasOverflow,
         accessibility: true,
     };
 
@@ -55,7 +59,7 @@ const RelatedMaterials = ({materialData, slidesToShow}) => {
                 <SectionFlipper
                     title={t('related_content')}
                     border={true}
-                    showSlider={materialData.length >= slidesToShow}
+                    showSlider={hasOverflow}
                     onNextClick={onNextClick}
                     onPreviousClick={onPreviousClick}/>
                 <div ref={sliderContainerRef}>
@@ -67,11 +71,15 @@ const RelatedMaterials = ({materialData, slidesToShow}) => {
                     </Slider>
                 </div>
                 <Media lessThan="md">
-                    <SectionSlider
-                        onPreviousClick={onPreviousClick}
-                        onNextClick={onNextClick}
-                    />
-                    <Spacer />
+                    {hasOverflow && (
+                        <>
+                            <SectionSlider
+                                onPreviousClick={onPreviousClick}
+                                onNextClick={onNextClick}
+                            />
+                            <Spacer />
+                        </>
+                    )}
                 </Media>
                 <Spacer size={'medium'} />
             </>
