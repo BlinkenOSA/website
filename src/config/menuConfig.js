@@ -11,6 +11,7 @@ export const menuConfig = [
             {
                 key: 'the-archivum', title: 'The Archivum', submenu: [
                     {key: 'about-us-menu', title: 'About Us', url: '/about-us/about-the-archivum'},
+                    {key: 'founding-director', title: 'Founding Director', url: '/about-us/founding-director'},
                     {
                         key: 'vera-and-donald-blinken',
                         title: 'Vera and Donald Blinken',
