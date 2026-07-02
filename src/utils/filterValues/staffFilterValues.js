@@ -1,9 +1,9 @@
 export const staffFilterValues = [
-	{value: 'Acting Director', translationKey: 'staff__filter__acting_director'},
 	{value: 'Administration', translationKey: 'staff__filter__administration'},
 	{value: 'Archival Programs', translationKey: 'staff__filter__archival_programs'},
 	{value: 'Audiovisual Unit', translationKey: 'staff__filter__av_unit'},
 	{value: 'Chief Archivist', translationKey: 'staff__filter__chief_archivist'},
+	{value: 'Director', translationKey: 'staff__filter__director'},
 	{value: 'IT', translationKey: 'staff__filter__it'},
 	{value: 'Library', translationKey: 'staff__filter__library'},
 	{value: 'Public Programs and Outreach', translationKey: 'staff__filter__public_programs_and_outreach'},
