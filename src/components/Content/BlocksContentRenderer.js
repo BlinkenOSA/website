@@ -1,20 +1,22 @@
-import React, {useEffect, useRef} from "react";
+import React from "react";
 import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 
-const getNodeText = (node) => {
-    if (typeof node === "string" || typeof node === "number") {
-        return String(node);
-    }
+const getTextFromBlockNodes = (nodes = []) => {
+    return nodes.map((node) => {
+        if (!node) {
+            return "";
+        }
 
-    if (Array.isArray(node)) {
-        return node.map(getNodeText).join("");
-    }
+        if (node.type === "text") {
+            return node.text || "";
+        }
 
-    if (React.isValidElement(node)) {
-        return getNodeText(node.props.children);
-    }
+        if (Array.isArray(node.children)) {
+            return getTextFromBlockNodes(node.children);
+        }
 
-    return "";
+        return "";
+    }).join("");
 };
 
 const createAnchorId = (text) => {
@@ -27,8 +29,30 @@ const createAnchorId = (text) => {
         .replace(/^-|-$/g, "");
 };
 
+const addHeadingAnchors = (nodes = []) => {
+    return nodes.map((node) => {
+        if (!node || typeof node !== "object") {
+            return node;
+        }
+
+        const nextNode = {
+            ...node
+        };
+
+        if (Array.isArray(node.children)) {
+            nextNode.children = addHeadingAnchors(node.children);
+        }
+
+        if (node.type === "heading" && node.level === 4) {
+            nextNode.anchorId = createAnchorId(getTextFromBlockNodes(node.children));
+        }
+
+        return nextNode;
+    });
+};
+
 const blocks = {
-    heading: ({level, children}) => {
+    heading: ({level, children, anchorId}) => {
         if (level !== 4) {
             switch (level) {
                 case 1:
@@ -46,8 +70,6 @@ const blocks = {
             }
         }
 
-        const anchorId = createAnchorId(getNodeText(children));
-
         if (!anchorId) {
             return <h4>{children}</h4>;
         }
@@ -61,47 +83,9 @@ const blocks = {
 };
 
 const BlocksContentRenderer = ({content}) => {
-    const contentRef = useRef(null);
+    const normalizedContent = addHeadingAnchors(content);
 
-    useEffect(() => {
-        if (!contentRef.current) {
-            return;
-        }
-
-        const headings = contentRef.current.querySelectorAll("h4");
-
-        headings.forEach((heading) => {
-            const anchorId = createAnchorId(heading.textContent || "");
-
-            if (!anchorId) {
-                return;
-            }
-
-            heading.id = anchorId;
-
-            const existingAnchor = heading.querySelector(`:scope > a[href="#${anchorId}"]`) || heading.querySelector(":scope > a");
-
-            if (existingAnchor) {
-                existingAnchor.setAttribute("href", `#${anchorId}`);
-                return;
-            }
-
-            const anchor = document.createElement("a");
-            anchor.setAttribute("href", `#${anchorId}`);
-
-            while (heading.firstChild) {
-                anchor.appendChild(heading.firstChild);
-            }
-
-            heading.appendChild(anchor);
-        });
-    }, [content]);
-
-    return (
-        <div ref={contentRef}>
-            <BlocksRenderer content={content} blocks={blocks} />
-        </div>
-    );
+    return <BlocksRenderer content={normalizedContent} blocks={blocks} />;
 };
 
 export default BlocksContentRenderer;
