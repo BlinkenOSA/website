@@ -1,12 +1,15 @@
-import {useRouter} from "next/router";
+const normalizeUrl = (url = "") => {
+    return url.split("#")[0];
+};
 
 const detectSelectedMenuItem = (menuItems, url) => {
+    const normalizedUrl = normalizeUrl(url);
     let selectedMenuItem = '';
 
     menuItems.forEach(menuItem => {
         if ('submenu' in menuItem) {
             menuItem['submenu'].forEach(submenu => {
-                if (submenu['url'] === url) {
+                if (normalizeUrl(submenu['url']) === normalizedUrl) {
                     selectedMenuItem = menuItem['key']
                 }
             })

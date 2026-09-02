@@ -1,5 +1,5 @@
 import {Col, Row} from "react-bootstrap";
-import {BlocksRenderer} from "@strapi/blocks-react-renderer";
+import BlocksContentRenderer from "@/components/Content/BlocksContentRenderer";
 import style from "./TextBox.module.scss"
 
 const TextBox = ({content}) => {
@@ -7,7 +7,7 @@ const TextBox = ({content}) => {
 		<Row>
 			<Col xs={12}>
 				<div className={style.TextBox}>
-					<BlocksRenderer content={content['Text']} />
+					<BlocksContentRenderer content={content['Text']} />
 				</div>
 			</Col>
 		</Row>

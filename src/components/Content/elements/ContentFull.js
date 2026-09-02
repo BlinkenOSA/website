@@ -1,11 +1,11 @@
 import {Col, Row} from "react-bootstrap";
-import {BlocksRenderer} from "@strapi/blocks-react-renderer";
+import BlocksContentRenderer from "@/components/Content/BlocksContentRenderer";
 
 const ContentFull = ({content}) => {
     return (
         <Row>
             <Col xs={12}>
-                <BlocksRenderer content={content['Content']} />
+                <BlocksContentRenderer content={content['Content']} />
             </Col>
         </Row>
     )

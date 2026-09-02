@@ -67,6 +67,25 @@
     }
   }
 
+  h4 > a {
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    white-space: normal;
+
+    &::before {
+      content: none;
+    }
+
+    @media (max-width: $sm) {
+      text-decoration: none;
+    }
+  }
+
+  h4[id] {
+    scroll-margin-top: calc($header-height-desktop + 16px);
+  }
+
   &.mustard {
     blockquote::before, a::before {
       background: $mustard_1000;
