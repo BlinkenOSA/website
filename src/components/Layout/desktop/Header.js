@@ -1,5 +1,5 @@
 import style from "./Header.module.scss";
-import Logo from "@/components/Logo/Logo";
+import RotatingHeaderLogo from "@/components/Logo/RotatingHeaderLogo";
 import LanguageSelector from "@/components/Selectors/LanguageSelector";
 import {Col, Container, Row} from "react-bootstrap";
 import {MenuDispatchContext} from "@/utils/context/MenuContext";
@@ -20,7 +20,7 @@ const Header = () => {
 			<Container>
 				<Row>
 					<Col xs={3} className={style.Logo} onClick={handleMenuClose}>
-						<Logo height={30} link={'/'} mode={'dark'}/>
+						<RotatingHeaderLogo height={30} />
 					</Col>
 					<Col xs={5} />
 					<Col xs={3}>

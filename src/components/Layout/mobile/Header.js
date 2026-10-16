@@ -1,5 +1,5 @@
 import style from "./Header.module.scss";
-import Logo from "@/components/Logo/Logo";
+import RotatingHeaderLogo from "@/components/Logo/RotatingHeaderLogo";
 import LanguageSelector from "@/components/Selectors/LanguageSelector";
 import {MenuContext, MenuDispatchContext} from "@/utils/context/MenuContext";
 import {useContext} from "react";
@@ -35,7 +35,7 @@ const Header = () => {
 	return (
 		<div className={style.HeaderWrapper}>
 			<div className={style.Logo} >
-				<Logo height={25} link={'/'} mode={'dark'}/>
+				<RotatingHeaderLogo height={25} />
 			</div>
 			<div className={style.Search}>
 				<Search />

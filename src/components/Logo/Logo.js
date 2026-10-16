@@ -3,10 +3,10 @@ import Image from "next/image";
 import logoDark from "../../../public/logos/logo-dark.svg";
 import logoLight from "../../../public/logos/logo-light.svg";
 
-const Logo = ({mode, height, link}) => {
+const Logo = ({mode, height, link, tabIndex}) => {
 	if (link) {
 		return (
-			<Link href={'/'} style={{display: "inline-block", height: height}} aria-label="Blinken OSA Archivum home page">
+			<Link href={'/'} style={{display: "inline-block", height: height}} tabIndex={tabIndex} aria-label="Blinken OSA Archivum home page">
 				<Image
 					src={mode === 'dark' ? logoDark : logoLight}
 					height={height}
