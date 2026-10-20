@@ -39,11 +39,9 @@ const RotatingHeaderLogo = ({height = 30}) => {
 			</div>
 			<div className={`${style.Face} ${style.CEUFace}`} aria-hidden={!showCEU}>
 				<Link
-					href={'https://www.ceu.edu'}
-					target={'_blank'}
-					rel="noopener noreferrer"
+					href={'/'}
 					tabIndex={showCEU ? 0 : -1}
-					aria-label={lang === 'hu' ? 'A Közép-európai Egyetem weboldala (megnyitás új lapon)' : 'Central European University website (opens in a new tab)'}
+					aria-label={lang === 'hu' ? 'A Blinken OSA Archivum kezdőlapja' : 'Blinken OSA Archivum home page'}
 				>
 					<CEUIcon ariaHidden={true} />
 				</Link>

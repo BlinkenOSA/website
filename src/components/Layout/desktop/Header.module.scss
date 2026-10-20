@@ -16,8 +16,28 @@
     align-self: center;
     display: flex;
     align-items: center;
+    gap: 12px;
     margin-left: -35px;
     margin-right: 35px;
+
+    .LogoDivider {
+      flex: 0 0 1px;
+      width: 1px;
+      height: 34px;
+      background: $neutral-1000;
+    }
+
+    .CEULogo {
+      display: flex;
+      align-items: center;
+      height: 75px;
+
+      svg {
+        width: auto;
+        height: 75px;
+        filter: brightness(0);
+      }
+    }
   }
 
   .LanguageSelector {
