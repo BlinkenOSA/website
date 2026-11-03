@@ -126,7 +126,7 @@ export const menuConfig = [
                         key: 'visegrad-scholarship-current',
                         title: 'Current Call',
                         highlight: 'Current calls of the Visegrad Scholarship Program.',
-                        url: '/academics/visegrad-scholarship-current-call'
+                        url: '/academics/visegrad-scholarship-at-osa'
                     }, {
                         key: 'visegrad-scholarship-past',
                         title: 'Past Calls',
