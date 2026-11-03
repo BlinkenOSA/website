@@ -121,7 +121,20 @@ export const menuConfig = [
                         url: '/academics/alumni-fellows'
                     }]
             },
-            {key: 'visegrad-scholarship', title: 'Visegrad Scholarship', url: '/academics/visegrad-scholarship-at-osa'},
+            {key: 'visegrad-scholarship', title: 'Visegrad Scholarship', submenu: [
+                    {
+                        key: 'visegrad-scholarship-current',
+                        title: 'Current Call',
+                        highlight: 'Current calls of the Visegrad Scholarship Program.',
+                        url: '/academics/visegrad-scholarship-current-call'
+                    }, {
+                        key: 'visegrad-scholarship-past',
+                        title: 'Past Calls',
+                        highlight: 'Past calls of the Visegrad Scholarship Program.',
+                        url: '/academics/visegrad-scholarship-past-calls'
+                    }
+                ]
+            },
             {
                 key: 'teaching', title: 'Teaching', submenu: [
                     {key: 'for-university-students', title: 'For University Students', url: '/academics/teaching'},
